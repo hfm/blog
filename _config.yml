@@ -3,7 +3,21 @@ description: I'll cook a new one.
 url: http://blog.hifumi.info/
 markdown: redcarpet
 pygments: true
-exclude: ['README.md', 'vendor']
+exclude: ['README.md', 'vendor', 'Rakefile', 'config.rb']
 sass:
   syntax: scss
   style:  compressed
+
+# configuration for ehancements, uncomment to enable
+
+# feedburner:
+#   id: feedburnerid
+
+# google_analytics:
+#   account: UA-XXXXX-X
+
+# github:
+#   username: ghusername
+
+# disqus:
+#   id: disqusid
