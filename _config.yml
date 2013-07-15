@@ -2,3 +2,6 @@ name: Your New Jekyll Site
 markdown: redcarpet
 pygments: true
 exclude: ['README.md', 'vendor']
+sass:
+  syntax: scss
+  style:  compressed
