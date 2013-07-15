@@ -7,17 +7,5 @@ exclude: ['README.md', 'vendor', 'Rakefile', 'config.rb']
 sass:
   syntax: scss
   style:  compressed
-
-# configuration for ehancements, uncomment to enable
-
-# feedburner:
-#   id: feedburnerid
-
-# google_analytics:
-#   account: UA-XXXXX-X
-
-# github:
-#   username: ghusername
-
-# disqus:
-#   id: disqusid
+google_analytics:
+  account: UA-18235043-7
