@@ -1,0 +1,64 @@
+---
+layout: post
+title: BloggerにEvernote Clipを導入する方法
+categories:
+- Dev
+tags:
+- Blogger
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: blog.hifumi.info
+  blogger_permalink: /2011/04/bloggerevernote-clip.html
+  blogger_author: Takahiro
+  _jd_tweet_this: 'no'
+  _jd_twitter: ''
+  _wp_jd_clig: ''
+  _wp_jd_bitly: ''
+  _wp_jd_wp: ''
+  _wp_jd_yourls: ''
+  _wp_jd_url: ''
+  _wp_jd_target: ''
+  _jd_wp_twitter: ''
+  _jd_post_meta_fixed: 'true'
+  _edit_last: '1'
+  _revision-control: a:1:{i:0;s:8:"defaults";}
+  _yoast_wpseo_metadesc: BloggerにEvernote Clipを導入する方法
+  _yoast_wpseo_metakeywords: Blogger, Evernote
+  _yoast_wpseo_title: BloggerにEvernote Clipを導入する方法
+---
+Bloggerの各記事の最後にオフィシャルサイトで配布されているEvernote Clipを取り付けてみました。
+<div>以下、その手順。</div>
+<div>
+<ol>
+	<li>ダッシュボード→デザイン→HTMLの編集</li>
+	<li>「テンプレートを編集」で、「ウィジェットのテンプレートを展開」にチェックを入れる</li>
+	<li>~内に
+<blockquote><span class="Apple-style-span" style="color: red;"><script type="text/javascript" src="http://static.evernote.com/noteit.js">// < ![CDATA[
+</span>
+</script></span></blockquote>
+
+を記入</li>
+	<li>
+<div class="post-header">や
+<div class="post-footer">,&nbsp;
+<div class="post-footer-line post-footer-line-2">の下あたり（好みの位置があると思うので、色々と試してみて下さい）に
+
+<blockquote><span class="Apple-style-span" style="color: red;"><a expr:onclick=""Evernote.doClip({providerName:"" + data:title + "", title:"" + data:post.title + "", url:"" + data:post.url + ""}); return false;"" href="#"></a></span>
+<span class="Apple-style-span" style="color: red;"><img alt="Clip to Evernote" src="http://static.evernote.com/article-clipper.png"/></span>
+<span class="Apple-style-span" style="color: red;"></span>
+</blockquote>
+
+を入力</div></div></div></li>
+</ol>
+<div>これだけで完成です。
+ちなみに私は
+<div class="post-footer-line post-footer-line-2">直下に書き込んでいます。</div>
+</div>
+<div class="blogger-post-footer"><img width="1" height="1" src="https://blogger.googleusercontent.com/tracker/3741219018498778236-8270899411766890970?l=blog.hifumi.info" alt=""/></div>
+
+// ]]>
+
+
+</div>

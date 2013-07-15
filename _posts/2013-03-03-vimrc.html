@@ -1,0 +1,402 @@
+---
+layout: post
+title: vimの設定ファイル(.vimrc)を晒してみる
+categories:
+- Dev
+tags:
+- vim
+status: publish
+type: post
+published: true
+meta:
+  _jd_tweet_this: 'yes'
+  _jd_twitter: 少し追記をしましま。【ブログ編集】 vimの設定ファイル(.vimrc)を晒してみる http://bit.ly/Mc8A6A
+  _wp_jd_clig: ''
+  _wp_jd_bitly: http://bit.ly/Mc8A6A
+  _wp_jd_wp: ''
+  _wp_jd_yourls: ''
+  _wp_jd_url: ''
+  _wp_jd_target: http://blog.hifumi.info/dev/vimrc/?utm_campaign=twitter&utm_medium=twitter&utm_source=twitter
+  _jd_wp_twitter: a:3:{i:0;s:186:"【ブログ編集】 vimの設定ファイル(.vimrc)を晒してみる http://bit.ly/Mc8A6A
+    - まだ途中というか、せっかく突っ込んだバンドルのコンフィグとか";i:1;s:186:"【ブログ編集】 vimの設定ファイル(.vimrc)を晒してみる
+    http://bit.ly/Mc8A6A - まだ途中というか、せっかく突っ込んだバンドルのコンフィグとか";i:2;s:123:"少し追記をしましま。【ブログ編集】
+    vimの設定ファイル(.vimrc)を晒してみる http://bit.ly/Mc8A6A";}
+  _jd_post_meta_fixed: 'true'
+  _edit_last: '1'
+  _revision-control: a:1:{i:0;s:8:"defaults";}
+  _aioseop_keywords: vim,.vimrc
+  _aioseop_description: ぼくが普段使かっているvimの設定ファイルです。
+  _aioseop_title: vimの設定ファイル(.vimrc)を晒してみる
+  dsq_thread_id: '1224368834'
+---
+<span style="background-color: #f5fef5; padding: 3px; border: thin solid #3bd12e; font-family: 'courier new', courier;">2013.3.4 updated</span>
+
+そこらいじゅうのブログで.vimrcをお披露目するのが流行っていると聞いた気がするので、僕も公開してみます。長年熟成させた人のものと比べれば、そりゃあもう酷い有様ですが…。<!--more-->
+
+以下が私の.vimrcになります。
+<pre class="lang:vim decode:true" title=".vimrc">"NeoBundle
+set nocompatible
+if has('vim_starting')
+ set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
+call neobundle#rc(expand('~/.vim/bundle/'))
+
+NeoBundle 'Shougo/neobundle.vim'
+NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/vimproc', {
+            \ 'build' : {
+            \     'windows' : 'make -f make_mingw64.mak',
+            \     'cygwin' : 'make -f make_cygwin.mak',
+            \     'mac' : 'make -f make_mac.mak',
+            \     'unix' : 'make -f make_unix.mak',
+            \ }}
+NeoBundle 'Shougo/vimshell'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'Lokaltog/vim-easymotion'
+NeoBundle 'vim-ruby/vim-ruby', {
+            \ 'autoload' : {
+            \     'filetypes' : ['ruby']
+            \ }}
+NeoBundle 'vim-scripts/ruby-matchit', {
+            \ 'autoload' : {
+            \     'filetypes' : ['ruby']
+            \ }}
+NeoBundle 'Shougo/neocomplcache-rsense', {
+            \ 'autoload' : {
+            \     'filetypes' : ['ruby']
+            \ }}
+NeoBundle 'tpope/vim-rails'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'eagletmt/ghcmod-vim'
+NeoBundle 'ujihisa/neco-ghc'
+NeoBundle 'eagletmt/unite-haddock'
+NeoBundle 'wannesm/wmgraphviz.vim'
+NeoBundle 'mitechie/pyflakes-pathogen'
+NeoBundle 'sontek/rope-vim'
+NeoBundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
+NeoBundle 'nathanaelkane/vim-indent-guides'
+filetype plugin indent on
+NeoBundleCheck
+
+"Dict
+autocmd BufRead *.php\|*.ctp\|*.tpl :set dictionary=~/.vim/dict/php.dict filetype=php
+
+"Preference
+""Encode
+set encoding=UTF-8 "文字コードをUTF-8にする
+set fileencoding=UTF-8 "文字コードをUTF-8にする
+set termencoding=UTF-8 "文字コードをUTF-8にする
+
+""File
+set hidden "ファイル変更中でも他のファイルを開けるようにする
+set autoread "ファイル内容が変更されると自動読み込みする
+
+""Backup
+set backupdir=$HOME/.vim/backup "バックアップディレクトリを指定する
+set browsedir=buffer "ファイル保存ダイアログの初期ディレクトリをバッファファイル位置に設定
+set directory=$HOME/.vim/backup "スワップファイルディレクトリを指定する
+set history=1000 "履歴保存数
+
+""Search
+set incsearch "インクリメンタルサーチを行う
+set hlsearch "検索結果をハイライトする
+set ignorecase "検索時に文字の大小を区別しない
+set smartcase "検索時に大文字を含んでいたら大小を区別する
+set wrapscan "検索をファイルの先頭へループする
+
+""Input
+set cindent "C言語のインデントに従って自動インデントを行う
+set shiftwidth=4    "行頭での&lt;Tab&gt;の幅
+set tabstop=4   "行頭以外での&lt;Tab&gt;の幅
+set expandtab   "&lt;Tab&gt;の代わりに&lt;Space&gt;を挿入する
+set softtabstop=4   "expandtabで&lt;Tab&gt;が対応する&lt;Space&gt;の数
+set backspace=indent,eol,start
+set whichwrap=b,s,h,l,&lt;,&gt;,[,] "カーソルを行頭、行末で止まらないようにする
+set clipboard=unnamed "クリップボードを利用する
+
+"" Dvorak用にhtで左右移動するようRemap
+noremap  t     l
+"" 挿入モード中に'Ctr-*'でコマンドモードでの移動・削除を可能にする
+inoremap &lt;c-d&gt; &lt;delete&gt;
+inoremap &lt;c-j&gt; &lt;down&gt;
+inoremap &lt;c-k&gt; &lt;up&gt;
+inoremap &lt;c-h&gt; &lt;left&gt;
+inoremap &lt;c-l&gt; &lt;right&gt;
+
+""Display
+colorscheme desert
+set background=dark
+syntax on   "シンタックスカラーリングを設定する
+set number "行番号を表示する
+set title "編集中のファイル名を表示する
+set showcmd "入力中のコマンドを表示する
+set ruler "座標を表示する
+set list "タブ、行末等の不可視文字を表示する
+set showmatch   "閉じ括弧の入力時に対応する括弧を表示する
+set matchtime=3 "showmatchの表示時間
+set listchars=eol:$,tab:&gt;\ ,extends:&lt; "listで表示される文字のフォーマットを指定する
+set laststatus=2 "ステータスラインを常に表示する
+
+"Plug-in
+""unite.vim
+nnoremap &lt;silent&gt; ,ub :&lt;C-u&gt;Unite buffer&lt;CR&gt; "バッファ一覧
+nnoremap &lt;silent&gt; ,uf :&lt;C-u&gt;UniteWithBufferDir -buffer-name=files file&lt;CR&gt; "ファイル一覧
+nnoremap &lt;silent&gt; ,ur :&lt;C-u&gt;Unite -buffer-name=register register&lt;CR&gt; "レジスタ一覧
+nnoremap &lt;silent&gt; ,um :&lt;C-u&gt;Unite file_mru&lt;CR&gt; "最近使用したファイル一覧
+nnoremap &lt;silent&gt; ,uu :&lt;C-u&gt;Unite buffer file_mru&lt;CR&gt; "常用セット
+nnoremap &lt;silent&gt; ,ua :&lt;C-u&gt;UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file&lt;CR&gt; "全部乗せ
+
+"ウィンドウを分割して開く
+au FileType unite nnoremap &lt;silent&gt; &lt;buffer&gt; &lt;expr&gt; &lt;C-j&gt; unite#do_action('split')
+au FileType unite inoremap &lt;silent&gt; &lt;buffer&gt; &lt;expr&gt; &lt;C-j&gt; unite#do_action('split')
+"ウィンドウを縦に分割して開く
+au FileType unite nnoremap &lt;silent&gt; &lt;buffer&gt; &lt;expr&gt; &lt;C-l&gt; unite#do_action('vsplit')
+au FileType unite inoremap &lt;silent&gt; &lt;buffer&gt; &lt;expr&gt; &lt;C-l&gt; unite#do_action('vsplit')
+"ESCキーを2回押すと終了する
+au FileType unite nnoremap &lt;silent&gt; &lt;buffer&gt; &lt;ESC&gt;&lt;ESC&gt; q
+au FileType unite inoremap &lt;silent&gt; &lt;buffer&gt; &lt;ESC&gt;&lt;ESC&gt; &lt;ESC&gt;q
+
+""syntastic
+let g:syntastic_enable_signs=1
+let g:syntastic_auto_loc_list=2
+let g:syntastic_enable_highlighting=1
+let g:syntastic_check_on_open=1
+let g:syntastic_python_checkers=['pylint']
+let g:syntastic_zsh_checkers=['zsh']
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+""neocomplcache-rsense
+let g:rsenseHome="/usr/local/Cellar/rsense/0.3/libexec/"
+let g:rsenseUseOmniFunc=1
+let g:neocomplcache#sources#rsense#home_directory="/usr/local/Cellar/rsense/0.3/libexec"
+
+""vim-indent-guides
+let g:indent_guides_enable_on_vim_startup=1 " vim-indent-guidesの自動有効化
+let g:indent_guides_color_change_percent=10 "色の変化の幅（パーセント）
+let g:indent_guides_guide_size=1 "インデントの色付け幅
+let g:indent_guides_start_level=1
+let g:indent_guides_space_guides=1
+
+""vim-rails
+let g:rails_default_file='config/database.yml'
+let g:rails_level=4
+let g:rails_mappings=1
+let g:rails_modelines=0
+function! SetUpRailsSetting()
+    nnoremap &lt;buffer&gt;&lt;Space&gt;r :R&lt;CR&gt;
+    nnoremap &lt;buffer&gt;&lt;Space&gt;a :A&lt;CR&gt;
+    nnoremap &lt;buffer&gt;&lt;Space&gt;m :Rmodel&lt;Space&gt;
+    nnoremap &lt;buffer&gt;&lt;Space&gt;c :Rcontroller&lt;Space&gt;
+    nnoremap &lt;buffer&gt;&lt;Space&gt;v :Rview&lt;Space&gt;
+    nnoremap &lt;buffer&gt;&lt;Space&gt;p :Rpreview&lt;CR&gt;
+endfunction
+
+aug MyAutoCmd
+    au User Rails call SetUpRailsSetting()
+aug END
+
+aug RailsDictSetting
+    au!
+aug END
+
+""vim-easymotion
+let g:EasyMotion_keys='hjklasdfgyuiopqwertnmzxcvbHJKLASDFGYUIOPQWERTNMZXCVB'
+let g:EasyMotion_leader_key="'" "「'」 + 何かにマッピング
+let g:EasyMotion_grouping=1 " 1 ストローク選択を優先する
+hi EasyMotionTarget ctermbg=none ctermfg=green
+hi EasyMotionShade  ctermbg=none ctermfg=darkgray
+
+""Vim-LaTeX
+set shellslash
+set grepprg=grep\ -nH\ $*
+let tex_flavor='latex'
+let g:Tex_DefaultTargetFormat='pdf'
+let g:Tex_ViewRule_pdf='open -a Preview.app'
+let g:Tex_CompileRule_dvi='platex  -synctex=1 -interaction=nonstopmode $*'
+let g:Tex_CompileRule_pdf='dvipdfmx $*.dvi'
+let g:Tex_FormatDependency_pdf='dvi,pdf'
+let g:Tex_BibtexFlavor='pbibtex'
+let g:Tex_MakeIndexFlavor='mendex $*.idx'
+
+""NeoComplecache
+set completeopt=menuone "補完候補が１つだけでも表示
+let g:neocomplcache_enable_at_startup=1
+let g:neocomplcache_enable_smart_case=1 " 大文字が入力されるまで大文字小文字の区別を無視
+let g:neocomplcache_enable_underbar_completion=1 " スネークケースの補完を有効化
+let g:neocomplcache_enable_camel_case_completion=1 " キャメルケースの補完を有効化
+let g:neocomplcache_max_list=20 " ポップアップメニューで表示される候補の数
+let g:neocomplcache_min_syntax_length=3 " シンタックスをキャッシュするときの最小文字長
+inoremap &lt;expr&gt;&lt;TAB&gt;   pumvisible() ? "\&lt;Down&gt;" : "\&lt;TAB&gt;"
+inoremap &lt;expr&gt;&lt;S-TAB&gt; pumvisible() ? "\&lt;Up&gt;"   : "\&lt;S-TAB&gt;"
+" 改行、Deleteキーで補完ウィンドウを閉じる
+function! s:my_cr_func()
+    return pumvisible() ? neocomplcache#smart_close_popup() : "\&lt;CR&gt;"
+endfunction
+inoremap &lt;silent&gt; &lt;CR&gt; &lt;C-R&gt;=&lt;SID&gt;my_cr_func()&lt;CR&gt;
+inoremap &lt;expr&gt;&lt;C-h&gt; neocomplcache#smart_close_popup() . ”\&lt;C-h&gt;”
+" 現在選択している候補を確定します
+inoremap &lt;expr&gt;&lt;C-y&gt; neocomplcache#close_popup()
+" 現在選択している候補をキャンセルし、ポップアップを閉じます
+inoremap &lt;expr&gt;&lt;C-e&gt; neocomplcache#cancel_popup()
+inoremap &lt;expr&gt;&lt;C-g&gt; neocomplcache#undo_completion()
+inoremap &lt;expr&gt;&lt;C-l&gt; neocomplcache#complete_common_string()
+let g:neocomplcache_dictionary_filetype_lists = {
+    \ 'default' : '',
+    \ 'vimshell' : $HOME.'/.vimshell/command-history'
+    \ }
+
+""Omni Completion
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+if !exists('g:neocomplcache_omni_patterns')
+      let g:neocomplcache_omni_patterns={}
+endif
+let g:neocomplcache_omni_patterns.ruby='[^. *\t]\.\w*\|\h\w*::'
+let g:neocomplcache_omni_patterns.php='[^. \t]-&gt;\h\w*\|\h\w*::'
+let g:neocomplcache_omni_patterns.c='\%(\.\|-&gt;\)\h\w*'
+let g:neocomplcache_omni_patterns.cpp='\h\w*\%(\.\|-&gt;\)\h\w*\|\h\w*::'
+
+""NeoComplecache_Snippets
+let g:neocomplcache_snippets_dir='~/.vim/snippets' " snippetの配置場所
+"キーマップ
+imap &lt;C-k&gt; &lt;plug&gt;(neocomplcache_snippets_expand)
+smap &lt;C-k&gt; &lt;plug&gt;(neocomplcache_snippets_expand)</pre>
+ディレクトリ構成はこのようになっています。プラグイン管理にNeoBundleを使用しているため、プラグインは全てbundleというディレクトリの中に配置されています。
+
+なお、ここからは.vimrcの各行に対する簡単な説明です。
+<h1>NeoBundle</h1>
+<pre class="nums:false lang:vim decode:true" title="NeoBundle">set nocompatible
+if has('vim_starting')
+        set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
+call neobundle#rc(expand('~/.vim/bundle/'))</pre>
+ここはほとんどオマジナイみたいなものだと思っています。詳しくは<a href="https://github.com/Shougo/neobundle.vim" target="_blank">Shougo / neobundle.vim</a>をご覧ください。ちなみに<span class="lang:vim decode:true  crayon-inline ">set nocompatible</span> はVi互換をオフにしてVimとして機能する設定です。詳細は、<a href="http://vimdoc.sourceforge.net/htmldoc/options.html#'nocompatible'" target="_blank">Vim documontation: options</a>のnocompatibleの項目をお読みください。
+
+また、NeoBundle経由で導入したプラグインについての説明は<a href="#plugin">後半</a>で。
+<h1>Dict</h1>
+<pre class="nums:false lang:vim decode:true" title="Dict">autocmd BufRead *.php\|*.ctp\|*.tpl :set dictionary=~/.vim/dict/php.dict filetype=php</pre>
+phpの辞書を設定しています。辞書そのものの生成については次を参考に行ないました。
+<blockquote><a title="[PHP][Vim] Vim で使用する PHP の辞書ファイルを作成するスクリプト" href="http://d.hatena.ne.jp/heavenshell/20090115/1232031913" target="_blank">[PHP][Vim] Vim で使用する PHP の辞書ファイルを作成するスクリプト</a></blockquote>
+手順としては、まず先に<span class="lang:sh decode:true  crayon-inline ">mkdir -p ~/.vim/dict/</span> でdictディレクトリを作成します。
+
+次に、上記のブログにある<a title="/lang/php/misc/dict.php – CodeRepos::Share – Trac" href="http://coderepos.org/share/browser/lang/php/misc/dict.php" target="_blank">/lang/php/misc/dict.php – CodeRepos::Share – Trac</a>の下の方にあるOriginal Formatからdict.phpをDLし、次のコードを実行して辞書ファイルを<span class="lang:sh decode:true  crayon-inline ">~/.vim/dict/</span> に生成します。
+<pre class="nums:false lang:php decode:true" title="Dict">php dict.php | sort &gt; ~/.vim/dict/php.dict</pre>
+<h1>Preference</h1>
+<h2 id="LC31">Encode</h2>
+<pre class="nums:false lang:vim decode:true" title="Encode">set encoding=UTF-8 "文字コードをUTF-8にする
+set fileencoding=UTF-8 "文字コードをUTF-8にする
+set termencoding=UTF-8 "文字コードをUTF-8にする&lt;br&gt;</pre>
+<span class="lang:vim decode:true  crayon-inline">set *encoding=UTF-8</span>はVimの文字コードUTF-8にします。
+
+ちなみに、fileencodingやtermencodingという文字コード設定ディレクティブはencodingの設定を引き継いでいるので、すべて同じ設定で十分ならencodingだけ指定しておけばVimの環境はUTF-8で揃うようです。僕の場合は、見た目に分かりやすくて安心できるという理由で書いています。
+<h2>File</h2>
+<pre class="lang:vim decode:true" title="File">set hidden	"ファイル変更中でも他のファイルを開けるようにする
+set autoread	"ファイル内容が変更されると自動読み込みする</pre>
+<span class="lang:vim decode:true  crayon-inline">set hidden</span>はEmacsのバッファ切替えのように、ファイルを保存しなくても別ファイルを開けるようになります。
+<ul>
+	<li>《:e hoge》で別ファイルを開く際に、元ファイルをバッファに待避させます。</li>
+	<li>《:ls》と打つと、現在バッファリストに入っているファイルをリストアップします。</li>
+	<li>《:bn》《:bp》を使うと、リストから昇順降順にファイルを開きます。</li>
+	<li>《:b hoge》と打つと、直接そのファイルを開きます（ただしバッファにないファイルは開けません）。</li>
+</ul>
+<span class="lang:vim decode:true  crayon-inline">set autoread</span>は自分以外の外部からの操作により編集中のファイルが変更された場合、自動的にファイルを読み直します。
+<h2>Backup</h2>
+<pre class="lang:vim decode:true" title="Backup">set backupdir=$HOME/.vim/backup	"バックアップディレクトリを指定する
+set browsedir=buffer	"ファイル保存ダイアログの初期ディレクトリをバッファファイル位置に設定
+set directory=$HOME/.vim/backup	"スワップファイルディレクトリを指定する
+set history=1000	"履歴保存数</pre>
+Backupは1000行程度にしています。この設定を書き込む前に、<span class="lang:default decode:true  crayon-inline ">mkdir ~/.vim/backup</span> でディレクトリを作成しておいてください。
+<h2>Search</h2>
+<pre class="lang:vim decode:true" title="Search">set incsearch	"インクリメンタルサーチを行う
+set hlsearch	"検索結果をハイライトする
+set ignorecase	"検索時に文字の大小を区別しない
+set smartcase	"検索時に大文字を含んでいたら大小を区別する
+set wrapscan	"検索をファイルの先頭へループする</pre>
+<h2>Input</h2>
+<pre class="lang:vim decode:true" title="Input">set cindent "C言語のインデントに従って自動インデントを行う
+set shiftwidth=4    "行頭での&lt;Tab&gt;の幅
+set tabstop=4   "行頭以外での&lt;Tab&gt;の幅
+set expandtab   "&lt;Tab&gt;の代わりに&lt;Space&gt;を挿入する
+set softtabstop=4   "expandtabで&lt;Tab&gt;が対応する&lt;Space&gt;の数
+set backspace=indent,eol,start
+set whichwrap=b,s,h,l,&lt;,&gt;,[,] "カーソルを行頭、行末で止まらないようにする
+set clipboard=unnamed "クリップボードを利用する
+
+"" Dvorak用にhtで左右移動するようRemap
+noremap  t     l
+"" 挿入モード中に'Ctr-*'でコマンドモードでの移動・削除を可能にする
+inoremap &lt;c-d&gt; &lt;delete&gt;
+inoremap &lt;c-j&gt; &lt;down&gt;
+inoremap &lt;c-k&gt; &lt;up&gt;
+inoremap &lt;c-h&gt; &lt;left&gt;
+inoremap &lt;c-l&gt; &lt;right&gt;</pre>
+<h2>Display</h2>
+<pre class="lang:vim decode:true" title="Display">colorscheme desert
+set background=dark
+syntax on   "シンタックスカラーリングを設定する
+set number	"行番号を表示する
+set title	"編集中のファイル名を表示する
+set showcmd	"入力中のコマンドを表示する
+set ruler	"座標を表示する
+set list	"タブ、行末等の不可視文字を表示する
+set showmatch   "閉じ括弧の入力時に対応する括弧を表示する
+set matchtime=3 "showmatchの表示時間
+set listchars=eol:$,tab:&gt;\ ,extends:&lt; "listで表示される文字のフォーマットを指定する
+set laststatus=2	"ステータスラインを常に表示する</pre>
+<h1><a name="plugin"></a>Plugin</h1>
+<h2>一覧</h2>
+Vimに導入しているプラグイン一覧はこちらになります。rsenseを除く全てのプラグインはNeoBundleによって管理させています。
+<pre class="nums:false lang:vim decode:true" title="NeoBundle">NeoBundle 'Shougo/neobundle.vim'
+NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/vimproc', {
+            \ 'build' : {
+            \     'windows' : 'make -f make_mingw64.mak',
+            \     'cygwin' : 'make -f make_cygwin.mak',
+            \     'mac' : 'make -f make_mac.mak',
+            \     'unix' : 'make -f make_unix.mak',
+            \ }}
+NeoBundle 'Shougo/vimshell'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'Lokaltog/vim-easymotion'
+NeoBundle 'vim-ruby/vim-ruby', {
+            \ 'autoload' : {
+            \     'filetypes' : ['ruby']
+            \ }}
+NeoBundle 'vim-scripts/ruby-matchit', {
+            \ 'autoload' : {
+            \     'filetypes' : ['ruby']
+            \ }}
+NeoBundle 'Shougo/neocomplcache-rsense', {
+            \ 'autoload' : {
+            \     'filetypes' : ['ruby']
+            \ }}
+NeoBundle 'tpope/vim-rails'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'eagletmt/ghcmod-vim'
+NeoBundle 'ujihisa/neco-ghc'
+NeoBundle 'eagletmt/unite-haddock'
+NeoBundle 'wannesm/wmgraphviz.vim'
+NeoBundle 'mitechie/pyflakes-pathogen'
+NeoBundle 'sontek/rope-vim'
+NeoBundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
+NeoBundle 'nathanaelkane/vim-indent-guides'</pre>
+<h1>参考</h1>
+<ul>
+	<li><a href="http://vimdoc.sourceforge.net/htmldoc/options.html" target="_blank">Vim documontation</a></li>
+	<li><a href="http://d.hatena.ne.jp/foldrr/20080304/1204556552" target="_blank">vi で保存しなくてもバッファを切り替えられるように set hidden する</a></li>
+	<li><a title="[PHP][Vim] Vim で使用する PHP の辞書ファイルを作成するスクリプト" href="http://d.hatena.ne.jp/heavenshell/20090115/1232031913" target="_blank">[PHP][Vim] Vim で使用する PHP の辞書ファイルを作成するスクリプト</a></li>
+	<li><a href="http://www.portalshit.net/2012/09/12/how-to-setup-rsense-with-vim" target="_blank">Vim で RSense を使う</a></li>
+	<li><a title="【VIM】目的の行に素早く移動する（相対行番号と EASYMOTION プラグイン）" href="http://blog.remora.cx/2012/08/vim-easymotion.html" target="_blank">【VIM】目的の行に素早く移動する（相対行番号と EASYMOTION プラグイン）</a></li>
+</ul>

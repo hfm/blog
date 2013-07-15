@@ -1,0 +1,122 @@
+---
+layout: post
+title: BloggerにTweet Buttonを導入する方法
+categories:
+- Dev
+tags:
+- Blogger
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: blog.hifumi.info
+  blogger_permalink: /2011/04/bloggertweet-button.html
+  blogger_author: Takahiro
+  _edit_last: '1'
+  _jd_tweet_this: 'no'
+  _jd_twitter: ''
+  _wp_jd_clig: ''
+  _wp_jd_bitly: ''
+  _wp_jd_wp: ''
+  _wp_jd_yourls: ''
+  _wp_jd_url: ''
+  _wp_jd_target: ''
+  _jd_wp_twitter: ''
+  _jd_post_meta_fixed: 'true'
+  _revision-control: a:1:{i:0;s:8:"defaults";}
+  _yoast_wpseo_metadesc: BloggerにTweet Buttonを導入する方法
+  _yoast_wpseo_metakeywords: Blogger, Tweet Button
+  _yoast_wpseo_title: BloggerにTweet Buttonを導入する方法
+---
+<p style="text-align: right;">Twitter公式のツイートボタンをBloggerに設置してみました。</p>
+ボタンの取得方法や具体的な設置云々は追記に書きます。
+「とりあえず設置したい！」という方は何も考えずに以下のコードを&lt;div class='post-header'&gt;や&lt;div class='post-footer'&gt;, &lt;div class='post-footer-line post-footer-line-2'/&gt;の下あたり（好みの位置があると思うので、色々と試してみて下さい）に設置してみて下さい。
+<blockquote><span class="Apple-style-span" style="color: red;">&lt;a class='twitter-share-button' data-count='horizontal' data-via='</span><span class="Apple-style-span" style="color: blue;"><strong>***</strong></span><span class="Apple-style-span" style="color: red;">' expr:data-text='data:post.title' expr:data-url='data:post.url' href='http://twitter.com/share'&gt;Tweet&lt;/a&gt;</span>
+<span class="Apple-style-span" style="color: red;">&lt;script src='http://platform.twitter.com/widgets.js' type='text/javascript'/&gt;</span></blockquote>
+<div style="text-align: center;"><span style="text-decoration: underline;">ただし、</span><span class="Apple-style-span" style="color: blue;"><strong><span style="text-decoration: underline;">***</span></strong></span><span style="text-decoration: underline;">の部分はご自身のTwitterアカウントを入力して下さい。</span></div>
+<div>私はhfmというアカウント名なので***にhfmを入力しています。追記に細かな取得方法や、もう少しちゃんとした設置方法を記載します。
+
+</div>
+<!--more-->
+
+ツイートボタンは多少自分でカスタマイズ出来るので、それをしたい方は以下のステップを踏みましょう。
+<div>まずは<a href="http://twitter.com/about/resources/tweetbutton">こちらのツイートボタン取得ページ</a>へ行きます。</div>
+<div>
+<table class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;" cellspacing="0" cellpadding="0" align="center">
+<tbody>
+<tr>
+<td style="text-align: center;"><a style="margin-left: auto; margin-right: auto;" href="http://1.bp.blogspot.com/-xH_V57s2R2I/TbuNrikw1OI/AAAAAAAAEEM/9DOGE8q3Du4/s1600/step1.png"><img src="http://1.bp.blogspot.com/-xH_V57s2R2I/TbuNrikw1OI/AAAAAAAAEEM/9DOGE8q3Du4/s400/step1.png" alt="" width="400" height="131" border="0" /></a></td>
+</tr>
+<tr>
+<td class="tr-caption" style="text-align: center;">3種類から好きなボタンを選びます</td>
+</tr>
+</tbody>
+</table>
+<table class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;" cellspacing="0" cellpadding="0" align="center">
+<tbody>
+<tr>
+<td style="text-align: center;"><a style="margin-left: auto; margin-right: auto;" href="http://4.bp.blogspot.com/-olcWbgR90LQ/TbuNsGU2ywI/AAAAAAAAEEQ/6GA8Cg6kc_M/s1600/step2.png"><img src="http://4.bp.blogspot.com/-olcWbgR90LQ/TbuNsGU2ywI/AAAAAAAAEEQ/6GA8Cg6kc_M/s400/step2.png" alt="" width="400" height="138" border="0" /></a></td>
+</tr>
+<tr>
+<td class="tr-caption" style="text-align: center;">ツイート内テキストには<span class="Apple-style-span" style="color: red;">data:post.title</span>を入力します</td>
+</tr>
+</tbody>
+</table>
+<table class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;" cellspacing="0" cellpadding="0" align="center">
+<tbody>
+<tr>
+<td style="text-align: center;"><a style="margin-left: auto; margin-right: auto;" href="http://1.bp.blogspot.com/-ozBRouLL1ks/TbuNsf5mhFI/AAAAAAAAEEU/bVOzGVSCWqo/s1600/step3.png"><img src="http://1.bp.blogspot.com/-ozBRouLL1ks/TbuNsf5mhFI/AAAAAAAAEEU/bVOzGVSCWqo/s400/step3.png" alt="" width="400" height="131" border="0" /></a></td>
+</tr>
+<tr>
+<td class="tr-caption" style="text-align: center;">URLには<span class="Apple-style-span" style="color: red;">data:post.url</span>を入力します</td>
+</tr>
+</tbody>
+</table>
+<table class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;" cellspacing="0" cellpadding="0" align="center">
+<tbody>
+<tr>
+<td style="text-align: center;"><a style="margin-left: auto; margin-right: auto;" href="http://3.bp.blogspot.com/-FIVQc7HeW2E/TbuNszOgOxI/AAAAAAAAEEY/Y0bOkvmMuQk/s1600/step4.png"><img src="http://3.bp.blogspot.com/-FIVQc7HeW2E/TbuNszOgOxI/AAAAAAAAEEY/Y0bOkvmMuQk/s400/step4.png" alt="" width="400" height="131" border="0" /></a></td>
+</tr>
+<tr>
+<td class="tr-caption" style="text-align: center;">言語を選びます。"ツイート"より"Tweet"の方が短いので私は英語一択。</td>
+</tr>
+</tbody>
+</table>
+<table class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;" cellspacing="0" cellpadding="0" align="center">
+<tbody>
+<tr>
+<td style="text-align: center;"><a style="margin-left: auto; margin-right: auto;" href="http://2.bp.blogspot.com/-6rZ7A1of46c/TbuOi9JHmaI/AAAAAAAAEEc/TL25v3pnXOA/s1600/step5.png"><img src="http://2.bp.blogspot.com/-6rZ7A1of46c/TbuOi9JHmaI/AAAAAAAAEEc/TL25v3pnXOA/s400/step5.png" alt="" width="400" height="86" border="0" /></a></td>
+</tr>
+<tr>
+<td class="tr-caption" style="text-align: center;">自分のアカウントが入っていればokです。</td>
+</tr>
+</tbody>
+</table>
+<table class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;" cellspacing="0" cellpadding="0" align="center">
+<tbody>
+<tr>
+<td style="text-align: center;"><a style="margin-left: auto; margin-right: auto;" href="http://3.bp.blogspot.com/-B6RLGPdByb8/TbuOjERqD3I/AAAAAAAAEEg/FaWuyAW9Y5I/s1600/step6.png"><img src="http://3.bp.blogspot.com/-B6RLGPdByb8/TbuOjERqD3I/AAAAAAAAEEg/FaWuyAW9Y5I/s400/step6.png" alt="" width="400" height="235" border="0" /></a></td>
+</tr>
+<tr>
+<td class="tr-caption" style="text-align: center;">上のおすすめユーザにアカウントを入れると、こちらの黄色枠の表示が変わります。アカウントを追加すれば、こちらの表示も増加します。</td>
+</tr>
+</tbody>
+</table>
+<div>
+<div>
+<div><span class="Apple-style-span" style="font-size: x-small;"><span class="Apple-style-span" style="color: #999999;">*data:post.titleとはBloggerの独自タグで、各記事のタイトルを自動で生成します。</span></span></div>
+<div><span class="Apple-style-span" style="font-size: x-small;"><span class="Apple-style-span" style="color: #999999;">*data:post.urlは各記事のURLを自動生成します。</span></span></div>
+<div>さて、ここまでのステップを踏むと、ツイートボタン生成ページの最下部にあなたのコードが表示されているはずです。</div>
+</div>
+</div>
+</div>
+<div>それをコピーする前に注意したいのが、Bloggerの独自タグの存在です。</div>
+<div><span class="Apple-style-span" style="color: red;">data-url="data:post.url"とdata-title="data:post.title"</span>の2つの属性をそれぞれ</div>
+<div><span class="Apple-style-span" style="color: red;">expr:data-url="data:post.url"とexpr:data-title="data:post.title"</span>に変更しましょう。</div>
+<div><span class="Apple-style-span" style="font-size: x-small;"><span class="Apple-style-span" style="color: #999999;">2つの属性の前にexpr:を追加しています。</span></span></div>
+<div><span class="Apple-style-span" style="font-size: x-small;"><span class="Apple-style-span" style="font-size: small;">
+</span></span></div>
+<div>以下はほんのちょっぴりヲタクな話（分かる人はやっておくべき？）</div>
+<div><span class="Apple-style-span" style="font-size: x-small;"><span class="Apple-style-span" style="color: #444444;">ツイートボタンのコードはリンクタグとJavaScriptの読込みタグで構成されていますが、これらのタグをこのまま&lt;div class='post-header'&gt;等に入れてしまうと、各記事ごとにJavaScriptの読込みタグを生成してしまいます。</span></span></div>
+<div><span class="Apple-style-span" style="font-size: x-small;"><span class="Apple-style-span" style="color: #444444;">（動作としては問題ないですが）気持ちが悪いので&lt;script~&gt;コードだけ&lt;head&gt;~&lt;/head&gt;内に設置しましょう。</span></span></div>
+<div><span class="Apple-style-span" style="font-size: x-small;"><span class="Apple-style-span" style="color: #444444;">そして&lt;a~&gt;Tweet&lt;/a&gt;タグだけを先述のdivタグ直下あたりに入れておくと、ちゃんと機能します。</span></span></div>
