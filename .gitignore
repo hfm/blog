@@ -1,1 +1,8 @@
+# Ignore jekyll files
 _site/
+
+# Ignore bundle files
+Gemfile.lock
+.bundle/
+vendor/bundle
+bin/
