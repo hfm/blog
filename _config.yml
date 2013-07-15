@@ -1,4 +1,6 @@
-name: Your New Jekyll Site
+name: Kitchen Garden Blog
+description: I'll cook a new one.
+url: http://blog.hifumi.info/
 markdown: redcarpet
 pygments: true
 exclude: ['README.md', 'vendor']
