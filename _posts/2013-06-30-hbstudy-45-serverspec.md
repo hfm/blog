@@ -40,14 +40,19 @@ hbstudyは、<a title="株式会社ハートビーツ" href="http://heartbeats.j
 <a href="https://github.com/mizzy/" target="_blank">https://github.com/mizzy/</a>
 <h1>serverspec</h1>
 serverspecとは、mizzyさんが中心となって開発されているサーバのテストを行うRuby製のツールです。
-<pre class="lang:default decode:true">gem install serverspec</pre>
+
+```bash
+gem install serverspec
+```
+
 <ul>
 	<li>「Webサーバはちゃんと動いているだろうか？」</li>
 	<li>「そもそもちゃんとインストール成功してるだろうか？」</li>
 	<li>「listenポート80番はちゃんと開いてるだろうか？」</li>
 </ul>
 サーバ構築におけるチェック項目を、RSpecに倣った読みやすい（わかりやすい）記法でシンプルに書けます。ローカル環境でのテストとSSH経由でのリモート環境でのテストが可能です。
-{% highlight ruby %}
+
+```ruby
 serverspec_sample_spec.rb
 describe package('nginx') do
   it { should be_installed }
@@ -61,7 +66,7 @@ end
 describe port('80') do
   it { should be_listening }
 end
-{% endhighlight %}
+```
 Webサーバに限らず、userの情報やファイル・ディレクトリの有無なども細かくチェックすることが可能です。より詳しい動作に関しては、上記の発表資料や公式Webサイト、GitHubリポジトリをご覧ください。
 
 <a href="http://serverspec.org/" target="_blank">http://serverspec.org/
