@@ -2,6 +2,8 @@ name: Kitchen Garden Blog
 description: I'll cook a new one.
 url: http://blog.hifumi.info/
 markdown: redcarpet
+redcarpet:
+  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "space_after_headers", "strikethrough", "superscript", "highlight", "footnotes"]
 pygments: true
 exclude: ['README.md', 'vendor', 'Rakefile', 'config.rb']
 permalink: /:categories/:year-:month-:day/:title
