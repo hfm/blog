@@ -4,6 +4,7 @@ url: http://blog.hifumi.info/
 markdown: redcarpet
 pygments: true
 exclude: ['README.md', 'vendor', 'Rakefile', 'config.rb']
+permalink: /:categories/:year-:month-:day/:title
 sass:
   syntax: scss
   style:  compressed
