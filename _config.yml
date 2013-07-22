@@ -6,7 +6,7 @@ redcarpet:
   extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "space_after_headers", "strikethrough", "superscript", "highlight", "footnotes"]
 pygments: true
 exclude: ['README.md', 'vendor', 'Rakefile', 'config.rb']
-permalink: /:categories/:year-:month-:day/:title
+permalink: /:categories/:year/:month/:day/:title
 sass:
   syntax: scss
   style:  compressed
