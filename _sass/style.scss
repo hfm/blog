@@ -7,5 +7,11 @@
 @import "compass/utilities/general/hacks";
 @import "compass/utilities/general/clearfix";
 
-@import "main";
+@import "compass/utilities/general/float";
+@import "compass/typography/lists/bullets";
+@import "compass/typography/lists/horizontal-list";
+@import "compass/typography/lists/inline-block-list";
+
+@import "utility";
 @import "syntax";
+@import "main";
