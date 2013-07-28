@@ -1,6 +1,10 @@
 # Ignore jekyll files
 _site/
 
+# Ignore sass files
+.sass-cache
+css/
+
 # Ignore bundle files
 Gemfile.lock
 .bundle/
