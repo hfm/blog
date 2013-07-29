@@ -2,6 +2,10 @@
   @include clearfix;
 }
 
+.c {
+  text-align:center !important;
+}
+
 @mixin font-family($type, $important: false) {
   @if $important == 'important' or $important == true {
     $important: ' !important';

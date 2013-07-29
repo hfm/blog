@@ -8,11 +8,9 @@ $base-font-size: 16px;
 $base-line-height: 24px;
 @include establish-baseline;
 
-body #wrapper {
+body {
   background: #fff;
   color: #333;
-  margin: 10px auto;
-  width: 1000px;
 }
 
 h1, h2, h3 {
@@ -25,10 +23,6 @@ h1 {
   @include adjust-font-size-to($font-size,3);
   @include leader(1,$font-size);
   @include trailer(1,$font-size);
-
-  #sitename {
-    text-align: center;
-  }
 }
 
 h2 {
