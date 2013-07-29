@@ -8,13 +8,12 @@
   } @else {
     $important: '';
   }
+
   @if $type == sans-serif {
     font-family: sans-serif#{$important};
   } @else if $type == serif {
     font-family: serif#{$important};
   } @else if $type == monospace {
     font-family: monospace#{$important};
-  } @else if $type == verdana {
-    font-family: Verdana, Arial, Helvetica, sans-serif#{$important};
   }
 }
