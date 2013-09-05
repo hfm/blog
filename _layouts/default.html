@@ -13,8 +13,8 @@
   <body>
     <header>
       <div class="bar clearfix">
-        <div class="left">{{ site.description }}</div>
-        <div class="right"></div>
+        <div class="fleft">{{ site.description }}</div>
+        <div class="fright"></div>
       </div>
       <h1 id="sitename" class="c"><a class="non-dec trans-green" href="/">{{ site.name }}</a></h1>
     </header>
@@ -22,6 +22,7 @@
       {{ content }}
     </div>
     <footer>
+       {% include sites/nav_sns.html %}
       <p class="c">
         © Takahiro OKUMURA blog.hifumi.info
       </p>

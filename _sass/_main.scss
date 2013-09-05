@@ -1,7 +1,5 @@
 /*****************************************************************************/
-/*
 /* Common
-/*
 /*****************************************************************************/
 
 $base-font-size: 16px;
@@ -13,7 +11,7 @@ body {
   color: #333;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4, h5, h6 {
   @include font-family("sans-serif", true);
 }
 
@@ -23,42 +21,106 @@ h1 {
   @include adjust-font-size-to($font-size,3);
   @include leader(1,$font-size);
   @include trailer(1,$font-size);
+
 }
 
 h2 {
   margin: 0;
-  $font-size:26px;
+  $font-size:30px;
   @include adjust-font-size-to($font-size,2);
   @include leader(1,$font-size);
   @include trailer(1,$font-size);
 }
 
-/*****************************************************************************/
-/*
-/* Home
-/*
-/*****************************************************************************/
+h3 {
+  margin: 0;
+  $font-size:24px;
+  @include adjust-font-size-to($font-size,2);
+  @include leader(1,$font-size);
+  @include trailer(1,$font-size);
+}
+
+h4 {
+  margin: 0;
+  $font-size:18px;
+  @include adjust-font-size-to($font-size,1);
+  @include leader(1,$font-size);
+  @include trailer(1,$font-size);
+}
 
 /*****************************************************************************/
-/*
 /* Site
-/*
+/*****************************************************************************/
+
+#sitename {
+  $font-size:48px;
+  @include adjust-font-size-to($font-size,5);
+  @include leader(1,$font-size);
+  @include trailer(1,$font-size);
+}
+
+.trans-green {
+  @include font-family("serif", true);
+  @include transition-property(all);
+  @include transition-duration(1s);
+  @include transition-timing-function(ease-out);
+  color: #2c7676;
+
+  &:hover {
+    color: #00a6a6;
+  }
+}
+
+.bar {
+  border-bottom: 1px solid #f5deb3;
+}
+
+/*****************************************************************************/
+/* Home
 /*****************************************************************************/
 
 /*****************************************************************************/
-/*
 /* Posts
-/*
 /*****************************************************************************/
+
+/* wrapper */
+#wrapper {
+  max-width: 46em;
+  margin: 0 auto;
+}
+
+/* header */
+.tags {
+  $font-size: 16px;
+  @include adjust-font-size-to($font-size,1);
+  @include leader(1,$font-size);
+  @include trailer(1,$font-size);
+
+  span {
+    background-color: #f7f7f7;
+    @include border-radius(12px);
+    padding: 3px 10px;
+    margin-right: 6px;
+  }
+}
+
+/* footer */
+.nav-sns {
+  @include inline-block-list(3px);
+
+  li {
+    vertical-align: top;
+  }
+}
 
 /* standard */
 .post {
   pre {
-    padding: 0 .4em;
+    padding: 0 0.4em;
   }
 
   code {
-    padding: 0 .2em;
+    padding: 0 0.2em;
   }
 
   pre, code {
