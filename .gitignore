@@ -1,15 +1,13 @@
 # osx
 .DS_Store
 
-# Ignore jekyll files
+# jekyll
 _site/
 
-# Ignore sass files
+# sass
 .sass-cache
 css/
 
-# Ignore bundle files
-Gemfile.lock
-.bundle/
-vendor/bundle
-bin/
+# bundler
+/.bundle/
+/vendor
