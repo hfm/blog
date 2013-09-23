@@ -67,6 +67,14 @@ a {
   @include trailer(1,$font-size);
 }
 
+#footer {
+  $font-size: 16px;
+  @include adjust-font-size-to($font-size,1);
+  @include leader(1,$font-size);
+  @include trailer(1,$font-size);
+  text-align: center;
+}
+
 /*****************************************************************************/
 /* Home
 /*****************************************************************************/
@@ -75,10 +83,10 @@ a {
 /* Posts
 /*****************************************************************************/
 
-/* wrapper */
 .wrapper {
   max-width: 46em;
   margin: 0 auto;
+  padding: 0 0.5em;
 }
 
 /* header */
@@ -107,6 +115,9 @@ a {
 
 /* standard */
 .post {
+  p {
+    margin: 0 0 24px 0;
+  }
   pre {
     padding: 0 0.4em;
   }
@@ -125,28 +136,13 @@ a {
     margin-left: 1.35em;
   }
 
-  /* terminal */
   pre.terminal {
     border: 1px solid #000;
     background-color: #333;
     color: #fff;
-  }
 
-  pre.terminal code {
-    background-color: #333;
-  }
-}
-
-/*****************************************************************************/
-/*
-/* Social
-/*
-/*****************************************************************************/
-
-#socialbar {
-  @include inline-block-list(3px);
-
-  li {
-    vertical-align: top;
+    code {
+      background-color: #333;
+    }
   }
 }

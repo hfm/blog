@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.name }}</title>
     <meta name="description" content="{{ page.description }}" />
     <meta name="keywords" content="Programming">
     <link rel="stylesheet" href="/css/style.css" type="text/css" />
@@ -19,11 +19,11 @@
     <div class="wrapper">
       {{ content }}
     </div>
-    <footer class="wrapper">
+    <footer id="footer" class="wrapper">
       <div class="c">
         {% include sites/nav_sns.html %}
       </div>
-      <div class="c">
+      <div class="credit">
         <span class="gray">© Takahiro OKUMURA</span>
       </div>
     </footer>
