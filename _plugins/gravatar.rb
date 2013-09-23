@@ -3,7 +3,7 @@ require 'digest/md5'
 module Jekyll
   module GravatarFilter
     def gravatar(email)
-      "<img src=\"http://www.gravatar.com/avatar/#{hash(email)}?s=128\" width=\"64px\" height=\"64px\">"
+      "<img src=\"http://www.gravatar.com/avatar/#{hash(email)}?s=64\" width=\"32px\" height=\"32px\">"
     end
 
     private
