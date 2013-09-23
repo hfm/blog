@@ -11,38 +11,34 @@ body {
   color: #333;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4 {
+  margin: 0;
   @include font-family("sans-serif", true);
 }
 
 h1 {
-  margin: 0;
-  $font-size:36px;
+  $font-size: 36px;
   @include adjust-font-size-to($font-size,3);
   @include leader(1,$font-size);
   @include trailer(1,$font-size);
-
 }
 
 h2 {
-  margin: 0;
-  $font-size:30px;
+  $font-size: 30px;
   @include adjust-font-size-to($font-size,2);
   @include leader(1,$font-size);
   @include trailer(1,$font-size);
 }
 
 h3 {
-  margin: 0;
-  $font-size:24px;
+  $font-size: 24px;
   @include adjust-font-size-to($font-size,2);
   @include leader(1,$font-size);
   @include trailer(1,$font-size);
 }
 
 h4 {
-  margin: 0;
-  $font-size:18px;
+  $font-size: 18px;
   @include adjust-font-size-to($font-size,1);
   @include leader(1,$font-size);
   @include trailer(1,$font-size);
@@ -53,7 +49,7 @@ h4 {
 /*****************************************************************************/
 
 #sitename {
-  $font-size:48px;
+  $font-size: 18px;
   @include adjust-font-size-to($font-size,5);
   @include leader(1,$font-size);
   @include trailer(1,$font-size);
@@ -75,6 +71,9 @@ h4 {
   border-bottom: 1px solid #f5deb3;
 }
 
+.gray {
+  color: gray;
+}
 /*****************************************************************************/
 /* Home
 /*****************************************************************************/
@@ -84,7 +83,7 @@ h4 {
 /*****************************************************************************/
 
 /* wrapper */
-#wrapper {
+.wrapper {
   max-width: 46em;
   margin: 0 auto;
 }
@@ -137,7 +136,7 @@ h4 {
   pre.terminal {
     border: 1px solid #000;
     background-color: #333;
-    color: #FFF;
+    color: #fff;
   }
 
   pre.terminal code {
