@@ -44,19 +44,8 @@ h4 {
   @include trailer(1,$font-size);
 }
 
-/*****************************************************************************/
-/* Site
-/*****************************************************************************/
-
-#sitename {
-  $font-size: 18px;
-  @include adjust-font-size-to($font-size,5);
-  @include leader(1,$font-size);
-  @include trailer(1,$font-size);
-}
-
-.trans-green {
-  @include font-family("serif", true);
+a {
+  text-decoration: none;
   @include transition-property(all);
   @include transition-duration(1s);
   @include transition-timing-function(ease-out);
@@ -67,9 +56,17 @@ h4 {
   }
 }
 
-.bar {
-  border-bottom: 1px solid #f5deb3;
+/*****************************************************************************/
+/* Site
+/*****************************************************************************/
+
+#sitename {
+  $font-size: 18px;
+  @include adjust-font-size-to($font-size,3);
+  @include leader(1,$font-size);
+  @include trailer(1,$font-size);
 }
+
 /*****************************************************************************/
 /* Home
 /*****************************************************************************/
