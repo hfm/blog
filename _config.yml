@@ -7,6 +7,7 @@ redcarpet:
 pygments: true
 exclude: ['README.md', 'vendor', 'Rakefile', 'config.rb']
 permalink: /:categories/:year/:month/:day/:title
+paginate: 1
 sass:
   syntax: scss
   style:  compressed
