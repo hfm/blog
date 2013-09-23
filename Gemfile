@@ -1,6 +1,8 @@
-source "https://rubygems.org"
+source 'https://rubygems.org'
 
-gem "jekyll"
-gem "jekyll-sass"
+gem 'rake'
+gem 'jekyll'
+gem 'jekyll-sass'
 gem 'redcarpet'
 gem 'compass'
+gem 'anemone'
