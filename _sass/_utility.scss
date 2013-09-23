@@ -18,6 +18,10 @@
   text-decoration: none;
 }
 
+.gray {
+  color: gray;
+}
+
 @mixin font-family($type, $important: false) {
   @if $important == 'important' or $important == true {
     $important: ' !important';
