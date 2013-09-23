@@ -12,14 +12,20 @@
   </head>
   <body>
     <header class="wrapper">
-      <h1 id="sitename" class="c"><a class="non-dec trans-green" href="/">{{ site.name }}</a></h1>
+      <h1 id="sitename" class="c">
+        <a href="/">{{ site.name }}</a>
+      </h1>
     </header>
     <div class="wrapper">
       {{ content }}
     </div>
     <footer class="wrapper">
-      {% include sites/nav_sns.html %}
-      <footer class="c"><span class="gray">© Takahiro OKUMURA</span></footer>
+      <div class="c">
+        {% include sites/nav_sns.html %}
+      </div>
+      <div class="c">
+        <span class="gray">© Takahiro OKUMURA</span>
+      </div>
     </footer>
   </body>
 </html>
