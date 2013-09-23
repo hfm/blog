@@ -1,5 +1,5 @@
-name: Kitchen Garden Blog
-description: I'll cook a new one.
+name: 'blog: takahiro okumura'
+description: i'm a mere engineer.
 url: http://blog.hifumi.info/
 markdown: redcarpet
 redcarpet:
