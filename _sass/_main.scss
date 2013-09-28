@@ -6,11 +6,6 @@ $base-font-size: 16px;
 $base-line-height: 24px;
 @include establish-baseline;
 
-body {
-  background: #fff;
-  color: #333;
-}
-
 h1, h2, h3, h4 {
   margin: 0;
   @include font-family("sans-serif", true);
@@ -90,7 +85,7 @@ a {
 }
 
 /* header */
-.tags {
+.entry-tags {
   $font-size: 16px;
   @include adjust-font-size-to($font-size,1);
   @include leader(1,$font-size);
@@ -114,7 +109,7 @@ a {
 }
 
 /* standard */
-.post {
+.entry-post {
   p {
     margin: 0 0 24px 0;
   }
