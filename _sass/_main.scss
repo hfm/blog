@@ -99,7 +99,7 @@ a {
 }
 
 .entry-header-btm {
-  $font-size: 12px;
+  $font-size: 16px;
   @include adjust-font-size-to($font-size,1);
   @include leader(1,$font-size);
   @include trailer(1,$font-size);
