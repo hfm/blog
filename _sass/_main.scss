@@ -6,35 +6,27 @@ $base-font-size: 16px;
 $base-line-height: 24px;
 @include establish-baseline;
 
-h1, h2, h3, h4 {
-  margin: 0;
+h1, h2, h3 {
   @include font-family("sans-serif", true);
 }
 
 h1 {
-  $font-size: 36px;
+  $font-size: 38px;
   @include adjust-font-size-to($font-size,3);
   @include leader(1,$font-size);
   @include trailer(1,$font-size);
 }
 
 h2 {
-  $font-size: 30px;
+  $font-size: 32px;
   @include adjust-font-size-to($font-size,2);
   @include leader(1,$font-size);
   @include trailer(1,$font-size);
 }
 
 h3 {
-  $font-size: 24px;
+  $font-size: 26px;
   @include adjust-font-size-to($font-size,2);
-  @include leader(1,$font-size);
-  @include trailer(1,$font-size);
-}
-
-h4 {
-  $font-size: 18px;
-  @include adjust-font-size-to($font-size,1);
   @include leader(1,$font-size);
   @include trailer(1,$font-size);
 }
@@ -42,7 +34,7 @@ h4 {
 a {
   text-decoration: none;
   @include transition-property(all);
-  @include transition-duration(1s);
+  @include transition-duration(0.5s);
   @include transition-timing-function(ease-out);
   color: #2c7676;
 
@@ -55,24 +47,33 @@ a {
 /* Site
 /*****************************************************************************/
 
+#header {
+  $font-size: 16px;
+  @include adjust-font-size-to($font-size,1);
+  @include leader(2,$font-size);
+  @include trailer(2,$font-size);
+  text-align: center;
+}
+
 #sitename {
   $font-size: 18px;
-  @include adjust-font-size-to($font-size,3);
-  @include leader(1,$font-size);
-  @include trailer(1,$font-size);
+  @include adjust-font-size-to($font-size,1);
 }
 
 #footer {
   $font-size: 16px;
   @include adjust-font-size-to($font-size,1);
-  @include leader(1,$font-size);
-  @include trailer(1,$font-size);
+  @include leader(3,$font-size);
+  @include trailer(3,$font-size);
   text-align: center;
 }
 
-/*****************************************************************************/
-/* Home
-/*****************************************************************************/
+.pagination {
+  $font-size: 12px;
+  @include adjust-font-size-to($font-size,1);
+  @include leader(2,$font-size);
+  text-align: center;
+}
 
 /*****************************************************************************/
 /* Posts
@@ -82,37 +83,68 @@ a {
   max-width: 46em;
   margin: 0 auto;
   padding: 0 0.5em;
-}
 
-/* header */
-.entry-tags {
   $font-size: 16px;
   @include adjust-font-size-to($font-size,1);
   @include leader(1,$font-size);
   @include trailer(1,$font-size);
+}
 
-  span {
-    background-color: #f7f7f7;
-    @include border-radius(12px);
-    padding: 3px 10px;
-    margin-right: 6px;
-  }
+/* header */
+.entry-header {
+  $font-size: 16px;
+  @include adjust-font-size-to($font-size,1);
+  @include leader(1,$font-size);
+  @include trailer(1,$font-size);
+}
+
+.entry-header-btm {
+  $font-size: 12px;
+  @include adjust-font-size-to($font-size,1);
+  @include leader(1,$font-size);
+  @include trailer(1,$font-size);
 }
 
 /* footer */
+.entry-footer {
+  $font-size: 16px;
+  @include adjust-font-size-to($font-size,1);
+  @include leader(1,$font-size);
+  @include trailer(1,$font-size);
+}
+
+.adsense {
+  $font-size: 16px;
+  @include adjust-font-size-to($font-size,1);
+  @include leader(1,$font-size);
+  @include trailer(1,$font-size);
+  text-align: center;
+}
+
 .nav-sns {
   @include inline-block-list(3px);
 
   li {
     vertical-align: top;
   }
+
+  img {
+    width: 32px;
+    height: 32px;
+  }
 }
 
 /* standard */
-.entry-post {
+.entry-content {
+  $font-size: 16px;
+  @include adjust-font-size-to($font-size,1);
+  @include leader(3,$font-size);
+  @include trailer(3,$font-size);
+
   p {
-    margin: 0 0 24px 0;
+    @include trailer(1,$font-size);
   }
+
   pre {
     padding: 0 0.4em;
   }

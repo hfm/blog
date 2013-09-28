@@ -2,20 +2,8 @@
   @include clearfix;
 }
 
-.fleft {
-  float: left;
-}
-
-.fright {
-  float: right;
-}
-
 .c {
   text-align: center !important;
-}
-
-.gray {
-  color: gray;
 }
 
 @mixin font-family($type, $important: false) {
