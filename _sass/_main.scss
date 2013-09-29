@@ -68,7 +68,7 @@ a {
   text-align: center;
 }
 
-.pagination {
+#pagination {
   $font-size: 12px;
   @include adjust-font-size-to($font-size,1);
   @include leader(2,$font-size);
