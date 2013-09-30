@@ -150,6 +150,7 @@ a {
   }
 
   code {
+    @include font-family("monospace", true);
     padding: 0 0.2em;
   }
 
