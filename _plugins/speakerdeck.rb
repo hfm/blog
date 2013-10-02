@@ -1,9 +1,14 @@
 module Jekyll
-  module SpeakerDeckFilter
-    def speakerdeck(data_id)
-      %|<p><script async class="speakerdeck-embed" data-id="#{data_id}" src="//speakerdeck.com/assets/embed.js"></script></p>|
+  class SpeakerDeckTag < Liquid::Tag
+    def initialize(tag_name, data_id, tokens)
+      super
+      @arg = data_id.strip
+    end
+
+    def render(context)
+      %|<p><script async class="speakerdeck-embed" data-id="#{@arg}" src="//speakerdeck.com/assets/embed.js"></script></p>|
     end
   end
 end
 
-Liquid::Template.register_filter(Jekyll::SpeakerDeckFilter)
+Liquid::Template.register_tag('speakerdeck', Jekyll::SpeakerDeckTag)
