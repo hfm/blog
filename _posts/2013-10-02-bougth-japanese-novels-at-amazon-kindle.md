@@ -1,7 +1,8 @@
 ---
 layout: post
 title: 角川の本が安かったので電子書籍を買った
-tags: []
+tags:
+- diary
 ---
 [オールカドカワフェア](http://www.kadokawa.co.jp/allkadokawa/)というのが開催されていて、Amazona Kindleストアで角川の本が半額になっていて安かったので、小説を買ってみました。
 

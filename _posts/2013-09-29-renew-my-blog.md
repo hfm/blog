@@ -1,7 +1,7 @@
 ---
 layout: post
 title: blog renewal
-tags: [notification]
+tag: notification
 ---
 ブログリニューアルしています（現在進行形）。
 
