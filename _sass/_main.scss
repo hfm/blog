@@ -79,10 +79,12 @@ a {
 /* Posts
 /*****************************************************************************/
 
+$pwidth: 46rem;
+
 .wrapper {
-  max-width: 46em;
+  max-width: $pwidth;
   margin: 0 auto;
-  padding: 0 0.5em;
+  padding: 0 0.5rem;
 
   $font-size: 16px;
   @include adjust-font-size-to($font-size,1);
@@ -143,15 +145,18 @@ a {
 
   p {
     @include trailer(1,$font-size);
+    img {
+      max-width: $pwidth;
+    }
   }
 
   pre {
-    padding: 0 0.4em;
+    padding: 0 0.4pem;
   }
 
   code {
     @include font-family("monospace", true);
-    padding: 0 0.2em;
+    padding: 0 0.2pem;
   }
 
   pre, code {
@@ -161,7 +166,7 @@ a {
   }
 
   ul, ol {
-    margin-left: 1.35em;
+    margin-left: 1.35rem;
   }
 
   pre.terminal {
