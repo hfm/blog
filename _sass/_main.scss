@@ -166,7 +166,12 @@ $pwidth: 46rem;
   }
 
   ul, ol {
-    margin-left: 1.35rem;
+    margin-left: 1.5rem;
+    @include trailer(1,$font-size);
+  }
+
+  li {
+    list-style-type: circle;
   }
 
   pre.terminal {
