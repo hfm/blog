@@ -3,9 +3,20 @@ description: i'm a mere engineer.
 url: http://blog.hifumi.info/
 markdown: redcarpet
 redcarpet:
-  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "space_after_headers", "strikethrough", "superscript", "highlight", "footnotes"]
+  extensions: [
+    'tables',
+    'no_intra_emphasis',
+    'fenced_code_blocks',
+    'autolink',
+    'space_after_headers',
+    'strikethrough',
+    'superscript',
+    'underline',
+    'highlight',
+    'footnotes',
+  ]
 pygments: true
-exclude: ['README.md', 'vendor', 'Rakefile', 'config.rb']
+exclude: ['README.md', 'vendor', 'Rakefile', 'config.rb', 'Gemfile', 'Gemfile.lock']
 permalink: /:categories/:year/:month/:day/:title
 paginate: 1
 sass:
