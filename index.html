@@ -24,9 +24,12 @@ layout: default
 
 <div id="pagination">
   {% if paginator.previous_page %}
-  <a href="{{ paginator.previous_page_path }}">New post</a>
+  <a href="{{ paginator.previous_page_path }}">new post</a>
+  {% endif %}
+  {% if paginator.previous_page and paginator.next_page %}
+    / 
   {% endif %}
   {% if paginator.next_page %}
-  <a href="{{ paginator.next_page_path }}">Old post</a>
+  <a href="{{ paginator.next_page_path }}">old post</a>
   {% endif %}
 </div>
