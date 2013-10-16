@@ -20,12 +20,19 @@ h1 {
 h2 {
   $font-size: 32px;
   @include adjust-font-size-to($font-size,2);
-  @include leader(1,$font-size);
+  @include leader(2,$font-size);
   @include trailer(1,$font-size);
 }
 
 h3 {
   $font-size: 26px;
+  @include adjust-font-size-to($font-size,2);
+  @include leader(1,$font-size);
+  @include trailer(1,$font-size);
+}
+
+h4 {
+  $font-size: 20px;
   @include adjust-font-size-to($font-size,2);
   @include leader(1,$font-size);
   @include trailer(1,$font-size);
@@ -145,24 +152,24 @@ $pwidth: 46rem;
 
   p {
     @include trailer(1,$font-size);
-    img {
-      max-width: $pwidth;
-    }
+  }
+
+  img {
+    max-width: $pwidth;
+  }
+
+  pre, code {
+    background-color: #f8f8f8;
+    @include trailer(1,$font-size);
   }
 
   pre {
-    padding: 0 0.4pem;
+    border:1px solid #eee;
+
   }
 
   code {
     @include font-family("monospace", true);
-    padding: 0 0.2pem;
-  }
-
-  pre, code {
-    border: 1px solid #ddd;
-    background-color: #eee;
-    border: none;
   }
 
   ul, ol {
@@ -182,5 +189,12 @@ $pwidth: 46rem;
     code {
       background-color: #333;
     }
+  }
+
+  blockquote {
+    color: #777;
+    padding: 0 0 0 24px;
+    border-left:24px double #eee;
+    @include trailer(1,$font-size);
   }
 }
