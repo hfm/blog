@@ -6,9 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="{{ page.description }}" />
     <meta name="keywords" content="Programming">
+    {% include sites/twitter_card.html %}
     <link rel="stylesheet" href="/css/style.css" type="text/css" />
     <link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="{{ site.url }}/feed.xml">
-{% include sites/analytics.html %}
+    {% include sites/analytics.html %}
   </head>
   <body>
     <header id="header">
