@@ -89,8 +89,8 @@ a {
 $pwidth: 46rem;
 
 .wrapper {
-  max-width: $pwidth;
   margin: 0 auto;
+  max-width: $pwidth;
   padding: 0 0.5rem;
 
   $font-size: 16px;
@@ -138,8 +138,8 @@ $pwidth: 46rem;
   }
 
   img {
-    width: 32px;
     height: 32px;
+    width: 32px;
   }
 }
 
@@ -151,6 +151,7 @@ $pwidth: 46rem;
   @include trailer(3,$font-size);
 
   p {
+    @include leader(1,$font-size);
     @include trailer(1,$font-size);
   }
 
@@ -159,8 +160,9 @@ $pwidth: 46rem;
   }
 
   pre, code {
-    background-color: #f8f8f8;
+    @include leader(1,$font-size);
     @include trailer(1,$font-size);
+    background-color: #f8f8f8;
   }
 
   pre {
@@ -173,8 +175,9 @@ $pwidth: 46rem;
   }
 
   ul, ol {
-    margin-left: 1.5rem;
+    @include leader(1,$font-size);
     @include trailer(1,$font-size);
+    margin-left: 1.5rem;
   }
 
   li {
@@ -182,8 +185,8 @@ $pwidth: 46rem;
   }
 
   pre.terminal {
-    border: 1px solid #000;
     background-color: #333;
+    border: 1px solid #000;
     color: #fff;
 
     code {
@@ -192,9 +195,36 @@ $pwidth: 46rem;
   }
 
   blockquote {
+    @include leader(1,$font-size);
+    @include trailer(1,$font-size);
+    border-left:24px double #eee;
     color: #777;
     padding: 0 0 0 24px;
-    border-left:24px double #eee;
+  }
+
+  table {
+    @include leader(1,$font-size);
     @include trailer(1,$font-size);
+    @include font-family("sans-serif", true);
+    border-collapse: collapse;
+    color: #444;
+    width: 100%;
+
+    td, th {
+      border-right: 1px solid #ddd;
+      border-left: 1px solid #ddd;
+      padding: 0 1rem;
+
+      &:first-child {
+        border-left: 0;
+      }
+      &:last-child {
+        border-right: 0;
+      }
+    }
+
+    th {
+      font-weight: bold;
+    }
   }
 }
