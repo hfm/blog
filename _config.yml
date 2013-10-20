@@ -1,6 +1,7 @@
 name: 'blog: takahiro okumura'
 description: i'm a mere engineer.
 url: http://blog.hifumi.info/
+domain: blog.hifumi.info
 markdown: redcarpet
 redcarpet:
   extensions: [
