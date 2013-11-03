@@ -8,6 +8,7 @@ end
 desc 'Build site with Jekyll'
 task :build => :clean do
   jekyll('build')
+  gzip
 end
 
 desc 'Start server with --watch'
@@ -56,4 +57,13 @@ end
 
 def jekyll(opts = '')
   sh 'jekyll ' + opts
+end
+
+def gzip(filename = '_site/sitemap.xml')
+  require 'zlib'
+  Zlib::GzipWriter.open('_site/sitemap.xml.gz', Zlib::BEST_COMPRESSION) do |gz|
+    gz.mtime     = File.mtime(filename)
+    gz.orig_name = 'sitemap.xml'
+    gz.puts File.open(filename, 'rb') {|f| f.read}
+  end
 end
