@@ -33,7 +33,7 @@ GEM
       sass (>= 3.0.0)
     liquid (2.5.3)
     maruku (0.7.0)
-    mini_portile (0.5.1)
+    mini_portile (0.5.2)
     nokogiri (1.6.0)
       mini_portile (~> 0.5.0)
     posix-spawn (0.3.6)
