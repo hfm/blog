@@ -19,7 +19,7 @@ redcarpet:
 pygments: true
 exclude: ['README.md', 'vendor', 'Rakefile', 'config.rb', 'Gemfile', 'Gemfile.lock']
 permalink: /:categories/:year/:month/:day/:title
-paginate: 1
+paginate: 5
 sass:
   syntax: scss
   style:  compressed

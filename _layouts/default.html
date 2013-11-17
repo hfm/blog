@@ -14,18 +14,20 @@
   <body>
     <header id="header">
       <h1 id="sitename">
-        <img src="/images/title@2x.gif" width="21" height="21">
-        <a href="/">{{ site.name }}</a>
-        <img src="/images/title@2x.gif" width="21" height="21">
+        <a href="/">
+          <img src="/images/title@2x.gif" width="21" height="21">
+          {{ site.name }}
+          <img src="/images/title@2x.gif" width="21" height="21">
+        </a>
       </h1>
     </header>
     <div class="wrapper">
       {{ content }}
     </div>
     <footer id="footer">
-        {% include sites/link.html %}
-        <div>
-        ©  <a href="http://hifumi.info/">Takahiro OKUMURA</a>
+      {% include sites/link.html %}
+      <div>
+        © <a href="http://hifumi.info/">Takahiro OKUMURA</a>
       </div>
     </footer>
   </body>
