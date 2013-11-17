@@ -13,8 +13,6 @@ h1, h2, h3 {
 h1 {
   $font-size: 38px;
   @include adjust-font-size-to($font-size,3);
-  @include leader(1,$font-size);
-  @include trailer(1,$font-size);
 }
 
 h2 {
@@ -55,10 +53,9 @@ a {
 /*****************************************************************************/
 
 #header {
-  $font-size: 16px;
-  @include adjust-font-size-to($font-size,1);
-  @include leader(2,$font-size);
-  @include trailer(2,$font-size);
+  @include adjust-font-size-to($base-font-size,1);
+  @include leader(2,$base-font-size);
+  @include trailer(2,$base-font-size);
   text-align: center;
 }
 
@@ -68,10 +65,9 @@ a {
 }
 
 #footer {
-  $font-size: 16px;
-  @include adjust-font-size-to($font-size,1);
-  @include leader(3,$font-size);
-  @include trailer(3,$font-size);
+  @include adjust-font-size-to($base-font-size,1);
+  @include leader(3,$base-font-size);
+  @include trailer(3,$base-font-size);
   text-align: center;
 }
 
@@ -93,40 +89,47 @@ $pwidth: 46rem;
   max-width: $pwidth;
   padding: 0 0.5rem;
 
-  $font-size: 16px;
-  @include adjust-font-size-to($font-size,1);
-  @include leader(1,$font-size);
-  @include trailer(1,$font-size);
+  @include adjust-font-size-to($base-font-size,1);
+  @include leader(1,$base-font-size);
+  @include trailer(1,$base-font-size);
 }
 
 /* header */
 .entry-header {
-  $font-size: 16px;
-  @include adjust-font-size-to($font-size,1);
-  @include leader(1,$font-size);
-  @include trailer(1,$font-size);
+  @include adjust-font-size-to($base-font-size,1);
+  @include leader(1,$base-font-size);
+  @include trailer(1,$base-font-size);
 }
 
 .entry-header-btm {
-  $font-size: 16px;
-  @include adjust-font-size-to($font-size,1);
-  @include leader(1,$font-size);
-  @include trailer(1,$font-size);
+  @include adjust-font-size-to($base-font-size,1);
+  @include font-family("sans-serif", true);
+  background-color: #ecf0f1;
+}
+
+.postdate {
+  color: #7f8c8d;
+  margin: 0 3px;
+}
+
+.tag {
+  background-color: #7f8c8d;
+  color: #ecf0f1;
+  padding: 2px 4px;
+  margin-right: 0.5px;
 }
 
 /* footer */
 .entry-footer {
-  $font-size: 16px;
-  @include adjust-font-size-to($font-size,1);
-  @include leader(1,$font-size);
-  @include trailer(1,$font-size);
+  @include adjust-font-size-to($base-font-size,1);
+  @include leader(1,$base-font-size);
+  @include trailer(1,$base-font-size);
 }
 
 .adsense {
-  $font-size: 16px;
-  @include adjust-font-size-to($font-size,1);
-  @include leader(1,$font-size);
-  @include trailer(1,$font-size);
+  @include adjust-font-size-to($base-font-size,1);
+  @include leader(1,$base-font-size);
+  @include trailer(1,$base-font-size);
   text-align: center;
 }
 
@@ -145,14 +148,14 @@ $pwidth: 46rem;
 
 /* standard */
 .entry-content {
-  $font-size: 16px;
-  @include adjust-font-size-to($font-size,1);
-  @include leader(3,$font-size);
-  @include trailer(3,$font-size);
+  @include adjust-font-size-to($base-font-size,1);
+  @include leader(2,$base-font-size);
+  @include trailer(3,$base-font-size);
 
   p {
-    @include leader(1,$font-size);
-    @include trailer(1,$font-size);
+    @include adjust-font-size-to($base-font-size,1);
+    @include leader(1,$base-font-size);
+    @include trailer(1,$base-font-size);
   }
 
   img {
@@ -160,24 +163,28 @@ $pwidth: 46rem;
   }
 
   pre, code {
-    @include leader(1,$font-size);
-    @include trailer(1,$font-size);
-    background-color: #f8f8f8;
+    @include font-family("monospace", true);
+    @include leader(1,$base-font-size);
+    @include trailer(1,$base-font-size);
+    background-color: #fefef2;
+    border:1px solid #95c7a4;
   }
 
   pre {
-    border:1px solid #eee;
-    padding: .5rem;
+    padding: 0.5rem;
     white-space: pre-wrap;
+    code {
+      border:0 solid #fefef2;
+    }
   }
 
   code {
-    @include font-family("monospace", true);
+    padding: 2px;
   }
 
   ul, ol {
-    @include leader(1,$font-size);
-    @include trailer(1,$font-size);
+    @include leader(1,$base-font-size);
+    @include trailer(1,$base-font-size);
     margin-left: 1.5rem;
   }
 
@@ -186,16 +193,16 @@ $pwidth: 46rem;
   }
 
   blockquote {
-    @include leader(1,$font-size);
-    @include trailer(1,$font-size);
+    @include leader(1,$base-font-size);
+    @include trailer(1,$base-font-size);
     border-left:24px double #eee;
     color: #777;
     padding: 0 0 0 24px;
   }
 
   table {
-    @include leader(1,$font-size);
-    @include trailer(1,$font-size);
+    @include leader(1,$base-font-size);
+    @include trailer(1,$base-font-size);
     @include font-family("sans-serif", true);
     border-collapse: collapse;
     color: #444;
