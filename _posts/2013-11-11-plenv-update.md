@@ -6,12 +6,11 @@ tags:
 - plenv
 ---
 [plenv-update](https://github.com/Tacahilo/plenv-update/)というplenv用プラグインを作りました。
-
 これは[rbenv-update](https://github.com/rkh/rbenv-update)の移植版で、plenvとそのプラグインを一度にアップデートするプラグインです。
 
 ## 使い方
 
-ターミナルで`plenv update`と打つと使えます。
+ターミナルで `plenv update` と打つと使えます。
 
 ```
 $ plenv update
