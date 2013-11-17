@@ -124,6 +124,16 @@ $pwidth: 46rem;
   @include adjust-font-size-to($base-font-size,1);
   @include leader(1,$base-font-size);
   @include trailer(1,$base-font-size);
+
+  ul, ol {
+    @include leader(1,$base-font-size);
+    @include trailer(2,$base-font-size);
+    margin-left: 1.5rem;
+  }
+
+  li {
+    list-style-type: circle;
+  }
 }
 
 .adsense {
