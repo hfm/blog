@@ -8,10 +8,13 @@ layout: default
         {{ page.title }}
       </h1>
       <div class="entry-header-btm">
-      <time datetime="{{ page.date | date: '%Y-%m-%d' }}">
-        {{ page.date | date_to_long_string }}
-      </time>
-    </div>
+        <time class="postdate" datetime="{{ page.date | date: '%Y-%m-%d' }}">
+          {{ page.date | date_to_long_string }}
+        </time>
+        {% for tag in page.tags%}
+        <span class="tag">{{ tag }}</span>
+        {% endfor %}
+      </div>
     </hgroup>
   </header>
   <section class="entry-content">
