@@ -160,7 +160,7 @@ $pwidth: 46rem;
 .entry-content {
   @include adjust-font-size-to($base-font-size,1);
   @include leader(2,$base-font-size);
-  @include trailer(3,$base-font-size);
+  @include trailer(2,$base-font-size);
 
   p {
     @include adjust-font-size-to($base-font-size,1);
