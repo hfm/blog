@@ -6,6 +6,10 @@ $base-font-size: 16px;
 $base-line-height: 24px;
 @include establish-baseline;
 
+body {
+  background-color: #f5f5f5;
+}
+
 h1, h2, h3, h4 {
   @include font-family("sans-serif", true);
 }
@@ -20,6 +24,9 @@ h2 {
   @include adjust-font-size-to($font-size,2);
   @include leader(2,$font-size);
   @include trailer(1,$font-size);
+  display: inline;
+  border-bottom: 1px solid rgba(0, 0, 0, .7);
+  @include box-shadow(rgba(255, 255, 255, .6) 0 1px 0);
 }
 
 h3 {
@@ -34,6 +41,14 @@ h4 {
   @include adjust-font-size-to($font-size,1);
   @include leader(1,$font-size);
   @include trailer(1,$font-size);
+}
+
+strong {
+  font-weight: bold;
+}
+
+em {
+  font-style: italic;
 }
 
 a {
@@ -104,7 +119,8 @@ $pwidth: 46rem;
 .entry-header-btm {
   @include adjust-font-size-to($base-font-size,1);
   @include font-family("sans-serif", true);
-  background-color: #ecf0f1;
+  background-color: #e5e5e5;
+  @include box-shadow(rgba(0, 0, 0, .2) 0 0 1px);
 }
 
 .postdate {
@@ -113,7 +129,7 @@ $pwidth: 46rem;
 }
 
 .tag {
-  background-color: #7f8c8d;
+  background-color: rgba(0, 0, 0, .2);
   color: #ecf0f1;
   padding: 2px 4px;
   margin-right: 0.5px;
@@ -171,7 +187,7 @@ $pwidth: 46rem;
   @include leader(2,$base-font-size);
   @include trailer(2,$base-font-size);
 
-  p {
+  p, div {
     @include adjust-font-size-to($base-font-size,1);
     @include leader(1,$base-font-size);
     @include trailer(1,$base-font-size);
@@ -183,32 +199,28 @@ $pwidth: 46rem;
 
   pre, code {
     @include font-family("monospace", true);
-    @include leader(1,$base-font-size);
-    @include trailer(1,$base-font-size);
-    background-color: #fefef2;
-    border:1px solid #95c7a4;
   }
 
   pre {
     padding: 0.5rem;
-    white-space: pre-wrap;
+    white-space: pre;
     code {
       border:0 solid #fefef2;
     }
   }
 
-  code {
-    padding: 2px;
-  }
-
   ul, ol {
+    @include adjust-font-size-to($base-font-size,1);
     @include leader(1,$base-font-size);
     @include trailer(1,$base-font-size);
+    list-style-type: circle;
     margin-left: 1.5rem;
   }
 
-  li {
-    list-style-type: circle;
+  li ul {
+    list-style-type: square;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
   }
 
   blockquote {
