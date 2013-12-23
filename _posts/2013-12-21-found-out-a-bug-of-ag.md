@@ -1,6 +1,6 @@
 ---
 layout: post
-title: はじめてのデバッグ
+title: はじめてのgdbデバッグ
 tags: 
 - debug
 - ag
@@ -130,8 +130,6 @@ int pthread_join(pthread_t th, void **thread_return);
 > [*Man page of PTHREAD\_JOIN*](http://linuxjm.sourceforge.jp/html/glibc-linuxthreads/man3/pthread_join.3.html)
 > 
 > pthread\_join は、 呼び出しスレッドの実行を停止し、 th で指定したスレッドが pthread\_exit(3) を呼び出して終了するか、取り消しされて終了するのを待つ。
-
-[src/main.cのL114 (at 0.14)](https://github.com/ggreer/the_silver_searcher/blob/0.14/src/main.c#L114)の`pthread_create(3)`
 
 ### search.c
 
