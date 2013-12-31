@@ -213,8 +213,15 @@ $pwidth: 46rem;
     @include adjust-font-size-to($base-font-size,1);
     @include leader(1,$base-font-size);
     @include trailer(1,$base-font-size);
-    list-style-type: circle;
     margin-left: 1.5rem;
+  }
+
+  ul {
+    list-style-type: circle;
+  }
+
+  ol {
+    list-style-type: decimal;
   }
 
   li ul {
