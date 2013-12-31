@@ -36,6 +36,7 @@ tags:
  * [2013年の振り返り - Gosuke Miyashita](http://mizzy.org/blog/2013/12/31/1/)
  * [2013年の(主に技術的な面ので)まとめ - delirious thoughts](http://blog.kentarok.org/entry/2013/12/30/202028)
  * [2013 年やったことまとめ - HsbtDiary(2013-12-30)](http://www.hsbt.org/diary/20131230.html#p03)
+ * [2013年振り返り - blog.tnmt.info](http://blog.tnmt.info/2013/12/31/look-back-2013/)
 
 しかし、考えても、自分自身に振り返れそうなものが見当たらなかった。
 
