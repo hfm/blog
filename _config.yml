@@ -1,6 +1,6 @@
 name: 'blog: takahiro okumura'
-description: i'm a mere engineer.
-url: http://blog.hifumi.info/
+description: i'm an infra engineer.
+url: http://blog.hifumi.info
 domain: blog.hifumi.info
 markdown: redcarpet
 redcarpet:
@@ -25,3 +25,8 @@ sass:
   style:  compressed
 google_analytics:
   account: UA-18235043-7
+og_image: images/title.png
+og_image_type: image/png
+og_image_width: 512
+og_image_height: 512
+fb_admins: 32238

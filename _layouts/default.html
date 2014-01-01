@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
   <head>
     <meta charset="UTF-8">
     <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.name }}</title>
@@ -7,6 +7,7 @@
     <meta name="description" content="{{ page.description }}" />
     <meta name="keywords" content="Programming">
     {% include sites/twitter_card.html %}
+    {% include sites/facebook_ogp.html %}
     <link rel="stylesheet" href="/css/style.css" type="text/css" />
     <link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="{{ site.url }}/feed.xml">
     {% include sites/analytics.html %}

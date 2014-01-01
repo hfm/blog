@@ -1,0 +1,12 @@
+<meta property="og:site_name" content="{{ site.name }}">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:type" content="{% if page.title %}article{% else %}website{% endif %}">
+<meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.name }}{% endif %}">
+{% capture canonical %}{{ site.url }}{% if site.permalink contains '.html' %}{{ page.url }}{% elsif site.permalink contains category_dir %}{{ '/' | page.url | remove:'index.html' | '/' }}{% else %}{{ page.url | remove:'index.html' | '/' }}{% endif %}{% endcapture %}<meta property="og:url" content="{{ canonical }}">
+{% capture description %}{% if page.excerpt %}{{ page.excerpt }}{% else %}{{ site.description }}{% endif %}{% endcapture %}<meta property="og:description" content="{{ description | strip_html | strip_newlines }}">
+{% if site.fb_admins != empty %}<meta property="fb:admins" content="{{ site.fb_admins }}">{% endif %}
+<meta property="og:image" content="{{ site.url }}/{% if page.og_image %}{{ page.og_image }}{% else %}{{ site.og_image }}{% endif %}">
+<meta property="og:image:type" content="{% if page.og_image %}{{ page.og_image_type }}{% else %}{{ site.og_image_type }}{% endif %}">
+<meta property="og:image:width" content="{% if page.og_image %}{{ page.og_image_width }}{% else %}{{ site.og_image_width }}{% endif %}">
+<meta property="og:image:height" content="{% if page.og_image %}{{ page.og_image_height }}{% else %}{{ site.og_image_height }}{% endif %}">
+{% if page.date %}<meta property="article:published_time" content="{{page.date | date_to_xmlschema}}">{% endif %}
