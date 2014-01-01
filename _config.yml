@@ -27,6 +27,6 @@ google_analytics:
   account: UA-18235043-7
 og_image: images/title.png
 og_image_type: image/png
-og_image_width: 512
-og_image_height: 512
+og_image_width: 256
+og_image_height: 256
 fb_admins: 32238
