@@ -7,13 +7,13 @@ end
 
 desc 'Build site with Jekyll'
 task :build => :clean do
-  jekyll('build --lsi')
+  jekyll('build')
   gzip
 end
 
 desc 'Start server with --watch'
 task :server => :clean do
-  jekyll('serve --watch --lsi')
+  jekyll('serve --watch')
 end
 
 desc 'Build and deploy'

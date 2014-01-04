@@ -20,6 +20,7 @@ pygments: true
 exclude: ['README.md', 'vendor', 'Rakefile', 'config.rb', 'Gemfile', 'Gemfile.lock']
 permalink: /:categories/:year/:month/:day/:title
 paginate: 5
+lsi: true
 sass:
   syntax: scss
   style:  compressed
