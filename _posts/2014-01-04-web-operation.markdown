@@ -10,7 +10,7 @@ tags:
 
 ## Ops研修
 
-エンジニア研修オペレーションサイドの内容はカンタンだ。
+エンジニア研修オペレーションサイドの内容を説明するのはカンタンだ。
 
 Rails Tutorialで作成したTwitter風Webアプリケーションは、これまで[Heroku](https://www.heroku.com)や[Sqale](http://sqale.jp)で動かしていた。
 今度はそれを、minimalなOSの入ったサーバを用意し、環境を構築し、デプロイする。
