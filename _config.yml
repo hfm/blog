@@ -2,6 +2,7 @@ name: 'blog: takahiro okumura'
 description: i'm an infra engineer.
 url: http://blog.hifumi.info
 domain: blog.hifumi.info
+timezone: Asia/Tokyo
 markdown: redcarpet
 redcarpet:
   extensions: [
@@ -14,7 +15,7 @@ redcarpet:
     'superscript',
     'underline',
     'highlight',
-    'footnotes',
+    'footnotes'
   ]
 pygments: true
 exclude: ['README.md', 'vendor', 'Rakefile', 'config.rb', 'Gemfile', 'Gemfile.lock']
