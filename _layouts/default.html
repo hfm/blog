@@ -31,5 +31,8 @@
         © <a href="http://hifumi.info/">Takahiro OKUMURA</a>
       </div>
     </footer>
+    {% if page.title %}
+      {% include posts/publisher_studio.html %}
+    {% endif %}
   </body>
 </html>
