@@ -16,6 +16,11 @@ task :server => :clean do
   jekyll('serve --watch')
 end
 
+desc 'Start server with --watch and --drafts'
+task :serverd => :clean do
+  jekyll('serve --watch --drafts')
+end
+
 desc 'Build and deploy'
 task :deploy => :build do
   sh 'rsync -rtzh --progress --delete _site/ sakura:/usr/local/www/blog/'
