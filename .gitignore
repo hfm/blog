@@ -11,3 +11,4 @@ css/
 # bundler
 /.bundle/
 /vendor
+Gemfile.lock
