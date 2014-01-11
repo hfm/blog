@@ -10,7 +10,8 @@ tags:
 [![それがぼくには楽しかったから : リーナス トーバルズ, デビッド ダイヤモンド, 風見 潤](http://ecx.images-amazon.com/images/I/51WZM2W6ZBL._SL160_.jpg)](http://www.amazon.co.jp/dp/4796880011)
 [![Just for Fun: The Story of an Accidental Revolutionary: Linus Torvalds, David Diamond](http://ecx.images-amazon.com/images/I/41aTgmw%2BL0L._SL160_.jpg)](http://www.amazon.co.jp/dp/0066620732/)
 
-ペパボではオープンソース技術を活用している。
+オープンソース技術を––––とりわけLinuxディストリビューションの上で––––活用している人間として、
+
 オープンソースは歴史的に見ると、フリーソフトから進化したものであることは分かる。
 当時はただの名称変更に過ぎなかったのかもしれないが、FreeからOpenへの概念的な変化はそれよりも大きかったのだと思う。
 
@@ -28,4 +29,5 @@ tags:
 > 8. License Must Not Be Specific to a Product
 > 9. License Must Not Restrict Other Software
 > 10. License Must Be Technology-Neutral
+
 
