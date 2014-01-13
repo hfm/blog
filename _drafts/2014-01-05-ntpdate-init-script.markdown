@@ -17,7 +17,7 @@ CentOS 6ではntpdateというserviceが追加されました。
 
 ntpdateのSRPMは以下から検索。
 
- * [RPM CentOS 6 ntpdate 4.2.6p5 x86_64 rpm](http://rpm.pbone.net/index.php3/stat/4/idpl/25010016/dir/centos_6/com/ntpdate-4.2.6p5-1.el6.centos.x86_64.rpm.html)
+ * [RPM CentOS 6 ntpdate 4.2.6p5 x86\_64 rpm](http://rpm.pbone.net/index.php3/stat/4/idpl/25010016/dir/centos_6/com/ntpdate-4.2.6p5-1.el6.centos.x86_64.rpm.html)
 
 以下のコマンドでSRPMを入手し、ntpdateの起動スクリプトのみを抽出しました。
 
