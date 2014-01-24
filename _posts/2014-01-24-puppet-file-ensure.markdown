@@ -5,6 +5,8 @@ tags:
 - puppet
 - design pattern
 ---
+Puppet manifestsにおける下記2種類の宣言は、結果が同じになります。
+
 ```puppet
 file { '/foo/bar':
   ensure => present,
@@ -14,8 +16,6 @@ file { '/foo/bar':
   ensure => file,
 }
 ```
-
-Puppet manifestsにおける上記の2種類の宣言は、結果が同じになります。
 
 あまり意識していなかったのですが、どうやらドキュメントを読む限り推奨される使い分けがあるようなので、そのメモを残しておきます。
 
