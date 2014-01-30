@@ -93,6 +93,13 @@ a {
   text-align: center;
 }
 
+.adsense {
+  @include adjust-font-size-to($base-font-size,1);
+  @include leader(1,$base-font-size);
+  @include trailer(1,$base-font-size);
+  text-align: center;
+}
+
 /*****************************************************************************/
 /* Posts
 /*****************************************************************************/
