@@ -23,7 +23,7 @@ end
 
 desc 'Build and deploy'
 task :deploy => :build do
-  sh 'rsync -rtzh --progress --delete _site/ sakura:/usr/local/www/blog/'
+  sh 'rsync -rtzh --progress --delete _site/ sc.hifumi.info:/var/www/blog/'
 end
 
 desc 'Check links for site already running on localhost:4000'
