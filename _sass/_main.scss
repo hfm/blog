@@ -126,18 +126,18 @@ $pwidth: 50rem;
 .entry-header-btm {
   @include adjust-font-size-to($base-font-size,1);
   @include font-family("sans-serif", true);
-  background-color: #e5e5e5;
-  @include box-shadow(rgba(0, 0, 0, .2) 0 0 1px);
+  background-color: #555;
+  @include box-shadow(rgba(0, 0, 0, .1) 0 0 1px);
 }
 
 .postdate {
-  color: #7f8c8d;
-  margin: 0 3px;
+  color: #ecf0f1;
+  margin: 0 7px;
 }
 
 .tag {
-  background-color: rgba(0, 0, 0, .2);
-  color: #ecf0f1;
+  background-color: rgba(0, 0, 0, .4);
+  color: #eee;
   padding: 2px 4px;
   margin-right: 0.5px;
 }
@@ -161,9 +161,10 @@ $pwidth: 50rem;
   .seealso {
     @include adjust-font-size-to($base-font-size,1);
     @include font-family("sans-serif", true);
-    background-color: #ecf0f1;
-    color: #7f8c8d;
-    padding: 0 3px;
+    background-color: #555;
+    @include box-shadow(rgba(0, 0, 0, .1) 0 0 1px);
+    color: #eee;
+    padding: 0 7px;
   }
 
 }
