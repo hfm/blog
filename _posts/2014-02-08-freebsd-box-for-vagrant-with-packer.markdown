@@ -15,7 +15,7 @@ Packerの練習をしたくて、FreeBSD 10.0のVagrant boxを作るためのテ
 これの使い方は簡単で、Macであれば以下のように実行していけばいい。
 
 ```console
-$ brew install packer # before brew tap homebrew/binary
+$ brew install packer # beforehand, brew tap homebrew/binary
 $ git clone git@github.com:Tacahilo/packer-FreeBSD-10.0.git && cd packer-FreeBSD-10
 $ packer build packer/FreeBSD-10.0-RELEASE-amd64.json
 ```
