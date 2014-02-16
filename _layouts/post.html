@@ -40,7 +40,11 @@ layout: default
       <li><a href="{{ post.url }}">{{ post.title }}</a></li>
       {% endfor %}
     </ul>
-    {% include posts/adsense_footer.html %}
+    {% if site.show_drafts != true %}
+      {% include posts/adsense_footer.html %}
+    {% endif %}
   </footer>
-    {% include posts/disqus.html %}
+    {% if site.show_drafts != true %}
+      {% include posts/disqus.html %}
+    {% endif %}
 </article>
