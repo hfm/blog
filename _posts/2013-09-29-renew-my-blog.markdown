@@ -9,6 +9,6 @@ tag: notification
 
 構築はJekyllを使っています。
 
-データは https://github.com/Tacahilo/kitchengardenblog にあります。
+データは https://github.com/tacahilo/blog にあります。
 
 何もないスッカラカンの状態ですが、またぼちぼち書き留めていこうと思います。

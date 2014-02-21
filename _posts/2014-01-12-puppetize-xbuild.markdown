@@ -203,7 +203,7 @@ define xbuild::ruby::install (
 
 全体像が見やすくなるよう、GitHubにリポジトリを用意しました。
 
- * [Tacahilo/puppet-xbuild-each](https://github.com/Tacahilo/puppet-xbuild-each)
+ * [tacahilo/puppet-xbuild-each](https://github.com/tacahilo/puppet-xbuild-each)
 
 
 
@@ -262,7 +262,7 @@ define xbuild::lang::install (
 
 こちらもGitHubにリポジトリを用意しています。
 
- * [Tacahilo/puppet-xbuild](https://github.com/Tacahilo/puppet-xbuild)
+ * [tacahilo/puppet-xbuild](https://github.com/tacahilo/puppet-xbuild)
 
 #### 適切な抽象化と再配布可能性について
 

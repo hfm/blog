@@ -85,7 +85,7 @@ gollumにはユーザ登録機能がありません。
 
 なおこのセットはGitHubにリポジトリを置いています。
 
- * [Tacahilo/wiki](https://github.com/Tacahilo/wiki)
+ * [tacahilo/wiki](https://github.com/tacahilo/wiki)
 
 ### Table of Contents
 

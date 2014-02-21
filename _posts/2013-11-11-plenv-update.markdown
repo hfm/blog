@@ -5,7 +5,7 @@ tags:
 - perl
 - plenv
 ---
-[plenv-update](https://github.com/Tacahilo/plenv-update/)というplenv用プラグインを作りました。
+[plenv-update](https://github.com/tacahilo/plenv-update/)というplenv用プラグインを作りました。
 これは[rbenv-update](https://github.com/rkh/rbenv-update)の移植版で、plenvとそのプラグインを一度にアップデートするプラグインです。
 
 ## 使い方
@@ -28,7 +28,7 @@ updating perl-build
 
 updating plenv-update
  |  Already on 'master'
- |  From github.com:Tacahilo/plenv-update
+ |  From github.com:tacahilo/plenv-update
  |  * branch            master     -> FETCH_HEAD
  |  Already up-to-date.
 ```

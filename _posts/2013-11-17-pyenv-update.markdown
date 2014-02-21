@@ -5,9 +5,9 @@ tags:
 - python
 - pyenv
 ---
-[pyenv-update](https://github.com/Tacahilo/pyenv-update)というpyenv用プラグインを作りました。
-やってることは[plenv-update](https://github.com/Tacahilo/plenv-update)と同じで、pyenvとそのプラグインをアップデートするプラグインです。
+[pyenv-update](https://github.com/tacahilo/pyenv-update)というpyenv用プラグインを作りました。
+やってることは[plenv-update](https://github.com/tacahilo/plenv-update)と同じで、pyenvとそのプラグインをアップデートするプラグインです。
 
-* [GitHub - Tacahilo/pyenv-update](https://github.com/Tacahilo/pyenv-update)
+* [GitHub - tacahilo/pyenv-update](https://github.com/tacahilo/pyenv-update)
 
 pyenvの場合はpython-buildも同伴しているのであんま効果なさそうですが、なんとなく揃えたくなったので作った次第。
