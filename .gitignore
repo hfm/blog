@@ -12,3 +12,4 @@ css/
 /.bundle/
 /vendor
 Gemfile.lock
+bin/
