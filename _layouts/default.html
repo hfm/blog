@@ -6,11 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="{{ page.description }}" />
     <meta name="keywords" content="Programming">
-    {% include sites/twitter_card.html %}
-    {% include sites/facebook_ogp.html %}
+    {% if site.show_drafts != true %}
+      {% include sites/twitter_card.html %}
+      {% include sites/facebook_ogp.html %}
+    {% endif %}
     <link rel="stylesheet" href="/css/style.css" type="text/css" />
     <link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="{{ site.url }}/feed.xml">
-    {% include sites/analytics.html %}
+    {% if site.show_drafts != true %}
+      {% include sites/analytics.html %}
+    {% endif %}
   </head>
   <body>
     <header id="header">
@@ -31,8 +35,5 @@
         © <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href="http://hifumi.info/">OKUMURA Takahiro</a></span></span>
       </div>
     </footer>
-    {% if page.title %}
-      {% include posts/publisher_studio.html %}
-    {% endif %}
   </body>
 </html>
