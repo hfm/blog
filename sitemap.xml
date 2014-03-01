@@ -6,6 +6,7 @@ layout: nil
 {% for post in site.posts %}
   <url>
     <loc>http://{{ site.domain }}{{ post.url }}</loc>
+    <lastmod>{{ post.date | date: "%F" }}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
