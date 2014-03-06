@@ -80,7 +80,6 @@ $ openssl x509 -text -noout -in hifumi.info.crt | grep -B1 -A2 Validity
         Validity
             Not Before: Mar  6 14:51:51 2014 GMT
             Not After : Feb 10 14:51:51 2114 GMT
-            Not After : Feb 10 14:45:30 2114 GMT
 ```
 
 良かったできてる。
