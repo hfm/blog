@@ -16,6 +16,7 @@ h1, h2, h3, h4 {
 
 h1 {
   $font-size: 38px;
+  font-weight: 900;
   @include adjust-font-size-to($font-size,3);
 }
 
@@ -104,7 +105,7 @@ a {
 /* Posts
 /*****************************************************************************/
 
-$pwidth: 50rem;
+$pwidth: 52rem;
 
 .wrapper {
   margin: 0 auto;
