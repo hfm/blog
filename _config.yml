@@ -22,7 +22,6 @@ exclude: ['README.md', 'vendor', 'Rakefile', 'config.rb', 'Gemfile', 'Gemfile.lo
 permalink: /:categories/:year/:month/:day/:title/
 paginate: 6
 paginate_path: "page:num"
-lsi: true
 sass:
   syntax: scss
   style:  compressed
