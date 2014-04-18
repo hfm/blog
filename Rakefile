@@ -21,11 +21,6 @@ task :serverd => :clean do
   jekyll('serve --watch --drafts')
 end
 
-desc 'Build and deploy'
-task :deploy => :build do
-  sh 'rsync -rtzh --progress --delete _site/ sc.hifumi.info:/var/www/blog/'
-end
-
 desc 'Check links for site already running on localhost:4000'
 task :check_links do
   begin
