@@ -34,9 +34,22 @@ ID# ATTRIBUTE_NAME          FLAG     VALUE WORST THRESH TYPE      UPDATED  WHEN_
 
 Reallocated\_Sector\_Ctは不良セクタを予備セクタへ置換した数を示します。
 
-ハードドライブはread, write verification等でエラーを発見すると、エラー対象のセクタを予約領域へデータ転送して置換（再配置）を施行します。
+ハードドライブはread, write verification等でエラーを発見すると、エラー対象のセクタを予約領域へデータ転送して置換（再配置、またはremap）を施行します。
 
 そこまでクリティカルな現象では無いものの、RAW\_VALUEが溜まっていくに連れてread/writeの性能が悪くなるらしく、ある程度値が蓄積してきたらディスク交換をしたほうが良いでしょう。
+
+### サンプル
+
+カウント０の状態。現時点では不良セクタが見つかっておらず、概ね健康そう。
+
+![](/images/2014/04/24/reallocated_sector_ct_safe.png)
+
+一部デバイスにおいてremapされたグラフ。
+この数字が増加につれて、ディスクの性能劣化につながっていく（ただし値と性能劣化の関係性は製品によると思うので、一概に50出たらアウト、とか言い切るのは難しいです）。
+
+見ていて気持ちのいい数字じゃないですね。
+
+![](/images/2014/04/24/reallocated_sector_ct_unhealthy.png)
 
 ## Current\_Pending\_Sector (SMART ID:197)
 
@@ -55,6 +68,24 @@ Current\_Pending\_Sectorは不良セクタの数を示します。
 
 fsckの実行やblockのゼロクリア(`dd if=/dev/zero of=<dev> seek=<block>`)で回復する（代替処理される）場合があり、回復すると値は減少します。
 先ほどのReallocatedに比べるとクリティカルな現象で、ドライブ不調につきリプレイスを推奨されてます。
+
+### サンプル
+
+再配置されていない不良セクタが見つかっていないグラフ。
+sdaとsdbはデバイスがSMART ID:197をサポートしておらず、値が取れませんでしあt。
+
+1のところに先が引かれてるけど、warning/criticalのラインなのであしからず。
+
+![](/images/2014/04/24/current_pending_sector_safe.png)
+
+80近い不良セクタがあるヒヤヒヤもののデバイスがいるグラフ。
+Reallocated\_Sector\_Ctと違って、不良セクタが不良セクタとして残ってしまっているため、何が起こるかわからないので早く置換した方がいい状態。
+
+![](/images/2014/04/24/current_pending_sector_unsafe.png)
+
+さっき見つけた悲鳴を上げたくなるグラフ。跳ね上がるな、跳ね上がるな。
+
+![](/images/2014/04/24/current_pending_sector_jumpup.png)
 
 ## 使い方
 
