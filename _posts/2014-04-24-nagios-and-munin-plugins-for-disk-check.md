@@ -72,7 +72,7 @@ fsckの実行やblockのゼロクリア(`dd if=/dev/zero of=<dev> seek=<block>`)
 ### サンプル
 
 再配置されていない不良セクタが見つかっていないグラフ。
-sdaとsdbはデバイスがSMART ID:197をサポートしておらず、値が取れませんでしあt。
+sdaとsdbはデバイスがSMART ID:197をサポートしておらず、値が取れませんでした。
 
 1のところに先が引かれてるけど、warning/criticalのラインなのであしからず。
 
