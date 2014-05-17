@@ -17,7 +17,7 @@ redcarpet:
     'highlight',
     'footnotes'
   ]
-pygments: true
+highlighter: pygments
 exclude: ['README.md', 'vendor', 'Rakefile', 'config.rb', 'Gemfile', 'Gemfile.lock']
 permalink: /:categories/:year/:month/:day/:title/
 paginate: 6
