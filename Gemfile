@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rake'
-gem 'jekyll', '~>1.5'
+gem 'jekyll'
 gem 'jekyll-sass'
 gem 'redcarpet'
 gem 'compass'
