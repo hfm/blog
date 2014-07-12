@@ -15,6 +15,7 @@ redcarpet:
     'superscript',
     'underline',
     'highlight',
+    'smart',
     'footnotes'
   ]
 highlighter: pygments
