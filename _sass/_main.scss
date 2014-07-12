@@ -223,6 +223,10 @@ $pwidth: 52rem;
     @include leader(1,$base-font-size);
     @include trailer(1,$base-font-size);
     margin-left: 1.5rem;
+    p {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
   }
 
   ul {
@@ -271,5 +275,10 @@ $pwidth: 52rem;
     th {
       font-weight: bold;
     }
+  }
+
+  sup {
+    vertical-align: super;
+    font-size: smaller;
   }
 }
