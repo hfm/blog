@@ -217,6 +217,17 @@ $pwidth: 52rem;
       border:0 solid #fefef2;
     }
   }
+  p {
+    code {
+      @include box-shadow(rgba(0, 0, 0, .2) 0 0 1px);
+      background-color: #fdf6e3;
+      color: #586e75;
+      overflow: auto;
+      font-size: 80% !important;
+      padding: 2px 5px;
+      margin: 0 3px;
+    }
+  }
 
   ul, ol {
     @include adjust-font-size-to($base-font-size,1);
