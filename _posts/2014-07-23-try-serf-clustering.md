@@ -283,7 +283,11 @@ Jul 20 04:05:18 localhost serf[22169]: agent: Event 'member-leave' script output
 `SERF_SELF_NAME`と`SERF_EVENT`はそのままなので省略する．
 
 `SERF_SELF_ROLE=`は何も指定していないので空白だ．
-ただし，Configuration[^8]では`-role`がdeprecatedになっており，この環境変数の将来は怪しい．
+~~ただし，Configuration[^8]では`-role`がdeprecatedになっており，この環境変数の将来は怪しい．~~
+
+2014/07/27追記:  
+[Membership Event Data](http://www.serfdom.io/docs/agent/event-handlers.html)を読む限り，roleそのものをdeprecatedにしたわけではなく，tagsから指定することへの切り替えを推奨しているだけらしい．
+つまり，`SERF_SELF_ROLE`は生きるのかもしれない．
 
 ### `tag role=test`
 
