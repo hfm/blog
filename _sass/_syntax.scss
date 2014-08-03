@@ -16,12 +16,22 @@ cyan      #2aa198  strings, numbers
 green     #859900  operators, other keywords
  */
 
-.highlight {
+@mixin highlight-code {
   @include box-shadow(rgba(0, 0, 0, .2) 0 0 1px);
   background-color: #fdf6e3;
   color: #586e75;
   overflow: auto;
   font-size: 80% !important;
+}
+
+@mixin highlight-code-oneline {
+  @include highlight-code;
+  padding: 2px 5px;
+  margin: 0 3px;
+}
+
+.highlight {
+  @include highlight-code;
 }
 .highlight .c { color: #93a1a1 } /* Comment */
 .highlight .err { color: #586e75 } /* Error */
