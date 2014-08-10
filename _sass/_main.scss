@@ -286,4 +286,12 @@ $pwidth: 52rem;
     vertical-align: super;
     font-size: smaller;
   }
+
+  .gist-file {
+    table, div, span {
+      @include adjust-font-size-to($base-font-size,1);
+      @include leader(0,$base-font-size);
+      @include trailer(0,$base-font-size);
+    }
+  }
 }
