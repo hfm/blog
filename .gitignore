@@ -13,3 +13,4 @@ css/
 /vendor
 Gemfile.lock
 bin/
+.tweet-cache
