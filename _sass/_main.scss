@@ -40,8 +40,7 @@ a {
 
 #header {
   @include adjust-font-size-to($base-font-size,1);
-  @include leader(2,$base-font-size);
-  @include trailer(2,$base-font-size);
+  @include rhythm(2, 0, 0, 2, $base-font-size);
   text-align: center;
 }
 
@@ -52,8 +51,7 @@ a {
 
 #footer {
   @include adjust-font-size-to($base-font-size,1);
-  @include leader(3,$base-font-size);
-  @include trailer(3,$base-font-size);
+  @include rhythm(3, 0, 0, 3, $base-font-size);
   text-align: center;
 }
 
@@ -66,8 +64,7 @@ a {
 
 .adsense {
   @include adjust-font-size-to($base-font-size,1);
-  @include leader(1,$base-font-size);
-  @include trailer(1,$base-font-size);
+  @include rhythm(1, 0, 0, 1, $base-font-size);
   text-align: center;
 }
 
@@ -83,17 +80,13 @@ $pwidth: 52rem;
   padding: 0 0.5rem;
 
   @include adjust-font-size-to($base-font-size,1);
-  @include leader(1,$base-font-size);
-  @include trailer(1,$base-font-size);
 }
 
 /* header */
 .entry-header {
   @include adjust-font-size-to($base-font-size,1);
-  @include leader(1,$base-font-size);
-  @include trailer(1,$base-font-size);
 
-  h1 {
+  .entry-title {
     $font-size: 38px;
     font-weight: 900;
     @include adjust-font-size-to($font-size,2);
@@ -122,12 +115,10 @@ $pwidth: 52rem;
 /* footer */
 .entry-footer {
   @include adjust-font-size-to($base-font-size,1);
-  @include leader(1,$base-font-size);
-  @include trailer(1,$base-font-size);
+  @include rhythm(1, 0, 0, 1, $base-font-size);
 
   ul, ol {
-    @include leader(1,$base-font-size);
-    @include trailer(2,$base-font-size);
+    @include rhythm(1, 0, 0, 2, $base-font-size);
     margin-left: 1.5rem;
   }
 
@@ -148,8 +139,7 @@ $pwidth: 52rem;
 
 .adsense {
   @include adjust-font-size-to($base-font-size,1);
-  @include leader(1,$base-font-size);
-  @include trailer(1,$base-font-size);
+  @include rhythm(1, 0, 0, 1, $base-font-size);
   text-align: center;
 }
 
@@ -169,14 +159,12 @@ $pwidth: 52rem;
 /* standard */
 .entry-content {
   @include adjust-font-size-to($base-font-size,1);
-  @include leader(2,$base-font-size);
-  @include trailer(2,$base-font-size);
+  @include rhythm(2, 0, 0, 2, $base-font-size);
 
   h2 {
     $font-size: 32px;
     @include adjust-font-size-to($font-size,2);
-    @include leader(2,$font-size);
-    @include trailer(1,$font-size);
+    @include rhythm(2, 0, 0, 1, $font-size);
     display: inline;
     border-bottom: 1px solid rgba(0, 0, 0, .7);
     @include box-shadow(rgba(255, 255, 255, .6) 0 1px 0);
@@ -185,21 +173,18 @@ $pwidth: 52rem;
   h3 {
     $font-size: 26px;
     @include adjust-font-size-to($font-size,1.5);
-    @include leader(1,$font-size);
-    @include trailer(1,$font-size);
+    @include rhythm(1, 0, 0, 1, $font-size);
   }
 
   h4 {
     $font-size: 20px;
     @include adjust-font-size-to($font-size,1);
-    @include leader(1,$font-size);
-    @include trailer(1,$font-size);
+    @include rhythm(1, 0, 0, 1, $font-size);
   }
 
   p, div {
     @include adjust-font-size-to($base-font-size,1);
-    @include leader(1,$base-font-size);
-    @include trailer(1,$base-font-size);
+    @include rhythm(1, 0, 0, 1, $base-font-size);
   }
 
   img {
@@ -225,8 +210,7 @@ $pwidth: 52rem;
 
   ul, ol {
     @include adjust-font-size-to($base-font-size,1);
-    @include leader(1,$base-font-size);
-    @include trailer(1,$base-font-size);
+    @include rhythm(1, 0, 0, 1, $base-font-size);
     margin-left: 1.5rem;
     p {
       margin-top: 0;
@@ -249,16 +233,14 @@ $pwidth: 52rem;
   }
 
   blockquote {
-    @include leader(1,$base-font-size);
-    @include trailer(1,$base-font-size);
+    @include rhythm(1, 0, 0, 1, $base-font-size);
     border-left:24px double #eee;
     color: #777;
     padding: 0 0 0 24px;
   }
 
   table {
-    @include leader(1,$base-font-size);
-    @include trailer(1,$base-font-size);
+    @include rhythm(1, 0, 0, 1, $base-font-size);
     @include font-family("sans-serif", true);
     border-collapse: collapse;
     color: #444;
@@ -290,8 +272,7 @@ $pwidth: 52rem;
   .gist-file {
     table, div, span {
       @include adjust-font-size-to($base-font-size,1);
-      @include leader(0,$base-font-size);
-      @include trailer(0,$base-font-size);
+      @include rhythm(0, 0, 0, 0, $base-font-size);
     }
   }
 }
