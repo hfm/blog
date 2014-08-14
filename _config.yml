@@ -21,7 +21,7 @@ redcarpet:
 highlighter: pygments
 exclude: ['README.md', 'vendor', 'Rakefile', 'config.rb', 'Gemfile', 'Gemfile.lock']
 permalink: /:categories/:year/:month/:day/:title/
-paginate: 6
+paginate: 10
 paginate_path: "page:num"
 sass:
   syntax: scss
