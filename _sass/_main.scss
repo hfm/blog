@@ -68,6 +68,26 @@ a {
   text-align: center;
 }
 
+
+/*****************************************************************************/
+/* Index
+/*****************************************************************************/
+
+.entry-title-index {
+  $font-size: 26px;
+  @include adjust-font-size-to($font-size,1.5);
+  @include rhythm(0, 0, 0, 0, $font-size);
+  font-weight: 900;
+}
+
+.entry-header-btm-index {
+  $font-size: 14px;
+  @include adjust-font-size-to($font-size,1,$font-size);
+  @include font-family("sans-serif", true);
+  background-color: #555;
+  @include box-shadow(rgba(0, 0, 0, .1) 0 0 1px);
+}
+
 /*****************************************************************************/
 /* Posts
 /*****************************************************************************/
