@@ -3,7 +3,7 @@ layout: default
 ---
 
 {% for post in paginator.posts %}
-<article itemscope itemtype="http://schema.org/Article">
+<article itemscope itemtype="http://schema.org/Article" class="article-index">
   <header class="entry-header">
     <hgroup>
       <h1 itemprop="name" class="entry-title-index">
@@ -19,9 +19,6 @@ layout: default
       </div>
     </hgroup>
   </header>
-  <!-- <section itemprop="articleBody" class="entry&#45;content"> -->
-  <!--   {{ post.excerpt }} -->
-  <!-- </section> -->
 </article>
 {% endfor %}
 

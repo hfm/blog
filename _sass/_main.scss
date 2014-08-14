@@ -82,6 +82,11 @@ $pwidth: 52rem;
 }
 
 /* header */
+.entry-header {
+  @include adjust-font-size-to($base-font-size,1);
+  @include rhythm(1, 0, 0, 1, $base-font-size);
+}
+
 .entry-title {
   $font-size: 38px;
   font-weight: 900;
@@ -90,8 +95,9 @@ $pwidth: 52rem;
 
 .entry-title-index {
   $font-size: 26px;
-  font-weight: 900;
-  @include adjust-font-size-to($font-size,1.5);
+  font-weight: 600;
+  @include adjust-font-size-to($font-size,1);
+  @include rhythm(1, 0, 0, 0, $font-size);
 }
 
 .entry-header-btm {
@@ -99,26 +105,34 @@ $pwidth: 52rem;
   @include font-family("sans-serif", true);
   background-color: #555;
   @include box-shadow(rgba(0, 0, 0, .1) 0 0 1px);
+  .postdate {
+    color: #ecf0f1;
+    margin: 0 7px;
+  }
+
+  .tag {
+    background-color: rgba(0, 0, 0, .4);
+    color: #eee;
+    padding: 2px 4px;
+    margin-right: 0.5px;
+  }
 }
 
 .entry-header-btm-index {
   $font-size: 14px;
-  @include adjust-font-size-to($font-size,1,$font-size);
+  @include adjust-font-size-to($font-size,1);
   @include font-family("sans-serif", true);
-  background-color: #555;
-  @include box-shadow(rgba(0, 0, 0, .1) 0 0 1px);
-}
+  @include rhythm(0, 0, 0, 0, $font-size);
+  .postdate {
+    margin-right: 7px;
+  }
 
-.postdate {
-  color: #ecf0f1;
-  margin: 0 7px;
-}
-
-.tag {
-  background-color: rgba(0, 0, 0, .4);
-  color: #eee;
-  padding: 2px 4px;
-  margin-right: 0.5px;
+  .tag {
+    background-color: rgba(0, 0, 0, .1);
+    color: #666;
+    padding: 2px 4px;
+    margin-left: 0.5px;
+  }
 }
 
 /* footer */
