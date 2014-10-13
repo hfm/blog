@@ -1,6 +1,7 @@
 ---
 layout: post
 title: capistrano-withrsyncを使ってVagrantで構築したVMにデプロイする
+date: 2014-10-14 05:30:00 +0900
 tags: 
 - capistrano
 ---

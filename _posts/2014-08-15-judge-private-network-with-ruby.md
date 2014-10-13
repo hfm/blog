@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Rubyでプライベートネットワーク(RFC 1918)を判定する
+post: 2014-08-15 04:47:25 +0900
 tags:
 - ruby
 - rubygems
