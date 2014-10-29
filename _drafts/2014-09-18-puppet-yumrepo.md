@@ -4,7 +4,7 @@ title: Puppetのyumrepoリソース
 tags:
 - puppet
 ---
-Puppetのyumrepoリソースで「これだけは必要だ」と思った属性についてまとめた．
+Puppetのyumrepoリソースは属性が多くて覚えにくいので，「この属性は必要だ」と思った項目についてまとめた．
 
 ## モチベーション
 
@@ -21,12 +21,27 @@ yumrepo { 'epel':
 }
 ```
 
-## 諦めなければいけない仕様
+```vim
+snippet yumrepo
+  yumrepo { '${1:repo name}':
+    descr    => '${2:$1}',
+    enabled  => ${3:1},
+    baseurl  => '${4:url}',
+    gpgkey   => '${5:key}',
+    gpgcheck => ${6:1},
+  }
+```
 
-### 複数のrepositoryidを1つのファイルにまとめられない
+## 備考
 
-例えば`puppetlabs-release-el-6.noarch.rpm`わインストールしたりすると，`/etc/yum.repos.d/puppetlabs.repo`が作成される．
-内容は以下のようになっている．
+### yumrepoリソースは複数のrepositoryidを1つのファイルにまとめられない
+
+yumrepoリソースは，1つの宣言に対して1つのファイルを生成する．
+これは，rpmで直接インストールする時と勝手が違うので違和感があるかもしれない．
+
+yumrepoリソースを使っていると，「あれ？epelとかpuppetlabs-*とか，複数repositoryidを持ってる奴を1ファイルにまとめるのはどうやるんだ？」って疑問が出てくる．
+
+例えば`puppetlabs-release-el-6.noarch.rpm`わインストールしたりすると，以下のような`/etc/yum.repos.d/puppetlabs.repo`が作成される．
 
 ```ini
 [puppetlabs-products]
@@ -45,18 +60,3 @@ gpgcheck=1
 ...
 ```
 
-
-
-yumrepoリソースを使っていると，「あれ？epelとかpuppetlabs-*とか，複数repositoryidを持ってる奴を1ファイルにまとめるのはどうやるんだ？」って疑問が出てくる．
-
-
-```vim
-snippet yumrepo
-  yumrepo { '${1:repo name}':
-    descr    => '${2:$1}',
-    enabled  => ${3:1},
-    baseurl  => '${4:url}',
-    gpgkey   => '${5:key}',
-    gpgcheck => ${6:1},
-  }
-```
