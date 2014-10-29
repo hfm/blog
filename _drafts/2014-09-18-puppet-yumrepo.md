@@ -21,7 +21,9 @@ yumrepo { 'epel':
 }
 ```
 
-### 複数のrepositoryidを1つのファイルにまとめる
+## 諦めなければいけない仕様
+
+### 複数のrepositoryidを1つのファイルにまとめられない
 
 例えば`puppetlabs-release-el-6.noarch.rpm`わインストールしたりすると，`/etc/yum.repos.d/puppetlabs.repo`が作成される．
 内容は以下のようになっている．
@@ -42,6 +44,8 @@ enabled=1
 gpgcheck=1
 ...
 ```
+
+
 
 yumrepoリソースを使っていると，「あれ？epelとかpuppetlabs-*とか，複数repositoryidを持ってる奴を1ファイルにまとめるのはどうやるんだ？」って疑問が出てくる．
 
