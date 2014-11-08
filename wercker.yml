@@ -7,4 +7,4 @@ build:
         - script:
             name: build site with jekyll
             code: |
-                bundle exec rake build
+                bundle exec jekyll build
