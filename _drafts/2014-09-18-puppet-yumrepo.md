@@ -21,8 +21,6 @@ yumrepo { 'epel':
 }
 ```
 
-
-
 ```vim
 snippet yumrepo
   yumrepo { '${1:repo name}':
@@ -62,5 +60,3 @@ gpgcheck=1
 ...
 ```
 
-しかし，この状態をPuppet yumrepoリソースで再現することは出来ない（2014/09/23時点）．
-`yumrepo`は1つの宣言に対して1つのファイルを生成するようになっており，
