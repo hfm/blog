@@ -35,11 +35,7 @@ layout: default
     </div>
 
     <h4 class="seealso">see also</h4>
-    <ul>
-      {% for post in site.related_posts limit:3 %}
-      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
-      {% endfor %}
-    </ul>
+    {% include posts/zenback.html %}
     {% if site.show_drafts != true %}
       {% include posts/adsense_footer.html %}
     {% endif %}
