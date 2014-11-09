@@ -34,11 +34,12 @@ layout: default
       {% endif %}
     </div>
 
-    <h4 class="seealso">see also</h4>
-    {% include posts/zenback.html %}
     {% if site.show_drafts != true %}
       {% include posts/adsense_footer.html %}
     {% endif %}
+
+    <h4 class="seealso">see also</h4>
+    {% include posts/zenback.html %}
   </footer>
     {% if site.show_drafts != true %}
       {% include posts/disqus.html %}
