@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Capistranoを使ってlibrarian-puppetをデプロイ先に適応する
+title: Capistranoを使ったlibrarian-puppetを含むリポジトリのデプロイ方法
 tags: 
 - puppet
 - capistrano
@@ -12,7 +12,11 @@ librarian-puppetの使い方は前回のブログ記事を参照されたい．
 前回のブログ記事の最後で，デプロイに課題が残ることを説明した．
 ただlibrarian-puppetを導入しただけでは，デプロイ先で手ずから`librarian-puppet install`コマンドでインストール作業を行わなければいけない．
 
-そこで今回は，capistrano[^1]を利用して，デプロイ先で自動的にlibrarian-puppet経由でモジュールのインストールを行えるようにしたい．
+そこで今回は，Capistrano[^1]を利用して，デプロイ先で自動的にlibrarian-puppet経由でモジュールのインストールを行えるようにしたい．
+なお，Capistranoのバージョンは3系とする．
+
+## Capistranoの準備
+
 
 ```rb
 group :development do
@@ -21,6 +25,8 @@ group :development do
   gem "capistrano-withrsync"
 end
 ```
+
+capistrano一式のインストールが完了したら，`cap install`で初期ファイルを生成する．
 
 ```console
 $ bundle exec cap install
@@ -98,6 +104,28 @@ librarian-puppet install
 
 `outdated`や`update`コマンドで更新情報の確認・変更を行うことが可能である．
 `update`はモジュールを単体指定することも可能である．
+
+## 補足：Webistrano (Capistrano 2)を使っている場合
+
+WebistranoはCapistranoのWebインタフェイスで，内部的にはCapistrano 2系を使っている．
+Cap 2系と3系はあまり互換性が無く，上記のやり方では上手くいかない．
+
+
+```rb
+namespace :librarian_puppet do
+  task :setup do
+    run "mkdir -p #{shared_path}/librarian/modules"
+  end
+  after 'deploy:setup', 'libraian_puppet:setup'
+
+  task :install do
+    run "mkdir #{current_release}/vendor"
+    run "ln -sf #{shared_path}/librarian/modules #{current_release}/vendor/modules"
+    run "cd #{current_release}; LIBRARIAN_PUPPET_TMP=#{shared_path} bundle exec librarian-puppet install"
+  end
+  after 'bundler:install', 'libraian_puppet:install'
+end
+```
 
 ## 終わりに
 
