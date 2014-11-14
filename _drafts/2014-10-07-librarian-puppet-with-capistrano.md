@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2014-11-12 03:14:29 +0900
 title: Capistranoを使ったlibrarian-puppetを含むリポジトリのデプロイ方法
 tags: 
 - puppet
@@ -17,12 +18,14 @@ librarian-puppetの使い方は前回のブログ記事を参照されたい．
 
 ## Capistranoの準備
 
+`Gemfile`に以下の4つのgemを追加する．
 
 ```rb
 group :development do
   gem "capistrano"
   gem "capistrano-bundler"
   gem "capistrano-withrsync"
+  gem "capistrano-librarian-puppet"
 end
 ```
 

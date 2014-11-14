@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2014-11-12 03:14:29 +0900
 title: Puppetのyumrepoリソース
 tags:
 - puppet
