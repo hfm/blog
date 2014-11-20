@@ -74,7 +74,7 @@ GEM
     kramdown (1.5.0)
     libv8 (3.16.14.7)
     liquid (2.6.1)
-    listen (2.7.12)
+    listen (2.8.0)
       celluloid (>= 0.15.2)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
@@ -101,7 +101,7 @@ GEM
     ref (1.0.5)
     robotex (1.0.0)
     safe_yaml (1.0.4)
-    sass (3.4.7)
+    sass (3.4.8)
     therubyracer (0.12.1)
       libv8 (~> 3.16.14.0)
       ref
