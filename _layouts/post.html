@@ -5,7 +5,7 @@ layout: default
   <header class="entry-header">
     <hgroup>
       <h1 itemprop="name" class="entry-title">
-        {{ page.title }}
+        <a href="{{ page.url }}">{{ page.title }}</a>
       </h1>
       <div class="entry-header-btm">
         <time itemprop="datePublished" content="{{ page.date | date: '%Y-%m-%d' }}" class="postdate" datetime="{{ page.date | date: '%Y-%m-%d' }}">
