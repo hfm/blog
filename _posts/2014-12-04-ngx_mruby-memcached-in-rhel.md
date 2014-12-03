@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2014-12-04 09:00:00 +0900
+date: 2014-12-04 00:00:00 +0900
 title: ngx_mruby(memcached付)をCentOS/SLでビルドする時のハマりどころと直し方について
 tags: 
 - mruby
