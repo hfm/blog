@@ -111,4 +111,4 @@ make install
 
 nginxのconfigure optionsが個人的な用途に基づいているので，汎用性にはやや欠けますが，似たような環境でngx_mrubyをビルドしたい方がいらっしゃいましたら，ご参考にどうぞ．
 
-明日5日目は[Marcy](http://qiita.com/Marcy)さんの「ISUCON4予選問題をngx_mrubyだけで解いてみた（ノウハウ編）」になります。
+明日5日目は[Marcy](http://qiita.com/Marcy)さんの「[ISUCON4予選問題をngx_mrubyだけで解いてみた（ノウハウ編）](http://qiita.com/Marcy/items/1a7ab35970c31d169bf8)」になります。
