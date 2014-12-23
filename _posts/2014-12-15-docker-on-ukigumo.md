@@ -49,6 +49,14 @@ cpanm Amon2::Plugin::Web::CSRFDefender
 cpanm Ukigumo::Agent Ukigumo::Server Ukigumo::Client
 ```
 
+##### 2014/12/15 23:29追記
+
+奇数番のperlバージョンで試していたところ，ひさいちくんからありがたいアドバイスが！！
+
+{% tweet https://twitter.com/hisaichi5518/status/544499389964640258 %}
+
+そういえば[@lamanotrama](https://twitter.com/lamanotrama)さんは，「5.16が落ち着いてるイメージがある」って言っていたような...初めからそっち使えばよかったんや．
+
 ### 社内VMでUkigumo::ServerとUkigumo::Agentを動かし，GH:Eからapi hookする
 
 ペパボではmaglica[^2]という社内VM環境があり，そこでUkigumo用のサーバを用意することにしました．
