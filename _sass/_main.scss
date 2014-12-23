@@ -49,10 +49,38 @@ a {
   @include adjust-font-size-to($font-size,1);
 }
 
-#footer {
-  @include adjust-font-size-to($base-font-size,1);
-  @include rhythm(3, 0, 0, 3, $base-font-size);
-  text-align: center;
+.footer {
+  @include adjust-font-size-to($base-font-size,2);
+  @include rhythm(3, 1, 1, 0, $base-font-size);
+  color:#fff;
+  a { color: #fff; }
+  background-color:#333;
+  line-height: 100%;
+}
+
+img.profile_image {
+  border: 10px solid #fff;
+  margin-right: 2.0em;
+  float:left;
+}
+
+div.profile_contact {
+  @include inline-block-list(2px);
+
+  ul, ol {
+    @include adjust-font-size-to($base-font-size,0);
+    @include rhythm(0, 0, 0, 0, $base-font-size);
+    margin-left: 0.0rem;
+  }
+
+  li {
+    vertical-align: top;
+  }
+
+  img {
+    height: 32px;
+    width: 32px;
+  }
 }
 
 #pagination {
@@ -67,7 +95,6 @@ a {
   @include rhythm(1, 0, 0, 1, $base-font-size);
   text-align: center;
 }
-
 
 /*****************************************************************************/
 /* Posts
@@ -155,19 +182,6 @@ $pwidth: 52rem;
   @include adjust-font-size-to($base-font-size,1);
   @include rhythm(1, 0, 0, 1, $base-font-size);
   text-align: center;
-}
-
-.nav-sns {
-  @include inline-block-list(3px);
-
-  li {
-    vertical-align: top;
-  }
-
-  img {
-    height: 32px;
-    width: 32px;
-  }
 }
 
 /* standard */

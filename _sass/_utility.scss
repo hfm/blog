@@ -2,6 +2,11 @@
   text-align: center !important;
 }
 
+.clearfix {
+  overflow:hidden;
+  height:100%;
+}
+
 @mixin font-family($type, $important: false) {
   @if $important == 'important' or $important == true {
     $important: ' !important';
