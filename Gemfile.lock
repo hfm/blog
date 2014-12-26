@@ -39,7 +39,7 @@ GEM
       htmlentities
       multi_css (>= 0.1.0)
       multi_js (>= 0.1.0)
-    htmlentities (4.3.2)
+    htmlentities (4.3.3)
     jekyll (2.5.3)
       classifier-reborn (~> 2.0)
       colorator (~> 0.1)
