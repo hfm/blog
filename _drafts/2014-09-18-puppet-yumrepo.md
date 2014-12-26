@@ -1,26 +1,83 @@
 ---
 layout: post
-date: 2014-11-12 03:14:29 +0900
-title: Puppetのyumrepoリソース
+date: 2014-12-23 16:54:16 +0900
+title: Puppetのyumrepoリソースでよく指定する属性
 tags:
 - puppet
 ---
 Puppetのyumrepoリソースは属性が多くて覚えにくいので，「この属性は必要だ」と思った項目についてまとめた．
 
-## モチベーション
+## `yumrepo`リソース
 
-`/etc/yum.repos.d/`の中身をPuppet manifestsで管理したい．
-けど，yumrepoは属性が多すぎて，一体どれを設定すればいいのかいっつも分からなくなり，「puppet yumrepo」で調べている．
+外部リポジトリをPuppet manifestsで管理したい場合に，`yumrepo`リソースがある．
 
-`yum.conf(5)`の各項目との対応付けが公式ドキュメントに記載されているので，それと一緒に見ると分かりやすい．
+- Type Reference  
+https://docs.puppetlabs.com/references/latest/type.html#yumrepo
 
+ちなみに，各属性の意味については，`yum.conf(5)`の各項目との対応付けが公式ドキュメントに記載されている．
 
+### yumrepoリソースの属性は多すぎる
+
+Type Referenceのyumrepoリソースを見ると，yumrepo固有の属性は38個もあることが分かる．
+中には`s3_enabled`みたいな特殊な属性もあって，一覧を見ただけでは優先順位が分からない．
+
+## 普段指定する属性
+
+### サンプル
+
+場合によってはgpgkey, gpgcheckも付けなかったりするけど，まあこれまであれば大体不自由なく動く．
+`rpm -ivh`でインストールしても，だいたいこれぐらいの項目とプラスアルファが付いてくる．
 
 ```puppet
+# a sample manifest
 yumrepo { 'epel':
-  name 
+  descr    => 'Extra Packages for Enterprise Linux 6 - x86_64',
+  enabled  => 1,
+  baseurl  => 'http://download.fedoraproject.org/pub/epel/6/$basearch',
+  gpgkey   => 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6',
+  gpgcheck => 1,
 }
 ```
+
+### descr
+
+descrをつけないと，yum.conf(5)の`name`パラメタが指定されず，yum実行時に以下のような警告が出る．
+
+```
+Repository 'REPOSITORYID' is missing name in configuration, using id
+```
+
+これは地味にうざいので，descrはちゃんとつけたほうがいいと思う．
+
+### enabled
+
+コレがなかったらどうするのと言うレベルで必要な奴．
+
+### baseurl
+
+上に同じく．
+
+### gpgkey
+
+epelとかpuppetlabsとかにちゃんとGPGキーは付いてるので，コレは属性としてあった方が良さそう．
+
+### gpgcheck
+
+gpgkeyつけるならこちらも．たまにどっちも省いたり，わざとチェックしないとかもするけど，基本的にはチェックした方がいいと思う．
+
+## 悩んだけど付けなかった項目
+
+### `mirrorlist`
+
+epelをrpmからインストールすると付いてくる．
+
+### `failovermethod`
+
+`mirrorlist`を省いたのでこちらも省いた．
+
+## おまけ: neosnippets.vim用snippet
+
+普段Puppet manifestsに使っているyumrepo用snippetを残しておく．
 
 ```vim
 snippet yumrepo
@@ -32,32 +89,3 @@ snippet yumrepo
     gpgcheck => ${6:1},
   }
 ```
-
-## 備考
-
-### yumrepoリソースは複数のrepositoryidを1つのファイルにまとめられない
-
-yumrepoリソースは，1つの宣言に対して1つのファイルを生成する．
-これは，rpmで直接インストールする時と勝手が違うので違和感があるかもしれない．
-
-yumrepoリソースを使っていると，「あれ？epelとかpuppetlabs-*とか，複数repositoryidを持ってる奴を1ファイルにまとめるのはどうやるんだ？」って疑問が出てくる．
-
-例えば`puppetlabs-release-el-6.noarch.rpm`わインストールしたりすると，以下のような`/etc/yum.repos.d/puppetlabs.repo`が作成される．
-
-```ini
-[puppetlabs-products]
-name=Puppet Labs Products El 6 - $basearch
-baseurl=http://yum.puppetlabs.com/el/6/products/$basearch
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puppetlabs
-enabled=1
-gpgcheck=1
- 
-[puppetlabs-deps]
-name=Puppet Labs Dependencies El 6 - $basearch
-baseurl=http://yum.puppetlabs.com/el/6/dependencies/$basearch
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puppetlabs
-enabled=1
-gpgcheck=1
-...
-```
-
