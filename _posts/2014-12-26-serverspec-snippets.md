@@ -27,7 +27,7 @@ Serverspec v2がリリースされた後に出したPRです．
 v2ではいくつかのマッチャが廃止され，代わりのマッチャが追加されました．
 この詳細は [Serverspec - Changes of Version 2](http://serverspec.org/changes-of-v2.html) の**Backward Incompatibility**に記されています．
 
-ちなみに，v1を利用しているところもあると思うので，このPRではobsolatedなマッチャほ削除していません．
+ちなみに，v1を利用しているところもあると思うので，このPRではobsolatedなマッチャは削除していません．
 
 ## [Update service snippets #2](https://github.com/glidenote/serverspec-snippets/pull/2)
 
