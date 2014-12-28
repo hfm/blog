@@ -115,9 +115,9 @@ $pwidth: 52rem;
 }
 
 .entry-title {
-  $font-size: 38px;
+  $font-size: 26px;
   font-weight: 900;
-  @include adjust-font-size-to($font-size,2);
+  @include adjust-font-size-to($font-size,1.5);
 }
 
 .entry-title-index {
