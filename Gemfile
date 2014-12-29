@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rake'
+gem 'dotenv'
 
 gem 'jekyll'
 gem 'jekyll-sass'

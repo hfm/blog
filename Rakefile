@@ -21,6 +21,14 @@ task :serverd => :clean do
   jekyll('serve --watch --drafts')
 end
 
+desc 'Deploy server'
+task :deploy => :build do
+  require 'dotenv'
+  Dotenv.load
+
+  sh "rsync -avz --delete -e 'ssh -p #{ENV['PORT']}' _site/ #{ENV['USERNAME']}@#{ENV['SERVER']}:/var/www/blog/"
+end
+
 desc 'Check links for site already running on localhost:4000'
 task :check_links do
   begin
