@@ -33,3 +33,5 @@ og_image_type: image/png
 og_image_width: 256
 og_image_height: 256
 fb_admins: 32238
+tag_page_layout: tag
+tag_page_dir: tag

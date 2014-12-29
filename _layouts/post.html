@@ -12,7 +12,7 @@ layout: default
           {{ page.date | date_to_long_string }}
         </time>
         {% for tag in page.tags%}
-        <span class="tag">{{ tag }}</span>
+          <a href="/tag/{{ tag }}.html"><span class="tag">{{ tag }}</span></a>
         {% endfor %}
       </div>
     </hgroup>

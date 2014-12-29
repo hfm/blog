@@ -1,0 +1,26 @@
+---
+layout: default
+---
+
+<article itemscope itemtype="http://schema.org/Article" class="article-index">
+  <header class="entry-header">
+    <h1 itemprop="name" class="tag-name">
+      {{ page.tag }}
+    </h1>
+  </header>
+  {% for post in page.posts %}
+    <section>
+      <h2 itemprop="name" class="tag-index">
+        <a href="{{ post.url }}">{{ post.title }}</a>
+        -
+        <time itemprop="datePublished" content="{{ post.date | date: '%Y-%m-%d' }}" class="postdate" datetime="{{ post.date | date: '%Y-%m-%d' }}">
+          {{ post.date | date_to_long_string }}
+        </time>
+      </h2>
+    </section>
+  {% endfor %}
+</article>
+
+<aside class="tag-cloud">
+  {{ site | tag_cloud }}
+</aside>
