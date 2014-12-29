@@ -3,8 +3,8 @@ layout: post
 title: ペパボ新卒エンジニア研修 前編
 tags: 
 - pepabo
-- Rails
-- Ruby
+- rails
+- ruby
 ---
 今年の4月に株式会社paperboy&co.へ入社し、気がつけば年の瀬までやってきた。
 
