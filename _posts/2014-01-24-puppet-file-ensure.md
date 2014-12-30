@@ -3,7 +3,6 @@ layout: post
 title: PuppetのFileリソースのensure属性present, fileの使い分けについて
 tags: 
 - puppet
-- design pattern
 ---
 Puppet manifestsにおける下記2種類の宣言は、結果が同じになります。
 

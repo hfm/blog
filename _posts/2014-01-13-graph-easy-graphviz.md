@@ -4,7 +4,6 @@ title: Graph::Easy => Graphvizを試してみた
 tags: 
 - perl
 - graph
-- tool
 ---
 ペパボの先輩のブログから[Graph-Easy](http://search.cpan.org/~tels/Graph-Easy/)という便利ツールを知ったので自分も触ってみた。
 

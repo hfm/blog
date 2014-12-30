@@ -2,7 +2,7 @@
 layout: post
 title: Shuttle XS36VLを買った
 tags:
-- server
+- diary
 ---
 ファンレスベアボーンの[Shuttle XS36VL](http://www.shuttle-japan.jp/barebone/slim/xs36vl)を買いました。
 

@@ -3,7 +3,6 @@ layout: post
 title: PuppetのFileリソースタイプにはensure属性をなるべくつけた方が良い
 tags: 
 - puppet
-- design pattern
 ---
 例えば以下のようなPuppet Manifestがある時に、その実行結果はどうなるでしょうか。
 

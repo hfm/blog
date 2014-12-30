@@ -96,6 +96,18 @@ div.profile_contact {
   text-align: center;
 }
 
+.tag-name {
+  $font-size: 26px;
+  font-weight: 900;
+  @include adjust-font-size-to($font-size,1);
+  @include rhythm(1, 0, 0, 1, $base-font-size);
+}
+
+.tag-cloud {
+  @include adjust-font-size-to($base-font-size,1);
+  @include rhythm(1, 0, 0, 1, $base-font-size);
+}
+
 /*****************************************************************************/
 /* Posts
 /*****************************************************************************/

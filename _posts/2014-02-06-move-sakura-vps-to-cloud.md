@@ -2,7 +2,7 @@
 layout: post
 title: FreeBSDからCentOS 6.5へ移行した
 tags:
-- info
+- diary
 ---
 さくらのVPSで使ってるFreeBSDを9系から10系へアップグレードしようとしたら、設定を間違えたらしくぶっ壊れてしまったので、さくらのクラウドのインスタンスに避難。
 

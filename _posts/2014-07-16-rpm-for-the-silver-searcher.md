@@ -5,7 +5,7 @@ tags:
 - packer
 - vagrant
 - linux
-- centos
+- rhel
 ---
 agことthe silver searcher[^1]のrpmを作るスクリプトを用意した[^2]。
 

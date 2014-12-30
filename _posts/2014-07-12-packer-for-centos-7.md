@@ -5,7 +5,7 @@ tags:
 - packer
 - vagrant
 - linux
-- centos
+- rhel
 ---
 CentOS 7がリリースされていた [^1] ので、PackerでVagrant用Boxをビルドしてみた。
 
