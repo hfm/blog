@@ -13,3 +13,5 @@ gem 'compass'
 gem 'anemone'
 
 gem 'therubyracer'
+
+gem 'instagram'
