@@ -13,3 +13,6 @@ css/
 /vendor
 bin/
 .tweet-cache
+
+# dotenv
+.env
