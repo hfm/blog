@@ -12,7 +12,7 @@ tags:
 
 せっかくなので，30days Albumで使われているServerspec用のRakefileとspec_helper.rbを簡単に紹介してみようと思います．
 
-半分くらいは[@lamanotrama](https://twitter.com/lamanotrama)さんが書いているんですが，多分紹介しない気がするので代わりに紹介してしまいます．
+ちなみに，半分くらいは[@lamanotrama](https://twitter.com/lamanotrama)さんが書いていたりします．
 （Serverspec v1時代にガガッと黒田さんが書いたのを，僕がv2用に合わせて書き直してます）
 
 ## Rakefile
