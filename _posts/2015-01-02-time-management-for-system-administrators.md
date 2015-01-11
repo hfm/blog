@@ -8,7 +8,7 @@ tags:
 オライリーの「エンジニアのための時間管理術」を読み終えた．
 誤解を恐れずに言ってしまえばライフハック系の本である．
 
-[![エンジニアのための時間管理術](http://ecx.images-amazon.com/images/I/51jWtxU0sAL.jrg)](http://www.amazon.co.jp/exec/obidos/ASIN/4873113075/hifumiass-22/ref=nosim/)  
+[![エンジニアのための時間管理術](http://ecx.images-amazon.com/images/I/51jWtxU0sAL._SL160_.jpg)](http://www.amazon.co.jp/exec/obidos/ASIN/4873113075/hifumiass-22/ref=nosim/)  
 [エンジニアのための時間管理術](http://www.amazon.co.jp/exec/obidos/ASIN/4873113075/hifumiass-22/ref=nosim/)
 
 ## 目次
