@@ -20,11 +20,11 @@ tags:
 
 弱さゆえに，傷つけることでしか絆を強められなかったという，未熟な雛鳥の物語が1巻-2巻中盤の話だった．
 
-![マルドゥック・スクランブル　The 1st Compression─圧縮　〔完全版〕 マルドゥックスクランブル (ハヤカワ文庫JA)](http://ecx.images-amazon.com/images/I/51NKS61ubuL._SL160_.jpg)  
-[マルドゥック・スクランブル　The 1st Compression─圧縮　〔完全版〕 マルドゥックスクランブル (ハヤカワ文庫JA)](http://www.amazon.co.jp/exec/obidos/ASIN/B009GCQNK4/hifumiass-22/ref=nosim/)
+[![マルドゥック・スクランブル　The 1st Compression─圧縮　〔完全版〕 マルドゥックスクランブル (ハヤカワ文庫JA)](http://ecx.images-amazon.com/images/I/51NKS61ubuL._SL160_.jpg)  
+マルドゥック・スクランブル　The 1st Compression─圧縮　〔完全版〕 マルドゥックスクランブル (ハヤカワ文庫JA)](http://www.amazon.co.jp/exec/obidos/ASIN/B009GCQNK4/hifumiass-22/ref=nosim/)
 
-![マルドゥック・スクランブル　The 2nd Combustion─燃焼　〔完全版〕 マルドゥックスクランブル (ハヤカワ文庫JA)](http://ecx.images-amazon.com/images/I/51nujbilLiL._SL160_.jpg)  
-[マルドゥック・スクランブル　The 2nd Combustion─燃焼　〔完全版〕 マルドゥックスクランブル (ハヤカワ文庫JA)](http://www.amazon.co.jp/exec/obidos/ASIN/B009GCQNHC/hifumiass-22/ref=nosim/)
+[![マルドゥック・スクランブル　The 2nd Combustion─燃焼　〔完全版〕 マルドゥックスクランブル (ハヤカワ文庫JA)](http://ecx.images-amazon.com/images/I/51nujbilLiL._SL160_.jpg)  
+マルドゥック・スクランブル　The 2nd Combustion─燃焼　〔完全版〕 マルドゥックスクランブル (ハヤカワ文庫JA)](http://www.amazon.co.jp/exec/obidos/ASIN/B009GCQNHC/hifumiass-22/ref=nosim/)
 
 2巻中盤から3巻までは，カジノでの闘い．
 かねてから抱いていた疑問への答えを手に入れるための闘い．
@@ -38,8 +38,8 @@ tags:
 だけど，バロットの自律は，ウフコックに対等なパートナーシップをもたらす結果となる．
 父と娘のようだった守り守られる関係から，一歩前へ踏み出せた瞬間は，読んでいて心暖められた．
 
-![マルドゥック・スクランブル　The 3rd Exhaust─排気　〔完全版〕 マルドゥックスクランブル (ハヤカワ文庫JA)](http://ecx.images-amazon.com/images/I/51fyD%2B558FL._SL160_.jpg)  
-[マルドゥック・スクランブル　The 3rd Exhaust─排気　〔完全版〕 マルドゥックスクランブル (ハヤカワ文庫JA)](http://www.amazon.co.jp/exec/obidos/ASIN/B009GCQNH2/hifumiass-22/ref=nosim/)
+[![マルドゥック・スクランブル　The 3rd Exhaust─排気　〔完全版〕 マルドゥックスクランブル (ハヤカワ文庫JA)](http://ecx.images-amazon.com/images/I/51fyD%2B558FL._SL160_.jpg)  
+マルドゥック・スクランブル　The 3rd Exhaust─排気　〔完全版〕 マルドゥックスクランブル (ハヤカワ文庫JA)](http://www.amazon.co.jp/exec/obidos/ASIN/B009GCQNH2/hifumiass-22/ref=nosim/)
 
 そして3巻を締めくくるのはボイルドとの決戦だが，これはバロットではなく，ウフコックの闘いと言えるかもしれない．
 
