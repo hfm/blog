@@ -37,6 +37,8 @@ Docker 1.5になると，docker buildに`-f`オプションが追加されるか
 
 {% tweet https://twitter.com/deeeet/status/560068243784622081 %}
 
+[@deeeet](https://twitter.com/deeeet)さん教えてくれてありがとう!!
+
 ---
 
 ## Dockerfileへの依存について思うこと
