@@ -26,6 +26,19 @@ ln -sf "Dockerfile.${dist}" Dockerfile
 
 ちなみにこの現象に遭遇した背景には，インフラCIで複数の環境(CentOS5やら6やらSLやら)が必要で，distributionごとにDockerfileを用意しようとしてた，というものがある．
 
+---
+
+追記 (2015-01-27 22:37)
+
+Docker 1.5になると，docker buildに`-f`オプションが追加されるかもしれないらしい．
+これはDockerfileの指定オプションらしく，上記の悩みを一気に解決してくれそう．
+
+{% tweet https://twitter.com/deeeet/status/560067994059960321 %}
+
+{% tweet https://twitter.com/deeeet/status/560068243784622081 %}
+
+---
+
 ## Dockerfileへの依存について思うこと
 
 Dockerfileは分割不可能だったり，上記のようなハマりどころがあったり，割と微妙なツール（妙な制約を課せられたシェルスクリプトって感じ）なので，packerにでも乗り換えられないかなあとか考えてる．
