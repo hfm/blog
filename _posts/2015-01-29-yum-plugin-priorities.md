@@ -12,14 +12,12 @@ yum prioritiesプラグインの影響で，欲しいバージョンのパッケ
 - `yum-plugin-priorities`を入れていると，priorityの低い，別リポジトリの同一パッケージがどうも入らない
 - priorityの低いパッケージが必要なときは`yum --noplugins`か`yum --disableplugin=priorities`で無効化する
 
-## 前提
+## 事情
 
 問題の起きた環境はAmazon Linuxだったんですが，CentOSでも再現できるので，今回はCentOSとepelで説明しようと思います．
 （あとコレにはまったのは[@lamanotrama](https://twitter.com/lamanotrama)さんだったり...黒田さんブログ書いて）
 
-- `yum-plugin-priorities`をインストールしている
-- puppetlabs yumリポジトリと**同名の**`puppet`パッケージを持つリポジトリを有効化している(今回はepel)
-- ※Amazon Linuxの場合は，確かamzn-updatesとかだったと思います
+※Amazon Linuxの場合は，確かamzn-updatesとかだったと思います
 
 ## 背景
 
@@ -37,7 +35,7 @@ puppetlabs-productsにはpuppet 3.7系が入っている：
 
 - http://yum.puppetlabs.com/el/6/products/x86_64/puppet-3.7.4-1.el6.noarch.rpm
 
-### その2. epelの優先順位が高い
+### その2. yum-plugin-prioritiesによってepelの優先順位が高くなっている
 
 `yum-plugin-priorities`はその名の通りリポジトリの優先順位を設定するプラグインで，`priority=N`のNが小さいほど優先順位が高くなります．
 最も低い優先順位（デフォルト値）はN=99らしいです[^1]．
