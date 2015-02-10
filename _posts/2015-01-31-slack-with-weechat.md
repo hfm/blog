@@ -3,7 +3,8 @@ layout: post
 date: 2015-01-31 17:46:42 +0900
 title: WeechatからSlackにアクセスするようにした
 tags:
-- diary
+- slack
+- weechat
 ---
 Slackを最近使い出したのだけど，普段はWeechatで過ごしているので，IRC Gatewayからアクセスしたい．
 
