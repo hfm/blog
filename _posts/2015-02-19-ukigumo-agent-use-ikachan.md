@@ -25,6 +25,15 @@ notifications:
 
 コード[^1]を読むと，SUCCESS時の通知を制御する（っぽい）`ignore_success`やprivmsg・noticeの通知方法を選択する`method`等もあるみたいなので，必要ならyamlに追記すれば良さそう．
 
+---
+
+2015/02/19 21:09 追記:
+
+http://ukigumo.github.io/Ukigumo-Client/ にも書いてあった
+
+---
+
+
 ## 終わりに
 
 [@moznion](https://twitter.com/moznion)さんのブログ[^2]にはGitHubの通知方法があったので，Ikachanは無いかなーとググったらLingrにそれっぽいことが書いてあった[^3]ので，取り敢えずそれっぽくYAMLに書いたら動いたので良かった．
