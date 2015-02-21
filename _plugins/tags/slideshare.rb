@@ -9,8 +9,8 @@ module Jekyll
 
       if m = args.match(SYNTAX)
         @slide_id    = m[1].to_i
-        @width       = m[2].nil? ? 597 : m[2].to_i
-        @height      = m[3].nil? ? 486 : m[3].to_i
+        @width       = m[2].nil? ? 599 : m[2].to_i
+        @height      = m[3].nil? ? 487 : m[3].to_i
         @start_slide = m[4].nil? ? 1   : m[4].to_i
       end
 
