@@ -182,6 +182,7 @@ tags:
 
 - [若手インフラエンジニア現状確認会で発表しました #wakateinfra - catatsuyとは](http://catatsuy.hateblo.jp/entry/2015/02/21/205303)
 - [ある若手インフラエンジニアの現状確認 #wakateinfra // Speaker Deck](https://speakerdeck.com/tcnksm/aruruo-shou-inhuraenziniafalsexian-zhuang-que-ren-number-wakateinfra)
+- [若手インフラエンジニア現状確認会 #wakateinfra に参加したまとめ - rrreeeyyy.com](http://rrreeeyyy.com/blog/2015/02/23/infra-younger/)
 
 ## おわりに
 
