@@ -9,7 +9,7 @@ tags:
 若手インフラエンジニア現状確認会というイベントを開催しました．
 全員発表型で，私([@hfm](https://twitter.com/hfm)), [@catatsuy](https://twitter.com/catatsuy), [@deeeet](https://twitter.com/deeeet), [@rrreeeyyy](https://twitter.com/rrreeeyyy), [@ryot_a_rai](https://twitter.com/ryot_a_rai), [@y_uuk1](https://twitter.com/y_uuk1)の6名（敬称略）が参加者です．
 
-会場をご提供いただいた[@catatsuy](https://twitter.com/catatsuy)君とPixivの皆様方に感謝．
+会場をご提供いただいた[@catatsuy](https://twitter.com/catatsuy)君とpixivの皆様方に感謝．
 
 ## 発表資料
 
