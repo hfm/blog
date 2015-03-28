@@ -227,6 +227,7 @@ $pwidth: 52rem;
 
   img {
     max-width: $pwidth;
+    @include box-shadow(rgba(black, 0.2) 0 0 5px);
   }
 
   pre, code {
