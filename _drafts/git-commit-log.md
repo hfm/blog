@@ -1,10 +1,13 @@
 ---
 layout: post
-date: 2015-03-08 02:34:36 +0900
-title: commit logに対する私見
+date: 2015-03-28 22:11:01 +0900
+title: Infrastructure as codeにおいて，もう少しだけ，よりよいコミットメッセージを書くために
 tags:
 - git
+- opinion
 ---
+※あらゆる開発ではこの通りでは無いことをご理解ください
+
 Gitのcommit log，それからPull Requestとレビューについて最近思うことがあって，Slackで友人に語ったところ，ブログに書いてみることを提案された．
 
 ## そもそもcommit logという「単位」は何を指しているのか
@@ -22,6 +25,8 @@ Date:   Sun Mar 8 00:23:47 2015 +0900
 
     ref: http://url.to/other_commit_hash_or_github_issue
 ```
+
+ref: http://url.to/other_commit_hash_or_github_issue
 
 > 話ズレるかもしれないんですが，僕はコミットメッセージ主義なので，コミットメッセージに「ref」だけで済ますのは微妙と思ってます
 > （PRにちゃんと書けばいい，には否定的．だったらコミットメッセージにちゃんと書いて，PRはコピペすればいい）．
