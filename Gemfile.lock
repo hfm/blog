@@ -31,7 +31,7 @@ GEM
       csspool-st (= 3.1.2)
       json
     csspool-st (3.1.2)
-    dotenv (2.0.0)
+    dotenv (2.0.1)
     execjs (2.4.0)
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
@@ -39,7 +39,7 @@ GEM
       faraday (>= 0.7.4, < 0.10)
     fast-stemmer (1.0.2)
     ffi (1.9.8)
-    hashie (3.4.0)
+    hashie (3.4.1)
     hitimes (1.2.2)
     html_press (0.8.2)
       htmlentities
