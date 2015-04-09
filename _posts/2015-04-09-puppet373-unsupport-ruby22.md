@@ -43,6 +43,17 @@ $ puppet --version
 
 どうやらSyckに関わるエラーらしく、どうしてもRuby 2.2で動かしたい場合は、`syck_node_monkeypatch.rb`というファイルに更なるモンキーパッチを当てるという闇の道を歩まねばならない。
 
+---
+
+追記:
+
+柴田さんから補足ツイートをもらったので引用。
+safe\_yamlに問題があるとのこと。つらい...
+
+{% tweet https://twitter.com/hsbt/status/586115798185320449 %}
+
+---
+
 ```diff
 --- lib/puppet/vendor/safe_yaml/lib/safe_yaml/syck_node_monkeypatch.rb
 +++ lib/puppet/vendor/safe_yaml/lib/safe_yaml/syck_node_monkeypatch.rb
