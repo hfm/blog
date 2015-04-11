@@ -1,6 +1,0 @@
-[submodule "_plugins/filter/gravatar-filter"]
-	path = _plugins/filter/gravatar-filter
-	url = https://github.com/ldesgrange/jekyll-gravatar-filter.git
-[submodule "_plugins/tags/instagram"]
-	path = _plugins/tags/instagram
-	url = https://github.com/tacahilo/jekyll-instagram-embed.git
