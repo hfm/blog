@@ -90,12 +90,6 @@ div.profile_contact {
   text-align: center;
 }
 
-.adsense {
-  @include adjust-font-size-to($base-font-size,1);
-  @include rhythm(1, 0, 0, 1, $base-font-size);
-  text-align: center;
-}
-
 .tag-name {
   $font-size: 26px;
   font-weight: 900;
