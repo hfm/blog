@@ -13,23 +13,21 @@ Puppet Server 1.0.3 - 1.0.7はスキップしてのリリースとなる。
 
 なお、Puppet Serverは[Semantic Versioning](http://semver.org)を採用している。
 
-- 参考
-  - [Ruby 2.1.0 以降のセマンティックバージョニングについて](https://www.ruby-lang.org/ja/news/2013/12/21/ruby-version-policy-changes-with-2-1-0/)
+> [Ruby 2.1.0 以降のセマンティックバージョニングについて](https://www.ruby-lang.org/ja/news/2013/12/21/ruby-version-policy-changes-with-2-1-0/)
 
-新機能やバグフィックス等から、気になったところだげピックアップしていく。
+新機能やバグフィックス等から、気になったところをピックアップしていく。
 
 HTTP clientのタイムアウト設定
 ---
 
-HTTPクライアントからの接続時にミリ秒単位でタイムアウトを設定出来るようになった。
-これで、接続先から指定時間だけ応答がない場合にcloseしてくれるようになるので、無駄に待たされることは無さそうだ。
+HTTPクライアントからの接続に、ミリ秒単位でタイムアウトを設定出来るようになった。
+
+> http://docs.puppetlabs.com/puppetserver/1.0/configuration.html#puppetserverconf
 
 - `idle-timeout-milliseconds` ... デフォルトは20分
 - `connect-timeout-milliseconds` ... デフォルトは2分
 
 デフォルト値についてドキュメントにちゃんと書いてないのだが、設定ファイルのコメントアウトを読む限りは、上記らしい。
-
-> http://docs.puppetlabs.com/puppetserver/1.0/configuration.html#puppetserverconf
 
 HTTPのトラフィックのログ化
 ---
@@ -38,7 +36,7 @@ HTTPのトラフィックをログファイルに取得出来るようになっ�
 
 > http://docs.puppetlabs.com/puppetserver/1.0/configuration.html#http-traffic
 
-フォーマットはApache風で、デフォルトでは`/var/log/puppetserver/puppetserver-access.log`に、以下の値が取得出来る。
+フォーマットはApache風で、デフォルトでは以下の値が取得出来る。
 
 - remote host
 - remote log name
@@ -51,8 +49,8 @@ HTTPのトラフィックをログファイルに取得出来るようになっ�
 - local port
 - elapsed time to serve the request, in milliseconds
 
-試しにVagrantのPuppet Serverにpuppeg agentを実行したら、以下のようなログが取得出来た。
-ログを見ると割と何をやっているか分かるようになっていて、デバッグ時には便利そう。
+Vagrantで試してみたところ、以下のようなログが取得出来た。
+デバッグ時に便利そう。
 
 ```
 0:0:0:0:0:0:0:1 - - - 12/Apr/2015:00:26:35 +0900 "GET /production/certificate_revocation_list/ca? HTTP/1.1" 200 954 0:0:0:0:0:0:0:1 0:0:0:0:0:0:0:1 8140 31
@@ -105,3 +103,5 @@ rebootするとtmpfsの中身が消失してしまうため、`/var/run`以下�
 >     }
 >  }
 > ```
+
+バージョンが1.0系になったとはいえ、まだまだ足りてないところも多い印象がある。
