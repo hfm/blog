@@ -64,17 +64,18 @@ Vagrantで試してみたところ、以下のようなログが取得出来た�
 reboot後にPuppet Serverが起動しない問題の修正
 ---
 
-**特にRHEL7とUbuntu 14.4で生じる問題**らしく、reboot後にPuppet Serverの起動に失敗するケースがあった。
+特にRHEL7とUbuntu 14.4で生じる問*らしく、reboot後にPuppet Serverの起動に失敗するケースがあった。
 
 原因は`/var/run`ディレクトリにある。
-RHEL7では`/var/run`ディレクトリは`/run`へのsymlinkになっており、更にこの`/run`は**tmpfs**となっている。 (Ubuntuは未確認だけど多分同じだろう)
+
+RHEL7では/var/runディレクトリは/runへのsymlinkになっており、更にこの/runはtmpfsとなっている。 (Ubuntuは未確認だけど多分同じだろう)
 
 ```shell-session
 [root@localhost ~]# mount | grep run
 tmpfs on /run type tmpfs (rw,nosuid,nodev,mode=755)
 ```
 
-rebootするとtmpfsの中身が消失してしまうため、`/var/run`以下のPuppet Server用ディレクトリまで消えてしまうというカラクリのようだ。
+rebootするとtmpfsの中身が消失してしまうため、/var/run以下のPuppet Server用ディレクトリまで消えてしまうというカラクリのようだ。
 
 この問題に対し、Puppet Serverを起動する前に`install`コマンドで`/var/run/puppet`ディレクトリを作成するという方法を取っている。
 
