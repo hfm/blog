@@ -275,7 +275,7 @@ div.profile_contact {
     @include font-family("sans-serif", true);
     border-collapse: collapse;
     color: #444;
-    width: 100%;
+    max-width: 100%;
 
     td, th {
       border-right: 1px solid #ddd;
