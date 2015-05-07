@@ -56,10 +56,10 @@ h1, h2, h3, h4, h5 { @include font-family("sans-serif", true) }
 .article {
   a {
     text-decoration: none;
-    color: #26e;
+    color: #04c;
 
     &:hover {
-      border-bottom: 1px dashed #26e;
+      border-bottom: 1px dashed #04c;
     }
   }
 }
