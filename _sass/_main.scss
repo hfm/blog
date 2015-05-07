@@ -6,38 +6,15 @@ $base-font-size: 18px;
 $base-line-height: 28px;
 @include establish-baseline;
 
-body {
-  background-color: #fff;
-}
+body { background-color: #fff }
+strong { font-weight: bold }
+em { font-style: italic }
+h1, h2, h3, h4, h5 { @include font-family("sans-serif", true) }
 
-h1, h2, h3, h4, h5 {
-  @include font-family("sans-serif", true);
-}
-
-strong {
-  font-weight: bold;
-}
-
-em {
-  font-style: italic;
-}
-
-a {
-  text-decoration: none;
-  @include transition-property(all);
-  @include transition-duration(0.5s);
-  @include transition-timing-function(ease-out);
-  color: #2c7676;
-
-  &:hover {
-    color: #00a6a6;
-  }
-}
 
 /*****************************************************************************/
-/* Site
+/* header
 /*****************************************************************************/
-
 #header {
   @include adjust-font-size-to($base-font-size,1);
   @include rhythm(2, 0, 0, 2, $base-font-size);
@@ -47,54 +24,18 @@ a {
 #sitename {
   $font-size: 18px;
   @include adjust-font-size-to($font-size,1);
-}
 
-.footer {
-  @include adjust-font-size-to($base-font-size,2);
-  @include rhythm(3, 1, 1, 0, $base-font-size);
-  color:#fff;
-  a { color: #fff; }
-  background-color:#333;
-  line-height: 100%;
-}
-
-img.profile_image {
-  border: 10px solid #fff;
-  margin-right: 2.0em;
-  float:left;
-}
-
-div.profile_contact {
-  @include inline-block-list(2px);
-
-  ul, ol {
-    @include adjust-font-size-to($base-font-size,0);
-    @include rhythm(0, 0, 0, 0, $base-font-size);
-    margin-left: 0.0rem;
+  a {
+    text-decoration: none;
+    color: #666;
   }
-
-  li {
-    vertical-align: top;
-  }
-
-  img {
-    height: 32px;
-    width: 32px;
-  }
-}
-
-#pagination {
-  $font-size: 12px;
-  @include adjust-font-size-to($font-size,1);
-  @include leader(2,$font-size);
-  text-align: center;
 }
 
 .tag-name {
   $font-size: 26px;
-  font-weight: 900;
   @include adjust-font-size-to($font-size,1);
   @include rhythm(1, 0, 0, 1, $base-font-size);
+  font-weight: 900;
 }
 
 .tag-cloud {
@@ -102,106 +43,87 @@ div.profile_contact {
   @include rhythm(1, 0, 0, 1, $base-font-size);
 }
 
-/*****************************************************************************/
-/* Posts
-/*****************************************************************************/
 
+/*****************************************************************************/
+/* wrapper
+/*****************************************************************************/
 .wrapper {
   margin: 0 auto;
   max-width: 48rem;
   padding: 0 0.5rem;
 }
 
-/* header */
+.article {
+  a {
+    text-decoration: none;
+    color: #26e;
+
+    &:hover {
+      border-bottom: 1px dashed #26e;
+    }
+  }
+}
+
+
+/*****************************************************************************/
+/* entry-header
+/*****************************************************************************/
 .entry-header {
   @include adjust-font-size-to($base-font-size,1);
   @include rhythm(1, 0, 0, 1, $base-font-size);
 }
 
-.entry-title {
-  $font-size: 26px;
-  font-weight: 900;
-  @include adjust-font-size-to($font-size,1.5);
+.entry-header-index {
+  $font-size: 12px;
+  @include adjust-font-size-to($font-size,1);
+  @include rhythm(0.5, 0, 0, 0, $font-size);
 }
 
-.entry-title-index {
-  $font-size: 26px;
-  font-weight: 600;
-  @include adjust-font-size-to($font-size,1);
-  @include rhythm(1, 0, 0, 0, $font-size);
+.entry-title {
+  $font-size: 32px;
+  font-weight: bolder;
+  @include adjust-font-size-to($font-size,1.5);
 }
 
 .entry-header-btm {
   @include adjust-font-size-to($base-font-size,1);
   @include font-family("sans-serif", true);
-  background-color: #555;
-  @include box-shadow(rgba(0, 0, 0, .1) 0 0 1px);
+  color: #bbb;
+
   .postdate {
-    color: #ecf0f1;
     margin: 0 7px;
   }
 
-  .tag {
-    background-color: rgba(0, 0, 0, .4);
-    color: #eee;
-    padding: 2px 4px;
-    margin-right: 0.5px;
-  }
-}
-
-.entry-header-btm-index {
-  $font-size: 14px;
-  @include adjust-font-size-to($font-size,1);
-  @include font-family("sans-serif", true);
-  @include rhythm(0, 0, 0, 0, $font-size);
-  .postdate {
-    margin-right: 7px;
+  a {
+    &:hover {
+    border-bottom: 1px dashed #bbb;
+    }
   }
 
   .tag {
-    background-color: rgba(0, 0, 0, .1);
-    color: #666;
-    padding: 2px 4px;
-    margin-left: 0.5px;
+    color: #bbb;
+    padding: 2px;
   }
 }
 
-/* footer */
-.entry-footer {
-  @include adjust-font-size-to($base-font-size,1);
-  @include rhythm(1, 0, 0, 1, $base-font-size);
 
-  ul, ol {
-    @include rhythm(1, 0, 0, 2, $base-font-size);
-    margin-left: 1.5rem;
-  }
-
-  li {
-    list-style-type: circle;
-  }
-
-}
-
-.adsense {
-  @include adjust-font-size-to($base-font-size,1);
-  @include rhythm(1, 0, 0, 1, $base-font-size);
-  text-align: center;
-}
-
-/* standard */
+/*****************************************************************************/
+/* entry-content
+/*****************************************************************************/
 .entry-content {
   @include adjust-font-size-to($base-font-size,1);
   @include rhythm(2, 0, 0, 2, $base-font-size);
 
   h2 {
-    $font-size: 32px;
+    $font-size: 30px;
     @include adjust-font-size-to($font-size,2);
     @include rhythm(2, 0, 0, 1, $font-size);
-    border-bottom: 1px dashed rgba(0, 0, 0, .7);
+    font-weight: bold;
+    border-bottom: 1px dashed #aaa;
   }
 
   h3 {
-    $font-size: 26px;
+    $font-size: 25px;
     @include adjust-font-size-to($font-size,1.5);
     @include rhythm(1, 0, 0, 1, $font-size);
   }
@@ -304,6 +226,79 @@ div.profile_contact {
     table, div, span {
       @include adjust-font-size-to($base-font-size,1);
       @include rhythm(0, 0, 0, 0, $base-font-size);
+    }
+  }
+}
+
+
+/*****************************************************************************/
+/* entry-footer
+/*****************************************************************************/
+.entry-footer {
+  @include adjust-font-size-to($base-font-size,1);
+  @include rhythm(1, 0, 0, 1, $base-font-size);
+
+  ul, ol {
+    @include rhythm(1, 0, 0, 2, $base-font-size);
+    margin-left: 1.5rem;
+  }
+
+  li {
+    list-style-type: circle;
+  }
+
+}
+
+.adsense {
+  @include adjust-font-size-to($base-font-size,1);
+  @include rhythm(1, 0, 0, 1, $base-font-size);
+  text-align: center;
+}
+
+#pagination {
+  $font-size: 12px;
+  @include adjust-font-size-to($font-size,1);
+  @include leader(2,$font-size);
+  text-align: center;
+}
+
+/*****************************************************************************/
+/* footer
+/*****************************************************************************/
+.footer {
+  @include adjust-font-size-to($base-font-size,2);
+  @include rhythm(3, 1, 1, 0, $base-font-size);
+  color: #fff;
+  background-color: #333;
+  line-height: 100%;
+
+  a {
+    text-decoration: none;
+    color: #fff;
+  }
+
+  img.profile_image {
+    border: 10px solid #fff;
+    margin-right: 2.0em;
+    float:left;
+  }
+
+  div.profile_contact {
+    @include inline-block-list(2px);
+
+    ul, ol {
+      @include adjust-font-size-to($base-font-size,0);
+      @include rhythm(0, 0, 0, 0, $base-font-size);
+      margin-left: 0.0rem;
+    }
+
+    li {
+      vertical-align: top;
+    }
+
+    img {
+      height: 32px;
+      width: 32px;
     }
   }
 }
