@@ -41,6 +41,11 @@ h1, h2, h3, h4, h5 { @include font-family("sans-serif", true) }
 .tag-cloud {
   @include adjust-font-size-to($base-font-size,1);
   @include rhythm(1, 0, 0, 1, $base-font-size);
+
+  a {
+    text-decoration: none;
+    color: #666;
+  }
 }
 
 
@@ -63,7 +68,6 @@ h1, h2, h3, h4, h5 { @include font-family("sans-serif", true) }
     }
   }
 }
-
 
 /*****************************************************************************/
 /* entry-header
