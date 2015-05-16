@@ -1,9 +1,8 @@
 ---
 layout: post
 title: pyenv-update作りました
-tags: 
+tags:
 - python
-- pyenv
 ---
 [pyenv-update](https://github.com/tacahilo/pyenv-update)というpyenv用プラグインを作りました。
 やってることは[plenv-update](https://github.com/tacahilo/plenv-update)と同じで、pyenvとそのプラグインをアップデートするプラグインです。

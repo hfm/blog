@@ -1,9 +1,8 @@
 ---
 layout: post
 title: plenv-update作りました
-tags: 
+tags:
 - perl
-- plenv
 ---
 [plenv-update](https://github.com/tacahilo/plenv-update/)というplenv用プラグインを作りました。
 これは[rbenv-update](https://github.com/rkh/rbenv-update)の移植版で、plenvとそのプラグインを一度にアップデートするプラグインです。
