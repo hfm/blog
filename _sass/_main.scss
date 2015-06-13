@@ -137,6 +137,7 @@ h1, h2, h3, h4, h5 { @include font-family("sans-serif", true) }
     $font-size: 25px;
     @include adjust-font-size-to($font-size,1);
     @include rhythm(1, 0, 0, 1, $font-size);
+    font-weight: bold;
   }
 
   p, div {
