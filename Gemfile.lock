@@ -77,7 +77,7 @@ GEM
     kramdown (1.7.0)
     libv8 (3.16.14.7)
     liquid (2.6.2)
-    listen (2.10.0)
+    listen (2.10.1)
       celluloid (~> 0.16.0)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
@@ -134,6 +134,3 @@ DEPENDENCIES
   rake
   redcarpet
   therubyracer
-
-BUNDLED WITH
-   1.10.2
