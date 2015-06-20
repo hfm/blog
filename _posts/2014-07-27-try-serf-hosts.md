@@ -14,7 +14,7 @@ serf-hostsは`/etc/hosts`の自動管理を行う．
 
 serf-hostsの挙動について，QuickCasts[^5]を使って動画を作成したので，こちらを見てもらえば実際の動作が分かる．
 
-{% youtube xUpuI3aqVjc %}
+<iframe width="800" height="600" src="https://www.youtube.com/embed/xUpuI3aqVjc" frameborder="0" allowfullscreen></iframe>
 
 ここからは，上記の動画撮影のために揃えた環境についての説明となる．
 
