@@ -276,7 +276,7 @@ h1, h2, h3, h4, h5 { @include font-family("sans-serif", true) }
   @include rhythm(3, 1, 1, 0, $base-font-size);
   color: #fff;
   background-color: #333;
-  line-height: 100%;
+  line-height: 1.5;
 
   a {
     text-decoration: none;
@@ -284,7 +284,7 @@ h1, h2, h3, h4, h5 { @include font-family("sans-serif", true) }
   }
 
   img.profile_image {
-    border: 10px solid #fff;
+    border: 20px solid #fff;
     margin-right: 2.0em;
     float:left;
   }
