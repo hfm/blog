@@ -13,7 +13,7 @@ tags:
 
 発表時からちょっと修正いれてるんですが、以下が資料です。
 
-{% speakerdeck bdf0333083ff0131024806957e15a8e9 %}
+<script async class="speakerdeck-embed" data-id="bdf0333083ff0131024806957e15a8e9" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>
 
 ### MySQL AllStar
 
