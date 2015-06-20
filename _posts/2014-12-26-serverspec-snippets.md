@@ -50,4 +50,5 @@ __2014/12/27 20:27追記__
 
 コラボレータに追加してもらいました！
 
-{% tweet https://twitter.com/glidenote/status/548323315878617088 %}
+<blockquote class="twitter-tweet" lang="ja"><p lang="ja" dir="ltr"><a href="https://twitter.com/hfm">@hfm</a> Collaboratorsに追加しておきました！いつもありがとう〜</p>&mdash; Akira MAEDA (@glidenote) <a href="https://twitter.com/glidenote/status/548323315878617088">2014, 12月 26</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>

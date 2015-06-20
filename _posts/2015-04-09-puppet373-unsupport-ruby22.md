@@ -50,7 +50,8 @@ $ puppet --version
 柴田さんから補足ツイートをもらったので引用。
 safe\_yamlに問題があるとのこと。つらい...
 
-{% tweet https://twitter.com/hsbt/status/586115798185320449 %}
+<blockquote class="twitter-tweet" lang="ja"><p lang="ja" dir="ltr"><a href="https://twitter.com/hfm">@hfm</a> safe_yaml が腐ってるんだねぇ</p>&mdash; SHIBATA Hiroshi (@hsbt) <a href="https://twitter.com/hsbt/status/586115798185320449">2015, 4月 9</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 ---
 

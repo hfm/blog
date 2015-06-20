@@ -7,13 +7,14 @@ tags:
 ---
 docker buildでは`docker build -t TAG_NAME - < Dockerfile.centos6`みたく，STDIN経由でビルド出来るが，以下のようにハマってしまったのでメモしとく．
 
-{% tweet https://twitter.com/hfm/status/560057505573646337 %}
+<blockquote class="twitter-tweet" lang="ja"><p lang="ja" dir="ltr">docker build - &lt; Dockerfile&#10;ってやると，何故かADDが効かない現象に遭遇した．&#10;&#10;調べてみたらここでも言及されていた．&#10;<a href="http://t.co/pTDMSKJWPT">http://t.co/pTDMSKJWPT</a></p>&mdash; okumura takahiro (@hfm) <a href="https://twitter.com/hfm/status/560057505573646337">2015, 1月 27</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-{% tweet https://twitter.com/hfm/status/560057600629145601 %}
+<blockquote class="twitter-tweet" lang="ja"><p lang="ja" dir="ltr"><a href="https://t.co/SVKZhQp9tI">https://t.co/SVKZhQp9tI</a> の続き．&#10;&#10;どうやら公式の説明によると，STDIN経由でのbuildは”no build context”という奴で，URLベースのADD操作しか出来ないらしい．&#10;<a href="http://t.co/q2NDkuE1YM">http://t.co/q2NDkuE1YM</a></p>&mdash; okumura takahiro (@hfm) <a href="https://twitter.com/hfm/status/560057600629145601">2015, 1月 27</a></blockquote>
 
-{% tweet https://twitter.com/hfm/status/560057873598644224 %}
+<blockquote class="twitter-tweet" lang="ja"><p lang="ja" dir="ltr"><a href="https://t.co/I6V7fhQhcr">https://t.co/I6V7fhQhcr</a> の続き．&#10;&#10;ちなみにこれは，複数のDockerfileを扱おうとして，`docker build - &lt; Dockerfile.centos6`ってやろうとして遭遇した奴．</p>&mdash; okumura takahiro (@hfm) <a href="https://twitter.com/hfm/status/560057873598644224">2015, 1月 27</a></blockquote>
 
-{% tweet https://twitter.com/hfm/status/560058182903410689 %}
+<blockquote class="twitter-tweet" lang="ja"><p lang="ja" dir="ltr"><a href="https://t.co/ka2JBEJunp">https://t.co/ka2JBEJunp</a> の続き．&#10;Dockerfile -&gt; Dockerfile.centos6 みたいなsymlink使えば`docker build .`出来るので，その辺はシェルスクリプトなりでゴニョる感じでなんとかすることにする．</p>&mdash; okumura takahiro (@hfm) <a href="https://twitter.com/hfm/status/560058182903410689">2015, 1月 27</a></blockquote>
 
 `Dockerfile -> Dockerfile.centos5`みたいにsymlinkであれば，`docker build .`で運用可能なことが分かった．
 
@@ -33,9 +34,9 @@ ln -sf "Dockerfile.${dist}" Dockerfile
 Docker 1.5になると，docker buildに`-f`オプションが追加されるかもしれないらしい．
 これはDockerfileの指定オプションらしく，上記の悩みを一気に解決してくれそう．
 
-{% tweet https://twitter.com/deeeet/status/560067994059960321 %}
+<blockquote class="twitter-tweet" lang="ja"><p lang="ja" dir="ltr"><a href="https://twitter.com/hfm">@hfm</a> 1.5で解決しそうですけどね <a href="https://t.co/CgWtsW7Yem">https://t.co/CgWtsW7Yem</a></p>&mdash; Taichi Nakashima ☕️ (@deeeet) <a href="https://twitter.com/deeeet/status/560067994059960321">2015, 1月 27</a></blockquote>
 
-{% tweet https://twitter.com/deeeet/status/560068243784622081 %}
+<blockquote class="twitter-tweet" data-conversation="none" lang="ja"><p lang="ja" dir="ltr"><a href="https://twitter.com/hfm">@hfm</a> すいません，こっちです <a href="https://t.co/WP8fV6qjS6">https://t.co/WP8fV6qjS6</a></p>&mdash; Taichi Nakashima ☕️ (@deeeet) <a href="https://twitter.com/deeeet/status/560068243784622081">2015, 1月 27</a></blockquote>
 
 [@deeeet](https://twitter.com/deeeet)さん教えてくれてありがとう!!
 

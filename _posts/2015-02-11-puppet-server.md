@@ -29,7 +29,8 @@ sudo rpm -i http://yum.puppetlabs.com/puppetlabs-release-el-6.noarch.rpm
 sudo yum install -y puppetserver
 ```
 
-{% tweet https://twitter.com/hfm/status/564399485933981697 %}
+<blockquote class="twitter-tweet" lang="ja"><p lang="ja" dir="ltr">puppet serverの依存多いな… <a href="http://t.co/WSEnZo21RV">pic.twitter.com/WSEnZo21RV</a></p>&mdash; okumura takahiro (@hfm) <a href="https://twitter.com/hfm/status/564399485933981697">2015, 2月 8</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 ### Puppet Serverのメモリ使用量について
 

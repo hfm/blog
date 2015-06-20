@@ -62,7 +62,8 @@ yum -y install --enablerepo=remi libmemcached-devel
 
 ngx_mrubyはRuby 1.9以上でしかビルドできません．
 
-{% tweet https://twitter.com/matsumotory/status/531055848844324864 %}
+<blockquote class="twitter-tweet" lang="ja"><p lang="ja" dir="ltr"><a href="https://twitter.com/hfm">@hfm</a> 昔は1.8以上でビルドできるようにしていたのですが、前に1.9以上に変更になりました… CentOSでやると色々ハマるので、ある意味理解深まりますね…ubuntuだと何も迷わずビルドできるので楽ですが。</p>&mdash; MATSUMOTO, Ryosuke (@matsumotory) <a href="https://twitter.com/matsumotory/status/531055848844324864">2014, 11月 8</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 この問題は，ruby-build等を使って，1.9以上のRubyを利用することで解決します．
 

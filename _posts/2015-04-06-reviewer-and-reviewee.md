@@ -19,13 +19,14 @@ tags:
 
 衝突を避けられない時があると分かっていても、なるべく避けようと努力してみる。
 
-{% tweet https://twitter.com/hfm/status/583848573306966016 %}
+<blockquote class="twitter-tweet" lang="ja"><p lang="ja" dir="ltr">レビューするときは「Reviewer V.S. Reviewee」の構図を作らないように、常に自分に言い聞かせてる。</p>&mdash; okumura takahiro (@hfm) <a href="https://twitter.com/hfm/status/583848573306966016">2015, 4月 3</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 ## 相手にメンチ切らなくていいので目的を見たほうが良い
 
 レビューの場では、2人が向き合うのではなく、同じ方向を見ながら、半ば独り言のように「こうすべきか？」「いや、ああすべきだな」って感じで話したい。
 
-{% tweet https://twitter.com/hfm/status/583849198895800320 %}
+<blockquote class="twitter-tweet" lang="ja"><p lang="ja" dir="ltr">レビューする側とされる側で対立構造を生むと、本来の目的から遠ざかってしまう。</p>&mdash; okumura takahiro (@hfm) <a href="https://twitter.com/hfm/status/583849198895800320">2015, 4月 3</a></blockquote>
 
 バーカウンターに並んで座るように、同じ方向を見つめながら議論をすると、落ち着いて話し合うことができる。
 レビューをする前に、一度そういう風景を思い描いてみる。
@@ -46,7 +47,7 @@ HRTの原則を思い出す。
 
 目的を見失っちゃいけない。
 
-{% tweet https://twitter.com/hfm/status/583849717194301440 %}
+<blockquote class="twitter-tweet" lang="ja"><p lang="ja" dir="ltr">レビューはお互いの実力を発揮する場所では無く、目的の達成をより高い精度で実現するための1つの手段に過ぎないのだー</p>&mdash; okumura takahiro (@hfm) <a href="https://twitter.com/hfm/status/583849717194301440">2015, 4月 3</a></blockquote>
 
 「目的」を考える上で、以下が良い参考になる。
 
@@ -84,9 +85,9 @@ ReviewerとRevieweeは目的を達成する上での重要なパートナーで�
 だからこそ、Pull Requestを出す時は的を絞った方がいい。
 相手が言い負かしてくるんじゃないか？って恐怖に取り憑かれて、なにやら目的と関係ないことまでアレやコレやと並べ立ててしまうと、双方混乱しかねない。
 
-{% tweet https://twitter.com/hfm/status/584731322255409153 %}
+<blockquote class="twitter-tweet" lang="ja"><p lang="ja" dir="ltr">「Reviewer V.S. Reviewee」の対立構造を作りやすくしてしまう要因として、本来必要でない説明（当人からすれば、論拠の補強≒自分の意見を論破されないための言い訳）を並べ立ててしまうというのがある気がする。</p>&mdash; okumura takahiro (@hfm) <a href="https://twitter.com/hfm/status/584731322255409153">2015, 4月 5</a></blockquote>
 
-{% tweet https://twitter.com/hfm/status/584732862932320257 %}
+<blockquote class="twitter-tweet" lang="ja"><p lang="ja" dir="ltr">しかしそれは煙幕弾に過ぎないような。&#10;目立った効果を得られないばかりか、むしろReviewerからすれば、論点がどんどんボケていく危機を察することになる。&#10;結果、煙幕を物ともしない破壊力のあるコメントを放つしかなくなるので、血塗れのプルリクエストが生まれる恐れがある。</p>&mdash; okumura takahiro (@hfm) <a href="https://twitter.com/hfm/status/584732862932320257">2015, 4月 5</a></blockquote>
 
 もしも目的が自分の中で曖昧になりそうだったら、早めに相談する。
 

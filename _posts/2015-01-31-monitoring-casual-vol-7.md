@@ -20,25 +20,26 @@ tags:
 muninが黒背景になってる理由を説明している時の様子．
 （導入した本人である）黒田さんに変わって，背景を黒くした中二ムニンの紹介をしてました．
 
-{% tweet https://twitter.com/deeeet/status/561122079009804288 %}
+<blockquote class="twitter-tweet" lang="ja"><p lang="ja" dir="ltr">Kibanaみたいな色にしたい <a href="https://twitter.com/hashtag/monitoringcasual?src=hash">#monitoringcasual</a></p>&mdash; Taichi Nakashima ☕️ (@deeeet) <a href="https://twitter.com/deeeet/status/561122079009804288">2015, 1月 30</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-{% tweet https://twitter.com/fujiwara/status/561122094872662016 %}
+<blockquote class="twitter-tweet" lang="ja"><p lang="ja" dir="ltr">魔改造muninだ… <a href="https://twitter.com/hashtag/monitoringcasual?src=hash">#monitoringcasual</a></p>&mdash; fujiwara (@fujiwara) <a href="https://twitter.com/fujiwara/status/561122094872662016">2015, 1月 30</a></blockquote>
 
-{% tweet https://twitter.com/myfinder/status/561122323827159040 %}
+<blockquote class="twitter-tweet" lang="ja"><p lang="ja" dir="ltr">中二病みたいなmuninグラフだ <a href="https://twitter.com/hashtag/monitoringcasual?src=hash">#monitoringcasual</a></p>&mdash; まいんだー (@myfinder) <a href="https://twitter.com/myfinder/status/561122323827159040">2015, 1月 30</a></blockquote>
 
 あと独り言．
 
-{% tweet https://twitter.com/hfm/status/561129902766690304 %}
+<blockquote class="twitter-tweet" lang="ja"><p lang="ja" dir="ltr">先輩エンジニアをいじると笑いが取れる，みたいなエクスペリエンスが蓄積されてきて良くない傾向にいることを自覚している</p>&mdash; okumura takahiro (@hfm) <a href="https://twitter.com/hfm/status/561129902766690304">2015, 1月 30</a></blockquote>
 
 ### sensu
 
-{% tweet https://twitter.com/rrreeeyyy/status/561123239728918529 %}
+<blockquote class="twitter-tweet" lang="ja"><p lang="ja" dir="ltr">Sensu なんか色々しょっぱいの分かる <a href="https://twitter.com/hashtag/monitoringcasual?src=hash">#monitoringcasual</a></p>&mdash; れい (Yoshikawa Ryota) (@rrreeeyyy) <a href="https://twitter.com/rrreeeyyy/status/561123239728918529">2015, 1月 30</a></blockquote>
 
 Sensuの「うーん」といったところを喋ってたんですが，他の方も似たような感想を持っていたことが発覚．
 
-{% tweet https://twitter.com/hfm/status/561146303778791427 %}
+<blockquote class="twitter-tweet" lang="ja"><p lang="ja" dir="ltr">やはり皆sensuつらいって思ってるんだな… <a href="https://twitter.com/hashtag/monitoringcasual?src=hash">#monitoringcasual</a></p>&mdash; okumura takahiro (@hfm) <a href="https://twitter.com/hfm/status/561146303778791427">2015, 1月 30</a></blockquote>
 
-{% tweet https://twitter.com/hfm/status/561146480606445568 %}
+<blockquote class="twitter-tweet" lang="ja"><p lang="ja" dir="ltr">sensuは結構モダンで良いところはいいんだけど，rabbitmqとかrubyとか，sensu周辺のコンポーネント及びそれらの連携に難があると思っている <a href="https://twitter.com/hashtag/monitoringcasual?src=hash">#monitoringcasual</a></p>&mdash; okumura takahiro (@hfm) <a href="https://twitter.com/hfm/status/561146480606445568">2015, 1月 30</a></blockquote>
 
 Nagiosは単体でちゃんと動いてくれるので，Sensuのようなサーバ・クライアント型と比べて導入はそう難しくないと思う．
 設定ファイル書くのがめんどくさいけど，SensuはSensuでめんどくさいところはあるので，正直イーブンかなーというのがイマココの気持ち．
@@ -47,7 +48,7 @@ Nagiosは単体でちゃんと動いてくれるので，Sensuのようなサー
 
 最近話題になっただけあって，皆さんそれぞれ意見があった印象．
 
-{% tweet https://twitter.com/myfinder/status/561123390342180864 %}
+<blockquote class="twitter-tweet" lang="ja"><p lang="ja" dir="ltr">最近言われてるインフラCIは、roleの単体テストに近いと思ってるので大仰にしすぎるのは良くないんじゃ <a href="https://twitter.com/hashtag/monitoringcasual?src=hash">#monitoringcasual</a></p>&mdash; まいんだー (@myfinder) <a href="https://twitter.com/myfinder/status/561123390342180864">2015, 1月 30</a></blockquote>
 
 「インフラCIはroleの単体テストに近い」という感覚は非常によく分かります．
 
@@ -58,7 +59,7 @@ Nagiosは単体でちゃんと動いてくれるので，Sensuのようなサー
 
 今のところ，「単体RoleのコンテナにServerspecを実行する」ぐらいなら良いかと思っているのですが，まだ分かっていないことが多いので，回答は留保させてください．
 
-{% tweet https://twitter.com/rrreeeyyy/status/561124187910062082 %}
+<blockquote class="twitter-tweet" lang="ja"><p lang="ja" dir="ltr">Provisioning のテストするのに Vagrant で VM 上げるのしんどいの分かるけど、本番の適用対象が Docker じゃなくて普通のマシンだと微妙な差分が発生するのでその差分を埋めるの結構難しい気がするんだよな… <a href="https://twitter.com/hashtag/monitoringcasual?src=hash">#monitoringcasual</a></p>&mdash; れい (Yoshikawa Ryota) (@rrreeeyyy) <a href="https://twitter.com/rrreeeyyy/status/561124187910062082">2015, 1月 30</a></blockquote>
 
 しかしながら，「単体RoleのコンテナにServerspecを実行する」にあたって問題になるのは，テストのカバレッジです．
 「Dockerでテスト出来ない項目への扱い」については社内でも議論になりました．

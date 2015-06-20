@@ -8,7 +8,8 @@ tags:
 ---
 少し前の話になるんですが，[30days Album](https://30d.jp)に[Serverspec v2](http://serverspec.org)を導入しました．
 
-{% tweet https://twitter.com/30daysalbum/status/537445879817314304 %}
+<blockquote class="twitter-tweet" lang="ja"><p lang="ja" dir="ltr">本日、Serverspec(もちろんv2です)を導入し、インフラエンジニアが歓喜している 30days Albumでございますが、ソフトウェアエンジニアとAndroidアプリエンジニアを募集しております！ <a href="http://t.co/O8fnhArXVb">http://t.co/O8fnhArXVb</a></p>&mdash; 30days Album 写真共有・保存 (@30daysalbum) <a href="https://twitter.com/30daysalbum/status/537445879817314304">2014, 11月 26</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 せっかくなので，30days Albumで使われているServerspec用のRakefileとspec_helper.rbを簡単に紹介してみようと思います．
 

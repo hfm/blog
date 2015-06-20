@@ -53,7 +53,8 @@ cpanm Ukigumo::Agent Ukigumo::Server Ukigumo::Client
 
 奇数番のperlバージョンで試していたところ，ひさいちくんからありがたいアドバイスが！！
 
-{% tweet https://twitter.com/hisaichi5518/status/544499389964640258 %}
+<blockquote class="twitter-tweet" lang="ja"><p lang="ja" dir="ltr"><a href="https://twitter.com/hfm">@hfm</a> 5.11とか21は奇数でdev版だから使わないのがよい</p>&mdash; ひさいち (@hisaichi5518) <a href="https://twitter.com/hisaichi5518/status/544499389964640258">2014, 12月 15</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 そういえば[@lamanotrama](https://twitter.com/lamanotrama)さんは，「5.16が落ち着いてるイメージがある」って言っていたような...初めからそっち使えばよかったんや．
 

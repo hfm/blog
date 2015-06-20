@@ -12,7 +12,8 @@ zenbutsuさんのserf-munin[^1][^2]，glidenote先生の改造版[^3]があり�
 実はまともにperlのスクリプトを書くのはこれが2回目です．1回目は1.5年くらい前に書いた雑過ぎる席替えスクリプト[^4]です．
 あと，こちらのserf-munin.plは30days Album[^5]のバックエンドでひっそりと動いてもらっています．
 
-{% tweet https://twitter.com/lamanotrama/status/491827063343415298 %}
+<blockquote class="twitter-tweet" lang="ja"><p lang="ja" dir="ltr">おっくんのおかげで30daysにserfが入った。/ serfの基本的な動作を試してみた | blog: takahiro okumura <a href="http://t.co/VHxWdcVaEO">http://t.co/VHxWdcVaEO</a></p>&mdash; kuroda (@lamanotrama) <a href="https://twitter.com/lamanotrama/status/491827063343415298">2014, 7月 23</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 基本的な動作はzenbutsuさん，glidenote先生のものと同じですが，若干の仕様変更を加えています．
 設定方法そのものは公式ドキュメントをご参考ください．

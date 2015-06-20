@@ -57,11 +57,12 @@ URL先にある，「おれならこう書く」と書かれた，Perlの作法�
 
 一人一人名前を上げるとキリがないのだけど，[contributors](https://github.com/pepabo/sekigae/graphs/contributors)を見ると，今もお世話になっている[@matsumotory](https://twitter.com/matsumotory)さんをはじめ，錚々たる方々からのPRをいただいており，OSSは斯くも暖かく楽しい場所なんだなあと思ったりする．
 
-{% tweet https://twitter.com/hfm/status/498395965716307971 %}
+<blockquote class="twitter-tweet" lang="ja"><p lang="ja" dir="ltr">去年の新卒研修の頃にやってた席替えスクリプト <a href="https://t.co/e5niOYYsiX">https://t.co/e5niOYYsiX</a>&#10;今見てもやっぱ凄い人がいっぱいいてビックリする</p>&mdash; okumura takahiro (@hfm) <a href="https://twitter.com/hfm/status/498395965716307971">2014, 8月 10</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-{% tweet https://twitter.com/hfm/status/498397315783081984 %}
+<blockquote class="twitter-tweet" lang="ja"><p lang="ja" dir="ltr">当時は山のようにPRが飛んできたりしてて，どれが何やら全然分からなかったけど，今見たらmod_mrubyによる席替えスクリプトとかErlangとかあってビビる</p>&mdash; okumura takahiro (@hfm) <a href="https://twitter.com/hfm/status/498397315783081984">2014, 8月 10</a></blockquote>
 
-{% tweet https://twitter.com/hfm/status/498397388583616512 %}
+<blockquote class="twitter-tweet" lang="ja"><p lang="ja" dir="ltr">よい思い出</p>&mdash; okumura takahiro (@hfm) <a href="https://twitter.com/hfm/status/498397388583616512">2014, 8月 10</a></blockquote>
 
 [^1]: [ペパボ新卒エンジニア研修 前編 | blog: takahiro okumura](http://blog.hifumi.info/2013/12/31/rails-tutorial/)
 [^2]: https://github.com/pepabo/sekigae

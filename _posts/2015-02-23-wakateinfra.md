@@ -30,15 +30,16 @@ tags:
 
 飲み会から現状確認会へ進化してる様子です．
 
-{% tweet https://twitter.com/hfm/status/558265671209869312 %}
+<blockquote class="twitter-tweet" lang="ja"><p lang="ja" dir="ltr"><a href="https://twitter.com/rrreeeyyy">@rrreeeyyy</a> <a href="https://twitter.com/deeeet">@deeeet</a> <a href="https://twitter.com/y_uuk1">@y_uuk1</a> 飲み会しよ <a href="http://t.co/zUehyYnP7v">pic.twitter.com/zUehyYnP7v</a></p>&mdash; okumura takahiro (@hfm) <a href="https://twitter.com/hfm/status/558265671209869312">2015, 1月 22</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-{% tweet https://twitter.com/y_uuk1/status/558266295381020674 %}
+<blockquote class="twitter-tweet" lang="ja"><p lang="ja" dir="ltr"><a href="https://twitter.com/rrreeeyyy">@rrreeeyyy</a> <a href="https://twitter.com/deeeet">@deeeet</a> <a href="https://twitter.com/hfm">@hfm</a> めっちゃよい！fyi <a href="https://twitter.com/catatsuy">@catatsuy</a></p>&mdash; yuuki (@y_uuk1) <a href="https://twitter.com/y_uuk1/status/558266295381020674">2015, 1月 22</a></blockquote>
 
-{% tweet https://twitter.com/y_uuk1/status/558267791690563584 %}
+<blockquote class="twitter-tweet" lang="ja"><p lang="ja" dir="ltr"><a href="https://twitter.com/deeeet">@deeeet</a> <a href="https://twitter.com/rrreeeyyy">@rrreeeyyy</a> <a href="https://twitter.com/hfm">@hfm</a> <a href="https://twitter.com/catatsuy">@catatsuy</a> 勉強会形式ということにすれば会社からお金でそうです</p>&mdash; yuuki (@y_uuk1) <a href="https://twitter.com/y_uuk1/status/558267791690563584">2015, 1月 22</a></blockquote>
 
-{% tweet https://twitter.com/catatsuy/status/558270101909028864 %}
+<blockquote class="twitter-tweet" lang="ja"><p lang="ja" dir="ltr"><a href="https://twitter.com/hfm">@hfm</a> <a href="https://twitter.com/deeeet">@deeeet</a> <a href="https://twitter.com/y_uuk1">@y_uuk1</a> <a href="https://twitter.com/rrreeeyyy">@rrreeeyyy</a> ピクシブオフィスは他に予定がなければ使えますよ！セキュリティも他社よりゆるめなので色々楽です</p>&mdash; 麺類 (@catatsuy) <a href="https://twitter.com/catatsuy/status/558270101909028864">2015, 1月 22</a></blockquote>
 
-{% tweet https://twitter.com/ryot_a_rai/status/558289602096558081 %}
+<blockquote class="twitter-tweet" lang="ja"><p lang="ja" dir="ltr"><a href="https://twitter.com/hfm">@hfm</a> <a href="https://twitter.com/catatsuy">@catatsuy</a> <a href="https://twitter.com/deeeet">@deeeet</a> <a href="https://twitter.com/rrreeeyyy">@rrreeeyyy</a> <a href="https://twitter.com/y_uuk1">@y_uuk1</a> おお！ぜひ参加させていただきます！！</p>&mdash; Ryota Arai (@ryot_a_rai) <a href="https://twitter.com/ryot_a_rai/status/558289602096558081">2015, 1月 22</a></blockquote>
 
 こんな感じで1〜2時間のふわっとした応酬の後，現状確認会の開催が決まったのでした．
 
@@ -46,7 +47,7 @@ tags:
 
 以下のツイートと発表資料がほぼ全てなんですが，20代のインフラエンジニアにとって「同世代」と呼べる人が本当に少ないと感じていて，率直に言えばライバルが欲しいってことかもしれません．
 
-{% tweet https://twitter.com/hfm/status/558268064941088771 %}
+<blockquote class="twitter-tweet" lang="ja"><p lang="ja" dir="ltr"><a href="https://twitter.com/y_uuk1">@y_uuk1</a> <a href="https://twitter.com/deeeet">@deeeet</a> <a href="https://twitter.com/rrreeeyyy">@rrreeeyyy</a> <a href="https://twitter.com/catatsuy">@catatsuy</a> 冗談抜きで，お互い今何をやっていて，どこに興味があって，どういう方向性で頑張ってるか．めっちゃ興味あります</p>&mdash; okumura takahiro (@hfm) <a href="https://twitter.com/hfm/status/558268064941088771">2015, 1月 22</a></blockquote>
 
 ### 互いのバックグラウンドを知る
 
@@ -73,7 +74,7 @@ tags:
 そんな自由闊達なやりとりもあって，発表時間がエグいことになり，19時半開始25時半終了という大長編となってしまいました．
 色んな話をしたんですが，ほんとに話題が尽きなかった．
 
-{% tweet https://twitter.com/hfm/status/569104204163198977 %}
+<blockquote class="twitter-tweet" lang="ja"><p lang="ja" dir="ltr"><a href="https://twitter.com/hashtag/wakateinfra?src=hash">#wakateinfra</a> <a href="https://twitter.com/ryot_a_rai">@ryot_a_rai</a> くんが「僕の発表一瞬で終わっちゃうと思います」って始めたのに，最終的に55分くらいの発表時間になってて最高だった．</p>&mdash; okumura takahiro (@hfm) <a href="https://twitter.com/hfm/status/569104204163198977">2015, 2月 21</a></blockquote>
 
 持ち時間の長さ（みんなでワイワイ話しながらですが）だけで言えば，多分[@ryot_a_rai](https://twitter.com/ryot_a_rai)君が最大だった気がする．
 
@@ -109,7 +110,7 @@ tags:
 
 今回のイベントは入社して1〜3年ぐらいの人たちで開催しましたが，mizzyさんの仰る通り「若手かどうかはハートの問題」だと思います．
 
-{% tweet https://twitter.com/gosukenator/status/568719483772121088 %}
+<blockquote class="twitter-tweet" lang="ja"><p lang="ja" dir="ltr">若手かどうかはハートの問題</p>&mdash; Gosuke Miyashita (@gosukenator) <a href="https://twitter.com/gosukenator/status/568719483772121088">2015, 2月 20</a></blockquote>
 
 ### 「若手ではない」「おっさん」とは？
 
@@ -118,13 +119,13 @@ tags:
 
 というわけで，次回開催があれば，定義を改めた「若手」のみんなで是非ワイワイしましょう！
 
-{% tweet https://twitter.com/sora_h/status/568768130824081408 %}
+<blockquote class="twitter-tweet" lang="ja"><p lang="ja" dir="ltr"><a href="https://twitter.com/hashtag/wakateinfra?src=hash">#wakateinfra</a> 呼ばれてないので若手ではない…のか…</p>&mdash; そらは (@sora_h) <a href="https://twitter.com/sora_h/status/568768130824081408">2015, 2月 20</a></blockquote>
 
-{% tweet https://twitter.com/sion_cojp/status/569180167735676929 %}
+<blockquote class="twitter-tweet" lang="ja"><p lang="ja" dir="ltr">行きたかったがチームの飲み会だったという。次回は参加したいっ(￣▽￣) <a href="https://twitter.com/hashtag/wakateinfra?src=hash">#wakateinfra</a></p>&mdash; Shohei Koyama (@sion_cojp) <a href="https://twitter.com/sion_cojp/status/569180167735676929">2015, 2月 21</a></blockquote>
 
-{% tweet https://twitter.com/hirose31/status/568800422904799232 %}
+<blockquote class="twitter-tweet" lang="ja"><p lang="ja" dir="ltr">老guyが必要になったら呼んでください… <a href="https://twitter.com/hashtag/wakateinfra?src=hash">#wakateinfra</a></p>&mdash; ひろせ３１ (@hirose31) <a href="https://twitter.com/hirose31/status/568800422904799232">2015, 2月 20</a></blockquote>
 
-{% tweet https://twitter.com/y_uuk1/status/568814970424537089 %}
+<blockquote class="twitter-tweet" lang="ja"><p lang="ja" dir="ltr"><a href="https://twitter.com/hashtag/wakateinfra?src=hash">#wakateinfra</a> 次回は京都で</p>&mdash; yuuki (@y_uuk1) <a href="https://twitter.com/y_uuk1/status/568814970424537089">2015, 2月 20</a></blockquote>
 
 さて，ここから先は，発表資料の落ち穂拾いです．
 
@@ -153,7 +154,7 @@ tags:
 
 そういえば`#kernel`というチャンネルは思いのほか好評で，作って良かったなあと．
 
-{% tweet https://twitter.com/rrreeeyyy/status/568727490388037632 %}
+<blockquote class="twitter-tweet" lang="ja"><p lang="ja" dir="ltr">IRC の kernel channel めっちゃ欲しいしオープンチャンネルにして欲しい <a href="https://twitter.com/hashtag/wakateinfra?src=hash">#wakateinfra</a></p>&mdash; れい (Yoshikawa Ryota) (@rrreeeyyy) <a href="https://twitter.com/rrreeeyyy/status/568727490388037632">2015, 2月 20</a></blockquote>
 
 ### 嬉しいことはすぐ言うすぐ褒める
 
@@ -199,4 +200,4 @@ tags:
 
 若者が使ってるハッシュタグを肉とか鍋画像でテロするのはおっさん．
 
-{% tweet https://twitter.com/y_uuk1/status/568816217705721857 %}
+<blockquote class="twitter-tweet" lang="ja"><p lang="ja" dir="ltr"><a href="https://twitter.com/hashtag/wakateinfra?src=hash">#wakateinfra</a> おっさんになって若者のハッシュタグ荒らすようになったら人生終わりだぞ</p>&mdash; yuuki (@y_uuk1) <a href="https://twitter.com/y_uuk1/status/568816217705721857">2015, 2月 20</a></blockquote>
