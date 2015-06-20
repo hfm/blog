@@ -11,7 +11,7 @@ tags:
 主に監視周りの話で，ふっつーにNagios・Muninを使ってるんですけど，Muninについてはちょっと変わってるのでそれの紹介．
 あと，インフラCIは，モニカジに間に合わせようと奮闘してたんですが間に合わなかったので，出来たところまでを紹介する感じになってます．
 
-{% slideshare 44101949 %}
+<iframe src="//www.slideshare.net/slideshow/embed_code/key/fzYxdlP8ucZ2Pe" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/hifumis/20150128-monitoringcasual7hfm" title="30days Albumの裏側〜監視・インフラCI事情〜 #monitoringcasual" target="_blank">30days Albumの裏側〜監視・インフラCI事情〜 #monitoringcasual</a> </strong> from <strong><a href="//www.slideshare.net/hifumis" target="_blank">Takahiro Okumura</a></strong> </div>
 
 ## 発表中にいただいた意見・コメント
 

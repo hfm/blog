@@ -25,7 +25,7 @@ production環境を自分で作り上げる。
 
 maglicaに関しては以下の資料がある。
 
-{% slideshare 16698172 %}
+<iframe src="//www.slideshare.net/slideshow/embed_code/key/vo93QtMpKHqcjX" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/mizzy/maglica-techkayac" title="Maglica - A Simple Internal Cloud Tool at #techkayac" target="_blank">Maglica - A Simple Internal Cloud Tool at #techkayac</a> </strong> from <strong><a href="//www.slideshare.net/mizzy" target="_blank">Gosuke Miyashita</a></strong> </div>
 
 Ops研修では、このmaglica環境にVMを立ち上げてサーバを構築した。
 

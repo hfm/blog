@@ -15,7 +15,7 @@ tags:
 
 「今までやってきたこと」「何故今の環境を選択したか」「選択の結果，何を得たか」「そして今，何をやりたいのか」という4つをテーマに発表しました．
 
-{% slideshare 44922062 %}
+<iframe src="//www.slideshare.net/slideshow/embed_code/key/En3tvmVxV5UAOR" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/hifumis/20150220-wakateinfraengineergenjohkakuninkai" title="若手インフラエンジニア現状確認会 @hfm #wakateinfra" target="_blank">若手インフラエンジニア現状確認会 @hfm #wakateinfra</a> </strong> from <strong><a href="//www.slideshare.net/hifumis" target="_blank">Takahiro Okumura</a></strong> </div>
 
 ここから，資料補完や当日のやりとり，そもそもの開催の経緯等を補足したいと思います．
 

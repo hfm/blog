@@ -7,7 +7,7 @@ tags:
 ---
 PuppetlabsからPuppet Serverに関するスライドが上がっていた．
 
-{% slideshare 44223836 %}
+<iframe src="//www.slideshare.net/slideshow/embed_code/key/Cb69Flkj2jNoHb" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/PuppetLabs/cmc-presentation-44223836" title="ConfigMgmtCamp 2015: Puppet Master to Puppet Server" target="_blank">ConfigMgmtCamp 2015: Puppet Master to Puppet Server</a> </strong> from <strong><a href="//www.slideshare.net/PuppetLabs" target="_blank">Puppet Labs</a></strong> </div>
 
 サブタイトルがどうも気になるけど，まあそれはいいとして，Puppet masterはもうすぐ役目を終えるらしい．
 次世代PuppetサーバであるPuppet Serverは，より高いパフォーマンスを発揮するべく，これまでと大きく異なるアーキテクチャを採用している．
