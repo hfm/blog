@@ -119,8 +119,6 @@ Webオペレーション研修（1週目の様子）
 
 #### 5.1 app/dbを分離
 
-keywords: [GRANT Syntax (MySQL)](https://dev.mysql.com/doc/refman/5.7/en/grant.html), `user_specification` (`user_name@host_name`)
-
 app (+ web) と db の2つのロールを分割する
 
 ```
