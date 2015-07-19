@@ -191,6 +191,12 @@ h1, h2, h3, h4, h5 { @include font-family("sans-serif", true) }
     margin-bottom: 0 !important;
   }
 
+  li ol {
+    list-style-type: lower-alpha;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
   blockquote {
     @include rhythm(1, 0, 0, 1, $base-font-size);
     border-left:24px double #eee;

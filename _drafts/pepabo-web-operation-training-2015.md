@@ -1,32 +1,21 @@
 ---
 layout: post
-date: 2015-07-13 09:27:00 +0900
-title: ペパボ新卒エンジニア研修2015・Webオペレーション研修が始まりました
+date: 2015-07-21 09:00:00 +0900
+title: ペパボ新卒エンジニア研修2015・Webオペレーション研修が始まっています
 tags:
 - pepabo
 ---
 「[ペパボ新卒エンジニア研修2015が始まっています](/2015/06/14/pepabo-engineer-training-2015/)」にも書いたとおり、先月の6/8からペパボ新卒エンジニア研修がスタートしています。
-そして先週7/3(金)に、4週間続いた[Web開発研修](http://www.slideshare.net/hifumis/20150609-webdevelopmenttraining)がゴールを迎えました。
+そして 7/3(金) に、約4週間続いた[Web開発研修](http://www.slideshare.net/hifumis/20150609-webdevelopmenttraining)がゴールを迎え、翌週 7/6(月) から新たにWebオペレーション研修が幕を開けました。
 
-
-この1ヶ月の出来事
----
-
-箇条書きにすると、主に以下の6つの出来事がありました。
-
-- Web開発研修
-- Web開発研修ふりかえり会
-- Webオペレーション研修イントロダクション
-- Webオペレーション研修
-
-ここから、それぞれの出来事についてお話していきます。
+今回は、Web開発研修をどのように進めていったかと、Webオペレーション研修の導入のお話をしようと思います。
 
 Web開発研修
 ---
 
 ### どのような進め方だったか
 
-Web 開発研修では、 [Ruby on Rails Tutorial (en)](https://www.railstutorial.org) を、概ね次のようなやり方で読み進めていました。
+Web開発研修では、[Ruby on Rails Tutorial (en)](https://www.railstutorial.org) を、概ね以下のようなやり方で進めてもらいました。
 
 1. github.com にリポジトリを作る
   - [Joe-noh/sample_app](https://github.com/Joe-noh/sample_app)
@@ -35,87 +24,156 @@ Web 開発研修では、 [Ruby on Rails Tutorial (en)](https://www.railstutoria
   - [komaji/sample_app](https://github.com/komaji/sample_app)
   - [orzup/ruby-on-rails-tutorial](https://github.com/orzup/ruby-on-rails-tutorial)
   - [takuminnnn/sample_app](https://github.com/takuminnnn/sample_app)
-1. Chapterを読み進める
-1. ExercisesはPull Requestsを作る
-  - 同期同士でレビューする
-  - PRのmerge条件は自ら提示する（レビュー人数、特に見てほしい箇所など）
-  - （コミットメッセージやPR文などのお作法は先輩エンジニアもレビューする）
+1. Chapter を読み進める
+1. Exercises は Pull Request を作る
+  - 同期同士でレビューする（ピアレビュー）
+  - merge 条件は自ら提示する（レビュー人数、特に見てほしい箇所など）
+  - （コミットメッセージやPR文などのお作法は、先輩エンジニアもレビューする）
 1. 2と3を繰り返す
 
-#### Exerices のピアレビュー
+#### Exerices でのピアレビュー
 
-Exerices では Pull Requests を作って、ピアレビュー形式で進めてもらいました。
+Exerices では PR を作り、ピアレビューを実践してもらいまいした。
+また、Exerices の難易度（あるいはコードへの自信）は、取り組んだ本人が最も分かっているだろうということで、merge 条件を自ら提示してもらうようにしました。
 
-当初は先輩もコードレビューした方が良いだろうと思っていたのですが、新卒同士でも素晴らしいレビューが出来ていたので、その心配は杞憂に終わりました（一部先輩エンジニアもコメントしてますが）。
+当初は先輩もコードレビューした方が良いだろうと思っていたのですが、素晴らしいピアレビューの様子から、その心配は杞憂に終わりました（一部先輩エンジニアもコメントしてますが）。
 
 - [[Exercise 10.5] Add an integration test for the expired password reset and more by takuminnnn](https://github.com/takuminnnn/sample_app/pull/16)
 - [Chapter12のエクササイズをやる by orzup #discussion-diff-33749315](https://github.com/orzup/rails-tutorial/pull/26#discussion-diff-33749315)
 - [[Exercise/7.3-4] Refactor and add test for post-signup flash message by hanazuki](https://github.com/hanazuki/railstutorial/pull/13)
 
-PR を merge するための条件を自ら提示するというのは、課題の難しさ（あるいは自分の書いたコードへの自信）を最も分かっているのは、それを書いた本人だろうというところから生まれました。
-Exerices の中には、ほとんど答えが書かれているような内容もあり、そうした場合はレビューが無くとも本に書いてあるのだからセルフマージしても良いですし、Rails Tutorial 後半の Exerices になると難易度も上がってくるため、最低1人のレビュー、LGTMをもらいたい
+### ホワイトボードで毎日の進捗確認
 
-### 毎日の進捗確認はカンバン（ホワイトボード）で行う
+研修では朝会・夕会を導入しており、毎朝夕にホワイトボードの前に集まり、各人の進捗や困っていることなどを共有しています。
 
-#### カンバン (Before)
+この時、作業中にハマったことや共有事項などがホワイトボードにどんどん足されていきます。
 
-[前回](/2015/06/14/pepabo-engineer-training-2015/)のスタート直後のカンバンがこちら。
+#### Before
+
+Web開発研修がスタートした頃のホワイトボードがこちら。
 
 [![](/images/2015/06/14/training02_large.jpg)](/images/2015/06/14/training02_full.jpg)
+*始まったばかりで付箋の数もおとなしめ*
 
-#### カンバン (After)
+#### After
 
-4週間を経て、いろいろスケジュールを工夫したり、途中で明らかになったタスクなどが盛り込まれたり、色々な経験をヘタカンバンがこちら。
+4週間で色々な経験を得た様子がこちら。
 
-[![](/images/2015/07/13/kanban_large.jpg)](/images/2015/07/13/kanban_full.jpg)
+[![](/images/2015/07/21/kanban_large.jpg)](/images/2015/07/21/kanban_full.jpg)
+*当初の見積りと計画からズレを感じる度に再見積りをしたり、再計画をしたり、付箋を足していった結果*
 
-色々と成長している様子が伺えます。
+マグネットやシールなど、賑やかになっている様子が伺えます。
+守り神も居られます。
 
-### ふりかえりの様子
+### Web開発研修のふりかえり (KPT) の様子
 
-[![](/images/2015/07/13/kpt01_large.jpg)](/images/2015/07/13/kpt01_full.jpg)
+7/3 のWeb開発研修最終日には、みんなでこの4週間のふりかえり (KPT) を行いました。
 
-[![](/images/2015/07/13/kpt02_large.jpg)](/images/2015/07/13/kpt02_full.jpg)
+[![](/images/2015/07/21/kpt01_large.jpg)](/images/2015/07/21/kpt01_full.jpg)
+*「放送室」と呼ばれる会議室にて、この4週間のふりかえりをしている様子*
+
+[![](/images/2015/07/21/kpt02_large.jpg)](/images/2015/07/21/kpt02_full.jpg)
+*若干見づらいですが、Web開発研修の KPT です（一部モザイクをかけています）*
+
+色々なテーマが出ましたが、「ピアレビュー」「体調管理」「時間管理」「ボスケテ（後述）」あたりが特に大きいでしょうか。
+研修がスタートすると、みんな集中して取り組むのですが、集中しすぎて相当疲労してしまい、1週間のペース配分がうまくいかない大変さがあったようです。
+
+リフレッシュタスクを作ってみるなり、GMOインターネットグループでも推奨されているシエスタ[^1]を実施してみるなど、時間と体調を管理することについてアレコレ議論していました。
+
+ちなみに Try の一番下に「Rails Tutorial を完走しよう」と書かれているのは私のことです...
+アレコレ仕事してたら全然進められなかったので、なんとか終わらせようと思います（とはいえ、2年前の新卒時代と、去年の新卒研修でもやったので、都合3回目。）
 
 Webオペレーション研修イントロダクション
 ---
 
-### ボスケテについて
+さて、7/6 からは新たにWebオペレーション研修が始まりました。
+初日はイントロダクションとして、Webオペレーション研修やゴールや進め方についてお話させていただきました。
 
-スライド中では特に説明もなく使用していたのですが、「ボスケテ」は漫画『セクシーコマンドー外伝　すごいよ!!マサルさん』が元ネタです。
-「助けて」よりも語感がカジュアルで、コミュニケーションや困ってることを共有するのに便利です。
+ここにslideshareからスライドを埋め込む。
 
-元々このフレーズは [@ume3_](https://twitter.com/ume3_) さんのいるチームが、チームビルディングにおいて使い始めました。
-入社したばかりのスタッフでも、緊張せずカジュアルに質問できるような環境づくりや、
-
-<iframe src="//www.slideshare.net/slideshow/embed_code/key/2apyPGVBKVbPUU?startSlide=19" width="425" height="355" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/ume3_/20140805-teambuilding-reportsabaten" title="インフラで実践したチームビルディングそれはサバ天" target="_blank">インフラで実践したチームビルディングそれはサバ天</a> </strong> from <strong><a href="//www.slideshare.net/ume3_" target="_blank">ume3_</a></strong> </div>
-
-Webオペレーション研修（1週目の様子）
+Webオペレーション研修のゴール
 ---
 
+Webオペレーション研修では、「アプリが『動く』インフラを、ステップ・バイ・ステップで成長させる」ことをゴールとして、5つのステップを設けました。
 
-### 1. manual install
-#### 1.0 VirtualBox を Mac にインストールする
-#### 1.1 VagrantでCentOS 7のVMを作る
-#### 1.2 VM上のWebアプリにアクセス可能にする
-- 1.2.1 Rails Tutorial の Web アプリを MySQL (MariaDB) 対応にする
-- 1.2.2 VM に Ruby 2.2 をインストールする
-- 1.2.3 VagrantにRailsが動く環境を用意する
-#### 1.3 WEBrickからNginx + Unicornに切り替える
-### 2. test
-#### 2.1 Serverspecをインストール
-#### 2.2 サーバのテストを書く
-#### 2.3 余裕があればInfratasterでのテストも導入する
-### 3. infra as code
-#### 3.1 Itamaeをインストールする
-#### 3.2 manual installの手順をコード化する
-#### 3.3 新規VMにItamaeを実行する
-#### 3.4 テストをオールグリーンにする
-### 4. transfer
-#### 4.1 NyahのVMを1個作る
-#### 4.2 Itamaeでサーバ構築
-#### 4.3 テストをオールグリーンにする
+![](/images/2015/07/21/goal.png)
+*Vagrant編・Nyah編、合わせて5つのステップ*
+
+Nyah とは、ペパボで導入された OpenStack ベースの仮想インフラ基盤です。
+Nyah については以下のスライドが詳しいので、そちらをご覧ください。
+
+- [Nyah ポチポチするために ニャーニャーしよう #pbtech](http://www.slideshare.net/ume3_/pb-tc01-bob001)
+- [ペパボにおけるOpenStackHacks! 〜僕と夏を一緒にトゥギャザーしま専科！！ 編〜](https://speakerdeck.com/pyama86/pepaboniokeruopenstackhacks)
+
+また、各ステップの課題は以下のとおりです。
+
+- Vagrant編
+  1. Web開発研修で作成した Rails アプリを、Vagrant で動かす (manual install)
+  1. Serverspec, Infrataster などでサーバの構成・振る舞いをテストする (test)
+  1. Itamaeでサーバ構成をコード化する (infra as code)
+- Nyah編
+  1. Nyah 上の VM でアプリケーションを動かす (trasfer)
+  1. 役割ごとに VM を分割し、耐障害性を向上させる (high availability)
+
+ここから、各ステップの課題を説明していきます。
+
+### ステップ1. manual install
+
+Rails Tutorial ではアプリケーションを動かす環境に Heroku を利用していましたが、このステップでは、Rails アプリを Vagrant 上の CentOS 7 で動かせるようにすることが課題です。
+
+Rails アプリを動かすためのミドルウェアについて学ぶこと、それらをどう機能（連携）させるのかを理解すること、また Linux (CentOS) に挑んでもらうことを目的としています。
+
+（実際はもっと細かく多いですが）以下のような作業内容を想定しています。
+
+- Rails アプリを MariaDB, Unicorn に対応させる (Heroku では PostgreSQL, Puma だった)
+- MariaDB をインストールする
+- Nginx をインストールする
+- Ruby 2.2 をインストールする
+- Rails アプリケーションを設置する
+- systemd で各種ミドルウェア、アプリケーションをサービスとして動作させる
+
+Linux や [Vagrant](https://www.vagrantup.com/)、[FHS](http://www.pathname.com/fhs/pub/fhs-2.3.html)、パーミッション、所有者・グループ、ファイアウォール、リポジトリ、systemd、データベース、Web サーバ、UNIX ドメインソケット、...
+若干盛り込み過ぎに見えなくもないですが、後続のステップでも繰り返し復習しますので、ステップごとに内容の理解を深めていってもらいたいと考えています。
+
+### ステップ2. test
+
+manual install のステップで Rails アプリを動かすサーバの構成が出来ましたが、それらが正しく動いていることを保証するテストは重要です。
+
+そこでこのステップでは、[Serverspec](http://serverspec.org), [Infrataster](https://github.com/ryotarai/infrataster) を使ってサーバテストを導入していきます。
+（ただしメインは Serverspec で、Infrataster は余裕のある場合のエクストラ課題という位置づけにしています。）
+
+[![](https://avatars2.githubusercontent.com/u/3970679?s=400)](https://github.com/serverspec/serverspec)
+
+manual install でインストールしたパッケージ、変更した設定ファイル、有効化したサービス、自動起動の設定、ポートのリスン、アクセス権（パーミッションや所有者・グループ）など、ステップ1で実施した内容のテストをザッと書いてもらいます。
+
+なお、研修ではこのタイミングで2人1組のチームを組んでもらい、「どのようなテストを書けばよいのか」についてはチームで話し合って決めてもらいます。
+
+### ステップ3. infra as code
+
+サーバテストを導入した次のステップでは、構成管理ツールを導入し、インフラのコード化を課題としています。
+構成管理ツールには[@ryot_a_rai](https://twitter.com/ryot_a_rai)君が作っている [Itamae](https://github.com/itamae-kitchen/itamae) を採用しました。
+
+[![](/images/2015/07/21/itamae.png)](https://github.com/itamae-kitchen/itamae)  
+*正式なロゴらしいです*
+
+「ステップ2で書いたテストが十分であれば、それをそのままコード化すれば『動く』だろう」という前提で挑んでもらいますが、実際にそうなることは難しいでしょう。
+manual install の内容をキチンとテストに落とし込めていたかどうか、足りないとすればそれは何だったのか、これまでにやった内容を反復していくことで、
+
+### ステップ4. transfer
+
+Nyah 上の VM でアプリケーションを動かす。
+
+1. Nyah の VM を1個作る
+1. Itamae でサーバ構築
+1. テストをオールグリーンにする
+
 ### 5. high availability
+
+役割ごとに VM を分割し、耐障害性を向上させる。
+
+プロダクション環境における「High」には到底及ばないものの、「可用性」を求めるとはどういうことか、という理解を深めていってもらうのがこの研修の目的です。
+
+なお、スライド公開時とは内容が多少異なっていますので、その点も合わせて説明します。
 
 #### 5.1 app/dbを分離
 
@@ -138,14 +196,7 @@ app (+ web) と db の2つのロールを分割する
 - Itamae を **Nyah の VM** に実行する
 - Serverspec でオールグリーンであることを確認する
 
-#### ポイント
-
-- [MySQLに外部ホストから接続できるように設定する | Linuxで自宅サーバ構築](http://linuxserver.jp/%E3%82%B5%E3%83%BC%E3%83%90%E6%A7%8B%E7%AF%89/db/mysql/%E5%A4%96%E9%83%A8%E6%8E%A5%E7%B6%9A%E8%A8%B1%E5%8F%AF%E8%A8%AD%E5%AE%9A.php)
-- Nyah のセキュリティグループの活用も視野に入れる
-
 ### 5.2 dbの冗長化
-
-keywords: master/slave, replication
 
 Master/Slave 構成を作成し、レプリケーションさせる
 
@@ -170,22 +221,6 @@ Master/Slave 構成を作成し、レプリケーションさせる
   - マスターデータのダンプ
   - レプリカへのリストア
 - レプリケーション開始
-
-※ リストア時にそのままレプリケーション開始させてもよいが、リストア操作とレプリカ操作は別の操作であり、基本的には分けてやることを推奨する
-
-#### ポイント
-
-- MariaDB (MySQL) のレプリケーションの仕組みを理解しているか？
-  - SQL thread, I/O thread についての知識
-  - MySQL 5.5 Reference Manual
-    - [5.2.4 The Binary Log](https://dev.mysql.com/doc/refman/5.5/en/binary-log.html)
-    - [17.2.1 Replication Implementation Details](https://dev.mysql.com/doc/refman/5.5/en/replication-implementation-details.html)
-    - [17.2.2.1 The Slave Relay Log](https://dev.mysql.com/doc/refman/5.5/en/slave-logs-relaylog.html)
-    - [17.2.2.2 Slave Status Logs](https://dev.mysql.com/doc/refman/5.5/en/slave-logs-status.html)
-  - 図説できることが好ましい
-- レプリケーションはステートメントベース？行ベース？ミックスベース？
-  - yum から入る MariaDB 5.5.x のデフォルトを確認してみよう
-  - https://dev.mysql.com/doc/refman/5.5/en/replication-formats.html
 
 ### 5.3 リバースプロキシの導入
 
@@ -213,14 +248,7 @@ app サーバの（ネットワーク的に）前にリバースプロキシを�
 - [NGINX Load Balancing | NGINX](https://www.nginx.com/resources/admin-guide/load-balancer/)
   - [Module ngx_http_upstream_module](http://nginx.org/en/docs/http/ngx_http_upstream_module.html)
 
-#### ポイント
-
-- これまで「app」と称していたサーバには、実は nginx という Web サーバも同居していた
-- リバースプロキシの導入により、 app から Web サーバが分離される
-
 ### 5.4 ストレージの分離
-
-keywords: storage
 
 app サーバからストレージを分離する。
 
@@ -253,8 +281,6 @@ app サーバからストレージを分離する。
 
 ### 5.5 app の冗長化
 
-keywords: scale out
-
 複数台の app サーバを用意し、 reverse proxy でアクセスを振り分ける
 
 ```
@@ -276,8 +302,6 @@ keywords: scale out
 
 ### (Extra) 5.6 セッションサーバの分離
 
-keywords: session server, redis, memcached
-
 app サーバが冗長化されたことにより、セッション情報を共有させなければならない課題が生じる
 
 ```
@@ -297,9 +321,17 @@ app サーバが冗長化されたことにより、セッション情報を共�
     +--------+   +---------+
 ```
 
-- [Redis](http://redis.io/)
-  - 社内でRails 4.x + Redis なところ
-    - https://git.pepabo.com/cmsp/suzuri
-    - https://git.pepabo.com/cmsp/colorme-api
-- [memcached - a distributed memory object caching system](http://memcached.org/)
-  - [mperham/dalli](https://github.com/mperham/dalli)
+- [WebオペレーションのVagrant編 ログ · Issue #29 · orzup/rails-tutorial](https://github.com/orzup/rails-tutorial/issues/29)
+
+### ボスケテについて
+
+スライド中では特に説明もなく使用していたのですが、「ボスケテ」は漫画『セクシーコマンドー外伝　すごいよ!!マサルさん』が元ネタです。
+「助けて」よりも語感がカジュアルで、コミュニケーションや困ってることを共有するのに便利です。
+
+元々このフレーズは [@ume3_](https://twitter.com/ume3_) さんのいるチームが、チームビルディングにおいて使い始めました。
+入社したばかりのスタッフでも、緊張せずカジュアルに質問できるような環境づくりや、
+
+<iframe src="//www.slideshare.net/slideshow/embed_code/key/2apyPGVBKVbPUU?startSlide=19" width="425" height="355" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/ume3_/20140805-teambuilding-reportsabaten" title="インフラで実践したチームビルディングそれはサバ天" target="_blank">インフラで実践したチームビルディングそれはサバ天</a> </strong> from <strong><a href="//www.slideshare.net/ume3_" target="_blank">ume3_</a></strong> </div>
+
+
+[^1]: https://www.gmo.jp/news/article/?id=3972
