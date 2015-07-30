@@ -2,9 +2,9 @@
 layout: post
 date: 2015-01-31 21:16:32 +0900
 title: 'Monitoring Casual #7 に参加・発表した #monitoringcasual'
-tags: 
+tags:
 - monitoring
-- conference
+- event
 ---
 [Monitoring Casual #7](http://www.zusaar.com/event/9807003 )に参加し，「**30days Albumの裏側〜監視・インフラCI事情〜**」というタイトルで発表しました．
 

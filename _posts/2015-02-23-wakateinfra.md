@@ -4,7 +4,7 @@ date: 2015-02-23 13:00:00 +0900
 title: '『若手インフラエンジニア現状確認会』を開催した #wakateinfra'
 tags:
 - infra
-- conference
+- event
 ---
 若手インフラエンジニア現状確認会というイベントを開催しました．
 全員発表型で，私([@hfm](https://twitter.com/hfm)), [@catatsuy](https://twitter.com/catatsuy), [@deeeet](https://twitter.com/deeeet), [@rrreeeyyy](https://twitter.com/rrreeeyyy), [@ryot_a_rai](https://twitter.com/ryot_a_rai), [@y_uuk1](https://twitter.com/y_uuk1)の6名（敬称略）が参加者です．
