@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2015-03-29 9:58:18 +0900
+date: 2015-03-29T09:58:18+09:00
 title: NeoBundleのプラグイン管理をTOMLに任せてvimrcをスッキリさせる
 tags:
 - vim

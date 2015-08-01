@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2015-04-06 01:16:46 +0900
+date: 2015-04-06T01:16:46+09:00
 title: ReviewerとReviewee
 tags:
 - opinion

@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2015-04-24 07:08:18 +0900
+date: 2015-04-24T07:08:18+09:00
 title: mysqladminつらい。
 tags:
 - mysql

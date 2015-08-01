@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2015-01-27 22:21:08 +0900
+date: 2015-01-27T22:21:08+09:00
 title: 標準入力からdocker buildしようとしてハマった
 tags:
 - docker

@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2014-12-30 22:04:11 +0900
+date: 2014-12-30T22:04:11+09:00
 title: Puppet 3.6から使えるpurge_ssh_keysでauthorized_keysをきちんと管理する
 tags:
 - puppet

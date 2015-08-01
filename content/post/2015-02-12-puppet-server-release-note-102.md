@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2015-02-12 12:50:49 +0900
+date: 2015-02-12T12:50:49+09:00
 title: Puppet Server 1.0.2 のリリースノートを読んだ
 tags:
 - puppet

@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2015-01-22 01:44:23 +0900
+date: 2015-01-22T01:44:23+09:00
 title: Itamaeが超高速で書けるitamae-snippetsを作った
 tags:
 - vim

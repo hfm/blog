@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2014-12-13 12:46:38 +0900
+date: 2014-12-13T12:46:38+09:00
 title: MySQL Casual Talks vol.7でMySQL 4.0について発表してきた
 tags: 
 - mysql

@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2015-02-23 13:00:00 +0900
+date: 2015-02-23T13:00:00+09:00
 title: '『若手インフラエンジニア現状確認会』を開催した #wakateinfra'
 tags:
 - infra

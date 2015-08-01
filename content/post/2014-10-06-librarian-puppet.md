@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Puppetモジュールの管理にlibrarian-puppetを使う
-date: 2014-10-06 09:21:34 +0900
+date: 2014-10-06T09:21:34+09:00
 tags: 
 - puppet
 ---

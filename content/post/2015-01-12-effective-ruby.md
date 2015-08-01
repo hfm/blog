@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2015-01-12 23:21:06 +0900
+date: 2015-01-12T23:21:06+09:00
 title: 「Effective Ruby」を読んだ
 tags:
 - book

@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2014-11-29 16:15:49 +0900
+date: 2014-11-29T16:15:49+09:00
 title: cronで祝日判定しようと思ったら，emasaka/jpholidaypが素晴らしかった
 tags: 
 - python

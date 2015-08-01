@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2015-02-19 20:32:53 +0900
+date: 2015-02-19T20:32:53+09:00
 title: Ukigumo::AgentでIkachan通知を使いたい場合
 tags:
 - ukigumo

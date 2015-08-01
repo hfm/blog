@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2015-04-12 00:50:02 +0900
+date: 2015-04-12T00:50:02+09:00
 title: Puppet Server 1.0.8 のリリースノートを読んだ
 tags:
 - puppet

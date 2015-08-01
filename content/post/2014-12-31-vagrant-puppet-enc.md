@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2014-12-31 08:45:11 +0900
+date: 2014-12-31T08:45:11+09:00
 title: Vagrant で Puppet ENC (External Node Classifiers) を試す
 tags:
 - puppet

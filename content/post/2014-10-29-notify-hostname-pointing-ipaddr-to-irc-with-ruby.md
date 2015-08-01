@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2014-10-29 13:20:00 +900
+date: 2014-10-29T13:20:00+09:00
 title: RubyでIPアドレスからホスト名を得て，IRCに通知させる
 tags: 
 - ruby

@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2015-01-05 23:34:33 +0900
+date: 2015-01-05T23:34:33+09:00
 title: X100T用にF-Fotoのサムレストを購入した
 tags: 
 - diary

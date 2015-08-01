@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2015-01-29 09:16:53 +0900
+date: 2015-01-29T09:16:53+09:00
 title: yum-plugin-prioritiesのある環境で，priorityの低い別リポジトリにある同名パッケージを入れたい場合
 tags:
 - rhel

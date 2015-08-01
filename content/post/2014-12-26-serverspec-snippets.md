@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2014-12-26 08:28:58 +0900
+date: 2014-12-26T08:28:58+09:00
 title: serverspec-snippetsにmergeしてもらったcommitいくつか
 tags: 
 - serverspec

@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2015-01-04 14:07:26 +0900
+date: 2015-01-04T14:07:26+09:00
 title: JekyllにInstagramのembedコードを埋め込むプラグインを作成した
 tags: 
 - ruby

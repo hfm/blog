@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2014-12-28 23:35:16 +0900
+date: 2014-12-28T23:35:16+09:00
 title: Puppetで外部リポジトリを管理するときにyumrepo/packageリソースを選ぶ基準
 tags:
 - puppet

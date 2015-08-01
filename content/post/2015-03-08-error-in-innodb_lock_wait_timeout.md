@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2015-03-08 02:50:29 +0900
+date: 2015-03-08T02:50:29+09:00
 title: MySQL 5.5未満で pt-online-schema-change を使おうとして，innodb_lock_wait_timeout にハマった話
 tags:
 - mysql
