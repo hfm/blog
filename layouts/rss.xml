@@ -1,6 +1,6 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>{{ .Site.Params.name }}</title>
+    <title>{{ .Site.Title }}</title>
     <description>{{ .Site.Params.description }}</description>
     <link>{{ .Permalink }}</link>
     <atom:link href="{{.URL}}" rel="self" type="application/rss+xml" />
