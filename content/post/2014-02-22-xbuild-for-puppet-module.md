@@ -1,6 +1,7 @@
 ---
 layout: post
 title: puppet-xbuildをmodule化しました
+date: 2014-02-22
 tags: 
 - puppet
 - xbuild

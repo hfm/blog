@@ -1,6 +1,7 @@
 ---
 layout: post
 title: そこそこ楽にオレオレ証明書を発行する
+date: 2014-03-06
 tags:
 - openssl
 ---

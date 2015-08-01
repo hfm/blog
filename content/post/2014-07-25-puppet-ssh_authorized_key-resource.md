@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Puppetのssh_authorized_keyリソースを試してみる
+date: 2014-07-25
 tags:
 - puppet
 ---

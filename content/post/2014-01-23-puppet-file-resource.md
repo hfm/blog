@@ -1,6 +1,7 @@
 ---
 layout: post
 title: PuppetのFileリソースタイプにはensure属性をなるべくつけた方が良い
+date: 2014-01-23
 tags: 
 - puppet
 ---

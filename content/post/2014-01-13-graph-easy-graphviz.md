@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Graph::Easy => Graphvizを試してみた
+date: 2014-01-13
 tags: 
 - perl
 - graph

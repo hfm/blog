@@ -1,6 +1,7 @@
 ---
 layout: post
 title: xbuildのpuppet化にあたり考えたこと
+date: 2014-01-12
 tags: 
 - puppet
 - xbuild

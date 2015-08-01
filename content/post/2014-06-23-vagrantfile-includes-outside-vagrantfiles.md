@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Vagrantfileを複数枚に分割する、あるいはVagrantfileが別ファイルをincludeする方法
+date: 2014-06-23
 tags:
 - vagrant
 ---

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: vim用にrubyの辞書が欲しかったので用意した
+date: 2014-04-27
 tags:
 - ruby
 - vim

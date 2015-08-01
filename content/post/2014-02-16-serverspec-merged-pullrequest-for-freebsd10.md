@@ -1,6 +1,7 @@
 ---
 layout: post
 title: serverspecにpkgng (FreeBSD 10.0) 対応プルリクがmergeされた
+date: 2014-02-16
 tags:
 - freebsd
 - serverspec

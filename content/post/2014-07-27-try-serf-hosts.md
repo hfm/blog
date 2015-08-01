@@ -1,6 +1,7 @@
 ---
 layout: post
 title: serf-hostsを試してみた
+date: 2014-07-27
 tags:
 - serf
 ---

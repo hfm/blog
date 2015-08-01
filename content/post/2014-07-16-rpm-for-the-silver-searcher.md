@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Vagrantでag(the silver searcher)のrpmを作る
+date: 2014-07-16
 tags:
 - packer
 - vagrant

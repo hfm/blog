@@ -1,6 +1,7 @@
 ---
 layout: post
 title: blog renewal
+date: 2013-09-29
 tag: diary
 ---
 ブログリニューアルしています（現在進行形）。

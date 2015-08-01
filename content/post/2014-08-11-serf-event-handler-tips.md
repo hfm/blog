@@ -1,6 +1,7 @@
 ---
 layout: post
 title: serfのイベントハンドラを書く時にハマったこと
+date: 2014-08-11
 tags:
 - serf
 ---

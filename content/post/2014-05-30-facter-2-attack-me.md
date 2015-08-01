@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Facter 2.xにちょっと苦しめられた
+date: 2014-05-30
 tags:
 - ruby
 - facter

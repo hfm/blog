@@ -1,6 +1,7 @@
 ---
 layout: post
 title: FreeBSDからCentOS 6.5へ移行した
+date: 2014-02-06
 tags:
 - diary
 ---

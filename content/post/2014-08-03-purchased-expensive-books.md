@@ -1,6 +1,7 @@
 ---
 layout: post
 title: LINUXプログラミングインタフェース，詳解UNIXプログラミング，アルゴリズムイントロダクション，詳解LINUXカーネルを購入した
+date: 2014-08-03
 tags:
 - diary
 ---

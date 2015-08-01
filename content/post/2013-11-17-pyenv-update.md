@@ -1,6 +1,7 @@
 ---
 layout: post
 title: pyenv-update作りました
+date: 2013-11-17
 tags:
 - python
 ---

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: はじめてのgdbデバッグ
+date: 2013-12-21
 tags: 
 - debug
 - ag

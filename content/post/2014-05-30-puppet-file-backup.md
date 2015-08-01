@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Puppet Fileリソースのbackup属性を試してみる
+date: 2014-05-30
 tags:
 - puppet
 ---

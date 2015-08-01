@@ -1,6 +1,7 @@
 ---
 layout: post
 title: ペパボ新卒３期生エンジニア研修，席替えスクリプトの思い出
+date: 2014-08-10
 tags:
 - diary
 - pepabo
