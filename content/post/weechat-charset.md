@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2015-02-01T20:51:36+09:00
 title: Weechat 1.1.1がLC_CTYPEのせいで文字化けしたのを直した
 tags:

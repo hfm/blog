@@ -1,5 +1,4 @@
 ---
-layout: post
 title: 第2回 コンテナ型仮想化の情報交換会 感想
 date: 2013-10-05
 tags: 

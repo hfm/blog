@@ -1,5 +1,4 @@
 ---
-layout: post
 title: blog renewal
 date: 2013-09-29
 tag: diary

@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2015-02-11T02:21:06+09:00
 title: BoseのMediaMateを譲ってもらった
 tags:

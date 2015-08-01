@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2014-12-25T11:43:00+09:00
 title: Serverspecでdaemontoolsのテストが可能になった
 tags: 

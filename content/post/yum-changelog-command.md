@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2015-01-28T17:19:36+09:00
 title: yum-changelogの使い方をいっつも忘れるのでメモしておく
 tags:

@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2014-12-31T18:15:11+09:00
 title: 2014年の省察
 tags:

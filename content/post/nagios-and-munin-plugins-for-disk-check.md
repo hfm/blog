@@ -1,5 +1,4 @@
 ---
-layout: post
 title: 最近書いた、SMART値からディスクセクタを監視するNagiosとMuninのプラグインの紹介
 date: 2014-04-24
 tags: 

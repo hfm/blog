@@ -1,5 +1,4 @@
 ---
-layout: post
 title: tigのバージョンが上がって過去の.tigrcがobsolatedになっていた
 date: 2014-05-29
 tags: 

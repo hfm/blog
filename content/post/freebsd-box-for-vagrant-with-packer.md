@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Vagrant用FreeBSDのboxをPackerで作った
 date: 2014-02-08
 tags:

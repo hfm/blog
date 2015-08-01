@@ -1,5 +1,4 @@
 ---
-layout: post
 title: PuppetのFileリソースのensure属性present, fileの使い分けについて
 date: 2014-01-24
 tags: 

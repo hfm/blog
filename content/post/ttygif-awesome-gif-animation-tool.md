@@ -1,5 +1,4 @@
 ---
-layout: post
 title: ttygif最高だ！
 date: 2014-07-19
 tags:

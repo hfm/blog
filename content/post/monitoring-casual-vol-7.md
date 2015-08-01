@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2015-01-31T21:16:32+09:00
 title: 'Monitoring Casual #7 に参加・発表した #monitoringcasual'
 tags:

@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2014-11-16T23:13:30+09:00
 title: Puppetでラムダとかイテレーションとか
 tags:

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: MySQL AllStarというVagrantboxを作った
 date: 2014-03-02
 tags:

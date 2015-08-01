@@ -1,5 +1,4 @@
 ---
-layout: post
 title: ペパボ新卒エンジニア研修 後編
 date: 2014-01-04
 tags: 

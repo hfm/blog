@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2015-01-24T15:10:47+09:00
 title: Bluelounge Kickflipを使ったらタイピングが楽になった
 tags:

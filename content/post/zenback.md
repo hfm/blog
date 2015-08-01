@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2014-11-09T19:00:00+09:00
 title: jekyllのlsiオプションをやめて，関連記事の表示はzenbackに任せることにした
 tags: 

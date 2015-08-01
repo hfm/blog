@@ -1,5 +1,4 @@
 ---
-layout: post
 title: vagrant upでsynced_folderが失敗した時の対処
 date: 2014-03-03
 tags:

@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2015-04-19T10:25:16+09:00
 title: anyenvの設定を正しい位置に書いたらVimの起動が爆速になった
 tags:

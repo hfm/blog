@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2014-11-19T23:32:43+09:00
 title: Vagrantfileでdotenvを使う
 tags: 

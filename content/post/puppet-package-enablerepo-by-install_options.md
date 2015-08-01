@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2014-12-29T05:34:11+09:00
 title: Puppet 3.6からpackageリソースでenablerepo/disablerepoが使える
 tags: 

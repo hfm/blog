@@ -1,5 +1,4 @@
 ---
-layout: post
 title: 角川の本が安かったので電子書籍を買った
 date: 2013-10-02
 tags:

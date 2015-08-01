@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2015-01-12T23:21:06+09:00
 title: 「Effective Ruby」を読んだ
 tags:

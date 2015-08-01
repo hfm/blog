@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2014-12-27T22:44:16+09:00
 title: Puppetのyumrepoリソースでよく指定する属性
 tags:

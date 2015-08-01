@@ -1,5 +1,4 @@
 ---
-layout: post
 title: serfの基本的な動作を試してみた
 date: 2014-07-23
 tags:

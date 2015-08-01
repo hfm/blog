@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Overcast使い始めた
 date: 2014-09-08T06:24:56+09:00
 tags:

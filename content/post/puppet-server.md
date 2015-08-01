@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2015-02-11T21:31:40+09:00
 title: Puppet Serverをインストールしてみる（だけ）
 tags:

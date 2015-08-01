@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2015-04-23T13:14:36+09:00
 title: anyenv (rbenv) で入れたrubyをvim-quickrunで実行させる
 tags:

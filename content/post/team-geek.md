@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2015-05-24T17:53:08+09:00
 title: 自ら変わり、チームを率いて価値を届ける ― 「Team Geek」を再読した
 tags:

@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2015-03-22T05:46:59+09:00
 title: vim-gistaとvim-auto-saveでGistファイルの変更を自動反映する
 tags:

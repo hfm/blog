@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2014-11-04T07:33:48+09:00
 title: 「Linuxのブートプロセスをみる」を読んでいる
 tags: 

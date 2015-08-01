@@ -1,5 +1,4 @@
 ---
-layout: post
 title: puppet-syntax-vimでattributesを自動整列する
 date: 2014-05-05
 tags:

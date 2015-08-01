@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2014-11-12T03:14:29+09:00
 title: giboを使って楽に.gitignoreを用意する
 tags: 

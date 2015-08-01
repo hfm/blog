@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2014-10-27T21:57:25+09:00
 title: 環境変数FACTERLIBについて
 tags: 

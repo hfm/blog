@@ -1,5 +1,4 @@
 ---
-layout: post
 title: GitHubのWebHookを利用したブログ更新
 date: 2014-02-11
 tags:

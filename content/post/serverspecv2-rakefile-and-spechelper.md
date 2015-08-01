@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2015-01-03T08:04:34+09:00
 title: Serverspec v2用Rakefileとspec_helper.rbの紹介
 tags:

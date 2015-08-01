@@ -1,5 +1,4 @@
 ---
-layout: post
 title: plenv-update作りました
 date: 2013-11-11
 tags:

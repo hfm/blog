@@ -1,5 +1,4 @@
 ---
-layout: post
 title: YAPC::Asia Tokyo 2013 感想
 date: 2013-09-30
 tags:

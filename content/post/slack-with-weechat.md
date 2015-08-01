@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2015-01-31T17:46:42+09:00
 title: WeechatからSlackにアクセスするようにした
 tags:

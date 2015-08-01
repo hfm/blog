@@ -1,5 +1,4 @@
 ---
-layout: post
 title: MySQL AllStar v0.2
 date: 2014-04-26
 tags:

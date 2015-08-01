@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2014-12-07T21:45:11+09:00
 title: 写真ブログ始めました
 tags: 

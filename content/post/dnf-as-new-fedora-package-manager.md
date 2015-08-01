@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2015-05-18T07:33:30+09:00
 title: Yumに替わる新たなパッケージマネージャ・DNFの覚書
 tags:

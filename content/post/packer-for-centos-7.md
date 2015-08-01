@@ -1,5 +1,4 @@
 ---
-layout: post
 title: CentOS 7用のVagrant BoxをPackerで作った
 date: 2014-07-12
 tags:

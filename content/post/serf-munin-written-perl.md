@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Perl版serf-muninを書いた
 date: 2014-08-11
 tags:

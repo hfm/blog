@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2015-04-06T01:16:46+09:00
 title: ReviewerとReviewee
 tags:

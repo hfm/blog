@@ -1,5 +1,4 @@
 ---
-layout: post
 title: sudoさん
 date: 2014-03-01
 tags: 

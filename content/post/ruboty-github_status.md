@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2015-03-10T00:16:26+09:00
 title: ruboty-github_statusを作った
 tags:

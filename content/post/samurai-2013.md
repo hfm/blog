@@ -1,5 +1,4 @@
 ---
-layout: post
 title: 師弟登壇・新米サムライの集い 2013 感想
 date: 2013-10-16
 tags:

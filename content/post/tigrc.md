@@ -1,5 +1,4 @@
 ---
-layout: post
 title: .tigrcでtigの表示を変更する
 date: 2014-01-18
 tags: 

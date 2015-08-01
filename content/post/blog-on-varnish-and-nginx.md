@@ -1,5 +1,4 @@
 ---
-layout: post
 title: varnish + nginxを導入した際の作業記録
 date: 2014-03-02
 tags:

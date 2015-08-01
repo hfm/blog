@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Shuttle XS36VLを買った
 date: 2013-10-20
 tags:

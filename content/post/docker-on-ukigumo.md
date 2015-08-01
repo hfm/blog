@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2014-12-15T13:07:35+09:00
 title: CentOSにUkigumoをいれてDockerを動かそうとしてハマった話
 tags: 

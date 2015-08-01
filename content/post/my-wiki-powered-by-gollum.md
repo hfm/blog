@@ -1,5 +1,4 @@
 ---
-layout: post
 title: gollumを使って個人用wikiをサーバに立てた
 date: 2014-02-02
 tags:

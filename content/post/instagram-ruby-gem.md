@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2014-11-30T01:14:25+09:00
 title: instagram-ruby-gemを使ってみた
 tags: 

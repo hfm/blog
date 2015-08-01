@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2014-11-16T18:46:45+09:00
 title: .irbrcの設定を見直した
 tags:

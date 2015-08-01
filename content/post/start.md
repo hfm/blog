@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2015-01-01T00:38:11+09:00
 title: 2015年の抱負
 tags:

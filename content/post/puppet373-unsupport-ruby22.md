@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2015-04-09T19:30:49+09:00
 title: Puppet 3.7.3 - 3.7.5 はRuby 2.2だと動かない
 tags:

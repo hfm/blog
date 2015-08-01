@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2014-10-21T01:52:30+09:00
 title: nginx vim syntaxを導入した
 tags: 

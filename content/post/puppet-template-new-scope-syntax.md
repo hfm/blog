@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2014-12-09T14:44:11+09:00
 title: Puppet 3のTemplatesで使えるscope新記法
 tags: 
