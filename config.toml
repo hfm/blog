@@ -1,0 +1,20 @@
+baseurl = 'http://blog.hifumi.info/'
+title = "blog: takahiro okumura"
+uglyURLs = true
+canonifyurls = true
+rssuri = "feed.xml"
+
+[permalinks]
+  post = "/:year/:month/:day/:filename/"
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+[author]
+  name = "Okumura Takahiro"
+  twitter = "@hfm"
+  github = "@takahilo"
+
+[params]
+  description = "i'm an infra engineer."
