@@ -1,0 +1,314 @@
+/*****************************************************************************/
+/* Common
+/*****************************************************************************/
+
+$base-font-size: 18px;
+$base-line-height: 28px;
+@include establish-baseline;
+
+body { background-color: #fff }
+strong { font-weight: bold }
+em { font-style: italic }
+h1, h2, h3, h4, h5 { @include font-family("sans-serif", true) }
+
+
+/*****************************************************************************/
+/* header
+/*****************************************************************************/
+#header {
+  @include adjust-font-size-to($base-font-size,1);
+  @include rhythm(2, 0, 0, 2, $base-font-size);
+  text-align: center;
+}
+
+#sitename {
+  $font-size: 18px;
+  @include adjust-font-size-to($font-size,1);
+
+  a {
+    text-decoration: none;
+    color: #666;
+  }
+}
+
+.tag-name {
+  $font-size: 26px;
+  @include adjust-font-size-to($font-size,1);
+  @include rhythm(1, 0, 0, 1, $base-font-size);
+  font-weight: 900;
+}
+
+.tag-cloud {
+  @include adjust-font-size-to($base-font-size,1);
+  @include rhythm(1, 0, 0, 1, $base-font-size);
+
+  a {
+    text-decoration: none;
+    color: #666;
+  }
+}
+
+
+/*****************************************************************************/
+/* wrapper
+/*****************************************************************************/
+.wrapper {
+  margin: 0 auto;
+  max-width: 48rem;
+  padding: 0 0.5rem;
+}
+
+.article {
+  a {
+    text-decoration: none;
+    color: #04c;
+
+    &:hover {
+      border-bottom: 1px dashed #04c;
+    }
+  }
+}
+
+/*****************************************************************************/
+/* entry-header
+/*****************************************************************************/
+.entry-header {
+  @include adjust-font-size-to($base-font-size,1);
+  @include rhythm(1, 0, 0, 1, $base-font-size);
+}
+
+.entry-header-index {
+  $font-size: 12px;
+  @include adjust-font-size-to($font-size,1);
+  @include rhythm(0.5, 0, 0, 0, $font-size);
+}
+
+.entry-title {
+  $font-size: 32px;
+  font-weight: bolder;
+  @include adjust-font-size-to($font-size,1.5);
+}
+
+.entry-header-btm {
+  @include adjust-font-size-to($base-font-size,1);
+  @include font-family("sans-serif", true);
+  color: #bbb;
+
+  .postdate {
+    margin: 0 7px;
+  }
+
+  a {
+    &:hover {
+    border-bottom: 1px dashed #bbb;
+    }
+  }
+
+  .tag {
+    color: #bbb;
+    padding: 2px;
+  }
+}
+
+
+/*****************************************************************************/
+/* entry-content
+/*****************************************************************************/
+.entry-content {
+  @include adjust-font-size-to($base-font-size,1);
+  @include rhythm(2, 0, 0, 2, $base-font-size);
+
+  h2 {
+    $font-size: 30px;
+    @include adjust-font-size-to($font-size,2);
+    @include rhythm(2, 0, 0, 1, $font-size);
+    font-weight: bold;
+    border-bottom: 1px dashed #aaa;
+  }
+
+  h3 {
+    $font-size: 30px;
+    @include adjust-font-size-to($font-size,1);
+    @include rhythm(1, 0, 0, 1, $font-size);
+    font-weight: bold;
+  }
+
+  h4 {
+    $font-size: 25px;
+    @include adjust-font-size-to($font-size,1);
+    @include rhythm(1, 0, 0, 1, $font-size);
+    font-weight: bold;
+  }
+
+  p, div {
+    @include adjust-font-size-to($base-font-size,1);
+    @include rhythm(1, 0, 0, 1, $base-font-size);
+  }
+
+  img {
+    max-width: 100%;
+    @include box-shadow(rgba(black, 0.2) 0 0 5px);
+  }
+
+  pre, code {
+    @include font-family("monospace", true);
+  }
+
+  pre {
+    padding: 0.5rem;
+    white-space: pre;
+    code {
+      border:0 solid #fefef2;
+    }
+  }
+  p, li {
+    code {
+      @include highlight-code-oneline;
+    }
+  }
+
+  ul, ol {
+    @include adjust-font-size-to($base-font-size,1);
+    @include rhythm(1, 0, 0, 1, $base-font-size);
+    margin-left: 1.5rem;
+    p {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+
+  ul {
+    list-style-type: circle;
+  }
+
+  ol {
+    list-style-type: decimal;
+  }
+
+  li ul {
+    list-style-type: square;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  li ol {
+    list-style-type: lower-alpha;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  blockquote {
+    @include rhythm(1, 0, 0, 1, $base-font-size);
+    border-left:24px double #eee;
+    color: #777;
+    padding: 0 0 0 24px;
+  }
+
+  table {
+    @include rhythm(1, 0, 0, 1, $base-font-size);
+    @include font-family("sans-serif", true);
+    border-collapse: collapse;
+    color: #444;
+    max-width: 100%;
+
+    td, th {
+      border-right: 1px solid #ddd;
+      border-left: 1px solid #ddd;
+      padding: 0 1rem;
+
+      &:first-child {
+        border-left: 0;
+      }
+      &:last-child {
+        border-right: 0;
+      }
+    }
+
+    th {
+      font-weight: bold;
+    }
+  }
+
+  sup {
+    vertical-align: super;
+    font-size: smaller;
+  }
+
+  .gist-file {
+    table, div, span {
+      @include adjust-font-size-to($base-font-size,1);
+      @include rhythm(0, 0, 0, 0, $base-font-size);
+    }
+  }
+}
+
+
+/*****************************************************************************/
+/* entry-footer
+/*****************************************************************************/
+.entry-footer {
+  @include adjust-font-size-to($base-font-size,1);
+  @include rhythm(1, 0, 0, 1, $base-font-size);
+
+  ul, ol {
+    @include rhythm(1, 0, 0, 2, $base-font-size);
+    margin-left: 1.5rem;
+  }
+
+  li {
+    list-style-type: circle;
+  }
+
+}
+
+.adsense {
+  @include adjust-font-size-to($base-font-size,1);
+  @include rhythm(1, 0, 0, 1, $base-font-size);
+  text-align: center;
+}
+
+.pagination {
+  $font-size: 14px;
+  @include adjust-font-size-to($font-size,1);
+}
+
+/*****************************************************************************/
+/* footer
+/*****************************************************************************/
+.footer {
+  @include adjust-font-size-to($base-font-size,2);
+  @include rhythm(3, 1, 1, 0, $base-font-size);
+  color: #fff;
+  background-color: #333;
+  line-height: 1.5;
+
+  a {
+    text-decoration: none;
+    color: #fff;
+  }
+
+  img.profile_image {
+    border: 20px solid #fff;
+    margin-right: 2.0em;
+    float:left;
+  }
+
+  div.profile_contact {
+    @include inline-block-list(2px);
+
+    ul, ol {
+      @include adjust-font-size-to($base-font-size,0);
+      @include rhythm(0, 0, 0, 0, $base-font-size);
+      margin-left: 0.0rem;
+    }
+
+    li {
+      vertical-align: top;
+    }
+
+    img {
+      height: 32px;
+      width: 32px;
+    }
+  }
+}

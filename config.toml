@@ -1,0 +1,17 @@
+baseurl = 'http://blog.hifumi.info/'
+title = "blog: takahiro okumura"
+uglyURLs = true
+pygmentscodefences = true
+pygmentsstyle = "perldoc"
+rssuri = "feed.xml"
+
+[permalinks]
+  post = "/:year/:month/:day/:filename/"
+
+[author]
+  name = "Okumura Takahiro"
+  twitter = "@hfm"
+  github = "@takahilo"
+
+[params]
+  description = "i'm an infra engineer."

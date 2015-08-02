@@ -1,18 +1,11 @@
 # osx
 .DS_Store
 
-# jekyll
-_site/
-
 # sass
 .sass-cache
-css/
-
-# bundler
-/.bundle/
-/vendor
-bin/
-.tweet-cache
 
 # dotenv
 .env
+
+# hugo
+public/
