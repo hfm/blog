@@ -11,7 +11,7 @@
           {{ .Date.Format "2 Jan 2006" }}
         </time>
         {{ range .Params.tags }}
-          <a href="/tag/{{ . }}.html"><span class="tag">{{ . }}</span></a>
+          <span class="tag">#{{ . }}</span>
         {{ end }}
       </div>
     </hgroup>

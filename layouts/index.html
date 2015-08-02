@@ -1,26 +1,24 @@
 {{ partial "header.html" . }}
-
 {{ range .Data.Pages }}
-  <article itemscope itemtype="http://schema.org/Article" class="article">
-    <header class="entry-header-index">
-      <hgroup>
-        <h1 itemprop="name" class="entry-title">
-          <a href="{{ .Permalink }}">{{ .Title }}</a>
-        </h1>
+<article itemscope itemtype="http://schema.org/Article" class="article">
+  <header class="entry-header-index">
+    <hgroup>
+    <h1 itemprop="name" class="entry-title">
+      <a href="{{ .Permalink }}">{{ .Title }}</a>
+    </h1>
 
-        <div class="entry-header-btm">
-          <time itemprop="datePublished" content="{{ .Date.Format "2006-01-02" }}" class="postdate" datetime="{{ .Date.Format "2006-01-02" }}">
-            {{ .Date.Format "2 Jan 2006" }}
-          </time>
-          {{ range .Params.tags }}
-            <a href="/tag/{{ . }}.html"><span class="tag">{{ . }}</span></a>
-          {{ end }}
-        </div>
-      </hgroup>
-    </header>
-  </article>
+    <div class="entry-header-btm">
+      <time itemprop="datePublished" content="{{ .Date.Format "2006-01-02" }}" class="postdate" datetime="{{ .Date.Format "2006-01-02" }}">
+        {{ .Date.Format "2 Jan 2006" }}
+      </time>
+      {{ range .Params.tags }}
+        <span class="tag">#{{ . }}</span>
+      {{ end }}
+    </div>
+    </hgroup>
+  </header>
+</article>
 {{ end }}
-
 <div class="adsense">
   <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <!-- blog index footer -->
@@ -33,5 +31,4 @@
 (adsbygoogle = window.adsbygoogle || []).push({});
   </script>
 </div>
-
 {{ partial "footer.html" . }}
