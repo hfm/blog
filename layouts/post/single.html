@@ -1,0 +1,50 @@
+{{ partial "header.html" . }}
+
+<article itemscope itemtype="http://schema.org/Article" class="article">
+  <header class="entry-header">
+    <hgroup>
+      <h1 itemprop="name" class="entry-title">
+        <a href="{{ .Permalink }}">{{ .Title }}</a>
+      </h1>
+      <div class="entry-header-btm">
+        <time itemprop="datePublished" content="{{ .Date.Format "2006-01-02" }}" class="postdate" datetime="{{ .Date.Format "2006-01-02" }}">
+          {{ .Date.Format "2 Jan 2006" }}
+        </time>
+        {{ range .Params.tags }}
+          <a href="/tag/{{ . }}.html"><span class="tag">{{ . }}</span></a>
+        {{ end }}
+      </div>
+    </hgroup>
+  </header>
+  <section itemprop="articleBody" class="entry-content">
+    {{ .Content }}
+  </section>
+  <footer class="entry-footer">
+
+    <div class="pagination c">
+      {{ if .Next }}
+      <a href="{{ .Next.Permalink }}">&laquo; {{ .Next.Title }}</a>
+      {{ end }}
+      {{ if and .Next .Prev }}/{{ end }}
+      {{ if .Prev}}
+      <a href="{{ .Prev.Permalink}}">{{ .Prev.Title }} &raquo;</a>
+      {{ end }}
+    </div>
+
+    <div class="adsense">
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <!-- blog footer responsive -->
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-4155246445920766"
+           data-ad-slot="2101467876"
+           data-ad-format="auto"></ins>
+      <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+  </footer>
+  {{ partial "disqus.html" . }}
+</article>
+
+{{ partial "footer.html" . }}
