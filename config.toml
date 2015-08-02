@@ -8,10 +8,6 @@ rssuri = "feed.xml"
 [permalinks]
   post = "/:year/:month/:day/:filename/"
 
-[taxonomies]
-  category = "categories"
-  tag = "tags"
-
 [author]
   name = "Okumura Takahiro"
   twitter = "@hfm"
