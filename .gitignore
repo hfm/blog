@@ -3,7 +3,6 @@
 
 # sass
 .sass-cache
-css/
 
 # dotenv
 .env
