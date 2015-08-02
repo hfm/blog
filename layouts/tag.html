@@ -1,14 +1,10 @@
----
-layout: default
----
-
 <article itemscope itemtype="http://schema.org/Article" class="article">
   <header>
     <h1 itemprop="name" class="tag-name">
       tag: {{ page.tag }}
     </h1>
   </header>
-  {% for post in page.posts %}
+  {{ range .Data.pages }}
     <section class="entry-header-index">
       <h1 itemprop="name" class="entry-title">
         <a href="{{ post.url }}">{{ post.title }}</a>
@@ -20,7 +16,7 @@ layout: default
         </time>
       </div>
     </section>
-  {% endfor %}
+  {{ end }}
 </article>
 
 <aside class="tag-cloud">
