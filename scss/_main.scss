@@ -267,11 +267,9 @@ h1, h2, h3, h4, h5 { @include font-family("sans-serif", true) }
   text-align: center;
 }
 
-#pagination {
-  $font-size: 12px;
+.pagination {
+  $font-size: 14px;
   @include adjust-font-size-to($font-size,1);
-  @include leader(2,$font-size);
-  text-align: center;
 }
 
 /*****************************************************************************/

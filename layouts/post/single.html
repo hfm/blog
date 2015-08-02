@@ -20,16 +20,16 @@
     {{ .Content }}
   </section>
   <footer class="entry-footer">
-
-    <div class="pagination c">
+      {{ if .Prev }}
+      <div class="pagination r">
+        <a href="{{ .Prev.Permalink }}">{{ .Prev.Title }} &raquo;</a>
+      </div>
+      {{ end }}
       {{ if .Next }}
-      <a href="{{ .Next.Permalink }}">&laquo; {{ .Next.Title }}</a>
+      <div class="pagination">
+        <a href="{{ .Next.Permalink }}">&laquo; {{ .Next.Title }}</a>
+      </div>
       {{ end }}
-      {{ if and .Next .Prev }}/{{ end }}
-      {{ if .Prev}}
-      <a href="{{ .Prev.Permalink}}">{{ .Prev.Title }} &raquo;</a>
-      {{ end }}
-    </div>
 
     <div class="adsense">
       <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
