@@ -4,7 +4,7 @@
   <header class="entry-header">
     <hgroup>
       <h1 itemprop="name" class="entry-title">
-        <a href="{{ .Permalink }}">{{ .Title }}</a>
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
       </h1>
       <div class="entry-header-btm">
         <time itemprop="datePublished" content="{{ .Date.Format "2006-01-02" }}" class="postdate" datetime="{{ .Date.Format "2006-01-02" }}">
@@ -22,12 +22,12 @@
   <footer class="entry-footer">
       {{ if .Prev }}
       <div class="pagination r">
-        <a href="{{ .Prev.Permalink }}">{{ .Prev.Title }} &raquo;</a>
+        <a href="{{ .Prev.RelPermalink }}">{{ .Prev.Title }} &raquo;</a>
       </div>
       {{ end }}
       {{ if .Next }}
       <div class="pagination">
-        <a href="{{ .Next.Permalink }}">&laquo; {{ .Next.Title }}</a>
+        <a href="{{ .Next.RelPermalink }}">&laquo; {{ .Next.Title }}</a>
       </div>
       {{ end }}
 
