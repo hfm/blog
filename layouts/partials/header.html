@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
+  <head>
+    <meta charset="UTF-8">
+    <title>{{ with .Title }}{{ . }} | {{ end }}{{ .Site.Title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{{ .Site.Params.description }}" />
+    <link rel="stylesheet" href="/css/style.css" type="text/css" />
+    <link href="{{ .RSSlink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
+    <link href="{{ .RSSlink }}" rel="feed" type="application/rss+xml" title="{{ .Site.Title }}" />
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="{{ .Site.Author.twitter }}">
+    <meta name="twitter:title" content="{{ with .Title }}{{ . }} | {{ end }}{{ .Site.Title }}">
+    <meta name="twitter:description" content="{{ if .IsPage }}{{ .Summary }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+    <meta name="twitter:image" content="{{ .Site.BaseURL }}/images/title.png">
+
+    {{ with .Title }}<meta property="og:title" content="{{ . }}">{{ end }}
+    <meta property="og:site_name" content="{{ .Site.Title }}">
+    <meta property="og:url" content="{{ .Permalink }}">
+    <meta property="og:description" content="{{ if .IsPage }}{{ .Summary }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+    <meta property="og:type" content="article">
+    <meta property="article:author" content="{{ .Site.Author.name }}">
+    {{ with .Date.Format "2006-01-02T15:04:05+09:00" }}<meta property="article:published_time" content="{{ . }}">{{ end }}
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-18235043-7', 'hifumi.info');
+      ga('require', 'displayfeatures');
+      ga('send', 'pageview');
+    </script>
+    <script type="text/javascript" src="http://s.hatena.ne.jp/js/HatenaStar.js"></script>
+    <script type="text/javascript">
+      Hatena.Star.Token = 'd5d89c3d59e16c593cec23580a846f6f837d8dd2';
+      Hatena.Star.SiteConfig = {
+        entryNodes: {
+          'article': {
+            uri: 'h1.entry-title a',
+            title: 'h1.entry-title',
+            container: 'h1.entry-title'
+          }
+        }
+      };
+    </script>
+  </head>
+  <body>
+    <header id="header">
+      <h1 id="sitename">
+        <a href="/">
+          {{ .Site.Title }}
+        </a>
+      </h1>
+    </header>
+    <div class="wrapper">
