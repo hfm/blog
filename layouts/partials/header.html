@@ -6,16 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="{{ .Site.Params.description }}" />
     <link rel="stylesheet" href="/css/style.css" type="text/css" />
-    <link href="{{ .RSSlink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
-    <link href="{{ .RSSlink }}" rel="feed" type="application/rss+xml" title="{{ .Site.Title }}" />
+    <link href="feed.xml" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
+    <link href="feed.xml" rel="feed" type="application/rss+xml" title="{{ .Site.Title }}" />
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="{{ .Site.Author.twitter }}">
-    <meta name="twitter:title" content="{{ with .Title }}{{ . }} | {{ end }}{{ .Site.Title }}">
+    <meta name="twitter:title" content="{{ .Title }}">
     <meta name="twitter:description" content="{{ if .IsPage }}{{ .Summary }}{{ else }}{{ .Site.Params.description }}{{ end }}">
     <meta name="twitter:image" content="{{ .Site.BaseURL }}/images/title.png">
 
-    {{ with .Title }}<meta property="og:title" content="{{ . }}">{{ end }}
+    <meta property="og:title" content="{{ .Title }}">
     <meta property="og:site_name" content="{{ .Site.Title }}">
     <meta property="og:url" content="{{ .Permalink }}">
     <meta property="og:description" content="{{ if .IsPage }}{{ .Summary }}{{ else }}{{ .Site.Params.description }}{{ end }}">
