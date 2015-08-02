@@ -1,6 +1,6 @@
 {{ partial "header.html" . }}
 
-{{ range first 20 .Data.Pages }}
+{{ range .Data.Pages }}
   <article itemscope itemtype="http://schema.org/Article" class="article">
     <header class="entry-header-index">
       <hgroup>
@@ -20,16 +20,6 @@
     </header>
   </article>
 {{ end }}
-
-<div id="pagination">
-  {{ if .Prev }}
-    <a href="{{ .Prev.Permalink }}">new post</a>
-  {{ end }}
-  {{ if and .Next .Prev }}/{{ end }}
-  {{ if .Next }}
-    <a href="{{ .Next.Permalink }}">old post</a>
-  {{ end }}
-</div>
 
 <div class="adsense">
   <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
