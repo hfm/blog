@@ -1,7 +1,8 @@
 ---
 layout: post
-date: 2015-03-28 22:11:01 +0900
+date: 2015-08-03T14:02:12+09:00
 title: Infrastructure as codeにおいて，もう少しだけ，よりよいコミットメッセージを書くために
+draft: true
 tags:
 - git
 - opinion
