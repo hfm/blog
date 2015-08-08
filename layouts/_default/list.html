@@ -1,0 +1,22 @@
+{{ partial "header.html" . }}
+{{ range .Data.Pages }}
+<article itemscope itemtype="http://schema.org/Article" class="article">
+  <header class="entry-header-index">
+    <hgroup>
+    <h1 itemprop="name" class="entry-title">
+      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+    </h1>
+
+    <div class="entry-header-btm">
+      <time itemprop="datePublished" content="{{ .Date.Format "2006-01-02" }}" class="postdate" datetime="{{ .Date.Format "2006-01-02" }}">
+        {{ .Date.Format "2 Jan 2006" }}
+      </time>
+      {{ range .Params.tags }}
+        <span class="tag">#{{ . }}</span>
+      {{ end }}
+    </div>
+    </hgroup>
+  </header>
+</article>
+{{ end }}
+{{ partial "footer.html" . }}
