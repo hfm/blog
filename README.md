@@ -17,6 +17,12 @@ go get -u -v github.com/spf13/hugo
 gem i compass
 ```
 
+### Pygments
+
+```
+pip install Pygments
+```
+
 build contents
 ---
 
