@@ -38,7 +38,7 @@ THE TAO OF PEPABO ENGINEER
 
 はじめに、オリエンテーションを行いました。
 
-<iframe src="//www.slideshare.net/slideshow/embed_code/key/vqNVLXX0WasaD2" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/hifumis/20150608-thetaoofpepaboengineer-49152106" title="THE TAO OF PEPABO ENGINEER" target="_blank">THE TAO OF PEPABO ENGINEER</a> </strong> from <strong><a href="//www.slideshare.net/hifumis" target="_blank">Takahiro Okumura</a></strong> </div>
+<iframe src="//www.slideshare.net/slideshow/embed_code/key/vqNVLXX0WasaD2" width="714" height="440" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/hifumis/20150608-thetaoofpepaboengineer-49152106" title="THE TAO OF PEPABO ENGINEER" target="_blank">THE TAO OF PEPABO ENGINEER</a> </strong> from <strong><a href="//www.slideshare.net/hifumis" target="_blank">Takahiro Okumura</a></strong> </div>
 
 ### タイトルの由来
 
@@ -89,7 +89,7 @@ Web開発研修イントロダクション
 
 オリエンテーションと同日、基礎研修の1つである「Web開発研修」のイントロダクションを行いました。
 
-<iframe src="//www.slideshare.net/slideshow/embed_code/key/164u3KpuhRAgyC" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/hifumis/20150609-webdevelopmenttraining" title="2015年GMOペパボ新卒エンジニア研修 Web開発研修イントロダクション" target="_blank">2015年GMOペパボ新卒エンジニア研修 Web開発研修イントロダクション</a> </strong> from <strong><a href="//www.slideshare.net/hifumis" target="_blank">Takahiro Okumura</a></strong> </div>
+<iframe src="//www.slideshare.net/slideshow/embed_code/key/164u3KpuhRAgyC" width="714" height="440" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/hifumis/20150609-webdevelopmenttraining" title="2015年GMOペパボ新卒エンジニア研修 Web開発研修イントロダクション" target="_blank">2015年GMOペパボ新卒エンジニア研修 Web開発研修イントロダクション</a> </strong> from <strong><a href="//www.slideshare.net/hifumis" target="_blank">Takahiro Okumura</a></strong> </div>
 
 ### Ruby on Rails Tutorial
 
