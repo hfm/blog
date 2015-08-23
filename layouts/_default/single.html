@@ -16,6 +16,11 @@
       </div>
     </hgroup>
   </header>
+  {{ with .Params.cover }}
+  <section itemprop="coverimage" class="entry-cover">
+    <img src="{{.}}" class="cover">
+  </section>
+  {{ end }}
   <section itemprop="articleBody" class="entry-content">
     {{ .Content }}
   </section>

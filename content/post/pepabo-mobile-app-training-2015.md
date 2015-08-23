@@ -1,138 +1,210 @@
 ---
-date: 2015-08-17T12:00:00+09:00
+date: 2015-08-18T14:00:00+09:00
 title: ペパボ新卒エンジニア研修2015・モバイルアプリ研修が始まっています
-draft: true
+cover: /images/2015/07/20/team.jpg
 tags:
 - pepabo
 ---
 いま、ペパボでは新卒エンジニア研修2015を実施しています。
-6/8から12/31の約7ヶ月間で、前半4ヶ月を「基礎研修」、後半3ヶ月を「サイクルOJT」と称しています。
+期間は6月から年末までの約7ヶ月間で、前半4ヶ月を「基礎研修」、後半3ヶ月を「サイクルOJT」と称しています。
 
-6/8から7/3のWeb開発研修では、Rails Tutorial[^1] を教材とした Web 開発に関する研修が実施されました。
-7/6から8/7のWebオペレーション研修では、ペパボの仮想インフラ基盤[^2]の上に、Rails を動かすべく、可用性を意識したインフラの設計・構築・運用を行ってもらいました。
+6/8〜7/3は、[Rails Tutorial](https://www.railstutorial.org/book) を教材とした**Web開発研修**が行われました。
+7/6〜8/7は、OpenStack[^1] 上で Rails を動かすための、インフラの設計・構築・運用を軸とした**Webオペレーション研修**が行われました。
 
 - [ペパボ新卒エンジニア研修2015が始まっています](/2015/06/14/pepabo-engineer-training-2015/)
 - [ペパボ新卒エンジニア研修2015・Webオペレーション研修が始まっています](/2015/07/20/pepabo-web-operation-training-2015/)
 
-そして8/17から、基礎研修の3つ目となる「モバイルアプリ研修」が始まりました。
-そこで今回は、8/7に完遂したWebオペレーション研修の歩みと、モバイルアプリ研修の話をしようと思います。
+そして昨日8/17から、基礎研修の第三幕『モバイルアプリ研修』が始まりました。
+そこで今回は、Webオペレーション研修の完遂に至るまでの話と、モバイルアプリ研修の話をしようと思います。
 
-Webオペレーション研修
+Webオペレーション研修の歩み
 ---
 
 ### どんなゴールだったか
 
-Webオペレーション研修では、 を、概ね以下のようなやり方で進めてもらいました。
+Webオペレーション研修では、**「アプリが『動く』インフラを、ステップ・バイ・ステップで成長させる」**ために、5つのステップで進めてもらいました。
 
-[![](/images/2015/07/20/nyah.png)](https://suzuri.jp/search?q=nyah)  
-*Nyah のロゴ*
+1. 【Vagrant編】Web開発研修の Rails アプリの動く環境を Vagrant (CentOS 7) 上で手動作成
+1. 【Vagrant編】Serverspec, Infrataster によるサーバテスト
+1. 【Vagrant編】Itamaeによるサーバ構成管理化
+1. 【Nyah編】Nyah (ペパボのOpenStack) に移行
+1. 【Nyah編】役割ごとにインスタンスの分割、可用性の向上
 
-```
- +---------------+
- | reverse proxy |
- +---------------+
-         |
-...................
-.                 .
-. +-----+ +-----+ .   +---------+
-. | app | | app | .---| storage |
-. +-----+ +-----+ .   +---------+
-...................
-         |
-    +--------+   +---------+
-    | master |---| replica |
-    +--------+   +---------+
-```
+最後のステップでは、アプリケーションサーバとデータベースサーバの分離、データベースのレプリケーション、リバースプロキシの導入、ストレージサーバの分離、アプリケーションサーバの冗長化などを目指してもらいました。
+
+また、この研修では2人1組のチームを導入し、相談しながら進めてもらうようにしました。
+
+### 全チームがゴールに辿りつけたのか？
+
+結末からいうと、2チームはゴールしましたが、残りの1チームは道半ばで時間切れとなってしまいました。
+時間切れとなったチームは、アプリケーションサーバの冗長化以外は構築出来たのですが、ストレージサーバが一度憤死（少し調査手伝ったけど何故死んだのか未だにわからない）するなどのトラブルに見舞われたりと、一筋縄ではいかない事情があったようです。
+
+#### どのあたりに苦労していた？
+
+全体的に大変そうだったというのが正直な感想ですが、研修前半では、パーミッションやアクセス権に関して苦労している人は数名いるようでした。
+また filewalld に苦戦した人もいて、研修の最後の方になると、 `filewall-cmd --permanent --add-service ...` みたいな長ったらしいコマンドをそらで打てるようになってました（成長？）。
+
+他には、ストレージサーバを構築するにあたって、何故か全チームが NFS を選んでいました。
+結果、この後のふりかえりにも「NFS の闇」と登場してしまったあたり、なにかしらのつらい事情を知ってしまったんだと思います。
+
+あと、reverse proxy 導入時に、 assets などの静的コンテンツをどうやって返せばいいのか、という議論がありました。
+最終的には、静的コンテンツを配信する **static-web サーバ** を構築することになったようですが、その構成にはチームごとに微妙な差がありました。
+
+一方では、以下のようにリバースプロキシの後ろにぶら下がっている場合：
+
+![](/images/2015/08/18/diagram01.png)
+
+他には、[AssetUrlHelper](http://api.rubyonrails.org/classes/ActionView/Helpers/AssetUrlHelper.html) の導入まではいかないものの、Rails 側を多少ゴニョゴニョして、グローバル IP のついた static-web サーバに振り分けている場合：
+
+![](/images/2015/08/18/diagram02.png)
+
+約一ヶ月という短い期間ながらも、それぞれ頭を悩ませ、良い構成にするべく様々な挑戦を試みていました。
+
+#### 課題を越えてチャレンジしていたこと
+
+最後のステップは、およそ2週間ほどの期間で取り組んでいました。
+その取り組みのなかで、課題を越えて、以下のような技術にチャレンジしているチームもありました。
+
+- Rakeタスクによるオペレーションタスクの自動化（抽象化）
+- [Capistrano](https://github.com/capistrano/capistrano) の導入
+- [winebarrel/gratan](https://github.com/winebarrel/gratan) によるユーザ情報のコード管理化
+- [Terraform](https://www.terraform.io/)によるリソースのコード管理化
+- （ストレージサーバとして）[Riak](http://basho.co.jp/riak/) の検証
+- Serfを使った `/etc/hosts`や nginx upstreamの自動更新
+
+OpenStack を Terraform で管理するなど、チャレンジ精神があふれていて大変素晴らしいです。
 
 ### Webオペレーション研修のふりかえり (KPT) の様子
 
-8/7 のWebオペレーション研修最終日には、みんなでふりかえり (KPT) を行いました。
+Webオペレーション研修最終日には、みんなでふりかえり (KPT) を行いました。
 
-[![](/images/2015/08/17/kpt01_large.jpg)](/images/2015/08/17/kpt01_full.jpg)
+[![](/images/2015/08/18/kpt01_large.jpg)](/images/2015/08/18/kpt01_full.jpg)
 *ふりかえり (KPT) の様子*
 
-[![](/images/2015/08/17/kpt02_large.jpg)](/images/2015/08/17/kpt02_full.jpg)
+[![](/images/2015/08/18/kpt02_large.jpg)](/images/2015/08/18/kpt02_full.jpg)
 *Try が出せなくて議論している様子*
 
-[![](/images/2015/08/17/kpt03_large.jpg)](/images/2015/08/17/kpt03_full.jpg)
+[![](/images/2015/08/18/kpt03_large.jpg)](/images/2015/08/18/kpt03_full.jpg)
 *Webオペレーション研修の KPT*
 
 ### ホワイトボードで毎日の進捗確認
 
 Webオペレーション研修を経て、完成（？）したホワイトボードがこちら。
 
-[![](/images/2015/08/17/kanban_large.jpg)](/images/2015/08/17/kanban_full.jpg)
-*段々とキャラクタが増えています*
-
-黄緑色の付箋は、おかわり課題として用意していたものです。
-守り神も増えました。
+[![](/images/2015/08/18/kanban_large.jpg)](/images/2015/08/18/kanban_full.jpg)
+*段々とキャラクタが増えています。あと、黄緑色の付箋は、おかわり課題として用意していたものです*
 
 モバイルアプリ研修イントロダクション
 ---
 
-さて、本日8/17 から新たにモバイルアプリ研修が始まりました。
+さて、昨日8月17日から新たにモバイルアプリ研修が始まりました。
 初日はイントロダクションとして、研修のゴールや進め方についてお話させていただきました。
 
-*ここにスライドを掲載する*
+<iframe src="//www.slideshare.net/slideshow/embed_code/key/elzOa0O9nIUagY" width="714" height="440" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/hifumis/20150817-mobileapp-training" title="2015年GMOペパボ新卒エンジニア研修 モバイルアプリ研修イントロダクション" target="_blank">2015年GMOペパボ新卒エンジニア研修 モバイルアプリ研修イントロダクション</a> </strong> from <strong><a href="//www.slideshare.net/hifumis" target="_blank">Takahiro Okumura</a></strong> </div>
 
 モバイルアプリ研修のゴール
 ---
 
-「アプリが『動く』インフラを、ステップ・バイ・ステップで成長させる」ことをゴールとして、5つのステップを設けました。
+この研修には大きく2つのゴールを設定しています。
+1st stage は「Rails をバックエンドとしたモバイルアプリの開発」で、2nd stage は 「1つ以上の『ユーザ体験』をつくる」ことです。
 
-![](/images/2015/07/20/goal.png)
-*Vagrant編・Nyah編（後述）、合わせて5つのステップ*
+この研修では、「どのようなゴールを設定するか」も含めて彼ら自身にデザインしてもらいます。
+ライブラリ選定であったり、API 設計であったり、あるいは UI/UX など、これまで以上に頭と手を動かさなければ課題の達成は困難でしょう。
 
-各ステップの課題は以下のとおりです。
+しかし、Web開発研修とWebオペレーション研修での様子から、不可能な課題ではないと確信しています。
 
-- 編
-  1. Web開発研修で作成した Rails アプリを、Vagrant で動かす (manual install)
-  1. Serverspec, Infrataster などでサーバの構成・振る舞いをテストする (test)
-  1. Itamaeでサーバ構成をコード化する (infra as code)
-- Nyah編
-  1. Nyah 上のインスタンスで Rails アプリケーションを動かす (trasfer)
-  1. 役割ごとにインスタンスを分割し、耐障害性を向上させる (high availability)
+### 1st stage: Rails をバックエンドとしたモバイルアプリの開発
 
-また、この研修ではチーム制を導入しており、**test** のステップから2人1組のチームを結成して課題に取り組んでもらっています。
+1st stage では、Web開発研修でつくったRailsアプリをバックエンドとして、Webオペレーション研修で構築したサーバをインフラとして、つまり、これまでの研修で築いてきたものの上で動作するモバイルアプリの開発を目的としています。
 
-### 第1ステップ
+![](/images/2015/08/18/1st_stage.png)
 
-Rails Tutorial ではアプリケーションを動かす環境に Heroku を利用していましたが、このステップでは、Rails アプリを Vagrant 上の CentOS 7 で動かせるようにすることが課題です。
+実際に開発を行うリポジトリは、以下の2つになります。
+始まったばかりですのでまだコードは育っていないかもしれませんが、この一ヶ月でどのような成長を遂げていくのか、見ていただけると幸いです。
 
-[![](/images/2015/07/20/vagrant.png)](https://www.vagrantup.com/)
+- https://github.com/pepabo/railstutorial-ios
+- https://github.com/pepabo/railstutorial-android
 
-Rails アプリに必要なミドルウェアやそれらの機能を学ぶこと、また Linux に挑んでもらうことを目的としています。
+### 2nd stage: 1つ以上の『ユーザ体験』をつくる
 
-（実際はもっと細かく多いですが）以下のような作業内容を想定しています。
+2nd stage は更に抽象的なゴールとなっています。
 
-- Rails アプリを MariaDB, Unicorn に対応させる (Heroku では PostgreSQL, Puma だった)
-- MariaDB をインストールする
-- Nginx をインストールする
-- Ruby 2.2 をインストールする
-- Rails アプリを設置する
-- systemd で各種ミドルウェア、Rails アプリをサービスとして動作させる
+1st stage で開発したモバイルアプリのうえに、「『ユーザ体験』とはなにか」をチームで考えてもらいます。
+そして、リーンキャンバス、インセプションデッキといったプラクティスを活用しながら、「これだ」と定めたソフトウェアを開発していってもらう、という流れを想定しています。
 
-Linux や [Vagrant](https://www.vagrantup.com/)、[FHS](http://www.pathname.com/fhs/pub/fhs-2.3.html)、パーミッション、所有者・グループ、ファイアウォール、リポジトリ、systemd、データベース、Web サーバ、UNIX ドメインソケット、...
-若干盛り込み過ぎに見えなくもないですが、続くステップで繰り返し復習し、段々と理解を深めていってもらいたいと考えています。
+チーム
+---
 
-### 第2ステップ
+Webオペレーション研修では2人1組でしたが、今回は iOS アプリを作るチームと Android アプリを作るチームになりました。
 
-先のステップで構築した Rails アプリサーバが、意図通り動いていることを保証するテストは重要です。
+![](/images/2015/08/18/team.png)
 
-そこでこのステップでは、[Serverspec](http://serverspec.org), [Infrataster](https://github.com/ryotarai/infrataster) を使ってサーバテストを導入していきます。
-（ただし、Infrataster は余裕のある場合のおかわり課題という位置づけです。）
+チーム名も自分たちで考えてもらったんですが、それぞれ「ねはん」と「じょうど」になりました。
+なぜそうなったのか、理由は深くは聞いていません。
 
-[![](https://avatars2.githubusercontent.com/u/3970679?s=400)](https://github.com/serverspec/serverspec)
+研修の進め方
+---
 
-manual install でインストールしたパッケージ、変更した設定ファイル、有効化したサービス、自動起動の設定、ポートのリスン、アクセス権（パーミッションや所有者・グループ）など、ステップ1で実施した内容のテストをザッと書いてもらいます。
+概ねスライド資料の通りですが、いくつか補足しておきます。
 
-なお、研修ではこのタイミングで2人1組のチームを組んでもらい、「どのようなテストを書けばよいのか」についてはチームで話し合って決めてもらいます。
-ただし、この段階ではあまり時間をかけず、続く infra as code のステップで更にテストを内容を充実させていってもらいます。
+### ペーパープロトタイプ、遷移図
 
+これらの重要性については、以下のスライド資料で説明されている内容が素晴らしいと思うので、こちらをお読み頂ければと思います。
+
+<iframe src="//www.slideshare.net/slideshow/embed_code/key/zSm32EjbPBQjRB" width="714" height="582" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/yutawariishi/ss-47974238" title="人と向き合うプロトタイピング" target="_blank">人と向き合うプロトタイピング</a> </strong> from <strong><a href="//www.slideshare.net/yutawariishi" target="_blank">wariemon</a></strong> </div>
+
+プロトタイピングツールとしては、Prott と Prott note にしました。
+
+- [Prott - Rapid prototyping tool. Now gets an app.](https://prottapp.com/)
+- [Prott Blog - Prottノートを使ってプロトタイピング！](https://blog.prottapp.com/post/ja/prott-note)
+
+また、ペーパープロトタイピングの進め方や筆記具は、弊社デザイナや以下のブログを参考にしました。
+
+- [ペーパープロトタイピング入門 – 第2回 ペーパープロトタイピングに使う道具 | fladdict](http://fladdict.net/blog/2013/12/paper-prototyping-2.html)
+
+### ユーザテスト
+
+今回の研修では、それぞれのチームが約一ヶ月間、いっしょに開発をします。
+一方で、チームが完全に分かれてしまっているため、お互いの進捗が見えづらくなったり、コミュニケーションが減ってしまうのはもったいないと考えました。
+
+そこで、互いのチームが互いのプロダクトのユーザになりきるユーザテストを導入し、「適切なフィードバックを送る」という要素を取り入れることにしました。
+
+### リーンキャンバス、インセプションデッキ、レビュー
+
+ペパボでは、ソフトウェア開発の際にリーンキャンバスとインセプションデッキを活用しています。
+そこで、新卒研修においてもソフトウェア開発プロセスはしっかりとフォローした方がいいと判断し、このモバイルアプリ研修での導入を決定しました。
+
+リーンキャンバスは [demi168/Lean-Canvas-prototype-PDF](https://github.com/demi168/Lean-Canvas-prototype-PDF) を、インセプションデッキは [agile-samurai-ja/support](https://github.com/agile-samurai-ja/support) のテンプレートを使う予定です。
+
+また、実際に作ってみるだけではなく、弊社チーフエンジニアである [@hsbtさん](https://twitter.com/hsbt) にレビューしていただくことで、経験値の蓄積と品質の向上を目指しています。
+
+### 実際のチーム開発の様子
+
+モバイルアプリ研修初日の様子です。
+『ねはん』と『じょうど』それぞれのチームがミーティングを行い、タスクの洗い出しやサービス分析などを行っています。
+
+[![](/images/2015/08/18/team_nehan_large.jpg)](/images/2015/08/18/team_nehan_full.jpg)
+*ねはんチームのMTGの様子*
+
+[![](/images/2015/08/18/team_jodo_large.jpg)](/images/2015/08/18/team_jodo_full.jpg)
+*じょうどチームのMTGの様子*
+
+カンバンも生まれ変わりました。
+
+[![](/images/2015/08/18/mobileapp_kanban_large.jpg)](/images/2015/08/18/mobileapp_kanban_full.jpg)
+*始まったばかりのカンバン。上半分がじょうどチーム、下半分がねはんチームの領域です*
+
+多分「TODO」「DOING」「DONE」的なことだと思うんですが、フレーズにも遊び心を持ち込もうとしており、傍から見ると宗教観満載になっています。
+完了したタスクはもれなく「浄土」と「涅槃」に送られていくようです。
+すごい世界だ。
 
 おわりに
 ---
 
+Web開発、Webオペレーションと続いた基礎研修も、いよいよ後半戦になりました。
+これまで以上に大変な課題ですが、これまで以上の成果を期待しています。
+
+研修の様子は引き続き報告していきたいと思いますので、ご期待ください！
 
 求人
 ---
@@ -140,8 +212,6 @@ manual install でインストールしたパッケージ、変更した設定�
 ペパボでは2016年4月に入社していただく新卒エンジニアの募集を行っています。
 ご興味あるかたは是非 ;-)
 
-[![](/images/2015/07/20/team.jpg)](https://www.wantedly.com/projects/25397)
-*[未来のトップエンジニアを大募集！技術力で世界をもっとおもしろくしよう - GMOペパボ株式会社の求人 - Wantedly](https://www.wantedly.com/projects/25397)*
+[GMOペパボ株式会社の説明会、セミナー｜リクナビ2016｜学生のための就職情報サイト](https://job.rikunabi.com/2016/company/seminar/r240020045/C007/)
 
-[^1]: https://www.railstutorial.org/book
-[^2]: http://www.slideshare.net/ume3_/pb-tc01-bob001
+[^1]: http://www.slideshare.net/ume3_/pb-tc01-bob001
