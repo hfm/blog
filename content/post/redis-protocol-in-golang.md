@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2015-08-03T14:03:23+09:00
+date: 2015-09-03T14:03:23+09:00
 title: Go言語を使ってRedis Protocol (RESP) でおしゃべりする
 draft: true
 tags:
