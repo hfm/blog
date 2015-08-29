@@ -161,6 +161,9 @@ YAPC::Asia ではトークを見るのがスタンダードだが、実は通路
 
 その場で、ついに（？）あんちぽさんとゆううき君が邂逅した（といっても、数回目らしいけど。）
 
+<a data-flickr-embed="true"  href="https://www.flickr.com/photos/hsbt/20965873065/in/photostream/" title="DSC03734.jpg"><img src="https://farm6.staticflickr.com/5648/20965873065_35b1967134_c.jpg" width="800" height="534" alt="DSC03734.jpg"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>  
+*柴田さんが撮影したこの写真は、何故か、私 vs CTO みたいになってる*
+
 インターネット（というかツイッタ）で散々バトルしていた2人だったが（そうなのか？）、最後の YAPC::Asia にて邂逅を果たした（大事なことなので2回目）。
 しかし、あんちぽさんが「これがおっさんのやり方だ！」と言いながら、周囲の人々を1人ずつ懐柔して仲間に引き込み、ゆううき君を孤立させるという作戦に出たため、若者代表ゆううき君は大分苦戦してた気がする。
 
