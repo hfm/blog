@@ -184,6 +184,8 @@ YAPC::Asia ではトークを見るのがスタンダードだが、実は通路
 
 ### [3分でサービスのOSを入れ替える技術](http://yapcasia.org/2015/talk/show/4f85e87a-f9ec-11e4-8262-8ab37d574c3a)
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/iLwI-OBjYPc" frameborder="0" allowfullscreen></iframe>
+
 <iframe src="//www.slideshare.net/slideshow/embed_code/key/K9XghBPCzABX32" width="714" height="447" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen></iframe>
 
 ここ半年間の集大成ともいうべき発表だった。
