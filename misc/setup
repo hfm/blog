@@ -1,0 +1,5 @@
+#!/bin/bash
+
+go get -u -v github.com/spf13/hugo
+gem i compass
+pip install Pygments
