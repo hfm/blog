@@ -5,22 +5,8 @@ http://blog.hifumi.info/
 setup
 ---
 
-### hugo
-
 ```
-go get -u -v github.com/spf13/hugo
-```
-
-### compass
-
-```
-gem i compass
-```
-
-### Pygments
-
-```
-pip install Pygments
+misc/setup
 ```
 
 build contents
