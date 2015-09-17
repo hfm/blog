@@ -251,8 +251,21 @@ h1, h2, h3, h4, h5 { @include font-family("sans-serif", true) }
       @include rhythm(0, 0, 0, 0, $base-font-size);
     }
   }
-}
 
+  .footnotes {
+    li {
+      font-size: 0.8em;
+      line-height: 1.0em;
+    }
+
+    hr {
+      border: 0;
+      height: 0;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    }
+  }
+}
 
 /*****************************************************************************/
 /* entry-footer
