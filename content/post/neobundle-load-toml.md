@@ -35,6 +35,24 @@ endif
 call neobundle#end()
 ```
 
+---
+
+2015/09/20 追記：
+
+上記の設定は古くなっており、 `neobundle#has_cache()` と `NeoBundleLoadCache` の併用に代わり、 `neobundle#load_cache()` を使った、より簡潔な記述が推奨されている。
+
+```diff
+--- if neobundle#has_cache()
+---   " キャッシュから高速に起動
+---   NeoBundleLoadCache
+--- else
++++ if neobundle#load_cache()
+```
+
+追記ここまで。
+
+---
+
 vimrcに書かれていた大量のプラグインリストは，`neobundle#load_toml`のおかげでたった数行に収められた．
 
 ちなみに，遅延読み込みしたいプラグインとそうでないプラグインがある場合，1つのTOMLファイルだと管理が難しかったので，2つに分けている．
