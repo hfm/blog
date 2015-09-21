@@ -285,6 +285,14 @@ h1, h2, h3, h4, h5 { @include font-family("sans-serif", true) }
 
 }
 
+ul.social {
+  @include inline-block-list;
+}
+
+.fb_iframe_widget > span {
+  vertical-align: baseline !important;
+}
+
 .adsense {
   @include adjust-font-size-to($base-font-size,1);
   @include rhythm(1, 0, 0, 1, $base-font-size);
