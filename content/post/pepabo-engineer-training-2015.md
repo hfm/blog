@@ -1,6 +1,7 @@
 ---
 date: 2015-06-14T20:22:20+09:00
 title: ペパボ新卒エンジニア研修2015が始まっています
+cover: /images/2015/06/14/workshop02_full.jpg
 tags:
 - pepabo
 ---
