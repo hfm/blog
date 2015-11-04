@@ -49,6 +49,20 @@ ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEA6NF8iallvQVp22WDkTkyrtvp9eWW6A8YVr+kz4TjGYe7
 最低でも3つの属性に分けて書かなければいけないのが多少面倒だが，fileリソースでまるごと管理するよりは柔軟になったと思う．
 あと，serverspec[^2]の`have_authorized_key`テストをする際にも，manifestsとの対応が分かりやすくなるメリットもある．
 
+### 注意事項
+
+`ssh_authorized_key` は、`~/.ssh` ディレクトリが存在しなければ、パーミッション 700 でディレクトリを作成する。
+しかし、 `~/.ssh` のパーミッション自体を管理するわけではないので、別途以下のような file リソースも用意すべきだろう。
+
+```puppet
+file { '/root/.ssh':
+  ensure => directory,
+  mode   => '0700',
+  owner  => 'root',
+  group  => 'root',
+}
+```
+
 ## sshkey
 
 似たようなリソースに`sshkey`があるが，こちらは`/etc/ssh/ssh_known_host`への登録が可能なようである（`title`に空白スペースが使えない等の細かな違いがある）．
