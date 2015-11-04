@@ -9,9 +9,11 @@ tags:
 ---
 MogileFS は OSS の分散ファイルシステムである。
 
-写真共有サービス 30days Album[^1]（以降、デイズ）では、画像ストレージとしてこの MogileFS を採用しており[^2][^3][^4]、最近では、これを社内用 Private S3 として用途を拡大させた Bayt (ベイト) というプロダクトをリリースした[^5][^6]。
+（前口上）写真共有サービス 30days Album[^1]（以降、デイズ）では、画像ストレージとしてこの MogileFS を採用しており[^2][^3][^4]、最近では、これを社内用 Private S3 として用途を拡大させた Bayt (ベイト) というプロダクトをリリースした[^5][^6]。
 
-デイズは、総容量にして 800TB 近いデータを保持しており、システム全体として見ても優れた耐久性と高い稼働率を維持している。
+デイズは、総容量にして 800TB を超えるデータを保持している。
+不運が重なりデータを4個ロストした経験を持つが、
+システム全体として見ても優れた耐久性と高い稼働率を維持している。
 
 公式ドキュメント[^7]がそれなりに充実していることや、そもそも分散ファイルシステムの利用者が少ないこともあるだろうが、MogileFS の国内の資料は多く無い。
 
@@ -89,6 +91,10 @@ MogileFS は Perl 製プロダクトなので CPAN 経由での入手が可能�
 しかし、ドキュメントは Google Code の Wiki にある。
 そしてプルリクエストを送るのは GitHub かメーリングリスト（後者が推奨らしい）となっており、一見まとまっていない。
 
+Google Code は2016年1月25日にサービスを完全終了する。
+完全終了というのは、データへのアクセスが出来なくなることを意味する。
+
+
 インストール編
 ---
 
@@ -120,6 +126,7 @@ MogileFS という名称の由来は、*"OMG FILES"* のアナグラムである
 [^4]: http://www.slideshare.net/kyanny/inside-30days-albumlaterstory-5452817
 [^5]: http://www.slideshare.net/lamanotrama/mogilefsprivate-s3
 [^6]: http://www.slideshare.net/hiboma/mogilefs-private-s3-api
-[^7]: http://code.google.com/p/mogilefs/wiki/Start
+[^7]: https://github.com/tacahilo/mogilefs/blob/wiki/Start.md
 []: https://github.com/mogilefs/
 []: https://groups.google.com/forum/#!forum/mogile
+[]: http://googledevjp.blogspot.jp/2015/04/google-code.html
