@@ -5,9 +5,9 @@ tags:
 - ukigumo
 - perl
 ---
-Ukigumo::Clientはikachanを引数指定出来るけど，Agentでのやり方が分からなかったので調べてた時のメモ．
+Ukigumo::Clientはikachanを引数指定出来るけど、Agentでのやり方が分からなかったので調べてた時のメモ。
 
-ドキュメント少なくてちょっと手間取ったけど，`.ukigumo.yml`の`notifications`にIkachanの設定を書けば動いてくれた．
+ドキュメント少なくてちょっと手間取ったけど、`.ukigumo.yml`の`notifications`にIkachanの設定を書けば動いてくれた。
 
 ## `.ukigumo.yml`にIkachan用の設定を書く
 
@@ -22,7 +22,7 @@ notifications:
 
 ![FAILしてるが通知はSUCCESS](/images/2015/02/19/ukigumo-ikachan.png)
 
-コード[^1]を読むと，SUCCESS時の通知を制御する（っぽい）`ignore_success`やprivmsg・noticeの通知方法を選択する`method`等もあるみたいなので，必要ならyamlに追記すれば良さそう．
+コード[^1]を読むと、SUCCESS時の通知を制御する（っぽい）`ignore_success`やprivmsg・noticeの通知方法を選択する`method`等もあるみたいなので、必要ならyamlに追記すれば良さそう。
 
 ---
 
@@ -35,7 +35,7 @@ http://ukigumo.github.io/Ukigumo-Client/ にも書いてあった
 
 ## 終わりに
 
-[@moznion](https://twitter.com/moznion)さんのブログ[^2]にはGitHubの通知方法があったので，Ikachanは無いかなーとググったらLingrにそれっぽいことが書いてあった[^3]ので，取り敢えずそれっぽくYAMLに書いたら動いたので良かった．
+[@moznion](https://twitter.com/moznion)さんのブログ[^2]にはGitHubの通知方法があったので、Ikachanは無いかなーとググったらLingrにそれっぽいことが書いてあった[^3]ので、取り敢えずそれっぽくYAMLに書いたら動いたので良かった。
 
 Ukigumoちゃん可愛いよ!
 

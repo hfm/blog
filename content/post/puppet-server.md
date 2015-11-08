@@ -4,23 +4,23 @@ title: Puppet Serverをインストールしてみる（だけ）
 tags:
 - puppet
 ---
-PuppetlabsからPuppet Serverに関するスライドが上がっていた．
+PuppetlabsからPuppet Serverに関するスライドが上がっていた。
 
 <iframe src="//www.slideshare.net/slideshow/embed_code/key/Cb69Flkj2jNoHb" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/PuppetLabs/cmc-presentation-44223836" title="ConfigMgmtCamp 2015: Puppet Master to Puppet Server" target="_blank">ConfigMgmtCamp 2015: Puppet Master to Puppet Server</a> </strong> from <strong><a href="//www.slideshare.net/PuppetLabs" target="_blank">Puppet Labs</a></strong> </div>
 
-サブタイトルがどうも気になるけど，まあそれはいいとして，Puppet masterはもうすぐ役目を終えるらしい．
-次世代PuppetサーバであるPuppet Serverは，より高いパフォーマンスを発揮するべく，これまでと大きく異なるアーキテクチャを採用している．
+サブタイトルがどうも気になるけど、まあそれはいいとして、Puppet masterはもうすぐ役目を終えるらしい。
+次世代PuppetサーバであるPuppet Serverは、より高いパフォーマンスを発揮するべく、これまでと大きく異なるアーキテクチャを採用している。
 
-Puppet Serverの変更点や性能については，スライドの4ページ目以降を読んでもらうことにして，今回はPuppet Masterを触ってみようと思う．
+Puppet Serverの変更点や性能については、スライドの4ページ目以降を読んでもらうことにして、今回はPuppet Masterを触ってみようと思う。
 
 ## パッケージのインストール
 
-Puppet Serverのパッケージインストール方法は，[puppetlabs/puppet-server](https://github.com/puppetlabs/puppet-server)のドキュメントに記載されている．
+Puppet Serverのパッケージインストール方法は、[puppetlabs/puppet-server](https://github.com/puppetlabs/puppet-server)のドキュメントに記載されている。
 
 - https://github.com/puppetlabs/puppet-server/blob/master/documentation/install_from_packages.markdown
 
-RHEL系なら，Puppet Serverは以下のようにインストール出来る．  
-※`puppet-server`はPuppet Masterのことで，`puppetserver`がPuppet Serverなので注意．
+RHEL系なら、Puppet Serverは以下のようにインストール出来る。  
+※`puppet-server`はPuppet Masterのことで、`puppetserver`がPuppet Serverなので注意。
 
 ```sh
 sudo rpm --import http://yum.puppetlabs.com/RPM-GPG-KEY-puppetlabs
@@ -33,14 +33,14 @@ sudo yum install -y puppetserver
 
 ### Puppet Serverのメモリ使用量について
 
-ところで，Puppet Serverはデフォルトで2GBもメモリを食う．
+ところで、Puppet Serverはデフォルトで2GBもメモリを食う。
 
 > Puppet Server is configured to use 2GB of RAM by default. If you'd like to just play around with an installation on a Virtual Machine, this much memory is not necessary. To change the memory allocation, please see Memory Allocation.
 > 
 > *[System Requirements](https://github.com/puppetlabs/puppet-server/blob/master/documentation/install_from_packages.markdown#system-requirements)*
 
 
-流石にVagrantなどでお試しする時に2GBはしんどいので，Memory Allocation[^1]の設定に倣って512MBに変更する．
+流石にVagrantなどでお試しする時に2GBはしんどいので、Memory Allocation[^1]の設定に倣って512MBに変更する。
 
 ```diff
 --- /tmp/puppetserver.orig      2015-02-08 21:28:43.238007319 +0900
@@ -56,8 +56,8 @@ sudo yum install -y puppetserver
  USER="puppet"
 ```
 
-あとはPuppet Serverを起動する．
-javaが起動するので，puppetmasterと比べて起動に時間かかるなあという印象．
+あとはPuppet Serverを起動する。
+javaが起動するので、puppetmasterと比べて起動に時間かかるなあという印象。
 
 ```sh
 sudo service puppetserver start
@@ -65,7 +65,7 @@ sudo service puppetserver start
 
 ## 適当に試してみる
 
-何もmanifestsを用意してないけど，とりあえず適当にagentを叩いてみる．
+何もmanifestsを用意してないけど、とりあえず適当にagentを叩いてみる。
 
 ```shell-session
 [vagrant@localhost ~]$ sudo puppet agent --test --server localhost
@@ -82,14 +82,14 @@ Info: Creating state file /var/lib/puppet/state/state.yaml
 Notice: Finished catalog run in 0.01 seconds
 ```
 
-拍子抜けするほど普通に動いた．
-これだけでいいのか．
+拍子抜けするほど普通に動いた。
+これだけでいいのか。
 
 ## 終わりに
 
-今回はとりあえずインストールしてみよう，というだけが目的だったので，具体的な使い方やチューニング等は次回以降に回す．
+今回はとりあえずインストールしてみよう、というだけが目的だったので、具体的な使い方やチューニング等は次回以降に回す。
 
-あと，パフォーマンスや運用上の注意点などはまだなんとも言えないので，ドキュメント[^2]をある程度読んだら本番環境で試してみようと思う．
+あと、パフォーマンスや運用上の注意点などはまだなんとも言えないので、ドキュメント[^2]をある程度読んだら本番環境で試してみようと思う。
 
 [^1]: https://github.com/puppetlabs/puppet-server/blob/master/documentation/install_from_packages.markdown#memory-allocation
 [^2]: https://docs.puppetlabs.com/puppetserver/latest/services_master_puppetserver.html

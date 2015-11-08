@@ -4,23 +4,23 @@ date: 2014-07-27
 tags:
 - serf
 ---
-前回[^1]同様，serfの動作確認を行う．
-今回は，ペパボのアドバンスドシニアエンジニア[^2]であるantipopさん[^3]が開発された，serf-hosts[^4]を試してみた．
+前回[^1]同様、serfの動作確認を行う。
+今回は、ペパボのアドバンスドシニアエンジニア[^2]であるantipopさん[^3]が開発された、serf-hosts[^4]を試してみた。
 
 ## serf-hosts
 
-serf-hostsは`/etc/hosts`の自動管理を行う．
-`member-join, member-leave (member-failed)`のイベントに応じて，`/etc/hosts`へ対象ホストの追加・削除を行う．
+serf-hostsは`/etc/hosts`の自動管理を行う。
+`member-join, member-leave (member-failed)`のイベントに応じて、`/etc/hosts`へ対象ホストの追加・削除を行う。
 
-serf-hostsの挙動について，QuickCasts[^5]を使って動画を作成したので，こちらを見てもらえば実際の動作が分かる．
+serf-hostsの挙動について、QuickCasts[^5]を使って動画を作成したので、こちらを見てもらえば実際の動作が分かる。
 
 <iframe width="800" height="600" src="https://www.youtube.com/embed/xUpuI3aqVjc" frameborder="0" allowfullscreen></iframe>
 
-ここからは，上記の動画撮影のために揃えた環境についての説明となる．
+ここからは、上記の動画撮影のために揃えた環境についての説明となる。
 
 ## Vagrantfile
 
-前回使ったVagrantfileにちょっと修正を加えた．
+前回使ったVagrantfileにちょっと修正を加えた。
 
 ```rb
 $script = <<SCRIPT
@@ -62,7 +62,7 @@ Vagrant.configure("2") do |config|
 end
 ```
 
-以下のコマンドを実行すれば，2つのVMが起動し，serfとserf-hostsが所定の場所に設置される．
+以下のコマンドを実行すれば、2つのVMが起動し、serfとserf-hostsが所定の場所に設置される。
 
 ```
 vagrant up --provision
@@ -70,17 +70,17 @@ vagrant up --provision
 
 ### `/usr/local/libexec`
 
-イベントハンドラ用スクリプトの設置場所については，RHEL6のFHSの説明[^6]を読み，`/usr/local/libexec/serf`で管理するようにした
-(FHS 2.3版[^7]にはlibexecが無かったので，`/usr/local/lib`にするか悩んだ．)
+イベントハンドラ用スクリプトの設置場所については、RHEL6のFHSの説明[^6]を読み、`/usr/local/libexec/serf`で管理するようにした
+(FHS 2.3版[^7]にはlibexecが無かったので、`/usr/local/lib`にするか悩んだ。)
 
 > #### 2.2.1.13. /usr/ ディレクトリ
 > - __/usr/libexec__、他のプログラムから呼び出される小さなヘルパープログラムを収納
 
-この説明は`/usr/libexec`についてだが，今回はローカルソフトウェアに提供される`/usr/local`を利用する．
+この説明は`/usr/libexec`についてだが、今回はローカルソフトウェアに提供される`/usr/local`を利用する。
 
 ### `/etc/serf/conf.d/config.json`
 
-serfの設定ファイルは以下の通りである．`event_handlers`の値はarrayでなければならない．
+serfの設定ファイルは以下の通りである。`event_handlers`の値はarrayでなければならない。
 
 ```json
 {
@@ -94,14 +94,14 @@ serfの設定ファイルは以下の通りである．`event_handlers`の値は
 
 ### 実行コマンド
 
-このserf (のイベントハンドラ) は`/etc/hosts`へ変更を加えるため，rootユーザで実行されなければならない．
-また，単一の設定ファイルであれば`-config-file`で指定すればよい．
+このserf (のイベントハンドラ) は`/etc/hosts`へ変更を加えるため、rootユーザで実行されなければならない。
+また、単一の設定ファイルであれば`-config-file`で指定すればよい。
 
 ```sh
 sudo /usr/local/bin/serf agent -config-file=/etc/serf/conf.d/config.json
 ```
 
-これまでは，gitリポジトリに`/etc/hosts`を管理させ，変更が生じたらデプロイツールでバラ撒いて対応していたが，serf-hostsによって，ホスト情報の追加・削除がとても楽になると思う．
+これまでは、gitリポジトリに`/etc/hosts`を管理させ、変更が生じたらデプロイツールでバラ撒いて対応していたが、serf-hostsによって、ホスト情報の追加・削除がとても楽になると思う。
 
 [^1]: [serfの基本的な動作を試してみた](/2014/07/23/try-serf-clustering/)
 [^2]: [エンジニアの働き方 | キャリア採用 | 採用情報 | GMOペパボ株式会社](http://pepabo.com/recruit/career/engineer/)

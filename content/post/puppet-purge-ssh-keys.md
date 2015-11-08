@@ -4,13 +4,13 @@ title: Puppet 3.6から使えるpurge_ssh_keysでauthorized_keysをきちんと�
 tags:
 - puppet
 ---
-Puppet 3.6で`user`リソースに`purge_ssh_keys`が追加され，Puppetで管理されていないauthorized_keysを削除できるようになった．
+Puppet 3.6で`user`リソースに`purge_ssh_keys`が追加され、Puppetで管理されていないauthorized_keysを削除できるようになった。
 
 ## `ssh_authorized_key`おさらい
 
-前に，Puppetの`ssh_authorized_key`リソースを使ってauthorized_keysを管理する方法を書いた[^1]．
+前に、Puppetの`ssh_authorized_key`リソースを使ってauthorized_keysを管理する方法を書いた[^1]。
 
-使い方は以下の通りだ．ユーザ，鍵，鍵のタイプを指定する．
+使い方は以下の通りだ。ユーザ、鍵、鍵のタイプを指定する。
 
 ```puppet
 ssh_authorized_key { 'vagrant insecure public key':
@@ -20,7 +20,7 @@ ssh_authorized_key { 'vagrant insecure public key':
 }
 ```
 
-このmanifestsを適応すると，`/home/testuser/.ssh/authorized_keys`へ以下のように公開鍵が登録される．
+このmanifestsを適応すると、`/home/testuser/.ssh/authorized_keys`へ以下のように公開鍵が登録される。
 
 ```
 [testuser@localhost ~]$ cat .ssh/authorized_keys
@@ -32,8 +32,8 @@ ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEA6NF8iallvQVp22WDkTkyrtvp9eWW6A8YVr+kz4TjGYe7
 
 ## Puppet以外で追加した鍵の管理（削除）が難しかった
 
-しかし，`ssh_authorized_key`リソースには，Puppetで管理していない公開鍵を削除出来ない難点があった．
-例えば以下のように，任意の公開鍵を登録してしまうと，Puppetからは削除出来なかったのだ．
+しかし、`ssh_authorized_key`リソースには、Puppetで管理していない公開鍵を削除出来ない難点があった。
+例えば以下のように、任意の公開鍵を登録してしまうと、Puppetからは削除出来なかったのだ。
 
 ```
 [testuser@localhost ~]$ cat .ssh/authorized_keys
@@ -44,21 +44,21 @@ ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEA6NF8iallvQVp22WDkTkyrtvp9eWW6A8YVr+kz4TjGYe7
 ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEA89gn23YAVYUUSsJQ25qjJabKDHIuEWUifhHfXJCvM5mHR/1jUaS3Yf4k1X8MItmyOWldPNJ+u49wluL/NKbsGnaxaihVrjS8B5WnKrauWxIsNN19UOJ2gwiMOGr4BvdtR2TuToylU0jKvZX60JsMEF+3KI8kT2ISRl3UqfVNutH1jeCdj1ba6kfFPsJAsfBuvn7eE0d+T+zWZp5jRZwnzt6cfgv1gAY+FPwz06TBw5Hag+Q++evqJ6r5eb8QJWGasUyu/+6mhjHuiKv9BTdnwkHT6qUm9Whgxb1TifmHCBvqklkw94N8VlKczKhBn8NRwhKu/0hn/RUt8/kFgqayow== vagrant@localhost.localdomain
 ```
 
-ちょっとした用事から公開鍵をサーバに登録して接続を試みることは割とあるが，いつ誰が追加したかを記録するのは難しい．
+ちょっとした用事から公開鍵をサーバに登録して接続を試みることは割とあるが、いつ誰が追加したかを記録するのは難しい。
 
 #### 閑話休題: CMTの削除苦手問題について
 
-このような「削除が苦手」というのはChef/PuppetのようなConfiguration Management Toolsに共通する問題で，Rebuild 24回でも[mizzyさん](https://twitter.com/gosukenator)が言及している．
+このような「削除が苦手」というのはChef/PuppetのようなConfiguration Management Toolsに共通する問題で、Rebuild 24回でも[mizzyさん](https://twitter.com/gosukenator)が言及している。
 
 - [Rebuild: 25: Immutable Infrastructure (Naoya Ito, Gosuke Miyashita)](http://rebuild.fm/25/) (24:50あたりから)
 
-「一時的に必要で入れたものを，後に必要がなくなったから削除する」のが難しいという話で，この問題はPuppet側も認識しているのか，purgeする機能はちょこちょこ実装されている．
+「一時的に必要で入れたものを、後に必要がなくなったから削除する」のが難しいという話で、この問題はPuppet側も認識しているのか、purgeする機能はちょこちょこ実装されている。
 
 ## Puppet 3.6で`user`リソースに`purge_ssh_keys`属性が追加された
 
-さて，このauthorized_keysの削除問題を解決する機能がPuppet 3.6で導入された．
+さて、このauthorized_keysの削除問題を解決する機能がPuppet 3.6で導入された。
 
-`purge_ssh_keys`属性を`user`リソースに指定することで，そのユーザのauthorized_keysをより精確に管理することが出来るようになった．
+`purge_ssh_keys`属性を`user`リソースに指定することで、そのユーザのauthorized_keysをより精確に管理することが出来るようになった。
 
 ```puppet
 user { 'testuser':
@@ -67,7 +67,7 @@ user { 'testuser':
 }
 ```
 
-このmanifestsを適応すると，`Notice ... Ssh_authorized_key[vagrant@localhost.localdomain]/ensure: removed`とある通り，Puppetで管理していない公開鍵`vagrant@localhost.localdomain`がauthorized_keysから削除された．
+このmanifestsを適応すると、`Notice ... Ssh_authorized_key[vagrant@localhost.localdomain]/ensure: removed`とある通り、Puppetで管理していない公開鍵`vagrant@localhost.localdomain`がauthorized_keysから削除された。
 
 ```
 $ vagrant provision
@@ -78,8 +78,8 @@ $ vagrant provision
 ==> default: Notice: Finished catalog run in 0.09 seconds
 ```
 
-ちなみにautorequireが効いているので，`require`属性を指定する必要も無い．
-便利だ．
+ちなみにautorequireが効いているので、`require`属性を指定する必要も無い。
+便利だ。
 
 > **Autorequires**: If Puppet is managing the user account in which this SSH key should be installed, the `ssh_authorized_key` resource will autorequire that user.
 
@@ -88,27 +88,27 @@ $ vagrant provision
 
 ## Puppet 3.6.0から使えるらしいけど...
 
-リリースノートにある通り，この機能はバージョン3.6.0から利用可能となっている．
+リリースノートにある通り、この機能はバージョン3.6.0から利用可能となっている。
 
 > **Feature: Purging Unmanaged SSH Authorized Keys**  
 > Purging unmanaged [`ssh_authorized_key`](https://docs.puppetlabs.com/references/3.6.latest/type.html#sshauthorizedkey) resources has been on the most-wanted features list for a very long time, and we haven’t been able to make [the `resources` meta-type](https://docs.puppetlabs.com/references/3.6.latest/type.html#resources) accommodate it.
 > 
 > *https://docs.puppetlabs.com/puppet/3.6/reference/release_notes.html#feature-purging-unmanaged-ssh-authorized-keys*
 
-ところで，以下のバグレポートを見ると，Puppec 3.6系では特定条件のauthorized_keysが上手く削除できない問題が在るようだ．
+ところで、以下のバグレポートを見ると、Puppec 3.6系では特定条件のauthorized_keysが上手く削除できない問題が在るようだ。
 
 - [[PUP-2737] user purge_ssh_keys cannot remove keys with spaces in the comment - Puppet Labs Tickets](https://tickets.puppetlabs.com/browse/PUP-2737)
 
-この課題はPuppet 3.7.0で解消されているので，`purge_ssh_keys`を利用する場合はPuppet 3.7系が良さそうだ．
+この課題はPuppet 3.7.0で解消されているので、`purge_ssh_keys`を利用する場合はPuppet 3.7系が良さそうだ。
 
 - https://docs.puppetlabs.com/puppet/3.7/reference/release_notes.html#user
 
 ## まとめ
 
-Puppet 3.6からは便利な機能な大量に追加されている．
+Puppet 3.6からは便利な機能な大量に追加されている。
 
-`ssh_authorized_key`リソースを使って鍵管理するのであれば，`user`リソースにも`purge_ssh_keys`属性を指定することで，より厳密なauthorized_keysの管理が実現出来る．
+`ssh_authorized_key`リソースを使って鍵管理するのであれば、`user`リソースにも`purge_ssh_keys`属性を指定することで、より厳密なauthorized_keysの管理が実現出来る。
 
-サーバの管理台数が増えるとauthorized_keysの管理は難しくなりがちなので，できれば両方を指定した方がいいだろう．
+サーバの管理台数が増えるとauthorized_keysの管理は難しくなりがちなので、できれば両方を指定した方がいいだろう。
 
 [^1]: [Puppetのssh_authorized_keyリソースを試してみる](/2014/07/25/puppet-ssh_authorized_key-resource/)

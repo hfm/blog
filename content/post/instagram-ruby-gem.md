@@ -5,31 +5,31 @@ tags:
 - photo
 - ruby
 ---
-Instagram gemを使ってみた．
-これを使えばInstagram APIを使ってアレコレ操作できるようになる．
+Instagram gemを使ってみた。
+これを使えばInstagram APIを使ってアレコレ操作できるようになる。
 
 - [Instagram/instagram-ruby-gem](https://github.com/Instagram/instagram-ruby-gem/tree/master/lib/instagram/client)
 
 ## アクセストークンの取得
 
-ただし，使い始めるために http://instagram.com/developer/ からそこそこ面倒くさい開発者登録とアクセストークンの発行が必要になる．
+ただし、使い始めるために http://instagram.com/developer/ からそこそこ面倒くさい開発者登録とアクセストークンの発行が必要になる。
 
-アクセストークンの発行は http://instagram.com/developer/authentication/ を読めばちゃんと手順が書いてあるんだけど，結構めんどくさい．
-(2011年くらいのブログ記事の手順と，微妙に変わっているところがあるみたいで，そこもハマった．)
-日本語の手順は以下が分かりやすいと思う．
+アクセストークンの発行は http://instagram.com/developer/authentication/ を読めばちゃんと手順が書いてあるんだけど、結構めんどくさい。
+(2011年くらいのブログ記事の手順と、微妙に変わっているところがあるみたいで、そこもハマった。)
+日本語の手順は以下が分かりやすいと思う。
 
 - [instagram api 事始め access\_tokenを取得する - Qiita](http://qiita.com/zurg/items/4c423b93b6a7f1ac737d)
 
 ## クライアントの生成
 
-`Instagram.client`にアクセストークンを突っ込めば，簡単にクライアントを作成出来る．
+`Instagram.client`にアクセストークンを突っ込めば、簡単にクライアントを作成出来る。
 
 ```rb
 require 'instagram'
 client = Instagram.client(:access_token => "***********************************************")
 ```
 
-認証が通ると，clientを使って以下のように自分の情報を取得出来るようになったりする．
+認証が通ると、clientを使って以下のように自分の情報を取得出来るようになったりする。
 
 ```rb
 client.user
@@ -38,18 +38,18 @@ client.user
 
 ## メソッドいくつか
 
-これでInstagram gemを利用可能になったのだけど，どんなメソッドが使えるのか，いまいちドキュメントが不足している気がする．
+これでInstagram gemを利用可能になったのだけど、どんなメソッドが使えるのか、いまいちドキュメントが不足している気がする。
 
-[instagram-ruby-gem/lib/instagram/client](https://github.com/Instagram/instagram-ruby-gem/tree/master/lib/instagram/client)の辺りに色々メソッドがあるみたいなので，コードを読みながらいくつか試してみた．
-ザッと見た限りだと，[Instagram API Endpoints](http://instagram.com/developer/endpoints/)と対応してるように思う．
-幸いなことに，コメントアウトに説明がちゃんと書いてあるし，メソッド名も分かりやすいので使うには困らないと思う．
+[instagram-ruby-gem/lib/instagram/client](https://github.com/Instagram/instagram-ruby-gem/tree/master/lib/instagram/client)の辺りに色々メソッドがあるみたいなので、コードを読みながらいくつか試してみた。
+ザッと見た限りだと、[Instagram API Endpoints](http://instagram.com/developer/endpoints/)と対応してるように思う。
+幸いなことに、コメントアウトに説明がちゃんと書いてあるし、メソッド名も分かりやすいので使うには困らないと思う。
 
-以下はあくまで素朴な使い方程度で，コードを読む限り細かくオプションで制御できるみたいなので，時間のある人はコードとドキュメントを参考にして欲しい．
+以下はあくまで素朴な使い方程度で、コードを読む限り細かくオプションで制御できるみたいなので、時間のある人はコードとドキュメントを参考にして欲しい。
 
 ### oembed
 
-一番の目当てがこれだった．
-Instagramのshort urlを入力として，oEmbedフォーマット[^1]な情報を返してくれる．
+一番の目当てがこれだった。
+Instagramのshort urlを入力として、oEmbedフォーマット[^1]な情報を返してくれる。
 
 ```rb
 client.oembed('instagram.com/p/vD3eXckvOI')
@@ -58,13 +58,13 @@ client.oembed('instagram.com/p/vD3eXckvOI')
 
 ### user
 
-（上の例でも使っているが，）ユーザ情報を出力する．
-引数無しの場合は，アクセストークンの発行者，つまりは自分の情報を出力する．
+（上の例でも使っているが、）ユーザ情報を出力する。
+引数無しの場合は、アクセストークンの発行者、つまりは自分の情報を出力する。
 （ちなみに`'self'`という文字列を与えても自分の情報を入手できるみたいだ[^2]）
 
-引数として数字を突っ込めば，該当IDのユーザ情報を出力する．
-ちなみにInstagramのユーザの1番目と2番目は不在らしく，いずれもエラーが返ってくる．
-3番目になってようやくユーザ情報が取得できるが，それはInstagramのCEO兼共同設立社のKevin Systromらしい．
+引数として数字を突っ込めば、該当IDのユーザ情報を出力する。
+ちなみにInstagramのユーザの1番目と2番目は不在らしく、いずれもエラーが返ってくる。
+3番目になってようやくユーザ情報が取得できるが、それはInstagramのCEO兼共同設立社のKevin Systromらしい。
 
 ```rb
 client.user 3
@@ -73,8 +73,8 @@ client.user 3
 
 ### tag\_recent\_media
 
-入力したタグを含む最近の投稿をまとめて取得する．
-どの程度の量が取得出来るのかは正直分からない．
+入力したタグを含む最近の投稿をまとめて取得する。
+どの程度の量が取得出来るのかは正直分からない。
 
 ```rb
 client.tag_recent_media('pepabo')
@@ -83,8 +83,8 @@ client.tag_recent_media('pepabo')
 
 ### tag\_search
 
-入力した文字列に一致，あるいは文字列から始まるタグのリストを返す...みたいなんだけど，どうも精度がよく分からない．
-以下のように，`x100`という文字列だと一個しか返ってこないのに，`x100t`を入れるとやたら見つかる．
+入力した文字列に一致、あるいは文字列から始まるタグのリストを返す...みたいなんだけど、どうも精度がよく分からない。
+以下のように、`x100`という文字列だと一個しか返ってこないのに、`x100t`を入れるとやたら見つかる。
 
 ```rb
 client.tag_search('x100')
@@ -95,9 +95,9 @@ client.tag_search('x100t')
 
 ## 終わりに
 
-Jekyllのプラグインとしてinstagramを扱おうと思って，あれこれ触った内容をメモしてきた．
-oembedデータさえあれば，僕にとって欲しい情報は得られることが分かったので，概ね満足．
-ただやはり，アクセストークンの取得が結構めんどくさいと思う．
+Jekyllのプラグインとしてinstagramを扱おうと思って、あれこれ触った内容をメモしてきた。
+oembedデータさえあれば、僕にとって欲しい情報は得られることが分かったので、概ね満足。
+ただやはり、アクセストークンの取得が結構めんどくさいと思う。
 
 [^1]: http://oembed.com/
 [^2]: https://github.com/Instagram/instagram-ruby-gem/blob/master/lib/instagram/client/users.rb#L20

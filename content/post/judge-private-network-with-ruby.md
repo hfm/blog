@@ -9,10 +9,10 @@ tags:
 
 ## モチベーション
 
-- IPアドレスがプライベートネットワークかどうかをRubyで判断したい．
-- プライベートネットワークはRFC1918[^1]への準拠を前提としている．
+- IPアドレスがプライベートネットワークかどうかをRubyで判断したい。
+- プライベートネットワークはRFC1918[^1]への準拠を前提としている。
 
-※RPC1918「3. Private Address Space」で，プライベートネットワークのアドレス空間は次のように予約されている．
+※RPC1918「3. Private Address Space」で、プライベートネットワークのアドレス空間は次のように予約されている。
 
 ```
 10.0.0.0       -    10.255.255.255  (10.0.0.0/8)
@@ -24,8 +24,8 @@ tags:
 
 ### その1: RubyGems ipaddress
 
-調べると，`ipaddress`というgem[^2][^3]を使うと簡単にできることが分かった．
-`IPAddress#private?`を使えば，IPアドレスがプライベートネットワークに属しているか否かを二値で判定してくれる．
+調べると、`ipaddress`というgem[^2][^3]を使うと簡単にできることが分かった。
+`IPAddress#private?`を使えば、IPアドレスがプライベートネットワークに属しているか否かを二値で判定してくれる。
 
 ```irb
 irb(main):001:0> require 'ipaddress'
@@ -42,14 +42,14 @@ irb(main):005:0> ipaddr.private?
 
 ### その2: IPAddr
 
-プライベートネットワークを判別したいだけなので，より依存の少ない方法は無いか考えた．
-Rubyのstdlibには`IPAddr`がある[^4]ので，出来ればこれだけで完結させたい．
-`IPAddr#include?`を使えば，「与えられたIPアドレスが，そのアドレス空間に存在するか」を二値判定出来る．
+プライベートネットワークを判別したいだけなので、より依存の少ない方法は無いか考えた。
+Rubyのstdlibには`IPAddr`がある[^4]ので、出来ればこれだけで完結させたい。
+`IPAddr#include?`を使えば、「与えられたIPアドレスが、そのアドレス空間に存在するか」を二値判定出来る。
 
-そこで，`ipaddress#private?`の実装を参考に，`IPAddr#include?`を使ったプライベートネットワークの判別メソッドを書いてみた（既に誰か書いてると思うけど...）．
+そこで、`ipaddress#private?`の実装を参考に、`IPAddr#include?`を使ったプライベートネットワークの判別メソッドを書いてみた（既に誰か書いてると思うけど...）。
 
 ```rb
-# private?でも悪くないけど，public/protected/privateとの区別をつけたいのでprivate_network?にした
+# private?でも悪くないけど、public/protected/privateとの区別をつけたいのでprivate_network?にした
 # ref: https://github.com/bluemonk/ipaddress/blob/master/lib/ipaddress/ipv4.rb#L566-570
 def private_network?(ipaddr)
   [
@@ -60,7 +60,7 @@ def private_network?(ipaddr)
 end
 ```
 
-このメソッドを使うと，以下のようにIPアドレスのプライベートネットワーク判別が出来る．
+このメソッドを使うと、以下のようにIPアドレスのプライベートネットワーク判別が出来る。
 
 ```irb
 irb(main):001:0> require 'ipaddr'
@@ -87,7 +87,7 @@ irb(main):010:0> private_network? '193.168.100.0'
 - `ipaddress`というgemを使えば`#private?`でOK
 - stdlibの`IPAddr`でも可能
 
-`ipaddress`は便利だけど，今回の用途にはやや多機能なので，標準機能だけで解決出来る後者が好みかな．
+`ipaddress`は便利だけど、今回の用途にはやや多機能なので、標準機能だけで解決出来る後者が好みかな。
 
 [^1]: [RFC 1918 - Address Allocation for Private Internets](http://tools.ietf.org/html/rfc1918)
 [^2]: [ipaddress | RubyGems.org | your community gem host](http://rubygems.org/gems/ipaddress)

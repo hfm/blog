@@ -5,21 +5,21 @@ tags:
 - ruby
 - jekyll
 ---
-Instagramの[embed](http://instagram.com/developer/embedding/)機能をJekyll Tagとして実装しました．
+Instagramの[embed](http://instagram.com/developer/embedding/)機能をJekyll Tagとして実装しました。
 
 - https://github.com/tacahilo/jekyll-instagram-embed
 
-以下のように利用可能です．
+以下のように利用可能です。
 
 ```
 # {}と%の間の空白は削除
-# URLが http://instagram.com/p/abcdefghij であれば，hashは abcdefghij です．
+# URLが http://instagram.com/p/abcdefghij であれば、hashは abcdefghij です。
 { % instagram hash % }
 ```
 
 ## instagram-ruby-gemが便利だった
 
-以下のようにめっちゃ簡単に実装出来ました．
+以下のようにめっちゃ簡単に実装出来ました。
 
 ```rb
 require 'instagram'
@@ -54,9 +54,9 @@ end
 Liquid::Template.register_tag("instagram", Jekyll::InstagramEmbedTag)
 ```
 
-Instagram APIの[oembed](http://instagram.com/developer/embedding/#oembed)に含まれる`html`キーの中身が埋め込み用HTMLタグになっているみたいでした．便利．
+Instagram APIの[oembed](http://instagram.com/developer/embedding/#oembed)に含まれる`html`キーの中身が埋め込み用HTMLタグになっているみたいでした。便利。
 
-Instagram-ruby-gemの使い方は以下をご参照ください．
+Instagram-ruby-gemの使い方は以下をご参照ください。
 
 - [instagram-ruby-gemを使ってみた](/2014/11/30/instagram-ruby-gem/)
 - https://github.com/Instagram/instagram-ruby-gem
