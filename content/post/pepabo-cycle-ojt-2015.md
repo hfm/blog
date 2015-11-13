@@ -1,7 +1,7 @@
 ---
-date: 2015-11-09T09:00:00+09:00
+date: 2015-11-16T09:00:00+09:00
 title: ペパボ新卒エンジニア研修2015・サイクルOJTが始まっています
-cover: /images/2015/11/09/cycle-ojt.png
+cover: /images/2015/11/16/cycle-ojt.png
 tags:
 - pepabo
 ---
@@ -40,10 +40,10 @@ Web開発研修で作った Twitter 風のアプリケーションの機能を�
 当然、API設計やUIデザインといった要素も必要になります。
 加えてカンバンなどを用いたチーム開発プロセスにも取り組んでもらいました。
 
-[![](/images/2015/11/09/mobileapp1_large.jpg)](/images/2015/11/09/mobileapp1_full.jpg)
+[![](/images/2015/11/16/mobileapp1_large.jpg)](/images/2015/11/16/mobileapp1_full.jpg)
 *API設計について議論している様子*
 
-[![](/images/2015/11/09/mobileapp2_large.jpg)](/images/2015/11/09/mobileapp2_full.jpg)
+[![](/images/2015/11/16/mobileapp2_large.jpg)](/images/2015/11/16/mobileapp2_full.jpg)
 *行き詰まったところをフォローする先輩エンジニア*
 
 ### 2nd stage: 1つ以上の「ユーザ体験」をつくる
@@ -124,19 +124,19 @@ Web開発研修が1人、Webオペレーション研修が2人1組でしたが�
 1. 異職種間でのコラボレーション（協働・協業）
 1. 結果としての代名詞、ステップアップ
 
-[![](/images/2015/11/09/osanweek1_large.jpg)](/images/2015/11/09/osanweek1_full.jpg)
+[![](/images/2015/11/16/osanweek1_large.jpg)](/images/2015/11/16/osanweek1_full.jpg)
 *どんなWebサービスを作るか議論している様子*
 
 初日は各チームともに、作りたいサービスやタスクの洗い出しを中心に議論していました。
 どのようなサービスを作りたいか、それが1週間で達成可能かどうか、認識は正しく共有できているか、役割分担はどうするかなど、丁寧に話し合っていました。
 
-[![](/images/2015/11/09/osanweek2_large.jpg)](/images/2015/11/09/osanweek2_full.jpg)
+[![](/images/2015/11/16/osanweek2_large.jpg)](/images/2015/11/16/osanweek2_full.jpg)
 *設計について話し合いをしている様子*
 
 2〜4日目は、各チームともに実装を進めていました。
 途中、「やっぱりこの機能を全て盛り込むには間に合わない！」「デザインしてて気づいたけど、○○の要素が足りないと思う」などなど、機能を削ったり実装を変えたり、作りたいものと限られた時間について、議論を繰り返しながら修正していました。
 
-[![](/images/2015/11/09/osanweek3_large.jpg)](/images/2015/11/09/osanweek3_full.jpg)
+[![](/images/2015/11/16/osanweek3_large.jpg)](/images/2015/11/16/osanweek3_full.jpg)
 *デザインモックを確認する様子*
 
 - お産ウィーク
@@ -161,19 +161,19 @@ Web開発研修が1人、Webオペレーション研修が2人1組でしたが�
 1. [グーペ](http://goope.jp/)
 1. [ブクログ](http://booklog.jp/)
 
-[![](/images/2015/11/09/cycleojt1_large.jpg)](/images/2015/11/09/cycleojt1_full.jpg)
+[![](/images/2015/11/16/cycleojt1_large.jpg)](/images/2015/11/16/cycleojt1_full.jpg)
 *[ブクログ](//booklog.jp/)OJT（新卒エンジニアの[すずぴー](//twitter.com/alotofwe)、エンジニアの[つっちー](//twitter.com/hika69)さん、デザイナの[白木](//twitter.com/meganejinkie)さん）*
 
 OJTのやり方は各サービスに任せています。
 各人がサービスにいるのは1週間なのですが、1週間で終わる程度のタスク以外にも、数週間かかるタスクを新卒エンジニアが毎週交代しながら進めていったりと、サービスごとにOJTの内容が違っています。
 
-[![](/images/2015/11/09/cycleojt2_large.jpg)](/images/2015/11/09/cycleojt2_full.jpg)
+[![](/images/2015/11/16/cycleojt2_large.jpg)](/images/2015/11/16/cycleojt2_full.jpg)
 *技術部OJT（新卒エンジニアの[かすみん](//twitter.com/k_hanazuki)と[柴田さん](twitter.com/hsbt)）*
 
 毎週金曜日の18時からは成果発表＆引継ぎを行っています。
 6人が順番に発表する形式で、今週のバリューやOJT先で学んだことを発表したり、翌週への引き継ぎ事項を共有したりしています。
 
-[![](/images/2015/11/09/cycleojt3_large.jpg)](/images/2015/11/09/cycleojt3_full.jpg)
+[![](/images/2015/11/16/cycleojt3_large.jpg)](/images/2015/11/16/cycleojt3_full.jpg)
 *毎週金曜日の1週間の成果発表・引継ぎの様子*
 
 毎週6つのサービスが便利になっていくので、本当にみんな頼りになります。
