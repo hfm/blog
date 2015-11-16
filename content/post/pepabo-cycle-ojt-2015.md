@@ -18,7 +18,7 @@ tags:
 モバイルアプリ研修の歩み
 ---
 
-iframe src="//www.slideshare.net/slideshow/embed_code/key/elzOa0O9nIUagY?startSlide=9" width="714" height="440" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/hifumis/20150817-mobileapp-training" title="2015年GMOペパボ新卒エンジニア研修 モバイルアプリ研修イントロダクション" target="_blank">2015年GMOペパボ新卒エンジニア研修 モバイルアプリ研修イントロダクション</a> </strong> from <strong><a href="//www.slideshare.net/hifumis" target="_blank">Takahiro Okumura</a></strong> </div>
+<iframe src="//www.slideshare.net/slideshow/embed_code/key/elzOa0O9nIUagY?startSlide=9" width="714" height="440" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/hifumis/20150817-mobileapp-training" title="2015年GMOペパボ新卒エンジニア研修 モバイルアプリ研修イントロダクション" target="_blank">2015年GMOペパボ新卒エンジニア研修 モバイルアプリ研修イントロダクション</a> </strong> from <strong><a href="//www.slideshare.net/hifumis" target="_blank">Takahiro Okumura</a></strong> </div>
 
 この研修では、6人いる新卒エンジニアから3人1組のチームを作り、2段階に分けて課題を用意しました:
 
