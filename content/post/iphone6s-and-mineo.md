@@ -1,6 +1,5 @@
 ---
 date: 2015-11-29T09:00:00+09:00
-draft: true
 title: iPhone6s を購入し、mineo (docomoプラン) を契約した
 tags:
 - diary
