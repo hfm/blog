@@ -151,7 +151,12 @@ h1, h2, h3, h4, h5 { @include font-family("sans-serif", true) }
     font-weight: bold;
   }
 
-  p, div {
+  p {
+    @include adjust-font-size-to($base-font-size,1);
+    @include rhythm(1, 0, 0, 1, $base-font-size);
+  }
+
+  div.highlight {
     @include adjust-font-size-to($base-font-size,1);
     @include rhythm(1, 0, 0, 1, $base-font-size);
   }
