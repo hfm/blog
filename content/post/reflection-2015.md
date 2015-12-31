@@ -79,4 +79,16 @@ tags:
 
 それでは今年一年ありがとうございました。来年もよろしくお願いします。
 
+おまけ
+---
+
+<blockquote class="twitter-tweet" lang="ja"><p lang="ja" dir="ltr">おもしろユニットこと wakateinfra について、「20代のインフラ（ウェブオペレーション）エンジニア」が少ないなと感じていて、縦のつながりだけじゃかけて、横のつながりも欲しいと思って声をかけていったのかはじまりでした。</p>&mdash; okumura takahiro (@hfm) <a href="https://twitter.com/hfm/status/682555659347345409">2015, 12月 31</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<blockquote class="twitter-tweet" lang="ja"><p lang="ja" dir="ltr">まさかこんなことになるとは思っていませんでした。</p>&mdash; okumura takahiro (@hfm) <a href="https://twitter.com/hfm/status/682555728842760193">2015, 12月 31</a></blockquote>
+
+<blockquote class="twitter-tweet" lang="ja"><p lang="ja" dir="ltr">とはいえ、みんな技術的に本当に卓越している人たちばっかりで、私はえっちらおっちらと後追いしてる未熟者ではありますが、これからも仲良くしてもらえるとヾ(｡&gt;﹏&lt;｡)ﾉﾞ✧\*。です</p>&mdash; okumura takahiro (@hfm) <a href="https://twitter.com/hfm/status/682556010372845569">2015, 12月 31</a></blockquote>
+
+<blockquote class="twitter-tweet" lang="ja"><p lang="ja" dir="ltr">また「うれしい」が顔文字に．．．．．</p>&mdash; okumura takahiro (@hfm) <a href="https://twitter.com/hfm/status/682556101817057280">2015, 12月 31</a></blockquote>
+
 [^prof-career]: http://tech.pepabo.com/2015/12/25/professional-career-at-pepabo/
