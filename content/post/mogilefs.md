@@ -7,7 +7,7 @@ tags:
 - perl
 - mogilefs
 ---
-MogileFS は OSS の分散ファイルシステムである。
+MogileFS[^1] はオープンソースの分散ファイルシステムである。
 
 （前口上）写真共有サービス 30days Album[^1]（以降、デイズ）では、画像ストレージとしてこの MogileFS を採用しており[^2][^3][^4]、最近では、これを社内用 Private S3 として用途を拡大させた Bayt (ベイト) というプロダクトをリリースした[^5][^6]。
 
@@ -28,6 +28,8 @@ MogileFS は OSS の分散ファイルシステムである。
 - インストール編
 - チューニング編
 - カスタマイズ編
+  - mogstored
+  - cmogstored
 
 アーキテクチャ編
 ---
@@ -37,16 +39,13 @@ MogileFS は OSS の分散ファイルシステムである。
 http://code.google.com/p/mogilefs/ のトップページに書かれるような特徴を備えている。
 
 - アプリケーションとして動作する
-- SPoF が無い
+- 単一障害点 (SPoF) が無い
 - 自動的なファイル複製機能
 - "RAID より良い"
 - Flat Namespace
 - Shared-Nothing
 - No RAID required
 - Local filesystem agnostic
-
-どういうことか。
-1つずつ見ていこう。
 
 ### アプリケーションとして動作する
 
@@ -120,6 +119,7 @@ aa
 
 MogileFS という名称の由来は、*"OMG FILES"* のアナグラムである。
 
+[^1]: http://code.google.com/p/mogilefs/wiki/Start?tm=6 によると、MogileFS は OMG FILES のアナグラムだそうだ。
 [^1]: https://30d.jp/
 [^2]: http://www.slideshare.net/mizzy/2008-30days-album-presentation
 [^3]: http://www.slideshare.net/hiboma/yapc-asia-2009-perl
