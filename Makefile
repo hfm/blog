@@ -6,7 +6,8 @@ content: clean scss
 scss:
 	rm -f static/css/style.css
 	compass compile scss
-.PHONY:scss
 
 clean:
 	rm -rf public
+
+.PHONY: scss content clean
