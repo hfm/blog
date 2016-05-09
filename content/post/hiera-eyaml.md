@@ -1,18 +1,17 @@
 ---
 date: 2016-05-04T17:43:23+09:00
-title: hiera-eyaml
+title: hiera-eyaml でデータを暗号化して管理する
 tags:
 - puppet
 - hiera
 ---
-Puppet には [Hiera](https://docs.puppet.com/hiera/3.1/) と呼ばれるキーバリュー形式のデータ管理機構があります (Chef の Data Bags に近しい機能です。)
-しかし、Chef の [Encrypted Data Bags](https://docs.chef.io/data_bags.html#encrypt-a-data-bag-item) のような暗号化・復号機能が Hiera 自体には提供されておらず、素のままで秘密情報を扱うことは難しいという事情があります。
+Puppet には [Hiera](https://docs.puppet.com/hiera/3.1/) と呼ばれるキーバリュー形式のデータ管理機構があります。Chef の Data Bags に近しい機能です。しかし、Chef の [Encrypted Data Bags](https://docs.chef.io/data_bags.html#encrypt-a-data-bag-item) のような暗号化・復号機能は提供されておらず、素のままで秘密情報を扱うには向いていません。
 
-そこで登場するのが hiera-eyaml です。hiera-eyaml は Hiera にデータの暗号化・復号機能を提供します。これによって、
-これと似たツールに[crayfishx/hiera-gpg: GPG Backend to HIera](https://github.com/crayfishx/hiera-gpg) というのもあったようですが、既にステータスは開発終了のため、今のところは hiera-eyaml が唯一の選択肢
-試してないですが、[maxlinc/puppet-decrypt](https://github.com/maxlinc/puppet-decrypt)という Puppet モジュールもあるようです。
+そこで登場するのが hiera-eyaml です。
 
 - [TomPoulton/hiera-eyaml: A backend for Hiera that provides per-value asymmetric encryption of sensitive data](https://github.com/TomPoulton/hiera-eyaml)
+
+hiera-eyaml はデータを暗号化・復号するための [Hiera Custom Backend](https://docs.puppet.com/hiera/3.1/custom_backends.html) です。これによって、パスワードなどの秘密情報を Hiera で管理することができます。似たツールに [crayfishx/hiera-gpg](https://github.com/crayfishx/hiera-gpg) もあったのですが、既に開発は終了したようです。他には、[maxlinc/puppet-decrypt](https://github.com/maxlinc/puppet-decrypt) という Puppet モジュールもあるようです。
 
 日本語で書かれたブログが無かったので備忘録がてらに書いてみようと思いました（ただ、使い方も簡単で、README をかい摘んだような内容になってしまったので、英語が苦手な方がその取っ掛かりに読んでいただければ幸いです。）
 
@@ -89,3 +88,9 @@ message: >
     DEC(3)::PKCS7[hello world]!
 ```
 
+参考
+---
+
+- [Encrypt Your Data Using Hiera-Eyaml | Puppet](https://puppet.com/blog/encrypt-your-data-using-hiera-eyaml)
+- [TomPoulton/hiera-eyaml: A backend for Hiera that provides per-value asymmetric encryption of sensitive data](https://github.com/TomPoulton/hiera-eyaml)
+- [Hiera 3.1: Writing Custom Backends — Documentation — Puppet](https://docs.puppet.com/hiera/3.1/custom_backends.html)
