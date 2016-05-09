@@ -13,7 +13,7 @@ Puppet には [Hiera](https://docs.puppet.com/hiera/3.1/) と呼ばれるキー�
 
 hiera-eyaml はデータを暗号化・復号するための [Hiera Custom Backend](https://docs.puppet.com/hiera/3.1/custom_backends.html) です。これによって、パスワードなどの秘密情報を Hiera で管理することができます。似たツールに [crayfishx/hiera-gpg](https://github.com/crayfishx/hiera-gpg) もあったのですが、既に開発は終了したようです。他には、[maxlinc/puppet-decrypt](https://github.com/maxlinc/puppet-decrypt) という Puppet モジュールもあるようです。
 
-日本語で書かれたブログが無かったので備忘録がてらに書いてみようと思いました（ただ、使い方も簡単で、README をかい摘んだような内容になってしまったので、英語が苦手な方がその取っ掛かりに読んでいただければ幸いです。）
+以下に hiera-eyaml の使い方などについて書いていきます。
 
 使い方
 ---
@@ -32,6 +32,10 @@ total 16
 -rw-------  1 hfm  staff  1675  5  4 17:41 private_key.pkcs7.pem
 -rw-rw-r--  1 hfm  staff  1050  5  4 17:41 public_key.pkcs7.pem
 ```
+
+#### 生成した鍵ペアの管理
+
+
 
 ### データの暗号化
 
@@ -87,6 +91,8 @@ OR
 message: >
     DEC(3)::PKCS7[hello world]!
 ```
+
+hiera-eyaml リポジトリの README をかい摘んだような内容になってしまった。
 
 参考
 ---
