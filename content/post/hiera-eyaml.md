@@ -5,7 +5,8 @@ tags:
 - puppet
 - hiera
 ---
-Puppet には [Hiera](https://docs.puppet.com/hiera/3.1/) と呼ばれるキーバリュー形式のデータ管理機構があります。Chef の Data Bags に近しい機能です。しかし、Chef の [Encrypted Data Bags](https://docs.chef.io/data_bags.html#encrypt-a-data-bag-item) のような暗号化・復号機能は提供されておらず、素のままで秘密情報を扱うには向いていません。
+Puppet には [Hiera](https://docs.puppet.com/hiera/3.1/) と呼ばれるキーバリュー型データストアがあります。Chef の Data Bags に近しい機能で、ノード固有のデータを管理するために使います。
+しかし、Chef の [Encrypted Data Bags](https://docs.chef.io/data_bags.html#encrypt-a-data-bag-item) のような暗号化・復号機能は提供されておらず、素のままで秘密情報を扱うには向いていません。
 
 そこで登場するのが hiera-eyaml です。
 
