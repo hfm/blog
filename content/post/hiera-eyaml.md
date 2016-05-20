@@ -95,6 +95,14 @@ message: >
 
 hiera-eyaml リポジトリの README をかい摘んだような内容になってしまった。
 
+### puppet-agent から hiera-eyaml を使う
+
+Puppet 4 からスタンドアロンで hiera-eyaml を利用するためには `/opt/puppetlabs/puppe/bin/gem` からインストールする必要があります。
+
+```sh
+/opt/puppetlabs/puppe/bin/gem install hiera-eyaml --no-document
+```
+
 参考
 ---
 
