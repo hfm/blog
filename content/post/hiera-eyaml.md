@@ -1,38 +1,32 @@
 ---
-date: 2016-05-04T17:43:23+09:00
+date: 2016-05-24T01:46:05+09:00
 title: hiera-eyaml でデータを暗号化して管理する
 tags:
 - puppet
 - hiera
 ---
-Puppet には [Hiera](https://docs.puppet.com/hiera/3.1/) と呼ばれるキーバリュー型データストアがあります。Chef の Data Bags に近しい機能で、ノード固有のデータを管理するために使います。
-しかし、Chef の [Encrypted Data Bags](https://docs.chef.io/data_bags.html#encrypt-a-data-bag-item) のような暗号化・復号機能は提供されておらず、素のままで秘密情報を扱うには向いていません。
+Puppet には [Hiera](https://docs.puppet.com/hiera/3.1/) と呼ばれるキーバリュー型データストアがあります。Chef の Data Bags に近しい機能で、主にノード固有のデータを管理するために使います。しかし、Chef の [Encrypted Data Bags](https://docs.chef.io/data_bags.html#encrypt-a-data-bag-item) のような暗号化・復号機能は提供されておらず、秘密情報を扱うには難があります。
 
-そこで登場するのが hiera-eyaml です。
+そこで登場するのが **hiera-eyaml** です。
 
-- [TomPoulton/hiera-eyaml: A backend for Hiera that provides per-value asymmetric encryption of sensitive data](https://github.com/TomPoulton/hiera-eyaml)
+- [**TomPoulton/hiera-eyaml**: A backend for Hiera that provides per-value asymmetric encryption of sensitive data](https://github.com/TomPoulton/hiera-eyaml)
 
-hiera-eyaml はデータを暗号化・復号するための [Hiera Custom Backend](https://docs.puppet.com/hiera/3.1/custom_backends.html) です。これによって、パスワードなどの秘密情報を Hiera で管理することができます。似たツールに [crayfishx/hiera-gpg](https://github.com/crayfishx/hiera-gpg) もあったのですが、既に開発は終了したようです。他には、[maxlinc/puppet-decrypt](https://github.com/maxlinc/puppet-decrypt) という Puppet モジュールもあるようです。
+hiera-eyaml はデータを暗号化・復号するための [Hiera Custom Backend](https://docs.puppet.com/hiera/3.1/custom_backends.html) です。これによって、パスワードなどの秘密情報を Hiera で管理することができます。似たツールに [crayfishx/hiera-gpg](https://github.com/crayfishx/hiera-gpg) もあったのですが、既に開発は終了したようです。
 
-以下に hiera-eyaml の使い方などについて書いていきます。
+今回は hiera-eyaml の使い方を紹介します（[README](https://github.com/TomPoulton/hiera-eyaml/blob/master/README.md) に書いてあることをかい摘んだような内容ですが。）なお、検証したバージョンは [2.1.0](https://github.com/TomPoulton/hiera-eyaml/tree/v2.1.0) です。
 
-- hiera-eyaml の使い方
-  - 鍵ペアの生成
-    - 使用する鍵ペアの保管
-      - CLI として使用する場合
-      - Puppet から使用する場合
-  - データの暗号化
-  - データの復号
-  - 暗号化されたデータの編集
-  - 暗号化されたデータの再暗号化
-- hiera-eyaml-gpg でプロジェクトメンバとデータを共有する
-  - Puppet Server で使うときの注意
+- [鍵ペアの生成](#鍵ペアの生成)
+- [データの暗号化、復号、編集 (サブコマンド)](#データの暗号化-復号-編集-サブコマンド)
+  - [encrypt](#encrypt)
+  - [decrypt](#decrypt)
+  - [edit](#edit)
+- [鍵の設置場所](#鍵の設置場所)
+  - [CLI として使用する場合](#cli-として使用する場合)
+  - [puppet-agent や Puppet Server から使用する場合](#puppet-agent-や-puppet-server-から使用する場合)
+- [暗号化されたデータの再暗号化](#暗号化されたデータの再暗号化)
 
-
-hiera-eyaml の使い方
+鍵ペアの生成
 ---
-
-### 鍵ペアの生成
 
 新規に鍵ペアを作成するには `createkeys` サブコマンドを使います。実行すると、カレントディレクトリに `./keys` ディレクトリを作成し、その中に鍵ペアが生成されます。
 
@@ -47,32 +41,14 @@ total 16
 -rw-rw-r--  1 hfm  staff  1050  5  4 17:41 public_key.pkcs7.pem
 ```
 
-#### 使用する鍵ペアの保管
-
-##### CLI として使用する場合
-
-hiera-eyaml は後述する暗号化や復号の際に `./keys` ディレクトリ以下の鍵ペアを読み込みますが、 `--pkcs7-private-key` `--pkcs7-public-key` オプションでパスを指定することも出来ます。
-
-##### Puppet から使用する場合
-
-Puppet から使用する場合には、 hiera.yaml の `:eyaml:` ハッシュに鍵ペアのパスを指定します。
-
-```yaml
+データの暗号化、復号、編集 (サブコマンド)
 ---
-:yaml:
-    :datadir: '/etc/puppet/hieradata'
 
-:eyaml:
-    :datadir: '/etc/puppet/hieradata'
-    :pkcs7_private_key: /etc/puppetlabs/keys/private_key.pkcs7.pem
-    :pkcs7_public_key:  /etc/puppetlabs/keys/public_key.pkcs7.pem
-```
+### encrypt
 
-ちなみに、hiera-eyaml の README には鍵の保管場所として `/etc/puppet/secure/keys` か `/var/lib/puppet/keys` を提案されていますが、Puppet 4 と Puppet Server は `/etc/puppetlabs` に設定が集約されているので、 `/etc/puppetlabs/keys` あたりが妥当だと思います。
+作成した鍵ペアを使って、データの暗号化や復号、編集操作が行なえます。
 
-### データの暗号化
-
-データの暗号化には `encrpyt` サブコマンドを使います。
+データの暗号化には `encrypt` サブコマンドを使います。 `--label, -l` オプションと `--string, -s` オプションでキーバリューを決定します。
 
 ```console
 $ eyaml encrypt --label 'message' --string 'hello world'
@@ -92,7 +68,9 @@ message: >
     EYzCgBBZR+jTPfcCeIU0c5dA3NzR]
 ```
 
-### データの復号
+`--output, -o` オプションを指定しない場合、1行表示と複数行にわたるブロック表示の両方を表示する examples というフォーマットで出力されますが、 `-o string` や `-o block` と指定することで、出力フォーマットを指定することが出来ます。
+
+### decrypt
 
 データの復号には `decrpyt` サブコマンドを使います。
 
@@ -101,9 +79,11 @@ $ eyaml decrypt --string 'ENC[PKCS7,MIIBeQYJKoZIhvcNAQcDoIIBajCCAWYCAQAxggEhMIIB
 hello world
 ```
 
-### 暗号化されたデータの編集
+これらのコマンドは、 `-f, --file` オプションによるファイル指定や `-e, --eyaml` オプションによる eyaml ファイルの指定、 `--stdin` オプションを使った標準入力からの利用が可能です。
 
-`edit` サブコマンドを使うと、データを復号した状態で編集が可能になります。以下の例では、 `DEC(1)::PKCS7[...]` というブロックが暗号化データで、中身が表示されていることがわかります。
+### edit
+
+`edit` サブコマンドを使うと、eyaml ファイルの編集が出来ます。以下に例を示します。 `DEC(1)::PKCS7[...]` というブロックが暗号化されているデータです。
 
 ```yaml
 #| This is eyaml edit mode. This text (lines starting with #| at the top of the
@@ -121,50 +101,72 @@ message: >
     DEC(1)::PKCS7[hello world]!
 ```
 
-### 暗号化されたデータの再暗号化
-
-`recrpyt` サブコマンドを使うと、暗号化された eyaml のデータを再度暗号化することが出来ます。
-
-動作は単純で、 `eyaml recrpyt <eyaml file>` と実行すると、一度全ての暗号化データを復号し、生のデータをもう一度暗号化します。後述する [hiera-eyaml-gpg](https://github.com/sihil/hiera-eyaml-gpg) と組み合わせて使うと効力を発揮するものだと思います。
-
-hiera-eyaml-gpg でプロジェクトメンバとデータを共有する
+鍵の設置場所
 ---
 
-hiera-eyaml-gpg は hiera-eyaml プラグインの1つで、GPG を使ってデータを暗号化・復号します。
+### CLI として使用する場合
+
+CLI として使用する場合、鍵ペアはデフォルトで `./keys/(public|private)_key.pkcs7.pem` が用いられます。
+
+また、 `--pkcs7-private-key` `--pkcs7-public-key` オプションか、 config.yaml でパスを指定出来ます。
+
+```yaml
+# /etc/eyaml/config.yaml or ~/.eyaml/config.yaml
+---
+pkcs7_private_key: '/path/to/project/.keys/hiera_private_key'
+pkcs7_public_key:  '/path/to/project/.keys/hiera_public_key'
+```
+
+この config.yaml の位置は環境変数 `EYAML_CONFIG` で変更できるので、direnv などを利用してプロジェクトごとに用意することも可能です。
+
+### puppet-agent や Puppet Server から使用する場合
+
+[puppet-agent](https://docs.puppet.com/puppet/4.5/reference/about_agent.html) から hiera-eyaml をスタンドアロンで利用するためには、 `/opt/puppetlabs/puppet/bin/gem` からインストールする必要があります (おそらくOSXも同様の操作が可能ですが、Windows版と共に未検証です)。
+
+```sh
+/opt/puppetlabs/puppet/bin/gem install hiera-eyaml --no-document
+```
+
+また、[Puppet Server](https://docs.puppet.com/puppetserver/latest/services_master_puppetserver.html) から利用する場合は、 `/opt/puppetlabs/bin/puppetserver gem` コマンドを使います。
+
+```sh
+/opt/puppetlabs/puppetserver gem install hiera-eyaml --no-document
+```
+
+上記の操作に加えて、 hiera.yaml の設定も変更します。
+
+```yaml
+---
+:backends:
+  - yaml
+  - eyaml # :backends: へ追加することで有効になる
+
+:yaml:
+  :datadir: "/etc/puppetlabs/code/environments/%{::environments}/hieradata"
+
+:eyaml:   # :yaml: と同じ :datadir: と 鍵ペアのファイルパスを指定する
+  :datadir: "/etc/puppetlabs/code/environments/%{::environments}/hieradata"
+  :pkcs7_private_key: /etc/puppetlabs/keys/hiera_private_key
+  :pkcs7_public_key:  /etc/puppetlabs/keys/hiera_public_key
+```
+
+ちなみに、hiera-eyaml の README には /etc/puppet/secure/keys か /var/lib/puppet/keys が鍵の保管場所として提案されています。しかしこの情報は古い Puppet 3 の頃の設定です。
+
+Puppet 4 (puppet-agent) や Puppet Server からの設定ファイルは /etc/puppetlabs に集約されており、 `/etc/puppetlabs/keys` あたりに設置するのが妥当ではないかと思います。
+
+暗号化されたデータの再暗号化
+---
+
+`recrpyt` サブコマンドを使うと、eyaml ファイルのデータを再暗号化することが出来ます。プロジェクトの規模が大きい場合、GPGを使った複数鍵での暗号化・復号を可能にする [hiera-eyaml-gpg](https://github.com/sihil/hiera-eyaml-gpg) との併用で効果を発揮しそうです。
 
 - [sihil/hiera-eyaml-gpg: GPG encryption backend for the hiera-eyaml module](https://github.com/sihil/hiera-eyaml-gpg)
 
-### Puppet Server で使うときの注意
+hiera-eyaml-gpg を使った運用方法も書くと長くなってしまうので、今回はPKCS#7ファイルによる使用法に留めます。
 
-hiera-eyaml-gpg を使うには [gpgme](https://rubygems.org/gems/gpgme) か [ruby\_gpg](https://rubygems.org/gems/ruby_gpg) のどちらかが必要ですが、Puppet Server (JRuby) では native extension が使えないので、 ruby\_gpg を使います。
-
-
-```puppet
-# Use puppetserver_gem module
-# See also: https://github.com/puppetlabs/puppetlabs-puppetserver_gem
-
-package {
-  [
-    'hiera-eyaml',
-    'hiera-eyaml-gpg',
-    'ruby_gpg',
-  ]:
-    ensure   => installed,
-    provider => puppetserver_gem,
-}
-```
-
-### puppet-agent から hiera-eyaml を使う
-
-Puppet 4 からスタンドアロンで hiera-eyaml を利用するためには `/opt/puppetlabs/puppe/bin/gem` からインストールする必要があります。
-
-```sh
-/opt/puppetlabs/puppe/bin/gem install hiera-eyaml --no-document
-```
+冒頭にも書いたとおり、hiera-eyaml の[README](https://github.com/TomPoulton/hiera-eyaml/blob/master/README.md) をかい摘んだような内容になりましたが、なんとなくの使い方はご理解いただけたでしょうか。モチベーションがあれば hiera-eyaml-gpg を使った管理方法について書こうと思います。
 
 参考
 ---
 
 - [Encrypt Your Data Using Hiera-Eyaml | Puppet](https://puppet.com/blog/encrypt-your-data-using-hiera-eyaml)
 - [TomPoulton/hiera-eyaml: A backend for Hiera that provides per-value asymmetric encryption of sensitive data](https://github.com/TomPoulton/hiera-eyaml)
-
