@@ -1,6 +1,7 @@
 ---
 date: 2016-05-03T07:44:56+09:00
 title: Beaker を使って Puppet の受け入れテストを書く
+draft: true
 tags:
 - puppet
 - test

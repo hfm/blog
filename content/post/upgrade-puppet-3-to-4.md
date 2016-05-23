@@ -1,6 +1,7 @@
 ---
 date: 2016-03-27T06:52:58+09:00
 title: Puppet 3.x から 4.x にアップグレードする
+draft: true
 tags:
 - puppet
 ---
