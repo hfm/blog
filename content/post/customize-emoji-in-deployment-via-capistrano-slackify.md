@@ -15,18 +15,14 @@ Capistrano のデプロイを Slack に通知するためのプラグインに [
 capistrano-slackify は単純なタスクなので、 emoji の変更も簡単だった。以下のようなタスクを書く。
 
 ```rb
-before 'slack:notify_finished', :mogilefs_success do
-  on release_roles(:mogfs) do
-    set :slack_emoji, ':kuroda_broccoli:'
-    set :slack_username, 'MogileFS (success)'
-  end
+before 'slack:notify_finished', :deploy_success do
+  set :slack_emoji,    ':success_emoji:'
+  set :slack_username, 'Capistrano (success)'
 end
 
-before 'slack:notify_failed', :mogilefs_failure do
-  on release_roles(:mogfs) do
-    set :slack_emoji, ':kuroda_oni:'
-    set :slack_username, 'MogileFS (failure)'
-  end
+before 'slack:notify_failed', :deploy_failure do
+  set :slack_emoji,    ':failure_emoji:'
+  set :slack_username, 'Capistrano (failure)'
 end
 ```
 
