@@ -8,9 +8,9 @@ tags:
 
 このアイデアは、YAPC::Asia Tokyo のキーノート、なかでも [@mizzy](https://twitter.com/gosukenator) さんの「[How Perl Changed My Life](http://yapcasia.org/2012/talk/show/79991522-db79-11e1-be22-0d4e6aeab6a4)」や [@typester](https://twitter.com/typester) さんの「[エンジニアとして生きる](http://yapcasia.org/2014/talk/show/4c1b9652-0c86-11e4-aec0-ad686aeab6a4)」を原型とし、エドガー・H・シャイン著『[キャリア・アンカー](http://www.amazon.co.jp/gp/product/4561233857/ref=as_li_ss_tl?ie=UTF8&camp=247&creative=7399&creativeASIN=4561233857&linkCode=as2&tag=hifumiass-22)』<img src="http://ir-jp.amazon-adsystem.com/e/ir?t=hifumiass-22&l=as2&o=9&a=4561233857" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />の考えに目的を強化されたものである。
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/wxUxFdFxd0Y" frameborder="0" allowfullscreen></iframe>
+<iframe style="max-width:100%;" width="560" height="315" src="https://www.youtube.com/embed/wxUxFdFxd0Y" frameborder="0" allowfullscreen></iframe>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/2LxmtTMVsZA" frameborder="0" allowfullscreen></iframe>
+<iframe style="max-width:100%;" width="560" height="315" src="https://www.youtube.com/embed/2LxmtTMVsZA" frameborder="0" allowfullscreen></iframe>
 
 以前「[ペパボ新卒エンジニア研修2015が始まっています](/2015/06/14/pepabo-engineer-training-2015/)」でも触れた内容だが、あれから1年が経ち、いろいろと分かってきたことがある。本記事では「キャリアキーノートとはなにか」を再考し、私の考えを今一度綴りたいと思う。
 
