@@ -84,13 +84,13 @@ h1, h2, h3, h4, h5 { @include font-family("sans-serif", true) }
 }
 
 .entry-title {
-  $font-size: 32px;
+  $font-size: 28px;
   font-weight: bolder;
-  @include adjust-font-size-to($font-size,1.5);
+  @include adjust-font-size-to($font-size, 1.5);
 }
 
 .entry-header-btm {
-  @include adjust-font-size-to($base-font-size,1);
+  @include adjust-font-size-to($base-font-size, 1);
   @include font-family("sans-serif", true);
   color: #bbb;
 
@@ -130,7 +130,7 @@ h1, h2, h3, h4, h5 { @include font-family("sans-serif", true) }
   @include rhythm(2, 0, 0, 2, $base-font-size);
 
   h2 {
-    $font-size: 30px;
+    $font-size: 28px;
     @include adjust-font-size-to($font-size,2);
     @include rhythm(2, 0, 0, 1, $font-size);
     font-weight: bold;
@@ -138,14 +138,14 @@ h1, h2, h3, h4, h5 { @include font-family("sans-serif", true) }
   }
 
   h3 {
-    $font-size: 30px;
+    $font-size: 28px;
     @include adjust-font-size-to($font-size,1);
-    @include rhythm(1, 0, 0, 1, $font-size);
+    @include rhythm(2, 0, 0, 1, $font-size);
     font-weight: bold;
   }
 
   h4 {
-    $font-size: 25px;
+    $font-size: 24px;
     @include adjust-font-size-to($font-size,1);
     @include rhythm(1, 0, 0, 1, $font-size);
     font-weight: bold;
