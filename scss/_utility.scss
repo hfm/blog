@@ -23,7 +23,7 @@
   } @else if $type == serif {
     font-family: serif#{$important};
   } @else if $type == monospace {
-    font-family:Consolas, "Liberation Mono", 'Courier New'  Courier, Monaco, monospace#{$important};
+    font-family:Consolas, "Liberation Mono", 'Courier New', Courier, Monaco, monospace#{$important};
   }
 }
 
