@@ -21,8 +21,10 @@
     <meta property="article:author" content="{{ .Site.Author.name }}">
     {{ with .Date.Format "2006-01-02T15:04:05+09:00" }}<meta property="article:published_time" content="{{ . }}">{{ end }}
 
+    {{ if not .Site.BuildDrafts }}
     {{ partial "google_analytics.html" .}}
     {{ partial "hatena_star.html" .}}
+    {{ end }}
   </head>
   <body>
     <header id="header">
