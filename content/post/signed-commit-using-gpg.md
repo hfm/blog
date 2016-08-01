@@ -6,8 +6,6 @@ tags:
 - git
 ---
 
-![](/images/2016/08/01/verified.png)
-
 <blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">コミットした覚えがないリポジトリが。気持ち悪い。link: Commits · runnez/sol.js: <a href="https://t.co/S33igj9PEc">https://t.co/S33igj9PEc</a></p>&mdash; Yukihiro Matsumoto (@yukihiro_matz) <a href="https://twitter.com/yukihiro_matz/status/745256966679732224">2016年6月21日</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
@@ -49,6 +47,14 @@ error: gpg failed to sign the data
 GPG_TTY=$(tty)
 export GPG_TTY
 ```
+
+```sh
+brew install pinentry-mac
+
+echo "pinentry-program /usr/local/bin/pinentry-mac" >> ~/.gnupg/gpg-agent.conf
+```
+
+![](/images/2016/08/01/verified.png)
 
 - [Generating a GPG key \- User Documentation](https://help.github.com/articles/generating-a-gpg-key/)
 - [Signing commits using GPG \- User Documentation](https://help.github.com/articles/signing-commits-using-gpg/)
