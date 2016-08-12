@@ -322,7 +322,7 @@ ul.social {
   @include rhythm(3, 1, 1, 0, $base-font-size);
   color: #fff;
   background-color: #333;
-  line-height: 1.5;
+  line-height: 1.2;
 
   a {
     text-decoration: none;
@@ -330,27 +330,23 @@ ul.social {
   }
 
   img.profile_image {
-    border: 20px solid #fff;
-    margin-right: 2.0em;
-    float:left;
+    border: 5px solid #fff;
+    margin-right: 1.0em;
+    float: left;
+    border-radius: 100%;
   }
 
   div.profile_contact {
-    @include inline-block-list(2px);
+    @include inline-block-list(0px);
 
     ul, ol {
       @include adjust-font-size-to($base-font-size,0);
       @include rhythm(0, 0, 0, 0, $base-font-size);
-      margin-left: 0.0rem;
-    }
-
-    li {
-      vertical-align: top;
     }
 
     img {
-      height: 32px;
-      width: 32px;
+      height: 16px;
+      width: 16px;
     }
   }
 }
