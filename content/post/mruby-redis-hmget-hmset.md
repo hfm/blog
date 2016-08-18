@@ -1,6 +1,6 @@
 ---
 date: 2016-08-17T20:17:46+09:00
-title: mruby-redis に送った HMSET, HMGET のパッチ
+title: mruby-redis に送った HMSET, HMGET のパッチの話
 draft: true
 cover: /images/2016/08/18/mruby_logo_red.png
 tags:
@@ -11,7 +11,7 @@ tags:
 
 - [Implement Redis\#HMGET and Redis\#HMSET by hfm · Pull Request \#58 · matsumoto\-r/mruby\-redis](https://github.com/matsumoto-r/mruby-redis/pull/58)
 
-mruby も [hiredis](https://github.com/redis/hiredis) もよくわからない状態からの出発だったので、小さいパッチの割に時間がかかってしまった。hiredis は README.md に書かれている API の説明を読み、mruby はソースコードのコメントアウトに書かれた仕様を読み漁った。
+mruby も [Hiredis](https://github.com/redis/hiredis) もよくわからない状態からの出発だったので、小さいパッチの割に時間がかかってしまった。Hiredis は README.md に書かれている API の説明を読み、mruby はソースコードのコメントアウトに書かれた仕様を読み漁った。
 
 調べたことの正確性は保証出来ないが、ソースコードと一緒に備忘録として書いておく。なお、mruby はバージョン 1.2.0 時点のものである。
 
@@ -70,12 +70,12 @@ static mrb_value mrb_redis_hmget(mrb_state *mrb, mrb_value self)
 mrb_define_method(mrb, redis, "hmget", mrb_redis_hmset, (MRB_ARGS_REQ(2) | MRB_ARGS_REST()));
 ```
 
-最終行の mrb\_define\_method で Redis#redis メソッドを定義している。次は mrb\_define\_method を見ていく。
+最終行の mrb\_define\_method() で Redis#redis メソッドを定義している。まずは mrb\_define\_method() から見ていく。
 
-mrb\_define\_method
+mrb\_define\_method()
 ---
 
-mrb\_define\_method はメソッドを定義する mruby API である。第2引数がクラス名、第3引数がメソッド名、第4引数がメソッドの呼び出す関数、第5引数はメソッドの引数の数やキーワード、ブロックを指定する。
+mrb\_define\_method() はメソッドを定義する mruby API である。第2引数がクラス名、第3引数がメソッド名、第4引数がメソッドの呼び出す関数、第5引数がメソッドの引数情報である。引数が情報には、引数の数やキーワード、ブロックを指定する。
 
 ```c
 // https://github.com/mruby/mruby/blob/1.2.0/include/mruby.h#L260
@@ -84,7 +84,7 @@ MRB_API void mrb_define_method(mrb_state *mrb, struct RClass *cla, const char *n
 
 ソースコードのコメントアウトに *"Defines a global function in ruby."* と書かれている通り、第2引数に mrb->kernel_module を指定し、Kernelモジュールにグローバル関数を定義することもできる。
 
-今回の実装では、`redis` クラスの `hmget` メソッドを呼び出すと、 `mrb_redis_hmget` 関数が呼ばれる。また、HMGET key field [field ...] というコマンドなので、引数は `(MRB_ARGS_REQ(2) | MRB_ARGS_REST())` で「2つまたはそれ以上」としたつもり。
+今回の実装では、`redis` クラスの `"hmget"` メソッドが `mrb_redis_hmget` 関数を呼び出す。また、HMGET key field [field ...] というコマンドなので、引数情報は `(MRB_ARGS_REQ(2) | MRB_ARGS_REST())` で「2つまたはそれ以上」としたつもり。
 
 引数に関するマクロは [include/mruby.h](https://github.com/mruby/mruby/blob/1.2.0/include/mruby.h) に定義があるので参考にされたい。今回使った MRB\_ARGS\_REQ(n) と MRB\_ARGS\_REST() は以下のように定義されている。
 
@@ -96,12 +96,14 @@ MRB_API void mrb_define_method(mrb_state *mrb, struct RClass *cla, const char *n
 #define MRB_ARGS_REST()     ((mrb_aspec)(1 << 12))
 ```
 
-次は mrb\_redis\_hmget を見ていく。
+これで Redis#hmget が定義された。次はメソッドの内部実装である mrb\_redis\_hmget() を見ていく。
 
-mrb\_redis\_hmget
+mrb\_redis\_hmget()
 ---
 
-mrb\_redis\_hmget の冒頭で、引数の中身を取得している。
+### 引数の取得
+
+mrb\_redis\_hmget() の冒頭で、引数の中身を取得している。
 
 ```c
 static mrb_value mrb_redis_hmget(mrb_state *mrb, mrb_value self)
@@ -113,13 +115,16 @@ static mrb_value mrb_redis_hmget(mrb_state *mrb, mrb_value self)
   argc++;
 ```
 
-mrb\_get\_args は引数を取得する mruby API である。HMGET は引数が何個入ってくるかわからないので、 mrb\_args\_format は引数を配列として受け取る `*` にした（今思えば `a` で良かったかもしれない）。フォーマットの詳細は [mruby/mruby\.h#L732-L758](https://github.com/mruby/mruby/blob/1.2.0/include/mruby.h#L732-L758) を参考にされたい。
+mrb\_get\_args() は引数を取得する mruby API である。HMGET は引数が何個入ってくるかわからないので、 mrb\_args\_format は引数を配列として受け取る `*` にした（今思えば `a` で良かったかもしれない）。フォーマットの詳細は [mruby/mruby\.h#L732-L758](https://github.com/mruby/mruby/blob/1.2.0/include/mruby.h#L732-L758) を参考にされたい。
 
 ```c
+// https://github.com/mruby/mruby/blob/1.2.0/include/mruby.h#L773
 MRB_API mrb_int mrb_get_args(mrb_state *mrb, mrb_args_format format, ...);
 ```
 
-続いて、取得した引数の数 argc を元に、Redis サーバにリクエストするための配列を組み立てていく。 argv と argvlen に引数の中身とその長さを各要素ごとに代入している。
+### Redis へ送るコマンドの組立
+
+続いて、取得した Redis#hmget の引数を元に、Redis に送信するコマンドを組み立てていく。以下のコードでは、配列 argv の各要素に引数のアドレスを、配列 argvlen の各要素に引数の長さをそれぞれ格納している。最初の要素は `HMGET` という文字列で、それ以降が Redis#hmget の引数である。
 
 ```c
   const char *argv[argc];
@@ -136,67 +141,19 @@ MRB_API mrb_int mrb_get_args(mrb_state *mrb, mrb_args_format format, ...);
   }
 ```
 
-また、 mrb_value curr は一時的なオブジェクトなので、mrb_gc_arena_save() と mrb_gc_arena_restore() で GC arena 領域の消費を抑えている。 GC arena の詳細は Matz の日記を参考にされたい。
+例えば、 `client.hmget "myhash", "field1", "field2"` のようにコマンドを組み立てた場合、argv は以下のようなイメージになる（はず）。
 
-- [mrubyのmrb_gc_arena_save()/mrb_gc_arena_restore()の使い方 - Matzにっき\(2013\-07\-31\)](http://www.rubyist.net/~matz/20130731.html#p01)
+![](/images/2016/08/18/argv.png)
 
-上記の for ループの後、 argv は以下のようになる。最初の引数は `HMGET` という文字列に固定し、それ以降は Redis#hmget の引数が代入される。また、argvlen には argv の各要素の長さが格納されている。
+また、ループ内の mrb\_value curr は一時的なオブジェクトなので、mrb\_gc\_arena\_save() と mrb\_gc\_arena\_restore() で GC arena 領域の消費を抑えている...つもりなのだが、完全に理解できているか分からないので、詳しくは Matz の日記を読んでもらいたい。
 
-```
-    0           1            2                  argc - 1
-+-------+-------------+-------------+-----+--------------------+
-| HMGET | mrb_argv[0] | mrb_argv[1] | ... | mrb_argv[argc - 1] |
-+-------+-------------+-------------+-----+--------------------+
-                          *argv[argc]
-```
+- [mrubyのmrb\_gc\_arena\_save()/mrb\_gc\_arena\_restore()の使い方 - Matzにっき\(2013\-07\-31\)](http://www.rubyist.net/~matz/20130731.html#p01)
 
-例えば、 `client.hmget "myhash", "field1", "field2"` のようにコマンドを実行すると、 argv は以下のようになるだろう。
+### Hiredis を使った Redis との通信
 
-```
-    0       1        2        3
-+-------+--------+--------+--------+
-| HMGET | myhash | field1 | field2 |
-+-------+--------+--------+--------+
-              *argv[4]
-```
+コマンドを組み立てたら、次は Hiredis を用いて Redis に送信し、リプライを得る。
 
-`const char *argv[argc]` を hiredis の API を透して Redis サーバに投げると、結果を得られる。イメージとしては、まず以下の図のように `const char *argv[argc]` の各要素を決定する。0番目の HMGET はコマンド名で、1番目がハッシュ名、2番目以降が取り出したい値を指すキー名が並ぶ。
-
-`const char *argv[argc]` を hiredis の API を透して Redis サーバに投げると、結果を得られる。HMGET, HMSET は任意のキー数を指定できるので、関数 redisCommandArgv を用いた。
-
-```c
-rr = redisCommandArgv(rc, argc, argv, argvlen);
-```
-
-関数 redisCommandArgv を通じて Redis サーバにリクエストを送ると、redisReply 型で結果が返ってくる。コード中では `rr` という変数が redisReply 型で宣言されている。 redisReply は redisCommand や redisCommandArgv の結果を格納する構造体で、Redis サーバから得られたオブジェクト (INTEGER, STRING, ARRAY など) が入っている。
-
-```c
-/* This is the reply object returned by redisCommand() */
-typedef struct redisReply {
-    int type; /* REDIS_REPLY_* */
-    long long integer; /* The integer when type is REDIS_REPLY_INTEGER */
-    size_t len; /* Length of string */
-    char *str; /* Used for both REDIS_REPLY_ERROR and REDIS_REPLY_STRING */
-    size_t elements; /* number of elements, for REDIS_REPLY_ARRAY */
-    struct redisReply **element; /* elements vector for REDIS_REPLY_ARRAY */
-} redisReply;
-```
-
-関数 `mrb_ary_push` を用いて `mrb_ary_new(mrb)` で Array クラス
-
-関数 `mrb_ary_new(mrb)` は Ruby の `Array.new`
-
-```c
-mrb_ary_push(mrb, array, mrb_str_new(mrb, rr->element[i]->str, rr->element[i]->len));
-```
-
-```
-        0                 1         ...         N
-+----------------+----------------+-----+----------------+
-| rr->element[0] | rr->element[1] | ... | rr->element[N] |
-+----------------+----------------+-----+----------------+
-                          array
-```
+以下のコードでは、redisCommandArgv() を用いてコマンドを Redis に送信し、得られたリプライを mrb\_value array に格納している。ただし、引数に問題がある場合は ArgumentError 例外が発生する（この例外が荒っぽいので直したい）。
 
 ```c
   mrb_value array = mrb_nil_value();
@@ -218,6 +175,41 @@ mrb_ary_push(mrb, array, mrb_str_new(mrb, rr->element[i]->str, rr->element[i]->l
     mrb_raise(mrb, E_ARGUMENT_ERROR, rr->str);
   }
 ```
+
+redisContext は Redis との接続状態を保持する構造体である。DATA\_PTR は [include/mruby/data.h](https://github.com/mruby/mruby/blob/1.2.0/include/mruby/data.h#L49) で定義されるマクロである（詳細な解説は「[mruby で C 言語の構造体をラップしたオブジェクトを作る正しい方法](http://qiita.com/tsahara@github/items/86610a696f8ca792db45)」にあるので、詳しくは記事を読んでもらいたい。）mruby-redis での DATA\_PTR(self) は、Redis#new が呼び出す [mrb\_redis\_connect()](https://github.com/matsumoto-r/mruby-redis/blob/10426858941703434e718139b0bc8bb5f7fa724d/src/mrb_redis.c#L103-L128) で、redisContext が格納されている。
+
+redisReply はコマンドに対して返されたリプライを格納する構造体である。HMGET の場合はマルチバルクリプライが返るため、`rr->elements` にリプライの要素数が格納され、`rr->element[..index..]` から各要素の値にアクセスできる。
+
+```c
+// https://github.com/redis/hiredis/blob/v0.13.3/hiredis.h#L112-L119
+typedef struct redisReply {
+    int type; /* REDIS_REPLY_* */
+    long long integer; /* The integer when type is REDIS_REPLY_INTEGER */
+    int len; /* Length of string */
+    char *str; /* Used for both REDIS_REPLY_ERROR and REDIS_REPLY_STRING */
+    size_t elements; /* number of elements, for REDIS_REPLY_ARRAY */
+    struct redisReply **element; /* elements vector for REDIS_REPLY_ARRAY */
+} redisReply;
+```
+
+https://github.com/redis/hiredis#sending-commands-contd を参考にされたい。
+
+さて、Hiredis のコマンド送信 API は数種あるが、今回用いた redisCommandArgv() は、第2引数に要素数、第3引数に配列、第4引数に引数ごとの長さを指定することで、任意の引数のコマンドを送信できる。
+
+```c
+void *redisCommandArgv(redisContext *c, int argc, const char **argv, const size_t *argvlen);
+```
+
+リプライがマルチバルクリプライ (REDIS\_REPLY\_ARRAY) で、要素数が 0 より大きい場合、リプライの各要素を mrb\_ary\_push() で array にプッシュしていく。要素が nil の場合もあるので、要素の長さが 0 の場合は mrb\_nil\_value() をプッシュしている。
+
+```c
+MRB_API void mrb_ary_push(mrb_state *mrb, mrb_value array, mrb_value value);
+```
+
+### リプライを返す
+
+mrb\_value array にリプライを格納し終えたら、freeReplyObject() で redisReply オブジェクトを解放し、array を返す。
+
 ```c
   freeReplyObject(rr);
   return array;
