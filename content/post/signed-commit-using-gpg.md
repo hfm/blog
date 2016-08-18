@@ -1,15 +1,19 @@
 ---
-date: 2016-08-01T09:51:43+09:00
+date: 2016-08-07T11:00:38+09:00
 title: GPG署名付きコミット
 draft: true
 tags:
 - git
 ---
 
+OSX の場合、GnuPG は `brew install gpg2` で手に入る。
+
+名前とメールアドレスさえ分かれば、なりすましは容易である。
+
 <blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">コミットした覚えがないリポジトリが。気持ち悪い。link: Commits · runnez/sol.js: <a href="https://t.co/S33igj9PEc">https://t.co/S33igj9PEc</a></p>&mdash; Yukihiro Matsumoto (@yukihiro_matz) <a href="https://twitter.com/yukihiro_matz/status/745256966679732224">2016年6月21日</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-![](/images/2016/08/01/new-gpg-key.png)
+![](/images/2016/08/07/new-gpg-key.png)
 
 
 ```console
@@ -22,7 +26,7 @@ $ gpg2 --gen-key
 gpg2 --armor --export $(gpg2 --list-secret-keys --keyid-format LONG | awk '$1~/^sec$/ {print $2}' | sed -E 's@.+/@@') | pbcopy
 ```
 
-![](/images/2016/08/01/add-gpg-key.png)
+![](/images/2016/08/07/add-gpg-key.png)
 
 ```sh
 git config --global gpg.program gpg2
@@ -54,7 +58,7 @@ brew install pinentry-mac
 echo "pinentry-program /usr/local/bin/pinentry-mac" >> ~/.gnupg/gpg-agent.conf
 ```
 
-![](/images/2016/08/01/verified.png)
+![](/images/2016/08/07/verified.png)
 
 - [Generating a GPG key \- User Documentation](https://help.github.com/articles/generating-a-gpg-key/)
 - [Signing commits using GPG \- User Documentation](https://help.github.com/articles/signing-commits-using-gpg/)
