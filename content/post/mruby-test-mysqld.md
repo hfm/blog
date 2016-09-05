@@ -7,13 +7,13 @@ tags:
 - mruby
 - mysql
 ---
-タイトルは『[Kazuho@Cybozu Labs: Perl のテスト用に MySQL 環境を自動で構築するモジュール Test::mysqld を書いた](http://developer.cybozu.co.jp/archives/kazuho/2009/08/perl-mysql-test.html)』のオマージュです。Test::mysqld 最高。
+タイトルは『[Kazuho@Cybozu Labs: Perl のテスト用に MySQL 環境を自動で構築するモジュール Test::mysqld を書いた](http://developer.cybozu.co.jp/archives/kazuho/2009/08/perl-mysql-test.html)』のオマージュです。
 
-テスト用に MySQL のデータディレクトリを一時ディレクトリに用意し、 mysqld サーバの立ち上げ・削除を自動実行してくれる大変便利な [Test\-mysqld](http://search.cpan.org/~kazuho/Test-mysqld/) ですが、mruby から扱いたいシーンが出てきたので、見よう見まねで mruby 移植版を作ってみました。実装にあたっては [miyucy/test\-mysqld: port of Test::mysqld](https://github.com/miyucy/test-mysqld) も大変参考になりました。
+テスト用に MySQL のデータディレクトリを一時ディレクトリに用意し、 mysqld サーバの立ち上げ・削除を自動実行してくれる大変便利な [Test::mysqld](http://search.cpan.org/~kazuho/Test-mysqld/) ですが、mruby から使いたいシーンが出てきたので、見よう見まねで移植版を作ってみました。実装にあたっては [miyucy/test\-mysqld](https://github.com/miyucy/test-mysqld) も大変参考になりました。
 
 - [hfm/mruby\-test\-mysqld: Setting up a mysqld instance in tmpdir, and destroying it when a mruby program exits\.](https://github.com/hfm/mruby-test-mysqld)
 
-使い方は簡単で、 `TestMysqld.new` をすると、mysql_install_db または mysqld --initialize が実行されたあと、mysqld を起動します。auto_start は個人的にまだ必要と感じなかったので実装してませんが、そのうちやるつもりです。また、mruby から MySQL にアクセスするには[mattn/mruby\-mysql](https://github.com/mattn/mruby-mysql/) を用います。
+`TestMysqld.new` をすると、mysql_install_db または mysqld --initialize が実行されたあと、mysqld を起動します。 TestMysqld#close メソッドを呼ぶか、プログラムを終了すると mysqld インスタンスは削除されます。また、mruby から MySQL にアクセスするには[mattn/mruby\-mysql](https://github.com/mattn/mruby-mysql/) を用います。
 
 ```ruby
 mysqld = TestMysqld.new
@@ -37,4 +37,9 @@ mysqld.stop
 
 - [日々の覚書: MySQL 5\.7\.6でデータベースの初期化が変わる mysql\_install\_dbからmysqld \-\-initialize](https://yoku0825.blogspot.jp/2015/03/mysql-576-mysqlinstalldbmysqld.html)
 
+雑な作りではありますが、簡単なバージョン比較をするだけの mruby gem も作りました。SemVerしか考慮出来てないので、もうちょいなんとかしたい気もする。
+
 - [hfm/mruby\-versioncmp](https://github.com/hfm/mruby-versioncmp)
+
+auto_start は個人的にまだ必要と感じなかったので実装してませんが、そのうちやるつもりです。
+
