@@ -1,18 +1,48 @@
 ---
-date: 2016-09-03T04:32:43+09:00
+date: 2016-09-07T00:16:18+09:00
 title: ngx_mruby に mruby_ssl_handshake_handler() を実装した
-cover: /images/2016/08/19/mruby_logo_red.png
 draft: true
 tags:
 - mruby
 - nginx
 - ngx_mruby
 ---
-ngx_mruby には動的に
-ngx_mruby で大量ドメインの証明書を動的に処理する1には OpenSSL 1.0.2e 以上が必要となる2。しかし、CentOS, Ubuntu, Debian の中では Xenial しか OpenSSL 1.0.2 をサポートしていない3。それ以外の OS では、OpenSSLを自前ビルドするか静的リンクするのが良さそうだ。
-
+ngx_mruby v1.18.4 がリリースされた[^1]。このリリースには私が実装した mruby_ssl_handshake_handler() が含まれている。このリリースにより、ngx_mruby に mruby_ssl_handshake_handler ディレクティブが追加された。
 
 - [Implement mruby\_ssl\_handshake\_handler\(\) by hfm · Pull Request \#205 · matsumoto\-r/ngx\_mruby](https://github.com/matsumoto-r/ngx_mruby/pull/205)
+
+mruby_ssl_handshake_handler ディレクティブ
+---
+
+mruby_ssl_handshake_handler ディレクティブは、Ruby スクリプトをインラインではなく外部ファイルから読み込んで実行する。第2引数に cache を指定すると、インライン同様にコードをキャッシュする。
+
+```nginx
+events {
+    worker_connections  1024;
+}
+
+http {
+    server {
+        listen      443 ssl http2;
+        server_name _;
+
+        ssl_protocols       TLSv1.2;
+        ssl_ciphers         AESGCM:HIGH:!aNULL:!MD5;
+        ssl_prefer_server_ciphers on;
+        ssl_dhparam         /etc/nginx/dhparam.pem;
+        ssl_certificate     /etc/nginx/certs/dummy.crt;
+        ssl_certificate_key /etc/nginx/certs/dummy.key;
+
+        mruby_ssl_handshake_handler /path/to/ssl_handshake_handler.rb cache;
+    }
+}
+```
+
+location コンテキストで機能するディレクティブと違い、server コンテキストで機能する mruby_ssl_handshake_handler ディレクティブに
+
+動的証明書読み込みでは、証明書を
+
+例えば、弊社インフラエンジニア [@takumakume](https://twitter.com/takumakume) が取り組んでいる「[ngx\_mrubyで転送先を外部参照するリバースプロキシを構築する](http://blog.konbu.link/2016/05/10/ngx_mruby/)」では、 nginx (ngx_mruby) から KVS や RDBMS へのアクセスを想定しており、インラインで書くには多少複雑なコードになる。
 
 mruby_ssl_handshake_handler ディレクティブを定義には、ngx_command_t 型の ngx_http_mruby_commands に要素を追加する。
 
@@ -58,4 +88,6 @@ struct ngx_command_s {
   code = ngx_http_mruby_mrb_code_from_file(cf->pool, &value[1]);
 ```
 
-[^1]: [HTTP/2へのmruby活用やこれからのTLS設定と大量証明書設定の効率化について - 人間とウェブの未来](http://hb.matsumoto-r.jp/entry/2016/02/05/140442)
+[^1]: https://github.com/matsumoto-r/ngx_mruby/releases/tag/v1.18.4
+[^2]: [HTTP/2へのmruby活用やこれからのTLS設定と大量証明書設定の効率化について - 人間とウェブの未来](http://hb.matsumoto-r.jp/entry/2016/02/05/140442)
+[^3]: http://www.nginxguts.com/2011/09/configuration-directives/
