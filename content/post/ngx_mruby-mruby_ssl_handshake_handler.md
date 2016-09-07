@@ -7,7 +7,7 @@ tags:
 - nginx
 - ngx_mruby
 ---
-ngx_mruby v1.18.4 がリリースされた[^1]。このリリースには私が実装した mruby_ssl_handshake_handler() が含まれている。このリリースにより、ngx_mruby に mruby_ssl_handshake_handler ディレクティブが追加された。
+ngx_mruby v1.18.4 がリリースされた[^1]。このリリースには私が実装した mruby_ssl_handshake_handler() が含まれている。このリリースから、ngx_mruby で mruby_ssl_handshake_handler ディレクティブが利用可能となる。
 
 - [Implement mruby\_ssl\_handshake\_handler\(\) by hfm · Pull Request \#205 · matsumoto\-r/ngx\_mruby](https://github.com/matsumoto-r/ngx_mruby/pull/205)
 
@@ -38,11 +38,16 @@ http {
 }
 ```
 
-location コンテキストで機能するディレクティブと違い、server コンテキストで機能する mruby_ssl_handshake_handler ディレクティブに
+mruby_init_worker(\_code) や mruby_content_handler(\_code) といった他のハンドラでは既にあるディレクティブだったが、mruby_ssl_handshake_handler はまだ無かったので足してみた、という感じだ。
 
-動的証明書読み込みでは、証明書を
+動的証明書読み込みでは、SNI の servername に合致した証明書ファイルを読み込むが、ドメイン数が多い場合、各ホストに大量の証明書ファイルを設置するのは現実的ではない。KVS や RDBMS に証明書ファイルを保存し、必要に応じて取り出したりする必要があるだろう。
+
+<script async class="speakerdeck-embed" data-slide="18" data-id="61747efd172644c681f1787b75010f76" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>
+
 
 例えば、弊社インフラエンジニア [@takumakume](https://twitter.com/takumakume) が取り組んでいる「[ngx\_mrubyで転送先を外部参照するリバースプロキシを構築する](http://blog.konbu.link/2016/05/10/ngx_mruby/)」では、 nginx (ngx_mruby) から KVS や RDBMS へのアクセスを想定しており、インラインで書くには多少複雑なコードになる。
+
+ngx_mruby 
 
 mruby_ssl_handshake_handler ディレクティブを定義には、ngx_command_t 型の ngx_http_mruby_commands に要素を追加する。
 
