@@ -1,5 +1,5 @@
 ---
-date: 2016-09-07T00:16:18+09:00
+date: 2016-09-08T00:54:50+09:00
 title: ngx_mruby に mruby_ssl_handshake_handler() を実装した
 draft: true
 tags:
@@ -11,7 +11,9 @@ ngx_mruby v1.18.4 がリリースされた[^1]。このリリースには私が�
 
 - [Implement mruby\_ssl\_handshake\_handler\(\) by hfm · Pull Request \#205 · matsumoto\-r/ngx\_mruby](https://github.com/matsumoto-r/ngx_mruby/pull/205)
 
-mruby_ssl_handshake_handler ディレクティブ
+mruby_init_worker(\_code) や mruby_content_handler(\_code) といった他のハンドラでは既にあるディレクティブだったが、mruby_ssl_handshake_handler はまだ無かった。ちょうど業務で欲しくなったので、慣れないC言語と格闘しながら実装した。
+
+mruby_ssl_handshake_handler ディレクティブの使い方
 ---
 
 mruby_ssl_handshake_handler ディレクティブは、Ruby スクリプトをインラインではなく外部ファイルから読み込んで実行する。第2引数に cache を指定すると、インライン同様にコードをキャッシュする。
@@ -38,18 +40,14 @@ http {
 }
 ```
 
-mruby_init_worker(\_code) や mruby_content_handler(\_code) といった他のハンドラでは既にあるディレクティブだったが、mruby_ssl_handshake_handler はまだ無かったので足してみた、という感じだ。
+nginx ならびに ngx_mruby への新規ディレクティブの追加
+---
 
-動的証明書読み込みでは、SNI の servername に合致した証明書ファイルを読み込むが、ドメイン数が多い場合、各ホストに大量の証明書ファイルを設置するのは現実的ではない。KVS や RDBMS に証明書ファイルを保存し、必要に応じて取り出したりする必要があるだろう。
+今回は nginx の server コンテキストに ngx_mruby 関連の新しいディレクティブを追加した。どういうコードを書くかは [Pull request の Files changed](https://github.com/matsumoto-r/ngx_mruby/pull/205/files) を見てもらうのが一番だが、差分が少々ややこしくなってしまったので、ここで解説することにする。
 
-<script async class="speakerdeck-embed" data-slide="18" data-id="61747efd172644c681f1787b75010f76" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>
+### ディレクティブの定義
 
-
-例えば、弊社インフラエンジニア [@takumakume](https://twitter.com/takumakume) が取り組んでいる「[ngx\_mrubyで転送先を外部参照するリバースプロキシを構築する](http://blog.konbu.link/2016/05/10/ngx_mruby/)」では、 nginx (ngx_mruby) から KVS や RDBMS へのアクセスを想定しており、インラインで書くには多少複雑なコードになる。
-
-ngx_mruby 
-
-mruby_ssl_handshake_handler ディレクティブを定義には、ngx_command_t 型の ngx_http_mruby_commands に要素を追加する。
+まず、 mruby_ssl_handshake_handler ディレクティブを定義するには、[ngx_command_t](https://www.nginx.com/resources/wiki/extending/api/configuration/#ngx-command-t) 型の配列を定義し、要素を追加する。ngx_mruby の場合は ngx_http_mruby_commands[] に追加すれば良い。
 
 ```c
 static ngx_command_t ngx_http_mruby_commands[] = {
@@ -57,8 +55,8 @@ static ngx_command_t ngx_http_mruby_commands[] = {
 #if (NGX_HTTP_SSL)
 
     /* server config */
-    {ngx_string("mruby_ssl_handshake_handler"), NGX_HTTP_SRV_CONF | NGX_CONF_TAKE12,
-     ngx_http_mruby_ssl_handshake_phase, NGX_HTTP_SRV_CONF_OFFSET, 0, NULL},
+    {ngx_string("mruby_ssl_handshake_handler"), NGX_HTTP_SRV_CONF | NGX_CONF_TAKE12, ngx_http_mruby_ssl_handshake_phase,
+     NGX_HTTP_SRV_CONF_OFFSET, 0, NULL},
 
     ...
 
@@ -69,7 +67,19 @@ static ngx_command_t ngx_http_mruby_commands[] = {
     ngx_null_command};
 ```
 
-ngx_command_t は typedef で宣言された ngx_command_s 構造体である。「[NginxでのModuleの作り方 - よねのはてな](http://yone098.hatenablog.com/entry/20090930/1254275423)」や「[ngx\_mrubyから学ぶnginxモジュールの作り方](http://blog.matsumoto-r.jp/?p=2841)」に詳しい解説がある。
+{ngx_string ... NULL } は、 ngx_command_s 型の
+
+- ngx_string("mruby_ssl_handshake_handler") ... ディレクティブ名を決める。今回は mruby_ssl_handshake_handler という名前。
+- NGX_HTTP_SRV_CONF | NGX_CONF_TAKE12 ... ディレクティブの引数を決める。今回は
+- ngx_http_mruby_ssl_handshake_phase
+- NGX_HTTP_SRV_CONF_OFFSET
+- 0
+- NULL
+
+ngx_command_t 型の配列の終端は ngx_null_command となるように求められている。これは
+[src/core/ngx_conf_file.h#L86](https://github.com/nginx/nginx/blob/release-1.11.3/src/core/ngx_conf_file.h#L86) で { ngx_null_string, 0, NULL, 0, 0, NULL } と定義されているだけだ。
+
+ngx_command_t は typedef で宣言された ngx_command_s 構造体である。「[NginxでのModuleの作り方](http://yone098.hatenablog.com/entry/20090930/1254275423)」や「[ngx\_mrubyから学ぶnginxモジュールの作り方](http://blog.matsumoto-r.jp/?p=2841)」に詳しい解説がある。
 
 ```c
 // https://github.com/nginx/nginx/blob/release-1.11.3/src/core/ngx_core.h#L22
