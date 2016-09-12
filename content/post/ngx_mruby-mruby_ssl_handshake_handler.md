@@ -1,5 +1,5 @@
 ---
-date: 2016-09-08T00:54:50+09:00
+date: 2016-09-11T07:28:10+09:00
 title: ngx_mruby に mruby_ssl_handshake_handler() を実装した
 draft: true
 tags:
