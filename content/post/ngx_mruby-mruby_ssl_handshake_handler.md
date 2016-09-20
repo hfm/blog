@@ -1,5 +1,5 @@
 ---
-date: 2016-09-11T07:28:10+09:00
+date: 2016-09-18T06:10:02+09:00
 title: ngx_mruby に mruby_ssl_handshake_handler() を実装した
 draft: true
 tags:
@@ -7,7 +7,7 @@ tags:
 - nginx
 - ngx_mruby
 ---
-ngx_mruby v1.18.4 がリリースされた[^1]。このリリースには私が実装した mruby_ssl_handshake_handler() が含まれている。このリリースから、ngx_mruby で mruby_ssl_handshake_handler ディレクティブが利用可能となる。
+先日、ngx_mruby v1.18.4 がリリースされた[^1]。このリリースには私が実装した mruby_ssl_handshake_handler() が含まれている。このリリースから、ngx_mruby で mruby_ssl_handshake_handler ディレクティブが利用可能となる。
 
 - [Implement mruby\_ssl\_handshake\_handler\(\) by hfm · Pull Request \#205 · matsumoto\-r/ngx\_mruby](https://github.com/matsumoto-r/ngx_mruby/pull/205)
 
@@ -43,7 +43,7 @@ http {
 nginx ならびに ngx_mruby への新規ディレクティブの追加
 ---
 
-今回は nginx の server コンテキストに ngx_mruby 関連の新しいディレクティブを追加した。どういうコードを書くかは [Pull request の Files changed](https://github.com/matsumoto-r/ngx_mruby/pull/205/files) を見てもらうのが一番だが、差分が少々ややこしくなってしまったので、ここで解説することにする。
+今回は nginx の server コンテキストに ngx_mruby 関連の新しいディレクティブを追加した。どういうコードを書くかは [Pull request の Files changed](https://github.com/matsumoto-r/ngx_mruby/pull/205/files) を見てもらうのが一番かもしれないが、差分が少々ややこしくなってしまったので、ここで解説することにする。
 
 ### ディレクティブの定義
 
@@ -69,12 +69,12 @@ static ngx_command_t ngx_http_mruby_commands[] = {
 
 {ngx_string ... NULL } は、 ngx_command_s 型の
 
-- ngx_string("mruby_ssl_handshake_handler") ... ディレクティブ名を決める。今回は mruby_ssl_handshake_handler という名前。
-- NGX_HTTP_SRV_CONF | NGX_CONF_TAKE12 ... ディレクティブの引数を決める。今回は
-- ngx_http_mruby_ssl_handshake_phase
-- NGX_HTTP_SRV_CONF_OFFSET
-- 0
-- NULL
+- `ngx_string("mruby_ssl_handshake_handler")` ... ディレクティブ名を決める。 ngx_string [^4] というマクロにディレクティブ名を入れる。今回は mruby_ssl_handshake_handler という名前。
+- `NGX_HTTP_SRV_CONF | NGX_CONF_TAKE12` ... ディレクティブの引数を決める。今回は
+- `ngx_http_mruby_ssl_handshake_phase` ... ディレクティブに対応するコールバック関数を定義する。コールバック関数の戻り値は NGX_CONF_OK か NGX_CONF_ERROR のどちらか。
+- `NGX_HTTP_SRV_CONF_OFFSET` ... ディレクティブの値を保存すべきロケーションを指定する...らしい。HTTP, MAIL, STREAM の各コンテキストを指定できるのだが、効果があまりわかっていない。
+- `0` ... ディレクティブのデータを保存する構造体のオフセットらしい。上記とセットで使うものなんだろうか、これもよくわかっていない。
+- `NULL` ... ポストプロセッサとなる関数を指定する。
 
 ngx_command_t 型の配列の終端は ngx_null_command となるように求められている。これは
 [src/core/ngx_conf_file.h#L86](https://github.com/nginx/nginx/blob/release-1.11.3/src/core/ngx_conf_file.h#L86) で { ngx_null_string, 0, NULL, 0, 0, NULL } と定義されているだけだ。
@@ -96,13 +96,59 @@ struct ngx_command_s {
 };
 ```
 
-つまり、 mruby\_ssl\_handshake\_handler は server コンテキスト (NGX\_HTTP\_SRV\_CONF) で有効となり、1つまたは2つの引数を必要とする (NGX\_CONF\_TAKE12)。また、このディレクティブが検出されたら ngx\_http\_mruby\_ssl\_handshake\_phase() がコールバック関数として呼ばれる。(NGX\_HTTP\_SRV\_CONF\_OFFSET, 0)。ポストプロセッサは NULL で特に無い。
+つまり、 mruby_ssl_handshake_handler は server コンテキスト (NGX_HTTP_SRV_CONF) で有効となり、1つまたは2つの引数を必要とする (NGX_CONF_TAKE12)。また、このディレクティブが検出されたら ngx_http_mruby_ssl_handshake_phase() がコールバック関数として呼ばれる。(NGX_HTTP_SRV_CONF_OFFSET, 0)。ポストプロセッサは NULL で特に無い。
 
 ```c
   code = ngx_http_mruby_mrb_code_from_string(cf->pool, &value[1]);
   code = ngx_http_mruby_mrb_code_from_file(cf->pool, &value[1]);
 ```
 
+```c
+static char *ngx_http_mruby_ssl_handshake_phase(ngx_conf_t *cf, ngx_command_t *cmd, void *conf)
+{
+  ngx_http_mruby_srv_conf_t *mscf = ngx_http_conf_get_module_srv_conf(cf, ngx_http_mruby_module);
+  ngx_http_mruby_main_conf_t *mmcf = ngx_http_conf_get_module_main_conf(cf, ngx_http_mruby_module);
+  ngx_str_t *value;
+  ngx_mrb_code_t *code;
+  ngx_int_t rc;
+
+  if (mscf->ssl_handshake_code != NGX_CONF_UNSET_PTR) {
+    return "is duplicated";
+  }
+
+  /* share mrb_state of preinit */
+  mscf->state = mmcf->state;
+
+  value = cf->args->elts;
+
+  code = ngx_http_mruby_mrb_code_from_file(cf->pool, &value[1]);
+  if (code == NGX_CONF_UNSET_PTR) {
+    ngx_conf_log_error(NGX_LOG_EMERG, cf, 0, MODULE_NAME " : mruby_ssl_handshake_phase mrb_file(%s) open failed",
+                       value[1].data);
+    return NGX_CONF_ERROR;
+  }
+  if (cf->args->nelts == 3) {
+    if (ngx_strcmp(value[2].data, "cache") == 0) {
+      code->cache = ON;
+    } else {
+      ngx_conf_log_error(NGX_LOG_EMERG, cf, 0, "invalid parameter \"%V\", vaild parameter is only \"cache\"",
+                         &value[2]);
+      return NGX_CONF_ERROR;
+    }
+  }
+  mscf->ssl_handshake_code = code;
+  rc = ngx_http_mruby_shared_state_compile(cf, mscf->state, code);
+  if (rc != NGX_OK) {
+    ngx_conf_log_error(NGX_LOG_EMERG, cf, 0, MODULE_NAME " : mruby_ssl_handshake_phase mrb_file(%s) open failed",
+                       value[1].data);
+    return NGX_CONF_ERROR;
+  }
+
+  return NGX_CONF_OK;
+}
+```
+
 [^1]: https://github.com/matsumoto-r/ngx_mruby/releases/tag/v1.18.4
 [^2]: [HTTP/2へのmruby活用やこれからのTLS設定と大量証明書設定の効率化について - 人間とウェブの未来](http://hb.matsumoto-r.jp/entry/2016/02/05/140442)
 [^3]: http://www.nginxguts.com/2011/09/configuration-directives/
+[^4]: https://github.com/nginx/nginx/blob/release-1.11.4/src/core/ngx_string.h#L40
