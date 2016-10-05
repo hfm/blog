@@ -33,8 +33,6 @@ http {
         mruby_ssl_handshake_handler_inline '
           ssl = Nginx::SSL.new
           Nginx::SSL.errlogger, Nginx::LOG_NOTICE, "Servername is #{ssl.servername}"
-          ssl.certificate = "/path/to/#{ssl.servername}.crt"
-          ssl.certificate_key = "/path/to/#{ssl.servername}.key"
         ';
     }
 }
@@ -53,7 +51,7 @@ mrb_define_class_method(mrb, class_ssl, "log", ngx_mrb_ssl_errlogger, MRB_ARGS_A
 メソッドの実装
 ---
 
-- [[O]mruby の String から C 言語の文字列を取り出す正しい方法 - Qiita](http://qiita.com/tsahara@github/items/b2a442af95ac893e10a1)
+ngx_mrb_ssl_errlogger() は以下のようなコードになっている。メソッドから引数を受け取り、Nginxの error.log に書き出すだけの素朴なコードだ。
 
 ```c
 // https://github.com/matsumoto-r/ngx_mruby/blob/v1.18.5/src/http/ngx_http_mruby_ssl.c#L64-L99
@@ -93,6 +91,40 @@ static mrb_value ngx_mrb_ssl_errlogger(mrb_state *mrb, mrb_value self)
 
   return self;
 }
+```
+
+```c
+  mrb_get_args(mrb, "*", &argv, &argc);
+  if (argc != 2) {
+    ngx_log_error(NGX_LOG_ERR, c->log, 0, "%s ERROR %s: argument is not 2", MODULE_NAME, __func__);
+    return self;
+  }
+```
+
+```c
+  if (mrb_type(argv[0]) != MRB_TT_FIXNUM) {
+    ngx_log_error(NGX_LOG_ERR, c->log, 0, "%s ERROR %s: argv[0] is not integer", MODULE_NAME, __func__);
+    return self;
+  }
+  log_level = mrb_fixnum(argv[0]);
+  if (log_level < 0) {
+    ngx_log_error(NGX_LOG_ERR, c->log, 0, "%s ERROR %s: log level is not positive number", MODULE_NAME, __func__);
+    return self;
+  }
+```
+
+```c
+  if (mrb_type(argv[1]) != MRB_TT_STRING) {
+    msg = mrb_funcall(mrb, argv[1], "to_s", 0, NULL);
+  } else {
+    msg = mrb_str_dup(mrb, argv[1]);
+  }
+```
+
+- [[O]mruby の String から C 言語の文字列を取り出す正しい方法 - Qiita](http://qiita.com/tsahara@github/items/b2a442af95ac893e10a1)
+
+```c
+  ngx_log_error((ngx_uint_t)log_level, c->log, 0, "%s", mrb_str_to_cstr(mrb, msg));
 ```
 
 [^1]: http://mruby.org/docs/api/headers/mruby.h.html#mrb_define_class_method-function
