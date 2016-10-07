@@ -1,13 +1,12 @@
 ---
-date: 2016-10-03T09:37:37+09:00
+date: 2016-10-07T09:57:37+09:00
 title: ngx_mruby に Nginx::SSL.errlogger を実装してログを出力できるようにした
-draft: true
 tags:
 - mruby
 - nginx
 - ngx_mruby
 ---
-[ngx_mruby v1.18.5](https://github.com/matsumoto-r/ngx_mruby/releases/tag/v1.18.5)から Nginx::SSL.errlogger と Nginx::SSL.log メソッドが使えるようになった。これらは mruby_ssl_handshake_handler ディレクティブで error.log にログ出力するためのメソッドだ。
+[ngx_mruby v1.18.5](https://github.com/matsumoto-r/ngx_mruby/releases/tag/v1.18.5) から Nginx::SSL.errlogger と Nginx::SSL.log メソッドが使えるようになった。この2つのメソッドは同じはたらきで、mruby_ssl_handshake_handler ディレクティブの中でエラーログを出力するために用いる。
 
 - [Implement Nginx::SSL.errlogger (and Nginx::SSL.log) by hfm · Pull Request #215 · matsumoto-r/ngx_mruby](https://github.com/matsumoto-r/ngx_mruby/pull/215)
 
@@ -41,17 +40,19 @@ http {
 クラスメソッドの定義
 ---
 
-まず、mruby API を使ってクラスメソッドを定義するためには mrb_define_class_method()[^1] を用いる。今回は errlogger と log を追加し、どちらのメソッドも ngx_mrb_ssl_errlogger() が呼ばれるようにした。
+[前回](/2016/10/03/ngx_mruby-mruby_ssl_handshake_handler/)同様、実装の話をしていく。まず、mruby API を使ってクラスメソッドを定義するためには mrb_define_class_method()[^1] を用いる。今回は errlogger と log を追加し、どちらのメソッドも ngx_mrb_ssl_errlogger() が呼ばれるようにした。
 
 ```c
 mrb_define_class_method(mrb, class_ssl, "errlogger", ngx_mrb_ssl_errlogger, MRB_ARGS_ANY());
 mrb_define_class_method(mrb, class_ssl, "log", ngx_mrb_ssl_errlogger, MRB_ARGS_ANY());
 ```
 
+ちなみに mruby API には mrb_define_alias() や mrb_alias_method()[^2] もあるのだが、Nginx.errlogger などの実装に合わせて採用しなかった。
+
 メソッドの実装
 ---
 
-ngx_mrb_ssl_errlogger() は以下のようなコードになっている。メソッドから引数を受け取り、Nginxの error.log に書き出すだけの素朴なコードだ。
+ngx_mrb_ssl_errlogger() は以下のような実装になっている。メソッドから引数を受け取り、引数情報を検査したあと、Nginx のエラーログに書き出す。
 
 ```c
 // https://github.com/matsumoto-r/ngx_mruby/blob/v1.18.5/src/http/ngx_http_mruby_ssl.c#L64-L99
@@ -93,6 +94,8 @@ static mrb_value ngx_mrb_ssl_errlogger(mrb_state *mrb, mrb_value self)
 }
 ```
 
+はじめは mrb_get_args() で引数を受け取る。`Nginx::SSL.errlogger Nginx::LOG_*, "Message"` という形式になっているか確かめる必要があるので、まずは引数の数 argc が2つであることを確認している。
+
 ```c
   mrb_get_args(mrb, "*", &argv, &argc);
   if (argc != 2) {
@@ -100,6 +103,8 @@ static mrb_value ngx_mrb_ssl_errlogger(mrb_state *mrb, mrb_value self)
     return self;
   }
 ```
+
+次に、第1引数を log_level に代入する。ログレベルには `Nginx::LOG_ERR` や `Nginx::LOG_INFO` などの定数が期待される。これらの定義は [ngx_http_mruby_core.c](https://github.com/matsumoto-r/ngx_mruby/blob/v1.18.6/src/http/ngx_http_mruby_core.c#L432-L441) にあり、[ngx_log.h](https://github.com/nginx/nginx/blob/release-1.11.4/src/core/ngx_log.h#L16-L24) の NGX_LOG\_\* 定数が用いられている。
 
 ```c
   if (mrb_type(argv[0]) != MRB_TT_FIXNUM) {
@@ -113,6 +118,8 @@ static mrb_value ngx_mrb_ssl_errlogger(mrb_state *mrb, mrb_value self)
   }
 ```
 
+次は第2引数を msg に代入するのだが、もし第2引数の型が mruby の String (MRB_TT_STRING) と一致しなければ、`to_s` メソッドを呼び出して mruby の String に変換している。mrb_funcall()[^3] は C 言語から mruby で定義したメソッドを呼び出すための関数である。
+
 ```c
   if (mrb_type(argv[1]) != MRB_TT_STRING) {
     msg = mrb_funcall(mrb, argv[1], "to_s", 0, NULL);
@@ -121,10 +128,22 @@ static mrb_value ngx_mrb_ssl_errlogger(mrb_state *mrb, mrb_value self)
   }
 ```
 
+引数の検査がひと通り済んだ後、ようやくログに書き出す。
+
+ここまでに何度か登場している ngx_log_error() は Logging API[^4] という奴で、その名の通り Nginx のログファイルに書き出すための関数である。コネクションに関する情報を持つ構造体 ngx_connection_t[^5] の中に、ログのハンドラのポインタ ngx_log_t \*log がいるので、出力先はこのポインタに向ければ良い。
+
+また、変数 msg は mrb_value 型なので、mruby の String を C 言語の文字列に直す必要がある。このような目的に適う API は3種類あり、今回は mrb_str_to_cstr() を用いた。各種 API の違いについては、以下の記事を参考にされたい。
+
 - [[O]mruby の String から C 言語の文字列を取り出す正しい方法 - Qiita](http://qiita.com/tsahara@github/items/b2a442af95ac893e10a1)
 
 ```c
   ngx_log_error((ngx_uint_t)log_level, c->log, 0, "%s", mrb_str_to_cstr(mrb, msg));
 ```
 
+ここまで読んだら分かる通り、 Nginx::SSL.errlogger および Nginx::SSL.log の実装の正体は、ほとんど引数のチェックに過ぎない。mruby の世界から取り出した情報を Nginx が読み取れるようにひたすら確認し、変換していく素朴な作業が続く。
+
 [^1]: http://mruby.org/docs/api/headers/mruby.h.html#mrb_define_class_method-function
+[^2]: https://github.com/mruby/mruby/blob/1.2.0/src/class.c#L1662-L1680
+[^3]: http://mruby.org/docs/api/headers/mruby.h.html#mrb_funcall-function
+[^4]: https://www.nginx.com/resources/wiki/extending/api/logging/
+[^5]: https://www.nginx.com/resources/wiki/extending/api/main/#ngx-connection-t
