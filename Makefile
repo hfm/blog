@@ -1,6 +1,5 @@
 content: clean scss
 	hugo -v
-	rm -rf public/tags
 	gzip -k9 public/sitemap.xml
 
 scss:
