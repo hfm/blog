@@ -11,4 +11,4 @@ RUN mv /usr/local/src/hugo* /usr/local/bin/hugo
 COPY . /srv/blog
 WORKDIR /srv/blog
 RUN hugo
-RUN rsync -av --delete public/ /usr/share/nginx/html
+RUN rsync -a --delete public/ /usr/share/nginx/html
