@@ -9,4 +9,10 @@ scss:
 clean:
 	rm -rf public
 
+deploy: content
+	rsync -rlpgoDcv --delete public/ core@blog.hifumi.info:/srv/site/
+
+deployn: content
+	rsync -n -rlpgoDcv --delete public/ core@blog.hifumi.info:/srv/site/
+
 .PHONY: scss content clean
