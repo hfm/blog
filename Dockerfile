@@ -1,7 +1,8 @@
 FROM nginx
 MAINTAINER OKUMURA Takahiro <hfm.garden@gmail.com>
 
-RUN apt-get -qq update && apt-get -qq -y install curl jq rsync ruby-compass python3-pygments && apt-get -qq clean && rm -rf /var/lib/apt/lists/*
+RUN apt-get -qq update && apt-get -qq -y install curl jq rsync ruby-compass python-pip && apt-get -qq clean && rm -rf /var/lib/apt/lists/*
+RUN pip install Pygments
 
 COPY nginx.conf /etc/nginx/nginx.conf
 
