@@ -11,8 +11,8 @@ RUN apt-get -qq update && \
 
 COPY . /srv/blog
 WORKDIR /srv/blog
-RUN hugo
-RUN gzip -k9 public/sitemap.xml
-RUN rsync -a --delete public/ /usr/share/nginx/html
+RUN hugo && \
+      gzip -k9 public/sitemap.xml && \
+      rsync -a --delete public/ /usr/share/nginx/html
 
 COPY nginx.conf /etc/nginx/nginx.conf
