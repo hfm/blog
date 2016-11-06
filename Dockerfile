@@ -11,4 +11,5 @@ RUN mv /usr/local/src/hugo* /usr/local/bin/hugo
 COPY . /srv/blog
 WORKDIR /srv/blog
 RUN hugo
+RUN gzip -k9 public/sitemap.xml
 RUN rsync -a --delete public/ /usr/share/nginx/html
