@@ -1,7 +1,6 @@
 ---
 date: 2016-11-07T09:00:00+09:00
 title: ngx_mruby の Nginx::Var クラスの実装を理解する〜変数取得編
-draft: true
 tags:
 - mruby
 - nginx
