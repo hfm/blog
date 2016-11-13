@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
+<html prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#" itemscope itemtype="http://schema.org/Blog">
   <head>
     <meta charset="UTF-8">
     <title>{{ with .Title }}{{ . }} | {{ end }}{{ .Site.Title }}</title>
@@ -27,9 +27,14 @@
     {{ end }}
   </head>
   <body>
-    <header id="header">
-      <h1 id="sitename">
-        <a href="/">
+    <header id="header" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <h1 id="sitename" itemprop="name">
+        <span itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+          <img src="/logo.png" itemprop="url">
+          <meta itemprop="width" content="32">
+          <meta itemprop="height" content="32">
+        </span>
+        <a href="/" itemprop="url">
           {{ .Site.Title }}
         </a>
       </h1>

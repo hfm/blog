@@ -317,7 +317,7 @@ ul.social {
 /*****************************************************************************/
 /* footer
 /*****************************************************************************/
-.footer {
+#footer {
   @include adjust-font-size-to($base-font-size,2);
   @include rhythm(3, 1, 1, 0, $base-font-size);
   color: #fff;

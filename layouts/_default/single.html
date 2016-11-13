@@ -1,13 +1,13 @@
 {{ partial "header.html" . }}
 
-<article itemscope itemtype="http://schema.org/Article" class="article">
+<article itemscope itemtype="http://schema.org/BlogPosting" itemref="header footer" class="article">
   <header class="entry-header">
     <hgroup>
-      <h1 itemprop="name" class="entry-title">
-        {{ .Title }}
+      <h1 itemprop="headline" class="entry-title">
+        <a href="{{ .RelPermalink }}" itemprop="mainEntityOfPage">{{ .Title }}</a>
       </h1>
       <div class="entry-header-btm">
-        <time itemprop="datePublished" content="{{ .Date.Format "2006-01-02" }}" class="postdate" datetime="{{ .Date.Format "2006-01-02" }}">
+        <time itemprop="datePublished dateModified" content="{{ .Date.Format "2006-01-02" }}" class="postdate" datetime="{{ .Date.Format "2006-01-02" }}">
           {{ .Date.Format "2 Jan 2006" }}
         </time>
         {{ range .Params.tags }}
@@ -17,8 +17,10 @@
     </hgroup>
   </header>
   {{ with .Params.cover }}
-  <section itemprop="coverimage" class="entry-cover">
-    <img src="{{.}}" class="cover">
+  <section class="entry-cover" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+    <img src="{{.}}" class="cover" itemprop="url">
+    <meta itemprop="width" content="100%">
+    <meta itemprop="height" content="100%">
   </section>
   {{ end }}
   <section itemprop="articleBody" class="entry-content">

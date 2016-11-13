@@ -1,14 +1,19 @@
 {{ partial "header.html" . }}
 {{ range .Data.Pages }}
-<article itemscope itemtype="http://schema.org/Article" class="article">
+<article class="article" itemscope itemtype="http://schema.org/BlogPosting" itemref="header footer">
+  <span itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+    <meta content="{{ .Site.BaseURL }}logo.png" itemprop="url">
+    <meta itemprop="width" content="32">
+    <meta itemprop="height" content="32">
+  </span>
   <header class="entry-header-index">
     <hgroup>
-    <h1 itemprop="name" class="entry-title">
-      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+    <h1 class="entry-title" itemprop="headline">
+      <a href="{{ .RelPermalink }}" itemprop="mainEntityOfPage url">{{ .Title }}</a>
     </h1>
 
     <div class="entry-header-btm">
-      <time itemprop="datePublished" content="{{ .Date.Format "2006-01-02" }}" class="postdate" datetime="{{ .Date.Format "2006-01-02" }}">
+      <time itemprop="datePublished dateModified" content="{{ .Date.Format "2006-01-02" }}" class="postdate" datetime="{{ .Date.Format "2006-01-02" }}">
         {{ .Date.Format "2 Jan 2006" }}
       </time>
       {{ range .Params.tags }}
