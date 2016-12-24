@@ -6,7 +6,7 @@ RUN apk add --no-cache -q libstdc++ \
       && cd h2o \
       && cmake . \
       && make install \
-      && apk del .build-deps \
+      && apk del -q .build-deps \
       && rm -rf /h2o
 
 COPY h2o.conf /etc/h2o.conf
