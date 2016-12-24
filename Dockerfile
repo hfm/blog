@@ -2,7 +2,7 @@ FROM alpine:3.4
 
 RUN apk add --no-cache libstdc++ \
       && apk add --no-cache -t .build-deps git build-base cmake linux-headers zlib-dev \
-      && git clone --depth 1 --recursive https://github.com/h2o/h2o \
+      && git clone --depth 1 https://github.com/h2o/h2o \
       && cd h2o \
       && cmake . \
       && make install \
