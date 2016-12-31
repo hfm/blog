@@ -9,7 +9,7 @@ rssuri = "feed.xml"
   post = "/:year/:month/:day/:filename/"
 
 [author]
-  name = "Okumura Takahiro"
+  name = "OKUMURA Takahiro"
   twitter = "@hfm"
   github = "@hfm"
 
