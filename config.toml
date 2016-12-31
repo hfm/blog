@@ -11,7 +11,7 @@ rssuri = "feed.xml"
 [author]
   name = "Okumura Takahiro"
   twitter = "@hfm"
-  github = "@takahilo"
+  github = "@hfm"
 
 [params]
   description = "I'm a software engineer of web operations."
