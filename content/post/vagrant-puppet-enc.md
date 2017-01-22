@@ -149,7 +149,7 @@ $ vagrant provision
 さて、今回使った検証環境はGitHubに公開している。
 実行してみたい方は以下のURLからご確認頂きたい。
 
-- https://github.com/tacahilo/vagrant-puppet-enc-demo
+- https://github.com/hfm/vagrant-puppet-enc-demo
 
 ## まとめ
 
@@ -163,4 +163,4 @@ manifestsに比べて、柔軟なnode管理が実現出来るだろう。
 ENCにhieraの情報を読み込ませるようにすれば、（hieraとENC、どちらに何を任せるべきかが難しくなるが）より柔軟な設計が出来るようになるだろう。
 
 [^1]: https://vagrantcloud.com/hfm4/boxes/centos6
-[^2]: https://github.com/tacahilo/packer-centos-6
+[^2]: https://github.com/hfm/packer-centos-6

@@ -9,12 +9,12 @@ tags:
 
 Itamaeが超高速で書けるようにsnippetsを作成しました。ItamaeのResources等を覚えられないVimmerな皆さん、是非お使いください！
 
-- [tacahilo/itamae-snippets](https://github.com/tacahilo/itamae-snippets)
+- [hfm/itamae-snippets](https://github.com/hfm/itamae-snippets)
 
 ![スクショ（動画では無い）](/images/2015/01/22/itamae.png)
 
 使用感は[glidenote/serverspec-snippets](https://github.com/glidenote/serverspec-snippets)とほぼ同じ（はず）です。  
-インストール方法は https://github.com/tacahilo/itamae-snippets#install を御覧ください。
+インストール方法は https://github.com/hfm/itamae-snippets#install を御覧ください。
 
 サーバ構築したいけど、PuppetやChefだと規模でかいなー出来ればRubyっぽく書きたいなーという需要に応えてくれるItamae最高です。
 

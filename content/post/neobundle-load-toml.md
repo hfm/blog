@@ -77,7 +77,7 @@ filetypes = 'all'
 その他細かな設定に関しては、私のvimrcを参考にしてもらうと良いかもしれない。
 割と更新頻度が高いのと、あまり綺麗に管理出来てないのはご容赦。
 
-- https://github.com/tacahilo/.vim
+- https://github.com/hfm/.vim
 
 ## 終わりに
 

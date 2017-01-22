@@ -61,7 +61,7 @@ Ops研修では、このmaglica環境にVMを立ち上げてサーバを構築�
 
 ちなみに、その時作ったpuppetファイルはGitHubに公開している。
 
- * [tacahilo/sampleapp\_spec\_puppet](https://github.com/tacahilo/sampleapp_spec_puppet)
+ * [hfm/sampleapp\_spec\_puppet](https://github.com/hfm/sampleapp_spec_puppet)
 
 リポジトリ名が奇妙な上にディレクトリ構成がたいそう酷い。
 当時はpuppetやserverspecの技術的位置づけや不慣れがあり、モダンなディレクトリ構成もその必要性も全く分かっていなかった。
@@ -115,7 +115,7 @@ production環境に`"Development Tools"`という、余計なものまで大量�
 まず初めに分離したのはアプリケーションとデータベースである。
 
 単純にVMを2個用意し、それぞれに応じたpuppet rolesを作成、各サーバにてapplyした。
-appサーバからdbへの接続は、`RAILS\_ROOT/config/database.yml`のhostを指定し、db側では[このような暴力的なmanifest](https://github.com/tacahilo/sampleapp_spec_puppet/blob/master/puppet.d/roles/db/manifests/mysql/setup.pp)で対応した。
+appサーバからdbへの接続は、`RAILS\_ROOT/config/database.yml`のhostを指定し、db側では[このような暴力的なmanifest](https://github.com/hfm/sampleapp_spec_puppet/blob/master/puppet.d/roles/db/manifests/mysql/setup.pp)で対応した。
 
 教訓として、データベースのセットアップはpuppetでやる領域では無いと思う。
 

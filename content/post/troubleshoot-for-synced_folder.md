@@ -4,10 +4,10 @@ date: 2014-03-03
 tags:
 - vagrant
 ---
-[MySQL AllStar](https://github.com/tacahilo/mysql-allstar)を作成した後に、似たようなノリでCentOS 6.5 with Docker + Chef + Puppetなboxを作りました。
+[MySQL AllStar](https://github.com/hfm/mysql-allstar)を作成した後に、似たようなノリでCentOS 6.5 with Docker + Chef + Puppetなboxを作りました。
 
- * [tacahilo/centos-with-docker](https://github.com/tacahilo/centos-with-docker)
- * https://github.com/tacahilo/centos-with-docker/releases/download/v1.0/centos6.5-x86_64-docker.box
+ * [hfm/centos-with-docker](https://github.com/hfm/centos-with-docker)
+ * https://github.com/hfm/centos-with-docker/releases/download/v1.0/centos6.5-x86_64-docker.box
    * docker-io
    * chef
    * puppet入り

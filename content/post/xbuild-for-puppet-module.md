@@ -8,7 +8,7 @@ tags:
 『[xbuildのpuppet化にあたり考えたこと](http://blog.hifumi.info/2014/01/12/puppetize-xbuild/)』で書いたxbuild用puppet manifestsをmodule化しました。
 
  * [hfm/xbuild · Puppet Forge](https://forge.puppetlabs.com/hfm/xbuild)
- * [tacahilo/puppet-xbuild](https://github.com/tacahilo/puppet-xbuild)
+ * [hfm/puppet-xbuild](https://github.com/hfm/puppet-xbuild)
 
 ![](/images/2014/02/22/puppetxbuild@2x.png)
 

@@ -8,7 +8,7 @@ tags:
 ---
 Packerの練習をしたくて、FreeBSD 10.0のVagrant boxを作るためのテンプレを用意してみた。
 
- * [tacahilo/packer-FreeBSD-10.0](https://github.com/tacahilo/packer-FreeBSD-10.0)
+ * [hfm/packer-FreeBSD-10.0](https://github.com/hfm/packer-FreeBSD-10.0)
 
 ## Usage
 
@@ -16,7 +16,7 @@ Packerの練習をしたくて、FreeBSD 10.0のVagrant boxを作るためのテ
 
 ```console
 $ brew install packer # beforehand, brew tap homebrew/binary
-$ git clone git@github.com:tacahilo/packer-FreeBSD-10.0.git && cd packer-FreeBSD-10
+$ git clone git@github.com:hfm/packer-FreeBSD-10.0.git && cd packer-FreeBSD-10
 $ packer build packer/FreeBSD-10.0-RELEASE-amd64.json
 ```
 

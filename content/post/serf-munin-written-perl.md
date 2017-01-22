@@ -7,7 +7,7 @@ tags:
 ---
 zenbutsuさんのserf-munin[^1][^2]、glidenote先生の改造版[^3]があり、3番煎じは流石の薄味ですが、Perlでserf-muninのイベントハンドラを書いてみました。
 
-- https://github.com/tacahilo/serf-munin.pl
+- https://github.com/hfm/serf-munin.pl
 
 実はまともにperlのスクリプトを書くのはこれが2回目です。1回目は1.5年くらい前に書いた雑過ぎる席替えスクリプト[^4]です。
 あと、こちらのserf-munin.plは30days Album[^5]のバックエンドでひっそりと動いてもらっています。

@@ -7,7 +7,7 @@ tags:
 [r7kamura/ruboty](https://github.com/r7kamura/ruboty/)のプラグインを作った。
 `@ruboty github status`と`@ruboty github status last`のコマンドで、https://status.github.com/ からGitHubのStatusを返す。
 
-- https://github.com/tacahilo/ruboty-github_status
+- https://github.com/hfm/ruboty-github_status
 - https://rubygems.org/gems/ruboty-github_status
 
 元々hubotに同じスクリプトがあったので、これのruboty版が欲しいと思って作った。

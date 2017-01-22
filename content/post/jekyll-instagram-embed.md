@@ -7,7 +7,7 @@ tags:
 ---
 Instagramの[embed](http://instagram.com/developer/embedding/)機能をJekyll Tagとして実装しました。
 
-- https://github.com/tacahilo/jekyll-instagram-embed
+- https://github.com/hfm/jekyll-instagram-embed
 
 以下のように利用可能です。
 

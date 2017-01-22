@@ -125,4 +125,4 @@ Dockerがインストールされていれば、ukigumo経由のコマンドで�
 
 [^1]: https://github.com/miyagawa/Twiggy/issues/27
 [^2]: http://mizzy.org/slides/maglica/
-[^3]: https://github.com/tacahilo/docker-ngx_mruby-memcached/blob/master/centos5/Dockerfile
+[^3]: https://github.com/hfm/docker-ngx_mruby-memcached/blob/master/centos5/Dockerfile

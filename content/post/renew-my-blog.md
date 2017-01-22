@@ -9,6 +9,6 @@ tag: diary
 
 構築はJekyllを使っています。
 
-データは https://github.com/tacahilo/blog にあります。
+データは https://github.com/hfm/blog にあります。
 
 何もないスッカラカンの状態ですが、またぼちぼち書き留めていこうと思います。

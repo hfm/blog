@@ -107,7 +107,7 @@ make install
 
 あと、これはおまけになりますが、CentOS5, CentOS6, Scientific Linux6の環境においてngx_mrubyをビルドするための **Dockerfile** を公開しています。
 
-- [tacahilo/docker-ngx_mruby-memcached](https://github.com/tacahilo/docker-ngx_mruby-memcached)
+- [hfm/docker-ngx_mruby-memcached](https://github.com/hfm/docker-ngx_mruby-memcached)
 
 nginxのconfigure optionsが個人的な用途に基づいているので、汎用性にはやや欠けますが、似たような環境でngx_mrubyをビルドしたい方がいらっしゃいましたら、ご参考にどうぞ。
 

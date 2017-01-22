@@ -361,7 +361,7 @@ serfの挙動を知るために、VagrantでVMを用意し、クラスタリン�
 
 [^1]: [Serf](http://www.serfdom.io/)
 [^2]: [serf-muninを導入してmunin-nodeの監視追加、削除を自動化した - Glide Note - グライドノート](http://blog.glidenote.com/blog/2013/11/06/serf-munin/)
-[^3]: [tacahilo/packer-centos-6](https://github.com/tacahilo/packer-centos-6)
+[^3]: [hfm/packer-centos-6](https://github.com/hfm/packer-centos-6)
 [^4]: [hfm4/centos6](https://vagrantcloud.com/hfm4/centos6)
 [^5]: [Gossip Protocol - Serf](http://www.serfdom.io/docs/internals/gossip.html)
 [^6]: [Specifying Event Handlers - Serf](http://www.serfdom.io/docs/agent/event-handlers.html)

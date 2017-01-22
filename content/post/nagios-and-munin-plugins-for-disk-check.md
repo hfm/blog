@@ -7,8 +7,8 @@ tags:
 ---
 仕事でSMART値を利用したnagios, muninのプラグインを作ってました。
 
- * https://github.com/tacahilo/nagios-plugins
- * https://github.com/tacahilo/munin-plugins
+ * https://github.com/hfm/nagios-plugins
+ * https://github.com/hfm/munin-plugins
 
 ## 必要なもの: smartmontools (smartctl)
 
@@ -24,8 +24,8 @@ CentOS 5以上であればyumから入ったので、RHEL系であれば`yum upd
 
 1つ目はReallocated\_Sector\_Ctを監視するプラグインです。
 
- * https://github.com/tacahilo/nagios-plugins/blob/master/check_bad_sector
- * https://github.com/tacahilo/munin-plugins/blob/master/bad_sector
+ * https://github.com/hfm/nagios-plugins/blob/master/check_bad_sector
+ * https://github.com/hfm/munin-plugins/blob/master/bad_sector
 
 ```
 ID# ATTRIBUTE_NAME          FLAG     VALUE WORST THRESH TYPE      UPDATED  WHEN_FAILED RAW_VALUE
@@ -55,8 +55,8 @@ Reallocated\_Sector\_Ctは不良セクタを予備セクタへ置換した数を
 
 2つ目はCurrent\_Pending\_Sectorを監視するプラグインです。
 
- * https://github.com/tacahilo/nagios-plugins/blob/master/check_pending_sector
- * https://github.com/tacahilo/munin-plugins/blob/master/pending_sector
+ * https://github.com/hfm/nagios-plugins/blob/master/check_pending_sector
+ * https://github.com/hfm/munin-plugins/blob/master/pending_sector
 
 ```
 ID# ATTRIBUTE_NAME          FLAG     VALUE WORST THRESH TYPE      UPDATED  WHEN_FAILED RAW_VALUE

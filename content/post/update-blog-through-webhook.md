@@ -16,7 +16,7 @@ tags:
 
 自分もこの知恵をお借りしようと思い、GitHubのWebHook通知を受け取り、サーバ側でビルド・syncするプログラムを用意しました。
 
- * [tacahilo/blog-worker](https://github.com/tacahilo/blog-worker)
+ * [hfm/blog-worker](https://github.com/hfm/blog-worker)
 
 ## 動作
 
@@ -96,7 +96,7 @@ end
 set -eu
 
 GIT_LOCATION=/usr/local/src/blog
-REPO=git@github.com:tacahilo/blog.git
+REPO=git@github.com:hfm/blog.git
 WWW_LOCATION=/var/www/blog
 BUNDLE_GEMFILE=$GIT_LOCATION/Gemfile
 

@@ -126,7 +126,7 @@ MogileFS という名称の由来は、*"OMG FILES"* のアナグラムである
 [^4]: http://www.slideshare.net/kyanny/inside-30days-albumlaterstory-5452817
 [^5]: http://www.slideshare.net/lamanotrama/mogilefsprivate-s3
 [^6]: http://www.slideshare.net/hiboma/mogilefs-private-s3-api
-[^7]: https://github.com/tacahilo/mogilefs/blob/wiki/Start.md
+[^7]: https://github.com/hfm/mogilefs/blob/wiki/Start.md
 []: https://github.com/mogilefs/
 []: https://groups.google.com/forum/#!forum/mogile
 []: http://googledevjp.blogspot.jp/2015/04/google-code.html

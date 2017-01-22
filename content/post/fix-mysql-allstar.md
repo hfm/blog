@@ -7,7 +7,7 @@ tags:
 ---
 MySQL 4.0から5.6までの各バージョンを1つのVMに納めたMySQL AllStarというVagrantboxを以前作ったのですが、少し修正を加えました。
 
- * [tacahilo/mysql-allstar](https://github.com/tacahilo/mysql-allstar)
+ * [hfm/mysql-allstar](https://github.com/hfm/mysql-allstar)
  * [MySQL AllStarというVagrantboxを作った | blog: takahiro okumura](/2014/03/02/mysql-allstar/)o
 
 ## 変更点

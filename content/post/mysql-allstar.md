@@ -19,17 +19,17 @@ tags:
 
 Vagrant x VirtualBoxで動く __MySQL AllStar__ と名づけたvboxを公開しました。
 
- * [tacahilo/mysql-allstar](https://github.com/tacahilo/mysql-allstar)
+ * [hfm/mysql-allstar](https://github.com/hfm/mysql-allstar)
 
 CentOS 4, 5, 6の 32/64bit環境において、MySQL 4.0系から5.6系までの各バージョンが入ったボックスです。  
 boxを一度に起動できるVagrantfileも入っているので参考にどうぞ。
 
- * https://github.com/tacahilo/mysql-allstar/releases/download/v0.1/centos4.8-i386-mysql-allstar.box
- * https://github.com/tacahilo/mysql-allstar/releases/download/v0.1/centos4.8-x86_64-mysql-allstar.box
- * https://github.com/tacahilo/mysql-allstar/releases/download/v0.1/centos5.10-i386-mysql-allstar.box
- * https://github.com/tacahilo/mysql-allstar/releases/download/v0.1/centos5.10-x86_64-mysql-allstar.box
- * https://github.com/tacahilo/mysql-allstar/releases/download/v0.1/centos6.5-i386-mysql-allstar.box
- * https://github.com/tacahilo/mysql-allstar/releases/download/v0.1/centos6.5-x86_64-mysql-allstar.box
+ * https://github.com/hfm/mysql-allstar/releases/download/v0.1/centos4.8-i386-mysql-allstar.box
+ * https://github.com/hfm/mysql-allstar/releases/download/v0.1/centos4.8-x86_64-mysql-allstar.box
+ * https://github.com/hfm/mysql-allstar/releases/download/v0.1/centos5.10-i386-mysql-allstar.box
+ * https://github.com/hfm/mysql-allstar/releases/download/v0.1/centos5.10-x86_64-mysql-allstar.box
+ * https://github.com/hfm/mysql-allstar/releases/download/v0.1/centos6.5-i386-mysql-allstar.box
+ * https://github.com/hfm/mysql-allstar/releases/download/v0.1/centos6.5-x86_64-mysql-allstar.box
 
 ### `vagrant up` => `<version>/bin/mysqld_safe`
 

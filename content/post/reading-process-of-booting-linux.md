@@ -15,7 +15,7 @@ Linuxの中でも、あくまで「ブートプロセス」に主眼をおいた
 
 読んでいる途中で面白かった内容、よく分からずに調べた内容等は、ざっくばらんだが以下にまとめている。
 
-- __https://github.com/tacahilo/wiki/blob/master/books/linux-boot-process.md__
+- __https://github.com/hfm/wiki/blob/master/books/linux-boot-process.md__
 
 ※ちなみにここは「[gollumを使って個人用wikiをサーバに立てた](/2014/02/02/my-wiki-powered-by-gollum/)」でも触れたGollum用リポジトリである。
 

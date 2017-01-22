@@ -67,7 +67,7 @@ tags:
 
 そんな自分の成果物はというと、Dockerを使って、nginxとngx_mrubyを必至にビルドしようとしていて、実はまだ終わっていなかったりする。
 
-- https://github.com/tacahilo/docker-build-nginx-with-mruby
+- https://github.com/hfm/docker-build-nginx-with-mruby
 
 まあ明日もあるのでじっくりやろうかな。
 
