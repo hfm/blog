@@ -1,5 +1,6 @@
 {{ partial "header.html" . }}
 {{ range .Data.Pages }}
+{{ if eq .Section "post" }}
 <article class="article" itemscope itemtype="http://schema.org/BlogPosting" itemref="header footer">
   <span itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
     <meta content="{{ .Site.BaseURL }}logo.png" itemprop="url">
@@ -23,5 +24,6 @@
     </hgroup>
   </header>
 </article>
+{{ end }}
 {{ end }}
 {{ partial "footer.html" . }}
