@@ -1,0 +1,30 @@
+{{ partial "header.html" . }}
+
+<h1 itemprop="name">
+  Today's nginx
+</h1>
+<h2>
+  <a href="http://hg.nginx.org/">http://hg.nginx.org/</a>の各種ログを追いかけながら説明していく
+</h2>
+
+{{ range .Data.Pages }}
+<article itemscope itemtype="http://schema.org/Article" class="article">
+  <header class="entry-header-index">
+    <hgroup>
+    <h1 itemprop="name" class="entry-title">
+      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+    </h1>
+
+    <div class="entry-header-btm">
+      <time itemprop="datePublished" content="{{ .Date.Format "2006-01-02" }}" class="postdate" datetime="{{ .Date.Format "2006-01-02" }}">
+        {{ .Date.Format "2 Jan 2006" }}
+      </time>
+      {{ range .Params.tags }}
+        <a href="{{ "/tags/" | relURL }}{{ . | urlize }}.html"><span class="tag">#{{ . }}</span></a>
+      {{ end }}
+    </div>
+    </hgroup>
+  </header>
+</article>
+{{ end }}
+{{ partial "footer.html" . }}
