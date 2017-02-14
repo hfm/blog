@@ -1,6 +1,6 @@
 ---
 date: 2017-02-13T15:51:32+09:00
-title: 'ngx_mrubyによる動的証明書読み込みについて名古屋Ruby会議03 #nagoyark03 で発表しました'
+title: '動的証明書読み込みの必要性とngx_mrubyによる実践 #nagoyark03'
 cover: /images/2017/02/13/nagoyark03.jpg
 draft: true
 tags:
@@ -8,6 +8,12 @@ tags:
 - nginx
 - ngx_mruby
 ---
+ホスティングサービスやホームページ作成サービス（海外ではWebsite Builder等と呼ばれている）やブログサービスといった、コンテンツプロバイダの中でもユーザがアップロードするコンテンツを提供する類の事業では、サブドメインや
+
+通常、Webサーバで大量ドメインの証明書を取り扱おうとすると、設定ファイルの長大化やメモリの肥大化を招いてしまうなど非効率な面が目立ちます。しかし、ngx_mrubyを用いた動的証明書読み込みなら、簡潔な設定と省メモリで実現することができます。
+
+ngx_mrubyを使えば、Rubyを用いてプログラマブルにnginxを制御することができます。私はngx_mrubyのメンテナを務めており、実際に複数のWebサービスで運用しています。今回の発表では、ngx_mrubyの活用事例として動的証明書読み込みについてお話させていただこうと思っています。
+
 2/11(土)に開催された[名古屋Ruby会議03](http://regional.rubykaigi.org/nagoya03/)にて、"Dynamic certificate internals with ngx_mruby" というタイトルで発表をしてきました。この発表は昨年[GMO HosCon 2016](https://gmohoscon.connpass.com/event/41490/)の10分LT枠で発表した[動的証明書読み込み ngx_mruby編](https://speakerdeck.com/hfm/gmo-hoscon-2016)の拡張版という位置づけです。
 
 script async class="speakerdeck-embed" data-id="7164b59d4d25446aa6f4569440e2fc52" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>
@@ -33,6 +39,11 @@ ngx_mrubyを用いた動的証明書読み込み
 ### 実装
 #### ポイント
 ### テスト
+### パフォーマンス
+
+Webサーバでデータベースやキャッシュにアクセスするとなると、パフォーマンスの低下が気になってくると思う。
+
+実際のところ、動的証明書読み込みによるレイテンシは無視できるほど小さくて、それよりもアプリケーションのレイテンシの方が非常に大きい。アプリケーションのパフォーマンスが悪いということではなく、両者のレイテンシを比べると、片方が無視できるほどに小さいというだけ。
 
 おわりに
 ---
