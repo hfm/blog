@@ -17,7 +17,9 @@ tags:
 - Webサーバの起動時にすべての設定・すべての証明書を読み込もうとする発想を止めて、クライアントからのリクエストに応じて必要な証明書を動的に読み込むアプローチがある
 - 今回はngx_mrubyを用いた動的証明書読み込みの導入方法について紹介したい
 
-レンタルサーバーやブログサービスにおいて、独自ドメインのサポートはさほど珍しくないだろう。awesome-blog.jp という仮のブログサービスに対し、契約ユーザには hfm.awesome-blog.jp や awesome-blog.jp/hfm といったURLを提供する。そして希望者には blog.hifumi.info のような独自ドメインの接続を許可する。独自ドメインのサポートは有料コンテンツの場合も多いが、Tumblr や GitHub Pages のように無料提供されている例もある。
+レンタルサーバーやブログサービスにおいて、独自ドメインのサポートはさほど珍しくないだろう。例えば、awesome-blog.jp というブログサービスがあったとして、契約ユーザには hfm.awesome-blog.jp や awesome-blog.jp/hfm といったURLを提供する。そして希望者には blog.hifumi.info のような独自ドメインの接続を許可する。独自ドメインのサポートは有料コンテンツの場合も多いが、Tumblr や GitHub Pages のように無料提供されているものもある。
+
+CloudFlareやAmazon CloudFront
 
 Google Chrome も HTTP 接続を non-secure と表現する[^2]など、HTTPSの流れが本格化して久しい。
 
