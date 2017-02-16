@@ -24,8 +24,28 @@ Google Chrome も HTTP 接続を non-secure と表現する[^2]など、HTTPSの
 通常、Webサーバで大量ドメインの証明書を取り扱おうとすると、設定ファイルの長大化やメモリの肥大化を招いてしまうなど非効率な面が目立つ。しかし、ngx_mrubyを用いた動的証明書読み込みなら、簡潔な設定と省メモリで実現することができる。
 
 ### 大量ドメインとSSL(TLS)証明書の課題と解決
+
 #### TLS SNI拡張
+
+SNI (Server Name Indication)[^3] は ClientHello のタイミングで server_name
+
+
 #### nginxに大量ドメイン用の設定ファイルと証明書を読み込ませる
+
+- https://gist.github.com/hfm/4a045a429f9303c90eac7c348d1a424a
+
+```console
+[root@2be3ca1fae41 /]# ps axfo rss,cmd | grep [n]ginx
+256164 nginx: master process nginx
+258476  \_ nginx: worker process
+```
+
+```console
+[root@2be3ca1fae41 /]# pkill -HUP -u root -f nginx
+[root@2be3ca1fae41 /]# ps axfo rss,cmd | grep [n]ginx
+514352 nginx: master process nginx
+512636  \_ nginx: worker process
+```
 
 ngx_mrubyを用いた動的証明書読み込み
 ---
@@ -87,5 +107,7 @@ script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 [^1]: http://docs.yahoo.co.jp/info/aossl/
 [^2]: https://security.googleblog.com/2016/09/moving-towards-more-secure-web.html
+[^3]: https://tools.ietf.org/html/rfc6066#section-3
 
 [^1]: 海外ではWebsite Builder等と呼ばれており、コーディング不要のウェブサイト構築ツールを提供する事業
+
