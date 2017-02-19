@@ -2,15 +2,20 @@
 /* Common
 /*****************************************************************************/
 
+@import url('https://fonts.googleapis.com/css?family=Hind:400,700');
+
 $base-font-size: 18px;
 $base-line-height: 28px;
 @include establish-baseline;
 
-body { background-color: #fff }
+body {
+  background-color: #fff;
+  font-family: 'Hind', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 strong { font-weight: bold }
 em { font-style: italic }
-h1, h2, h3, h4, h5 { @include font-family("sans-serif", true) }
-
 
 /*****************************************************************************/
 /* header
@@ -85,13 +90,12 @@ h1, h2, h3, h4, h5 { @include font-family("sans-serif", true) }
 
 .entry-title {
   $font-size: 28px;
-  font-weight: bolder;
+  font-weight: bold;
   @include adjust-font-size-to($font-size, 1.5);
 }
 
 .entry-header-btm {
   @include adjust-font-size-to($base-font-size, 1);
-  @include font-family("sans-serif", true);
   color: #bbb;
 
   .postdate {
@@ -128,6 +132,7 @@ h1, h2, h3, h4, h5 { @include font-family("sans-serif", true) }
 .entry-content {
   @include adjust-font-size-to($base-font-size,1);
   @include rhythm(2, 0, 0, 2, $base-font-size);
+  color: #333;
 
   h2 {
     $font-size: 28px;
@@ -167,7 +172,7 @@ h1, h2, h3, h4, h5 { @include font-family("sans-serif", true) }
   }
 
   pre, code {
-    @include font-family("monospace", true);
+    font-family:Consolas, Menlo, 'Liberation Mono', 'Courier New', Courier, Monaco, monospace;
   }
 
   pre {
@@ -222,7 +227,6 @@ h1, h2, h3, h4, h5 { @include font-family("sans-serif", true) }
 
   table {
     @include rhythm(1, 0, 0, 1, $base-font-size);
-    @include font-family("sans-serif", true);
     border-collapse: collapse;
     color: #444;
     max-width: 100%;
@@ -259,8 +263,8 @@ h1, h2, h3, h4, h5 { @include font-family("sans-serif", true) }
 
   .footnotes {
     li {
-      font-size: 0.8em;
-      line-height: 1.0em;
+      font-size: 0.7em;
+      line-height: 1.1em;
     }
 
     hr {
