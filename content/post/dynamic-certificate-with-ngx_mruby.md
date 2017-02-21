@@ -1,6 +1,6 @@
 ---
 date: 2017-02-13T15:51:32+09:00
-title: HTTPS時代を支える動的証明書読み込みとngx_mrubyによる実践
+title: 'HTTPS時代を支える動的証明書読み込みとngx_mrubyによる実践 #nagoyark03'
 cover: /images/2017/02/13/nagoyark03.jpg
 draft: true
 tags:
@@ -9,38 +9,48 @@ tags:
 - mruby
 ---
 
-- ホスティング系には独自ドメインの接続を提供するサービスがあるが、証明書のセットアップまでを提供する事業は少ない
-- ユーザの証明書を管理するコストが今までは大きかった
-- しかし、Google Chromeを始めとしたブラウザがHTTPS接続を強く推奨するようになり、2017年に入ってからその流れは加速しているように見える https://techcrunch.com/2016/09/08/chrome-is-helping-kill-http/
-- この課題に
-- 通常、Webサーバで大量ドメインの証明書を取り扱おうとすると、設定ファイルが長大になり、プロセスのメモリが肥大する等非効率な面が目立つ
-- Webサーバの起動時にすべての設定・すべての証明書を読み込もうとする発想を止めて、クライアントからのリクエストに応じて必要な証明書を動的に読み込むアプローチがある
-- 今回はngx_mrubyを用いた動的証明書読み込みの導入方法について紹介したい
+1. ホスティング系には独自ドメインの接続を提供するサービスがあるが、証明書のセットアップまでを提供する事業は少ない
+1. ユーザの証明書を管理するコストが今までは大きかった
+1. しかし、Google Chromeを始めとしたブラウザがHTTPS接続を強く推奨するようになり、2017年に入ってからその流れは加速しているように見える https://techcrunch.com/2016/09/08/chrome-is-helping-kill-http/
+1. この課題に
+1. 通常、Webサーバで大量ドメインの証明書を取り扱おうとすると、設定ファイルが長大になり、プロセスのメモリが肥大する等非効率な面が目立つ
+1. Webサーバの起動時にすべての設定・すべての証明書を読み込もうとする発想を止めて、クライアントからのリクエストに応じて必要な証明書を動的に読み込むアプローチがある
+1. 今回はngx_mrubyを用いた動的証明書読み込みの導入方法について紹介したい
 
-レンタルサーバーやブログサービスにおいて、独自ドメインのサポートはさほど珍しくないだろう。ユーザに hfm.awesome-blog.jp や awesome-blog.jp/hfm といったURLを提供し、オプションで独自ドメインを接続するモデルだ。独自ドメインのサポートは有料コンテンツの場合もあるが、Tumblr や GitHub Pages のように無料提供されているものもある。
+レンタルサーバーやウェブサイトビルダー[^1]、ブログサービスにおいて、独自ドメインのサポートはさほど珍しくないだろう。ユーザに hfm.awesome-blog.jp や awesome-blog.jp/hfm といったURLを提供し、オプションで独自ドメインを接続するサービス形態だ。独自ドメインのサポートは有料コンテンツの場合もあるが、Tumblr や GitHub Pages のように無料提供されているものもある。
 
-CloudFlareやAmazon CloudFront
+Google Chrome も HTTP 接続を non-secure と表現する[^2]など、HTTPS の流れが本格化して久しいが、
 
-Google Chrome も HTTP 接続を non-secure と表現する[^2]など、HTTPSの流れが本格化して久しい。
+CloudFlare や Amazon CloudFront を使う手もある。CloudFlare は Universal SSL という無償提供のSSL証明書
+
+CloudFlare はSAN (Subject Alt Name) を用いて共用の SSL 証明書
 
 通常、Webサーバで大量ドメインの証明書を取り扱おうとすると、設定ファイルの長大化やメモリの肥大化を招いてしまうなど非効率な面が目立つ。しかし、ngx_mrubyを用いた動的証明書読み込みなら、簡潔な設定と省メモリで実現することができる。
 
 ### 大量ドメインとSSL(TLS)証明書の課題と解決
 
+- [HTTP/2へのmruby活用やこれからのTLS設定と大量証明書設定の効率化について \- 人間とウェブの未来](http://hb.matsumoto-r.jp/entry/2016/02/05/140442)
+
 #### TLS SNI拡張
 
-SNI (Server Name Indication)[^3] は ClientHello のタイミングで server_name
+SNI (Server Name Indication)[^3] はクライアントがアクセスしたいホスト名を ClientHello の server_name に含んでサーバに通知し、サーバ側がその server_name に応じた証明書を使い分けるための TLS 拡張仕様である。1つのIPアドレスで複数ドメインのSSL証明書を提供できるようになる。
 
+この拡張仕様は以前からある。nginx は2007年5月30日の http://hg.nginx.org/nginx/rev/86c5c9288acc のコミットからSNIをサポートしている。リリースバージョンはv0.5.23だ。
+
+しかし、このHTTPS時代において
 
 #### nginxに大量ドメイン用の設定ファイルと証明書を読み込ませる
 
-- https://gist.github.com/hfm/4a045a429f9303c90eac7c348d1a424a
+通常、Webサーバで大量ドメインの証明書を取り扱おうとすると、設定ファイルの長大化やメモリの肥大化を招いてしまうなど非効率な面が目立つ。
+
 
 ```console
 [root@2be3ca1fae41 /]# ps axfo rss,cmd | grep [n]ginx
 256164 nginx: master process nginx
 258476  \_ nginx: worker process
 ```
+
+HUPシグナルを送るとRSSが倍増する。
 
 ```console
 [root@2be3ca1fae41 /]# pkill -HUP -u root -f nginx
@@ -49,9 +59,14 @@ SNI (Server Name Indication)[^3] は ClientHello のタイミングで server_na
 512636  \_ nginx: worker process
 ```
 
+このような環境を再現できるDockerfileを以下のGistに公開した。OpenSSL による大量の証明書生成処理に大変時間がかかるので、試す場合は気長に待ってほしい。
+
+- https://gist.github.com/hfm/4a045a429f9303c90eac7c348d1a424a
+
 ngx_mrubyを用いた動的証明書読み込み
 ---
 
+### 証明書を要求されたタイミングで任意のコールバック関数を実行する
 ### OpenSSL 1.0.2で追加されたSSL_CTX_set_cert_cb関数
 
 2015年1月にリリースされたOpenSSL 1.0.2に、しれっと重要な関数が追加されている。
@@ -73,7 +88,7 @@ Webサーバでデータベースやキャッシュにアクセスするとな�
 
 実際のところ、動的証明書読み込みによるレイテンシは無視できるほど小さくて、それよりもアプリケーションのレイテンシの方が非常に大きい。アプリケーションのパフォーマンスが悪いということではなく、両者のレイテンシを比べると、片方が無視できるほどに小さいというだけ。
 
-### ngx_lua という競合
+### ngx_lua (OpenResty) による別解
 
 名古屋Ruby会議03
 ---
@@ -107,9 +122,6 @@ script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 - [How to test code with mruby](http://www.slideshare.net/hsbt/20150525-testing-casualtalks)
 - [HTTP/2へのmruby活用やこれからのTLS設定と大量証明書設定の効率化について \- 人間とウェブの未来](http://hb.matsumoto-r.jp/entry/2016/02/05/140442)
 
-[^1]: http://docs.yahoo.co.jp/info/aossl/
+[^1]: デザインテンプレート等を用いて、コーディング知識不要でウェブサイトを構築、公開できるサービス。国内だとホームページ作成サービス等とも呼ばれる
 [^2]: https://security.googleblog.com/2016/09/moving-towards-more-secure-web.html
 [^3]: https://tools.ietf.org/html/rfc6066#section-3
-
-[^1]: 海外ではWebsite Builder等と呼ばれており、コーディング不要のウェブサイト構築ツールを提供する事業
-
