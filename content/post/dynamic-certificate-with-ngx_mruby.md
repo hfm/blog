@@ -1,5 +1,5 @@
 ---
-date: 2017-02-13T15:51:32+09:00
+date: 2017-02-23T07:10:27+09:00
 title: 'HTTPS時代を支える動的証明書読み込みとngx_mrubyによる実践 #nagoyark03'
 cover: /images/2017/02/13/nagoyark03.jpg
 draft: true
