@@ -39,6 +39,8 @@ SNI (Server Name Indication)[^6] はクライアントがアクセスしたい�
 
 この拡張仕様は以前からある。nginx は2007年5月30日の http://hg.nginx.org/nginx/rev/86c5c9288acc のコミットからSNIをサポートしている。リリースバージョンはv0.5.23だ。
 
+[SNIで1台のサーバ上に複数のSSLサイトを運用 – 前編 \- さくらのナレッジ](http://knowledge.sakura.ad.jp/tech/3160/)
+
 しかし、このHTTPS時代において
 
 #### nginxに大量ドメイン用の設定ファイルと証明書を読み込ませる
