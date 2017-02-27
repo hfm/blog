@@ -83,6 +83,10 @@ blockquote class="twitter-tweet" data-lang="ja"><p lang="en" dir="ltr">ngx_mruby
 
 ### アーキテクチャ
 ### 実装
+
+```rb
+```
+
 #### ポイント
 ### テスト
 
