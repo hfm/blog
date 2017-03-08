@@ -84,9 +84,57 @@ ngx_mrubyを用いた動的証明書読み込み
 blockquote class="twitter-tweet" data-lang="ja"><p lang="en" dir="ltr">ngx_mruby supports dynamic certificate change each tls sessions / “Support ssl_handshake handler and dynamic certi…” <a href="https://t.co/PK7qGv5ctP">https://t.co/PK7qGv5ctP</a></p>&mdash; 松本 亮介 / まつもとりー (@matsumotory) <a href="https://twitter.com/matsumotory/status/685341115814289408">2016年1月8日</a></blockquote>
 
 ### アーキテクチャ
+```rb
+# simple pattern (inline)
+mruby_ssl_handshake_handler_code '
+  ssl = Nginx::SSL.new
+  ssl.certificate = "/path/to/#{ssl.servername}.crt"
+  ssl.certificate_key = "/path/to/#{ssl.servername}.key"
+
+';
+```
 ### 実装
 
+mruby_init_worker.rb
+
 ```rb
+# Initialize redis connection
+redis = Redis.new '<redis-server>', 6379
+Userdata.new("redis_#{Process.pid}").redis_connection = redis unless redis.nil?
+
+# Initialize mysql connection
+mysql = MySQL::Database.new('host', 'user', 'pass', 'db')
+Userdata.new("mysql_#{Process.pid}").mysql_connection = mysql unless mysql.nil?
+```
+
+mruby_exit_worker.rb
+
+```rb
+# Close all connections
+
+redis = Userdata.new("redis_#{Process.pid}").redis_conn
+redis.close unless redis.nil?
+
+mysql = Userdata.new("mysql_#{Process.pid}").mysql_conn
+mysql.close unless mysql.nil?
+```
+
+reconnection
+
+```rb
+def mysql_reconnect
+  mysql = MySQL::Database.new('host', 'user', 'pass', 'db')
+  Userdata.new("mysql_#{Process.pid}").mysql_conn = mysql
+end
+
+...
+
+begin
+  row = mysql.execute('SELECT crt, key FROM db.ssl WHERE domain = ?', servername)
+rescue
+  mysql_reconnect
+  retry
+end
 ```
 
 #### ポイント
@@ -110,7 +158,7 @@ https://github.com/openresty/lua-nginx-module#ssl_certificate_by_lua_block
 
 script async class="speakerdeck-embed" data-id="7164b59d4d25446aa6f4569440e2fc52" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>
 
-発表の舞台は大須演芸場という寄席。太鼓の出囃子で入場し、座布団に座って発表するという一風変わった舞台だった。意気込んで英語スライドを引っさげて行ったら、和洋混在の異様となってしまった。
+発表の舞台は大須演芸場という寄席。太鼓の出囃子で入場し、座布団に座って発表するという一風変わった舞台だった。意気込んで英語スライドを引っさげて行ったので、和洋混在になってしまったがよしとする。
 
 blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">英字の発表で、和と洋が入り乱れてる感しゅごい。<a href="https://twitter.com/hashtag/nagoyark03?src=hash">#nagoyark03</a> <a href="https://t.co/qJTDRWDfQ4">pic.twitter.com/qJTDRWDfQ4</a></p>&mdash; だびっつ (@dabits) <a href="https://twitter.com/dabits/status/830289736056991744">2017年2月11日</a></blockquote>
 script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
