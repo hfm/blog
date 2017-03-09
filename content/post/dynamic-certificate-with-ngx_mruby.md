@@ -84,15 +84,11 @@ ngx_mrubyを用いた動的証明書読み込み
 blockquote class="twitter-tweet" data-lang="ja"><p lang="en" dir="ltr">ngx_mruby supports dynamic certificate change each tls sessions / “Support ssl_handshake handler and dynamic certi…” <a href="https://t.co/PK7qGv5ctP">https://t.co/PK7qGv5ctP</a></p>&mdash; 松本 亮介 / まつもとりー (@matsumotory) <a href="https://twitter.com/matsumotory/status/685341115814289408">2016年1月8日</a></blockquote>
 
 ### アーキテクチャ
-```rb
-# simple pattern (inline)
-mruby_ssl_handshake_handler_code '
-  ssl = Nginx::SSL.new
-  ssl.certificate = "/path/to/#{ssl.servername}.crt"
-  ssl.certificate_key = "/path/to/#{ssl.servername}.key"
 
-';
+```nginx
+mruby_ssl_handshake_handler /path/to/ssl_handler.rb cache;
 ```
+
 ### 実装
 
 mruby_init_worker.rb
