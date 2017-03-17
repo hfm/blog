@@ -1,6 +1,6 @@
 ---
 date: 2017-02-23T07:10:27+09:00
-title: 'HTTPS時代のホスティングを支える動的証明書読み込みとngx_mrubyによる実践 #nagoyark03'
+title: HTTPS時代のホスティングを支える動的証明書読み込みとngx_mrubyによる実践
 cover: /images/2017/02/13/nagoyark03.jpg
 draft: true
 tags:
@@ -8,14 +8,14 @@ tags:
 - nginx
 - mruby
 ---
+ホスティングサービスにおいて独自ドメインにHTTPSをサポートするケースも出てきた。
 
-1. ホスティング系には独自ドメインの接続を提供するサービスがあるが、証明書のセットアップまでを提供する事業は少ない
-1. ユーザの証明書を管理するコストが今までは大きかった
-1. しかし、Google Chromeを始めとしたブラウザがHTTPS接続を強く推奨するようになり、2017年に入ってからその流れは加速しているように見える https://techcrunch.com/2016/09/08/chrome-is-helping-kill-http/
-1. この課題に
-1. 通常、Webサーバで大量ドメインの証明書を取り扱おうとすると、設定ファイルが長大になり、プロセスのメモリが肥大する等非効率な面が目立つ
-1. Webサーバの起動時にすべての設定・すべての証明書を読み込もうとする発想を止めて、クライアントからのリクエストに応じて必要な証明書を動的に読み込むアプローチがある
-1. 今回はngx_mrubyを用いた動的証明書読み込みの導入方法について紹介したい
+ホスティングサービスと独自ドメイン、そしてHTTPS
+------------------------
+
+クラウドやVPS, レンタルサーバ、ウェブサイトビルダ、ブログ、ショッピングカート...広い意味でのホスティングサービスにおいて、
+
+レンタルサーバーやウェブサイトビルダー[^1]、ブログサービスはにおいて、独自ドメインのサポートはさほど珍しくないだろう。ユーザに hfm.awesome-blog.jp（サブドメイン方式）や awesome-blog.jp/hfm（URLパス方式と呼べばいいのだろうか）といったURLアドレスを提供し、オプションで独自ドメインを接続するサービス形態だ。独自ドメインのサポートは有料コンテンツの場合もある[^2]が、Tumblr や GitHub Pages のように無料提供されているものもある。
 
 レンタルサーバーやウェブサイトビルダー[^1]、ブログサービスにおいて、独自ドメインのサポートはさほど珍しくないだろう。ユーザに hfm.awesome-blog.jp（サブドメイン方式）や awesome-blog.jp/hfm（URLパス方式と呼べばいいのだろうか）といったURLアドレスを提供し、オプションで独自ドメインを接続するサービス形態だ。独自ドメインのサポートは有料コンテンツの場合もある[^2]が、Tumblr や GitHub Pages のように無料提供されているものもある。
 
@@ -29,7 +29,11 @@ CloudFlare はSAN (Subject Alt Name) を用いて共用の SSL 証明書
 
 通常、Webサーバで大量ドメインの証明書を取り扱おうとすると、設定ファイルの長大化やメモリの肥大化を招いてしまうなど非効率な面が目立つ。しかし、ngx_mrubyを用いた動的証明書読み込みなら、簡潔な設定と省メモリで実現することができる。
 
-### 大量ドメインとSSL(TLS)証明書の課題と解決
+### HTTP to HTTPS
+
+しかし、Google Chromeを始めとしたブラウザがHTTPS接続を強く推奨するようになり、2017年に入ってからその流れは加速しているように見える https://techcrunch.com/2016/09/08/chrome-is-helping-kill-http/
+
+### 大量ドメインとTLS証明書の課題と解決
 
 - [HTTP/2へのmruby活用やこれからのTLS設定と大量証明書設定の効率化について \- 人間とウェブの未来](http://hb.matsumoto-r.jp/entry/2016/02/05/140442)
 
@@ -69,10 +73,9 @@ HUPシグナルを送るとRSSが倍増する。
 - https://gist.github.com/hfm/4a045a429f9303c90eac7c348d1a424a
 
 ngx_mrubyを用いた動的証明書読み込み
----
+----------------------
 
-### 証明書を要求されたタイミングで任意のコールバック関数を実行する
-### OpenSSL 1.0.2で追加されたSSL_CTX_set_cert_cb関数
+### 証明書を要求されたタイミングで任意のコールバック関数を実行する OpenSSL 1.0.2で追加されたSSL_CTX_set_cert_cb関数
 
 2015年1月にリリースされたOpenSSL 1.0.2に、しれっと重要な関数が追加されている。
 
@@ -85,11 +88,18 @@ blockquote class="twitter-tweet" data-lang="ja"><p lang="en" dir="ltr">ngx_mruby
 
 ### アーキテクチャ
 
+
 ```nginx
 mruby_ssl_handshake_handler /path/to/ssl_handler.rb cache;
 ```
 
+#### 素朴な実装
+#### DBに証明書を管理させる
+#### キャッシュサーバで応答を高速化
+
 ### 実装
+
+#### nginx workerの初期化
 
 mruby_init_worker.rb
 
@@ -115,6 +125,8 @@ mysql = Userdata.new("mysql_#{Process.pid}").mysql_conn
 mysql.close unless mysql.nil?
 ```
 
+#### "MySQL server has gone away." 対策
+
 reconnection
 
 ```rb
@@ -133,22 +145,77 @@ rescue
 end
 ```
 
-#### ポイント
+```rb
+def get_crt_and_key
+  crt = ''
+  key = ''
+
+  if cached?
+    crt, key = redis.hmget domain, 'crt', 'key'
+  else
+    begin
+      row = mysql.execute('SELECT crt, key FROM db.ssl WHERE domain = ?', servername)
+    rescue
+      mysql_reconnect
+      retry
+    end
+    crt, key = row.next
+    row.close
+
+    redis.hmset domain, 'crt', crt, 'key', key unless crt.nil?
+    redis.expire domain, EXPIRE_TIME if cached?
+  end
+
+  if crt.nil?
+    [nil, nil]
+  else
+    [concat_crts(crt.chomp), key]
+  end
+end
+```
+
+```rb
+def redis
+  Userdata.new("redis_#{Process.pid}").redis_connection
+end
+
+def mysql
+  Userdata.new("mysql_#{Process.pid}").mysql_connection
+end
+```
+
+```rb
+ssl = Nginx::SSL.new
+crt, key = GoopeFetchCrt.new(ssl.servername).get_crt_and_key
+
+if crt.nil? or key.nil?
+  ssl.certificate = '/path/to/wildcard.example.com.crt'
+  ssl.certificate_key = '/path/to/wildcard.example.com.key'
+else
+  ssl.certificate_data = crt
+  ssl.certificate_key_data = key
+end
+```
+
 ### テスト
 
 [mruby のテスト用に MySQL 環境を自動で構築する mruby\-test\-mysqld を書いた](/2016/09/06/mruby-test-mysqld/)
 
-### パフォーマンス
+iframe src="//www.slideshare.net/slideshow/embed_code/key/j0PpI67kQB6Gqg" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/hsbt/20150525-testing-casualtalks" title="How to test code with mruby" target="_blank">How to test code with mruby</a> </strong> from <strong><a target="_blank" href="//www.slideshare.net/hsbt">Hiroshi SHIBATA</a></strong> </div>
+
+### LRUキャッシュによる更なる応答高速化
 
 Webサーバでデータベースやキャッシュにアクセスするとなると、パフォーマンスの低下が気になってくると思う。
 
 実際のところ、動的証明書読み込みによるレイテンシは無視できるほど小さくて、それよりもアプリケーションのレイテンシの方が非常に大きい。アプリケーションのパフォーマンスが悪いということではなく、両者のレイテンシを比べると、片方が無視できるほどに小さいというだけ。
 
-### ngx_lua (OpenResty) による別解
+ngx_lua (OpenResty) による別解
+-------------------------
+
 https://github.com/openresty/lua-nginx-module#ssl_certificate_by_lua_block
 
 名古屋Ruby会議03
----
+-----------
 
 2/11(土)に開催された[名古屋Ruby会議03](http://regional.rubykaigi.org/nagoya03/)にて、"Dynamic certificate internals with ngx_mruby" というタイトルで発表した。昨年[GMO HosCon 2016](https://gmohoscon.connpass.com/event/41490/)の10分LT枠で話した[動的証明書読み込み ngx_mruby編](https://speakerdeck.com/hfm/gmo-hoscon-2016)の拡張版という位置づけで、動的証明書読み込みの必要性と実装について話してきた。
 
