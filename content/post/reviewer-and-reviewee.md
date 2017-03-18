@@ -19,7 +19,6 @@ tags:
 衝突を避けられない時があると分かっていても、なるべく避けようと努力してみる。
 
 <blockquote class="twitter-tweet" lang="ja"><p lang="ja" dir="ltr">レビューするときは「Reviewer V.S. Reviewee」の構図を作らないように、常に自分に言い聞かせてる。</p>&mdash; okumura takahiro (@hfm) <a href="https://twitter.com/hfm/status/583848573306966016">2015, 4月 3</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 ## 相手にメンチ切らなくていいので目的を見たほうが良い
 
@@ -123,3 +122,5 @@ ReviewerとRevieweeは目的を達成する上での重要なパートナーで�
 具体性に欠けてもいいやと、思いきってブログにしたためたが、こういうこと書いてると、いったい自分は何と戦ってるんだって気分になってくる。
 
 結局は自分の迷いが原因に過ぎず、自分と向き合うしか解決は無いのでがんばろう。
+
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
