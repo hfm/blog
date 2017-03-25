@@ -212,7 +212,9 @@ Webサーバでデータベースやキャッシュにアクセスするとな�
 ngx_lua (OpenResty) による別解
 -------------------------
 
-https://github.com/openresty/lua-nginx-module#ssl_certificate_by_lua_block
+ngx_luaの[ssl_certificate_by_lua\*](https://github.com/openresty/lua-nginx-module#ssl_certificate_by_lua_block)ディレクティブを使えば同様の仕組みを実現できる。
+
+[OpenResty で証明書の動的読み込み \- Qiita](http://qiita.com/Hexa/items/07e8b0d942576375d1f7)
 
 名古屋Ruby会議03
 -----------
