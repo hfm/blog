@@ -1,6 +1,6 @@
 baseurl = 'http://blog.hifumi.info/'
 title = "blog: takahiro okumura"
-uglyURLs = true
+uglyURLs = false
 pygmentscodefences = true
 pygmentsstyle = "emacs"
 rssuri = "feed.xml"
