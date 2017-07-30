@@ -7,6 +7,7 @@ rssuri = "feed.xml"
 
 [permalinks]
   post = "/:year/:month/:day/:filename/"
+  nginx = "/nginx/:filename/"
 
 [author]
   name = "OKUMURA Takahiro"
@@ -15,3 +16,6 @@ rssuri = "feed.xml"
 
 [params]
   description = "I'm a software engineer of web operations."
+
+[outputFormats.RSS]
+  baseName = "feed"
