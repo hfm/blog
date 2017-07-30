@@ -12,7 +12,7 @@
         {{ .Date.Format "2 Jan 2006" }}
       </time>
       {{ range .Params.tags }}
-        <a href="{{ "/tags/" | relURL }}{{ . | urlize }}.html"><span class="tag">#{{ . }}</span></a>
+        <a href="{{ "/tags/" | relURL }}{{ . | urlize }}/index.html"><span class="tag">#{{ . }}</span></a>
       {{ end }}
     </div>
     </hgroup>
