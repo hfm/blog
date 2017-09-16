@@ -7,8 +7,7 @@ WORKDIR /h2o
 RUN cmake -DWITH_MRUBY=ON -DWITH_BUNDLED_SSL=ON .
 RUN make install
 WORKDIR /
-RUN apk del -q .build-deps
-RUN rm -rf /h2o
+RUN apk del -q .build-deps && rm -rf /h2o
 
 COPY h2o.conf /etc/h2o.conf
 EXPOSE 80 443
