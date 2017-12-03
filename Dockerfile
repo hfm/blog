@@ -1,4 +1,4 @@
-FROM alpine:3.6
+FROM alpine:3.7
 
 RUN apk add --no-cache -q libstdc++
 RUN apk add --no-cache -q -t .build-deps git build-base cmake linux-headers zlib-dev ruby ruby-rake ruby-dev bison
