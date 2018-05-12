@@ -3,7 +3,6 @@ title = "blog: takahiro okumura"
 uglyURLs = false
 pygmentscodefences = true
 pygmentsstyle = "emacs"
-rssuri = "feed.xml"
 
 [permalinks]
   post = "/:year/:month/:day/:filename/"
