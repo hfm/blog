@@ -1,6 +1,6 @@
 FROM debian:9-slim
 
-ENV H2O_VER 2.2.4
+ENV H2O_VER 2.2.5
 RUN build_deps='build-essential cmake wget zlib1g-dev ruby bison' \
       && apt-get -qq update \
       && apt-get -qq -y install --no-install-recommends $build_deps ca-certificates \
