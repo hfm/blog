@@ -1,4 +1,5 @@
 FROM debian:9-slim
+LABEL maintainer "OKUMURA Takahiro <hfm.garden@gmail.com>"
 
 ENV H2O_VER 2.2.5
 RUN build_deps='build-essential cmake wget zlib1g-dev ruby bison' \
