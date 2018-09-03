@@ -17,7 +17,6 @@ ngx_mruby で大量ドメインの証明書を動的に処理する[^1]には Op
 
 ```Dockerfile
 FROM centos:7
-MAINTAINER hfm.garden@gmail.com
 
 RUN yum -y -q install bison gcc git make rake rpmdevtools wget which
 
