@@ -4,7 +4,7 @@ title: Mackerel アンバサダーを拝命しました
 tags:
 - diary
 ---
-ありがとうことに [Mackerel](https://mackerel.io) のアンバサダープログラムへのご招待をいただき、拝命いたしました。
+ありがたいことに [Mackerel](https://mackerel.io) のアンバサダープログラムへのご招待をいただき、拝命いたしました。
 
 - [Mackerel アンバサダープログラム はじめます！ \- Mackerel ブログ \#mackerelio](https://mackerel.io/ja/blog/entry/ambassador/about)
 
