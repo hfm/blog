@@ -1,1 +1,1 @@
-http://blog.hifumi.info/
+https://blog.hifumi.info/ [![Netlify Status](https://api.netlify.com/api/v1/badges/90f4e6f7-6b3c-45cc-ab93-32363dad8ad5/deploy-status)](https://app.netlify.com/sites/eloquent-mcclintock-58ffc4/deploys)
