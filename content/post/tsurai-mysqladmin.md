@@ -24,7 +24,6 @@ user root
 muninでrootアクセスするのはなるべく少ない方がいいと思うんだけど、`/var/lib/mysql`を755にするのはもっと変な気がするし、かといってmuninからmysqlユーザでアクセスするのも怖い。
 
 <blockquote class="twitter-tweet" lang="ja"><p lang="ja" dir="ltr">実行ユーザとパーミッションに振り回されてた...</p>&mdash; okumura takahiro (@hfm) <a href="https://twitter.com/hfm/status/591160833343795200">2015, 4月 23</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 mysqladminのオプションの書き順つらい
 ---
@@ -122,3 +121,4 @@ mysqladminつらい。
 <blockquote class="twitter-tweet" lang="ja"><p lang="ja" dir="ltr">またMySQLで消耗する話題を１個手に入れてしまった</p>&mdash; okumura takahiro (@hfm) <a href="https://twitter.com/hfm/status/591170622606086144">2015, 4月 23</a></blockquote>
 
 <blockquote class="twitter-tweet" lang="ja"><p lang="ja" dir="ltr">mysqlの問題に遭遇する度に二度と触りたくないって思うんだけど、しばらくするとまたmysqlのチューニングとかアーキテクチャを考えてる自分がいる…こっ、これはもしや恋</p>&mdash; okumura takahiro (@hfm) <a href="https://twitter.com/hfm/status/591179396574117888">2015, 4月 23</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
