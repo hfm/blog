@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PostList from './PostList.astro';
+
+interface EntryLike {
+  id: string;
+  collection: 'post' | 'nginx';
+  data: {
+    title: string;
+    date: Date;
+    tags?: string[];
+  };
+}
+
+interface Props {
+  entries: EntryLike[];
+  currentPage: number;
+  totalPages: number;
+}
+
+const { entries, currentPage, totalPages } = Astro.props;
+
+const prevHref = currentPage > 2 ? `/page/${currentPage - 1}/` : currentPage === 2 ? '/' : null;
+const nextHref = currentPage < totalPages ? `/page/${currentPage + 1}/` : null;
+---
+<BaseLayout>
+  <PostList entries={entries} />
+
+  {totalPages > 1 && (
+    <nav class="pagination-nav" aria-label="pagination">
+      <div class="pagination-nav-prev">
+        {prevHref && <a href={prevHref}>&laquo; Newer Posts</a>}
+      </div>
+      <div class="pagination-nav-meta">
+        {currentPage} / {totalPages}
+      </div>
+      <div class="pagination-nav-next">
+        {nextHref && <a href={nextHref}>Older Posts &raquo;</a>}
+      </div>
+    </nav>
+  )}
+</BaseLayout>

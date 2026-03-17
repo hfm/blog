@@ -1,0 +1,20 @@
+---
+import PostPage from '../../components/PostPage.astro';
+import { getPublishedNginxPosts } from '../../lib/posts';
+
+export async function getStaticPaths() {
+  const posts = await getPublishedNginxPosts();
+
+  return posts.map((entry, index) => ({
+    params: { slug: entry.id },
+    props: {
+      entry,
+      prevEntry: posts[index - 1],
+      nextEntry: posts[index + 1],
+    },
+  }));
+}
+
+const { entry, prevEntry, nextEntry } = Astro.props;
+---
+<PostPage entry={entry} prevEntry={prevEntry} nextEntry={nextEntry} />

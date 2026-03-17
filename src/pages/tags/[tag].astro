@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostList from '../../components/PostList.astro';
+import { buildTagMap, getAllPublishedEntries } from '../../lib/posts';
+
+export async function getStaticPaths() {
+  const entries = await getAllPublishedEntries();
+  const tagMap = buildTagMap(entries);
+
+  return [...tagMap.entries()].map(([tag, taggedEntries]) => ({
+    params: { tag },
+    props: { tag, entries: taggedEntries },
+  }));
+}
+
+const { tag, entries } = Astro.props;
+---
+<BaseLayout title={`#${tag}`}>
+  <h1 class="tag-name">#{tag}</h1>
+  <PostList entries={entries} />
+</BaseLayout>

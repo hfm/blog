@@ -1,0 +1,49 @@
+---
+import { formatDate, entryPath } from '../lib/posts';
+
+interface EntryLike {
+  id: string;
+  collection: 'post' | 'nginx';
+  data: {
+    title: string;
+    date: Date;
+    tags?: string[];
+  };
+}
+
+interface Props {
+  entries: EntryLike[];
+}
+
+const { entries } = Astro.props;
+---
+{entries.map((entry) => (
+  <article class="article" itemscope itemtype="http://schema.org/BlogPosting" itemref="header footer">
+    <span itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+      <meta content="/logo.png" itemprop="url" />
+      <meta itemprop="width" content="32" />
+      <meta itemprop="height" content="32" />
+    </span>
+    <header class="entry-header-index">
+      <hgroup>
+        <h1 class="entry-title" itemprop="headline">
+          <a href={entryPath(entry)} itemprop="mainEntityOfPage url">{entry.data.title}</a>
+        </h1>
+
+        <div class="entry-header-btm">
+          <time
+            itemprop="datePublished dateModified"
+            content={entry.data.date.toISOString().slice(0, 10)}
+            class="postdate"
+            datetime={entry.data.date.toISOString().slice(0, 10)}
+          >
+            {formatDate(entry.data.date)}
+          </time>
+          {(entry.data.tags ?? []).map((tag) => (
+            <a href={`/tags/${encodeURIComponent(tag)}/`} class="tag">#{tag}</a>
+          ))}
+        </div>
+      </hgroup>
+    </header>
+  </article>
+))}

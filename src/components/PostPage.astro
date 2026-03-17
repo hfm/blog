@@ -1,0 +1,93 @@
+---
+import { render } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { entryPath, formatDate } from '../lib/posts';
+
+interface EntryLike {
+  id: string;
+  collection: 'post' | 'nginx';
+  data: {
+    title: string;
+    date: Date;
+    tags?: string[];
+    cover?: string;
+  };
+}
+
+interface Props {
+  entry: EntryLike;
+  prevEntry?: EntryLike;
+  nextEntry?: EntryLike;
+}
+
+const { entry, prevEntry, nextEntry } = Astro.props;
+const { Content } = await render(entry);
+---
+<BaseLayout
+  title={entry.data.title}
+  description={entry.body.slice(0, 140)}
+  image={entry.data.cover}
+  date={entry.data.date}
+>
+  <article itemscope itemtype="http://schema.org/BlogPosting" itemref="header footer" class="article">
+    <header class="entry-header">
+      <hgroup>
+        <h1 itemprop="headline" class="entry-title">
+          <a href={entryPath(entry)} itemprop="mainEntityOfPage">{entry.data.title}</a>
+        </h1>
+        <div class="entry-header-btm">
+          <time
+            itemprop="datePublished dateModified"
+            content={entry.data.date.toISOString().slice(0, 10)}
+            class="postdate"
+            datetime={entry.data.date.toISOString().slice(0, 10)}
+          >
+            {formatDate(entry.data.date)}
+          </time>
+          {(entry.data.tags ?? []).map((tag) => (
+            <a href={`/tags/${encodeURIComponent(tag)}/`} class="tag">#{tag}</a>
+          ))}
+        </div>
+      </hgroup>
+    </header>
+
+    {entry.data.cover && (
+      <section class="entry-cover" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+        <img src={entry.data.cover} class="cover" itemprop="url" alt="" />
+        <meta itemprop="width" content="100%" />
+        <meta itemprop="height" content="100%" />
+      </section>
+    )}
+
+    <section itemprop="articleBody" class="entry-content">
+      <Content />
+    </section>
+
+    <footer class="entry-footer">
+      <div class="adsense">
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins
+          class="adsbygoogle"
+          style="display:block"
+          data-ad-client="ca-pub-4155246445920766"
+          data-ad-slot="2101467876"
+          data-ad-format="auto"
+        ></ins>
+        <script is:inline>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+
+      {prevEntry && (
+        <div class="pagination r">
+          <a href={entryPath(prevEntry)}>{prevEntry.data.title} &raquo;</a>
+        </div>
+      )}
+      {nextEntry && (
+        <div class="pagination">
+          <a href={entryPath(nextEntry)}>&laquo; {nextEntry.data.title}</a>
+        </div>
+      )}
+    </footer>
+  </article>
+</BaseLayout>

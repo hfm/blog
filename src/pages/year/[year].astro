@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostList from '../../components/PostList.astro';
+import { buildYearMap, getPublishedPosts } from '../../lib/posts';
+
+export async function getStaticPaths() {
+  const posts = await getPublishedPosts();
+  const yearMap = buildYearMap(posts);
+
+  return [...yearMap.entries()].map(([year, entries]) => ({
+    params: { year: String(year) },
+    props: { year, entries },
+  }));
+}
+
+const { year, entries } = Astro.props;
+---
+<BaseLayout title={`${year} archive`}>
+  <h1 class="tag-name">{year}</h1>
+  <PostList entries={entries} />
+</BaseLayout>

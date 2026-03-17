@@ -1,0 +1,14 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostList from '../../components/PostList.astro';
+import { getPublishedNginxPosts } from '../../lib/posts';
+
+const posts = await getPublishedNginxPosts();
+---
+<BaseLayout title="Today's nginx">
+  <h1 itemprop="name" class="mt-7 mb-4 text-[28px] leading-[42px] font-bold">Today's nginx</h1>
+  <h2 class="mb-7 text-[18px] leading-7 text-[#666]">
+    <a href="http://hg.nginx.org/">http://hg.nginx.org/</a>の各種ログを追いかけながら説明していく
+  </h2>
+  <PostList entries={posts} />
+</BaseLayout>
