@@ -12,3 +12,6 @@ public/
 dist/
 .astro/
 node_modules/
+
+# Local Netlify folder
+.netlify
